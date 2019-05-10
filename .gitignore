@@ -1,0 +1,12 @@
+*.csproj
+*.sln
+*.xml
+*.lock
+*.ide
+*.ide-shm
+*.ide-way
+*.dwlt
+*.bin
+Library/
+Logs/
+Temp/
