@@ -7,6 +7,7 @@
 *.ide-way
 *.dwlt
 *.bin
+*.cache
 Library/
 Logs/
 Temp/
