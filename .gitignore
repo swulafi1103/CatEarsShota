@@ -12,3 +12,4 @@ Library/
 Logs/
 Temp/
 .vs/
+obj/
