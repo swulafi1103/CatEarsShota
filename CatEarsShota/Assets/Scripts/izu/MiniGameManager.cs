@@ -6,27 +6,47 @@ using UnityEngine.UI;
 
 public class MiniGameManager : MonoBehaviour
 {
+    private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
+    private KeyCode[]   questionCommand;         //  問題のキー配列
+    private const int   MISTAKELIMIT = 4;       //  ミス上限値
+    private int         mistakeCount = 0;       //  ミスのカウント
+    private int         numOrder;               //  解答中のコマンドの並び
     [SerializeField, Range(0.1f, 15f)]
-    private float timeLimit = 10f;          //  ミニゲームの制限時間
-    private const int MISTAKECOUNT = 4;     //  失敗カウント
-    private static readonly KeyCode[] USEKEY = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
-    private KeyCode[] qustionKey;
+    private float       timeLimit = 10f;        //  ミニゲームの制限時間
 
     [SerializeField]
-    private Canvas miniGameCanvas;
+    private Canvas      miniGameCanvas;
+    //[SerializeField]
+    //private Sprite[]    keySprites;           //  問題に並べる画像
     //[SerializeField]
     //private Image[] countDownImage;
 
+    
+    /*
+     * プレイヤーが発電機に触れることイベント開始
+     * ミニゲームの説明画面とStartボタンが表示される
+     * スタートボタンを押された後、カウントダウン開始
+     * 問題の表示と制限時間の表示
+     * キー入力のチェック
+     * 間違えるとコマンドもリセット
+     * 一定数のミスで再スタート
+     * すべて時間内に打ち終わると
+     */
+    
     void Start()
     {
         StartCoroutine(CountDown());
-        GenerateRandomNums(5);
     }
 
 
     void Update()
     {
         CheckTypingKey();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GenerateRandomNums(3);
+        }
     }
 
     /// <summary>
@@ -46,6 +66,7 @@ public class MiniGameManager : MonoBehaviour
         txtObj.text = "START";
         yield return new WaitForSeconds(0.5f);
         txtObj.enabled = false;
+        GenerateRandomNums(5);
         yield break;
     }
 
@@ -59,7 +80,7 @@ public class MiniGameManager : MonoBehaviour
         int tmp = -1;
         for (int i = 0; i < size; i++)
         {
-            int randNum = UnityEngine.Random.Range(0, size + 1);
+            int randNum = UnityEngine.Random.Range(0, USEKEYS.Length);
             if (tmp != randNum)
             {
                 tmp = randNum;
@@ -69,27 +90,36 @@ public class MiniGameManager : MonoBehaviour
             {
                 while (tmp == randNum)
                 {
-                    randNum = UnityEngine.Random.Range(0, size + 1);
+                    randNum = UnityEngine.Random.Range(0, USEKEYS.Length);
                 }
                 tmp = randNum;
                 randomNums[i] = randNum;
             }
         }
-        CreateQuesAry(randomNums);
-        DrawUI(randomNums);
+        CreateQuestionCommand(randomNums);
+        //DrawUI(randomNums);
     }
 
     /// <summary>
-    /// 問題となるのキー配列を生成
+    /// 問題となるのコマンドを生成
     /// </summary>
     /// <param name="randomNums"></param>
-    private void CreateQuesAry(int[] randomNums)
+    private void CreateQuestionCommand(int[] randomNums)
     {
-        qustionKey = new KeyCode[randomNums.Length];
+        questionCommand = new KeyCode[randomNums.Length];
+        string commandText = "";
         for (int i = 0; i < randomNums.Length; i++)
         {
-            qustionKey[i] = USEKEY[randomNums[i]];
+            questionCommand[i] = USEKEYS[randomNums[i]];
+            commandText += ChangeKeyCodeString(questionCommand[i]);
+            //  最後の文字ではなかったら
+            if (i < randomNums.Length - 1)
+            {
+                //  間をあけるために空白も追加する
+                commandText += " ";
+            }
         }
+        miniGameCanvas.transform.GetChild(1).GetComponent<Text>().text = commandText;
     }
 
     /// <summary>
@@ -111,15 +141,60 @@ public class MiniGameManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            for (int i = 0; i < USEKEY.Length; i++)
+            foreach (var key in USEKEYS)
             {
-                if (Input.GetKeyDown(USEKEY[i]))
+                if (Input.GetKeyDown(key))
                 {
-                    Debug.Log(USEKEY[i]);
+                    Debug.Log(key);
+                    CorrectAnswer();
                     return;
                 }
             }
-            Debug.Log("使わないキー");
+            //Debug.Log("使わないキー");
+        }
+    }
+
+
+    /// <summary>
+    /// 正解時の処理
+    /// </summary>
+    private void CorrectAnswer()
+    {
+        
+    }
+
+    /// <summary>
+    /// 不正解の時の処理
+    /// </summary>
+    private void IncorrectAnswer()
+    {
+        GenerateRandomNums(5);
+    }
+
+
+    /// <summary>
+    /// KeyCodeを文字列に変換する
+    /// </summary>
+    /// <param name="keyCode"></param>
+    /// <returns></returns>
+    private string ChangeKeyCodeString(KeyCode keyCode)
+    {
+        switch (keyCode)
+        {
+            case KeyCode.A:
+                return "Ａ";
+            case KeyCode.S:
+                return "Ｓ";
+            case KeyCode.D:
+                return "Ｄ";
+            case KeyCode.RightArrow:
+                return "→";
+            case KeyCode.LeftArrow:
+                return "←";
+            default:
+                //  でてたらヤバイ
+                Debug.Log("?の文字:" + keyCode);
+                return "?";
         }
     }
 
