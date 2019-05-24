@@ -12,7 +12,7 @@ public class StartSneneManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneLoadManager.LoadScene("tamura_test");
+            SceneLoadManager.LoadScene("main");
         }
     }
 }
