@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Izu_test.unity
     guid: 9060ed6b6688dab4b848836c25e9c0c5
   - enabled: 1
-    path: Assets/Scenes/main.unity
+    path: Assets/Scenes/Main.unity
     guid: e03ed7d178a2d46de94d2c757e2d1f5d
   m_configObjects: {}
