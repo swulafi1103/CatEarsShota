@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Init/Init.unity
+    guid: 09b9398fc627e1b47863611bc52ada09
+  - enabled: 1
+    path: Assets/Scenes/Init/Loading.unity
+    guid: 385c717921acb5c4c8a3a7af81b81faa
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: ba90ce7bf1ce2422598f5809fceee6a9
+  - enabled: 1
+    path: Assets/Scenes/tamura_test.unity
+    guid: 6bd0c0764878d9444bec5da59d107bde
+  - enabled: 1
+    path: Assets/Scenes/Izu_test.unity
+    guid: 9060ed6b6688dab4b848836c25e9c0c5
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: e03ed7d178a2d46de94d2c757e2d1f5d
   m_configObjects: {}
