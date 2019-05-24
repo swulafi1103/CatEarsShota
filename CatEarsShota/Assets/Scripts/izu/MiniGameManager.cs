@@ -15,7 +15,11 @@ public class MiniGameManager : MonoBehaviour
     private float       timeLimit = 10f;        //  ミニゲームの制限時間
 
     [SerializeField]
-    private Canvas      miniGameCanvas;
+    private Canvas      miniGameCanvas;         //  ミニゲーム用のキャンバス
+    [SerializeField]
+    private Text        countdownObj;           //  カウントダウン用  
+    [SerializeField]
+    private Text        commandObj;             //  コマンドの表示用
     //[SerializeField]
     //private Sprite[]    keySprites;           //  問題に並べる画像
     //[SerializeField]
@@ -49,26 +53,6 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// ミニゲームの開始時に表示
-    /// </summary>
-    IEnumerator CountDown()
-    {
-        Text txtObj = miniGameCanvas.transform.GetChild(0).gameObject.GetComponent<Text>();
-        yield return new WaitForSeconds(1f);
-        txtObj.enabled = true;
-        txtObj.text = "3";
-        yield return new WaitForSeconds(0.5f);
-        txtObj.text = "2";
-        yield return new WaitForSeconds(0.5f);
-        txtObj.text = "1";
-        yield return new WaitForSeconds(0.5f);
-        txtObj.text = "START";
-        yield return new WaitForSeconds(0.5f);
-        txtObj.enabled = false;
-        GenerateRandomNums(5);
-        yield break;
-    }
 
     /// <summary>
     /// 同じ数字が続かないランダムな配列の生成
@@ -119,7 +103,7 @@ public class MiniGameManager : MonoBehaviour
                 commandText += " ";
             }
         }
-        miniGameCanvas.transform.GetChild(1).GetComponent<Text>().text = commandText;
+        commandObj.text = commandText;
     }
 
     /// <summary>
@@ -141,16 +125,25 @@ public class MiniGameManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            foreach (var key in USEKEYS)
+            foreach (KeyCode code in Enum.GetValues(typeof(KeyCode)))
             {
-                if (Input.GetKeyDown(key))
+                if (Input.GetKeyDown(code))
                 {
-                    Debug.Log(key);
-                    CorrectAnswer();
-                    return;
+                    if (0 <= Array.IndexOf(USEKEYS, code))
+                    {
+                        //  正解の処理
+                        if (Input.GetKeyDown(questionCommand[numOrder]))
+                        {
+                            CorrectAnswer();
+                        }
+                        //  不正解の処理
+                        else if (!Input.GetKeyDown(questionCommand[numOrder]))
+                        {
+                            IncorrectAnswer();
+                        }
+                    }
                 }
             }
-            //Debug.Log("使わないキー");
         }
     }
 
@@ -160,7 +153,7 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     private void CorrectAnswer()
     {
-        
+        numOrder++;
     }
 
     /// <summary>
@@ -168,6 +161,7 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     private void IncorrectAnswer()
     {
+        mistakeCount++;
         GenerateRandomNums(5);
     }
 
@@ -196,6 +190,27 @@ public class MiniGameManager : MonoBehaviour
                 Debug.Log("?の文字:" + keyCode);
                 return "?";
         }
+    }
+
+    /// <summary>
+    /// ミニゲームの開始時に表示
+    /// </summary>
+    IEnumerator CountDown()
+    {
+        Text txtObj = countdownObj;
+        yield return new WaitForSeconds(1f);
+        txtObj.enabled = true;
+        txtObj.text = "3";
+        yield return new WaitForSeconds(0.5f);
+        txtObj.text = "2";
+        yield return new WaitForSeconds(0.5f);
+        txtObj.text = "1";
+        yield return new WaitForSeconds(0.5f);
+        txtObj.text = "START";
+        yield return new WaitForSeconds(0.5f);
+        txtObj.enabled = false;
+        GenerateRandomNums(5);
+        yield break;
     }
 
 }
