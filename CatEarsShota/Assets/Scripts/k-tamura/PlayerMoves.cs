@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[DisallowMultipleComponent]
 public class PlayerMoves : MonoBehaviour
 {
+    [Header("PlayerMoveParamater")]
     [SerializeField]
+    [Range(1,50)]
     private float MoveSpeed = 0.1f;
     [SerializeField]
+    [Range(1,500)]
     private float JumpPower = 0.1f;
     private Rigidbody2D rb2d;
     private Vector2 AddVector = new Vector2(1.00f,1.00f);
