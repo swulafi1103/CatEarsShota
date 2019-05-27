@@ -314,6 +314,7 @@ public class MiniGameManager : MonoBehaviour
         miniGameViewObj.SetActive(false);
         numOrder = 0;
         mistakeCount = 0;
+        mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         yield break;
     }
 
@@ -336,6 +337,8 @@ public class MiniGameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         countdownObj.text = "";
         miniGameViewObj.SetActive(false);
+        mistakeCount = 0;
+        mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         yield break;
     }
 

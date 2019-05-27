@@ -436,7 +436,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8748181472790546824}
         m_MethodName: StartMiniGame
         m_Mode: 1
         m_Arguments:
@@ -958,7 +958,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4708192461959853150}
   - component: {fileID: 4708192461959853148}
-  - component: {fileID: 4708192461959853149}
   m_Layer: 5
   m_Name: TextParent
   m_TagString: Untagged
@@ -1008,23 +1007,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
---- !u!114 &4708192461959853149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4708192461959853151}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423859dcf1bf14747be59d47ba047a65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 0
-  textPrefab: {fileID: 2465732357361030039, guid: 0304944beabfe4c75b66bbce5b87bc77,
-    type: 3}
-  beforeColor: {r: 0, g: 0, b: 0, a: 1}
-  afterColor: {r: 0.990566, g: 0.5826384, b: 0.23829652, a: 1}
 --- !u!1 &4708192461971013967
 GameObject:
   m_ObjectHideFlags: 0
