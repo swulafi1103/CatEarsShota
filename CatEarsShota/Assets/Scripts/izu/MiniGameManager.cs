@@ -13,9 +13,11 @@ public class MiniGameManager : MonoBehaviour
     private int         numOrder;               //  解答中のコマンドの並び
     private bool        isMinigame = false;     //  ミニゲーム中か
     private bool        isCountdownEnd = false; //  ミニゲームのカウントダウンは終わったか
+    private bool        isFadeing = false;      //  フェード中か
     [SerializeField, Range(0.1f, 15f)]
     private float       defaultTimeLimit = 10f; //  ミニゲームの制限時間
     private float       timeLimit;
+    private float       fadeAlpha = 0;
 
     [SerializeField]
     private GameObject  discriptionObj;         //  説明用のUI
@@ -36,6 +38,7 @@ public class MiniGameManager : MonoBehaviour
     private Color       beforeColor;
     [SerializeField]
     private Color       afterColor;
+    private Color       fadeColor = Color.red;
     private Text[]      commandTexts;
 
     //[SerializeField]
@@ -55,11 +58,6 @@ public class MiniGameManager : MonoBehaviour
      * すべて時間内に打ち終わると成功
      */
 
-    void Start()
-    {
-
-    }
-
 
     void Update()
     {
@@ -68,6 +66,17 @@ public class MiniGameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TouchGenerator();
+        }
+    }
+
+    void OnGUI()
+    {
+        if (isFadeing)
+        {
+            //色と透明度を更新して白テクスチャを描画 .
+            fadeColor.a = fadeAlpha;
+            GUI.color = fadeColor;
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
         }
     }
 
@@ -214,6 +223,7 @@ public class MiniGameManager : MonoBehaviour
     {
         mistakeCount++;
         mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
+        StartCoroutine(DamegeEffect(0.25f));
         StartCoroutine(ShakeObject(0.2f, miniGameViewObj));
         if (mistakeCount >= MISTAKELIMIT)
         {
@@ -356,6 +366,22 @@ public class MiniGameManager : MonoBehaviour
             obj.transform.position = pos;
         }
         obj.transform.position = pos;
+        yield break;
+    }
+
+    IEnumerator DamegeEffect(float interval)
+    {
+        isFadeing = true;
+        //だんだん明るく
+        float time = 0;
+        while (time <= interval)
+        {
+            fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
+            time += Time.unscaledDeltaTime;
+            yield return 0;
+        }
+        isFadeing = false;
+
         yield break;
     }
 
