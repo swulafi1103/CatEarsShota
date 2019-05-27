@@ -7,25 +7,43 @@ using UnityEngine.UI;
 public class MiniGameManager : MonoBehaviour
 {
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
-    private KeyCode[]   questionCommand;         //  問題のキー配列
+    private KeyCode[]   questionCommand;        //  問題のキー配列
     private const int   MISTAKELIMIT = 4;       //  ミス上限値
     private int         mistakeCount = 0;       //  ミスのカウント
     private int         numOrder;               //  解答中のコマンドの並び
+    private bool        isMinigame = false;     //  ミニゲーム中か
+    private bool        isCountdownEnd = false; //  ミニゲームのカウントダウンは終わったか
     [SerializeField, Range(0.1f, 15f)]
-    private float       timeLimit = 10f;        //  ミニゲームの制限時間
+    private float       defaultTimeLimit = 10f; //  ミニゲームの制限時間
+    private float       timeLimit;
 
     [SerializeField]
-    private Canvas      miniGameCanvas;         //  ミニゲーム用のキャンバス
+    private GameObject  discriptionObj;         //  説明用のUI
     [SerializeField]
-    private Text        countdownObj;           //  カウントダウン用  
+    private GameObject  miniGameViewObj;        //  ミニゲームのコマンドなどが表示されるUI
     [SerializeField]
-    private Text        commandObj;             //  コマンドの表示用
+    private GameObject  timerObj;               //  タイマーを表示する用
+    [SerializeField]
+    private Text        countdownObj;           //  カウントダウン用
+    [SerializeField]
+    private GameObject  mistakeCountObj;        //  失敗回数を表示する用  
+    [SerializeField]
+    private GameObject  commandParentObj;       //  コマンドの表示用
+
+    [SerializeField]
+    private GameObject  textPrefab;             //  コマンド用のPrefab
+    [SerializeField]
+    private Color       beforeColor;
+    [SerializeField]
+    private Color       afterColor;
+    private Text[]      commandTexts;
+
     //[SerializeField]
     //private Sprite[]    keySprites;           //  問題に並べる画像
     //[SerializeField]
     //private Image[] countDownImage;
 
-    
+
     /*
      * プレイヤーが発電機に触れることイベント開始
      * ミニゲームの説明画面とStartボタンが表示される
@@ -34,23 +52,46 @@ public class MiniGameManager : MonoBehaviour
      * キー入力のチェック
      * 間違えるとコマンドもリセット
      * 一定数のミスで再スタート
-     * すべて時間内に打ち終わると
+     * すべて時間内に打ち終わると成功
      */
-    
+
     void Start()
     {
-        StartCoroutine(CountDown());
+
     }
 
 
     void Update()
     {
         CheckTypingKey();
-
+        //  テスト用
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GenerateRandomNums(3);
+            TouchGenerator();
         }
+    }
+
+    /// <summary>
+    /// 発電機を触れたら
+    /// </summary>
+    public void TouchGenerator()
+    {
+        discriptionObj.SetActive(true);
+        isMinigame = true;
+    }
+
+    /// <summary>
+    /// ミニゲームの開始
+    /// </summary>
+    public void StartMiniGame()
+    {
+        mistakeCount = 0;
+        countdownObj.color = Color.white;
+        discriptionObj.SetActive(false);
+        miniGameViewObj.SetActive(true);
+        timeLimit = defaultTimeLimit;
+        timerObj.GetComponent<Text>().text = timeLimit.ToString("0");
+        StartCoroutine(CountDown());
     }
 
 
@@ -81,40 +122,30 @@ public class MiniGameManager : MonoBehaviour
             }
         }
         CreateQuestionCommand(randomNums);
-        //DrawUI(randomNums);
     }
 
     /// <summary>
     /// 問題となるのコマンドを生成
     /// </summary>
     /// <param name="randomNums"></param>
-    private void CreateQuestionCommand(int[] randomNums)
+    void CreateQuestionCommand(int[] randomNums)
     {
         questionCommand = new KeyCode[randomNums.Length];
-        string commandText = "";
+        if (commandTexts != null)
+        {
+            foreach (var obj in commandTexts)
+            {
+                Destroy(obj.gameObject);
+            }
+        }
+        commandTexts = new Text[randomNums.Length];
         for (int i = 0; i < randomNums.Length; i++)
         {
             questionCommand[i] = USEKEYS[randomNums[i]];
-            commandText += ChangeKeyCodeString(questionCommand[i]);
-            //  最後の文字ではなかったら
-            if (i < randomNums.Length - 1)
-            {
-                //  間をあけるために空白も追加する
-                commandText += " ";
-            }
-        }
-        commandObj.text = commandText;
-    }
-
-    /// <summary>
-    /// UIの描画
-    /// </summary>
-    /// <param name="randomNums"></param>
-    private void DrawUI(int[] randomNums)
-    {
-        for (int i = 0; i < randomNums.Length ; i++)
-        {            
-            Debug.Log("Num = " + randomNums[i]);
+            GameObject obj = Instantiate(textPrefab, commandParentObj.transform);
+            obj.GetComponent<Text>().color = beforeColor;
+            commandTexts[i] = obj.GetComponent<Text>();
+            commandTexts[i].text = ChangeKeyCodeString(questionCommand[i]);
         }
     }
 
@@ -123,7 +154,18 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void CheckTypingKey()
     {
-        if (Input.anyKeyDown)
+        if (isCountdownEnd && isMinigame)
+        {
+            timeLimit -= Time.deltaTime;
+            if (timeLimit <= 0)
+            {
+                MinigameFaild();
+                timeLimit = Math.Max(0, timeLimit);
+            }
+            timerObj.GetComponent<Text>().text = timeLimit.ToString("0");
+        }
+
+        if (Input.anyKeyDown　&& isCountdownEnd)
         {
             foreach (KeyCode code in Enum.GetValues(typeof(KeyCode)))
             {
@@ -141,6 +183,11 @@ public class MiniGameManager : MonoBehaviour
                         {
                             IncorrectAnswer();
                         }
+                        //  文字の色変え
+                        for (int i = 0; i < numOrder; i++)
+                        {
+                            commandTexts[i].GetComponent<Text>().color = afterColor;
+                        }
                     }
                 }
             }
@@ -151,20 +198,48 @@ public class MiniGameManager : MonoBehaviour
     /// <summary>
     /// 正解時の処理
     /// </summary>
-    private void CorrectAnswer()
+    void CorrectAnswer()
     {
         numOrder++;
+        if (numOrder >= questionCommand.Length)
+        {
+            MinigameClear();
+        }
     }
 
     /// <summary>
     /// 不正解の時の処理
     /// </summary>
-    private void IncorrectAnswer()
+    void IncorrectAnswer()
     {
         mistakeCount++;
+        mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
+        StartCoroutine(ShakeObject(0.2f, miniGameViewObj));
+        if (mistakeCount >= MISTAKELIMIT)
+        {
+            MinigameFaild();
+            return;
+        }
+        timeLimit -= 1;
+        numOrder = 0;
         GenerateRandomNums(5);
     }
 
+    /// <summary>
+    /// ハッキングに成功
+    /// </summary>
+    void MinigameClear()
+    {
+        StartCoroutine(DisplayClearText());
+    }
+
+    /// <summary>
+    /// ハッキングに失敗
+    /// </summary>
+    void MinigameFaild()
+    {
+        StartCoroutine(DisplayFaildText());
+    }
 
     /// <summary>
     /// KeyCodeを文字列に変換する
@@ -207,9 +282,77 @@ public class MiniGameManager : MonoBehaviour
         txtObj.text = "1";
         yield return new WaitForSeconds(0.5f);
         txtObj.text = "START";
+        isCountdownEnd = true;
         yield return new WaitForSeconds(0.5f);
         txtObj.enabled = false;
+        txtObj.text = "";
         GenerateRandomNums(5);
+        yield break;
+    }
+
+    /// <summary>
+    /// クリア時の表示
+    /// </summary>
+    /// <returns>The clear text.</returns>
+    IEnumerator DisplayClearText()
+    {
+        Text txtObj = countdownObj;
+        txtObj.enabled = true;
+        if (commandTexts != null)
+        {
+            foreach (var obj in commandTexts)
+            {
+                obj.text = "";
+                yield return null;
+            }
+        }
+        countdownObj.text = "CLEAR!!";
+        isMinigame = false;
+        isCountdownEnd = false;
+        yield return new WaitForSeconds(2);
+        countdownObj.text = "";
+        miniGameViewObj.SetActive(false);
+        numOrder = 0;
+        mistakeCount = 0;
+        yield break;
+    }
+
+    IEnumerator DisplayFaildText()
+    {
+        Text txtObj = countdownObj;
+        txtObj.enabled = true;
+        if (commandTexts != null)
+        {
+            foreach (var obj in commandTexts)
+            {
+                obj.text = "";
+                yield return null;
+            }
+        }
+        countdownObj.text = "ERROR";
+        countdownObj.color = Color.red;
+        isMinigame = false;
+        isCountdownEnd = false;
+        yield return new WaitForSeconds(2);
+        countdownObj.text = "";
+        miniGameViewObj.SetActive(false);
+        yield break;
+    }
+
+    IEnumerator ShakeObject(float time, GameObject obj)
+    {
+        const float shakePower = 0.1f;
+        Vector3 pos = obj.transform.position;
+        while (time >= 0)
+        {
+            Vector3 randVec3 = UnityEngine.Random.insideUnitSphere * shakePower;
+            randVec3.z = 0;
+            obj.transform.position += pos + randVec3;
+            time -= Time.deltaTime;
+            yield return null;
+            obj.transform.position = pos;
+        }
+        obj.transform.position = pos;
         yield break;
     }
 
