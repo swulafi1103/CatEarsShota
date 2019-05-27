@@ -344,7 +344,7 @@ public class MiniGameManager : MonoBehaviour
 
     IEnumerator ShakeObject(float time, GameObject obj)
     {
-        const float shakePower = 0.1f;
+        const float shakePower = 0.2f;
         Vector3 pos = obj.transform.position;
         while (time >= 0)
         {
