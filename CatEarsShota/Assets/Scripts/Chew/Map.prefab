@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 1294144364327573456}
   m_Layer: 0
   m_Name: BackGround5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 9053555419940281732}
   m_Layer: 0
   m_Name: object1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1576013421666366367}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 850150e96b11e93419528e3d10a44166, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 6432526175726688268}
   m_Layer: 0
   m_Name: BackGround2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 6199120227311853210}
   m_Layer: 0
   m_Name: GroundCollider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,7 +544,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 4430079543157868284}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 850150e96b11e93419528e3d10a44166, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 2446695284595864847}
   m_Layer: 0
   m_Name: BackGround1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 512498257261776798}
   m_Layer: 0
   m_Name: BackGround4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 4817865722629464411}
   m_Layer: 0
   m_Name: BackGround3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1250,6 +1250,7 @@ GameObject:
   - component: {fileID: 9053555419940281777}
   - component: {fileID: 9053555419940281789}
   - component: {fileID: 7708829511503235239}
+  - component: {fileID: 6839379902252608627}
   m_Layer: 0
   m_Name: object5
   m_TagString: Untagged
@@ -1362,6 +1363,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3d2fd52d4dc57c94280501b67243e0f7, type: 3}
   - {fileID: 21300000, guid: 308cff8b727fc1842a2c135e8aa48d8f, type: 3}
 --- !u!70 &7708829511503235239
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8938801105834961092}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01920165, y: 0.8502996}
+  m_Size: {x: 3.1075656, y: 2.9094014}
+  m_Direction: 0
+--- !u!70 &6839379902252608627
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
