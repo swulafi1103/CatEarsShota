@@ -15,6 +15,9 @@ public class PlayerMoves : MonoBehaviour
     private Rigidbody2D rb2d;
     private Vector2 AddVector = new Vector2(1.00f,1.00f);
     private Animator anim;
+    private int JumpNum=0;
+    private bool Ground = false;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -29,8 +32,10 @@ public class PlayerMoves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+          
         Move();
         Jump();
+        Action();
     }
     /// <summary>
     /// Character Move this instance.
@@ -38,28 +43,28 @@ public class PlayerMoves : MonoBehaviour
     private void Move()
     {
         //RightMove
-        if (Input.GetKey(KeyCode.D))
+
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             AddVector.x = MoveSpeed;
-            rb2d.AddForce(AddVector);
+            rb2d.AddForce(AddVector-rb2d.velocity,ForceMode2D.Force);
             anim.SetBool("SetWaitAnimator", false);
             anim.SetBool("SetWalkAnimator", true);
         }
         //LeftMove
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             AddVector.x = -1 * MoveSpeed;
-            rb2d.AddForce(AddVector);
+            rb2d.AddForce(AddVector-rb2d.velocity,ForceMode2D.Force);
             anim.SetBool("SetWaitAnimator", false);
             anim.SetBool("SetWalkAnimator", true);
-        }
-        else
+        }else 
+        if (Input.GetKeyUp(KeyCode.RightArrow)||Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            //AddVector.x = 1;
-            //AddVector.y = 1;
             anim.SetBool("SetWaitAnimator", true);
             anim.SetBool("SetWalkAnimator", false);
         }
+
 
     }
     /// <summary>
@@ -67,14 +72,55 @@ public class PlayerMoves : MonoBehaviour
     /// </summary>
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Ground == true)
         {
-            AddVector.y *= JumpPower;
-            rb2d.AddForce(AddVector);
-        }
-        else
+
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                
+                if (JumpNum < 2)
+                {
+                    JumpNum++;
+                    AddVector.y *= JumpPower;
+                    rb2d.AddForce(AddVector);
+                    Debug.Log(JumpNum);
+                }
+                
+            }
+            else
+            {
+
+                AddVector.y = 1;
+            }
+        }else
         {
-            AddVector.y = 1;
+            Ground = false;
+            JumpNum = 0;
         }
+    }
+    /// <summary>
+    /// Action
+    /// </summary>
+    void Action()
+    {
+        if (Input.GetKeyDown(KeyCode.S))//攻撃
+        {
+
+        }
+        if (Input.GetKeyDown(KeyCode.A))//調べ
+        {
+
+        }
+        if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
+        {
+
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground") Ground = true;
+        JumpNum = 0;
+        Debug.Log(Ground);  
     }
 }
