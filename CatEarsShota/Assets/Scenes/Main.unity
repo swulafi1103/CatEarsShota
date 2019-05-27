@@ -1231,5 +1231,57 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[29].y
       value: -8.311872
       objectReference: {fileID: 0}
+    - target: {fileID: 7933577959479873773, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.532
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933577959479873773, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.852
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053555419940281777, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053555419940281777, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.992357
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053555419940281777, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4744314
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053555419940281777, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.6611364
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c, type: 3}
+--- !u!1 &7708829511503235238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8938801105834961092, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7708829511503235237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &7708829511503235239
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708829511503235238}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01920165, y: 0.8502996}
+  m_Size: {x: 3.1075656, y: 2.9094014}
+  m_Direction: 0
