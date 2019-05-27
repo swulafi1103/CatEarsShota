@@ -223,13 +223,13 @@ public class MiniGameManager : MonoBehaviour
     {
         mistakeCount++;
         mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
-        StartCoroutine(DamegeEffect(0.25f));
         StartCoroutine(ShakeObject(0.2f, miniGameViewObj));
         if (mistakeCount >= MISTAKELIMIT)
         {
             MinigameFaild();
             return;
         }
+        StartCoroutine(DamegeEffect(0.25f));
         timeLimit -= 1;
         numOrder = 0;
         GenerateRandomNums(5);
@@ -344,7 +344,22 @@ public class MiniGameManager : MonoBehaviour
         countdownObj.color = Color.red;
         isMinigame = false;
         isCountdownEnd = false;
-        yield return new WaitForSeconds(2);
+        isFadeing = true;
+        float time = 0;
+        while (time <= 0.5f)
+        {
+            fadeAlpha = Mathf.Lerp(0, 1f, time / 0.5f);
+            time += Time.unscaledDeltaTime;
+            yield return 0;
+        }
+        time = 0;
+        while (time <= 2)
+        {
+            fadeAlpha = Mathf.Lerp(1f, 0f, time / 2);
+            time += Time.unscaledDeltaTime;
+            yield return 0;
+        }
+        isFadeing = false;
         countdownObj.text = "";
         miniGameViewObj.SetActive(false);
         mistakeCount = 0;
