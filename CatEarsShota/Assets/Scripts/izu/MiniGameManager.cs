@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class MiniGameManager : MonoBehaviour
 {
+    public GameObject CameraMain;
+    public GameObject Door;
+
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
     private KeyCode[]   questionCommand;        //  問題のキー配列
     private const int   MISTAKELIMIT = 4;       //  ミス上限値
@@ -315,6 +318,8 @@ public class MiniGameManager : MonoBehaviour
         numOrder = 0;
         mistakeCount = 0;
         mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
+        CameraMain.GetComponent<Camera>().PastMode = false;
+        Door.GetComponent<MapStatus>().MapObjectState[2] = true;
         yield break;
     }
 

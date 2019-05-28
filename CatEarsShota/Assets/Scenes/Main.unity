@@ -292,6 +292,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4708192462413375052, guid: 2ed0922fb7758452284fac7d7697ea6c,
+        type: 3}
+      propertyPath: m_Name
+      value: MiniGameCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 4708192462413375024, guid: 2ed0922fb7758452284fac7d7697ea6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -402,11 +407,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1550975322}
-    - target: {fileID: 4708192462413375052, guid: 2ed0922fb7758452284fac7d7697ea6c,
-        type: 3}
-      propertyPath: m_Name
-      value: MiniGameCanvas
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
 --- !u!1 &336588924
@@ -784,9 +784,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PastMode: 0
+  PlayVideo: 0
   PastCam: {fileID: 2022203476}
   Player: {fileID: 1700370550}
-  ScreenMask: {fileID: 123045779}
+  ColorVideo: {fileID: 2106469261}
   RangeToPlayer: 10
   CameraLimit:
   - -10
@@ -1113,6 +1114,11 @@ PrefabInstance:
     - target: {fileID: 7708829511576360237, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
         type: 3}
       propertyPath: MapObjectState.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708829511576360237, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
+        type: 3}
+      propertyPath: MapObjectState.Array.data[2]
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 121293398064913239, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
