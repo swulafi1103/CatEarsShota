@@ -17,12 +17,14 @@ public class PlayerMoves : MonoBehaviour
     private Animator anim;
     private int JumpNum=0;
     private bool Ground = false;
+    Vector3 scale;
 
     // Start is called before the first frame update
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        scale = transform.localScale;
     }
     void Start()
     {
@@ -46,20 +48,30 @@ public class PlayerMoves : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            if (scale.x > 0)
+            {
+                scale.x *= -1;
+                transform.localScale = scale;
+            }
             AddVector.x = MoveSpeed;
-            rb2d.AddForce(AddVector-rb2d.velocity,ForceMode2D.Force);
+            rb2d.AddForce(AddVector - rb2d.velocity, ForceMode2D.Force);
             anim.SetBool("SetWaitAnimator", false);
             anim.SetBool("SetWalkAnimator", true);
         }
         //LeftMove
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
+            if (scale.x < 0)
+            {
+                scale.x *= -1f;
+                transform.localScale = scale;
+            }
             AddVector.x = -1 * MoveSpeed;
-            rb2d.AddForce(AddVector-rb2d.velocity,ForceMode2D.Force);
+            rb2d.AddForce(AddVector - rb2d.velocity, ForceMode2D.Force);
             anim.SetBool("SetWaitAnimator", false);
             anim.SetBool("SetWalkAnimator", true);
-        }else 
-        if (Input.GetKeyUp(KeyCode.RightArrow)||Input.GetKeyUp(KeyCode.LeftArrow))
+        }
+        else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             anim.SetBool("SetWaitAnimator", true);
             anim.SetBool("SetWalkAnimator", false);
