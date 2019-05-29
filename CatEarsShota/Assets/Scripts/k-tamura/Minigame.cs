@@ -8,8 +8,21 @@ public class Minigame : MonoBehaviour
     GameObject MinigameMgr;
     [SerializeField]
     GameObject playermoves;
-
-   public void OnCollisionEnter2D(Collision2D collision)
+    bool gamePlaying;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A)&&gamePlaying==false)//調べ
+        {
+            gamePlaying = true;
+            playermoves.GetComponent<PlayerMoves>().Notmoves = true;
+            MinigameMgr.GetComponent<MiniGameManager>().TouchGenerator();
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            MinigameMgr.GetComponent<MiniGameManager>().StartMiniGame();
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "MiniGames")

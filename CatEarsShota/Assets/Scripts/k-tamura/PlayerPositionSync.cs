@@ -17,7 +17,7 @@ public class PlayerPositionSync : MonoBehaviour
     GameObject CameraMain;
     [SerializeField]
     Vector3 past;
-    bool PastMode;
+    public bool PastMode;
 
     private void Start()
     {

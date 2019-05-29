@@ -33,7 +33,11 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField]
     private GameObject  commandParentObj;       //  コマンドの表示用
     [SerializeField]
-    private GameObject PlayerMove;              //playerの移動制限解除用
+    private GameObject PlayerMovePerrault;
+    [SerializeField]
+    private GameObject PlayerMoveFran;             //playerの移動制限解除用
+    [SerializeField]
+    private GameObject map;
 
     [SerializeField]
     private GameObject  textPrefab;             //  コマンド用のPrefab
@@ -42,6 +46,7 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField]
     private Color       afterColor;
     private Text[]      commandTexts;
+    
 
     //[SerializeField]
     //private Sprite[]    keySprites;           //  問題に並べる画像
@@ -84,6 +89,8 @@ public class MiniGameManager : MonoBehaviour
     {
         discriptionObj.SetActive(true);
         isMinigame = true;
+        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = true;
+        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = true;
     }
 
     /// <summary>
@@ -237,7 +244,13 @@ public class MiniGameManager : MonoBehaviour
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
-        PlayerMove.GetComponent<PlayerMoves>().Notmoves = false;
+        map.GetComponent<MapStatus>().MapObjectState[2] = true;
+        map.GetComponent<MapStatus>().MapObjectState[1] = true;
+        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
+        PlayerMoveFran.GetComponent<PlayerPositionSync>().PastMode = false;
+        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
+
+
     }
 
     /// <summary>
@@ -245,8 +258,11 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void MinigameFaild()
     {
+
+        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
+        PlayerMoveFran.GetComponent<PlayerPositionSync>().PastMode = false;
+        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
         StartCoroutine(DisplayFaildText());
-        PlayerMove.GetComponent<PlayerMoves>().Notmoves = false;
     }
 
     /// <summary>

@@ -1527,6 +1527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fc9274ebf001345ba4e61f712db1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraMain: {fileID: 0}
+  Door: {fileID: 0}
   defaultTimeLimit: 10
   discriptionObj: {fileID: 4708192460812670981}
   miniGameViewObj: {fileID: 4708192461682228895}
@@ -1534,6 +1536,9 @@ MonoBehaviour:
   countdownObj: {fileID: 4708192460738447682}
   mistakeCountObj: {fileID: 4708192461866618502}
   commandParentObj: {fileID: 4708192461959853151}
+  PlayerMovePerrault: {fileID: 0}
+  PlayerMoveFran: {fileID: 0}
+  map: {fileID: 0}
   textPrefab: {fileID: 2465732357361030039, guid: 0304944beabfe4c75b66bbce5b87bc77,
     type: 3}
   beforeColor: {r: 0, g: 0, b: 0, a: 1}
