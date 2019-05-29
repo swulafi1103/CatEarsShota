@@ -26,7 +26,7 @@ public class PlayerPositionSync : MonoBehaviour
         _mapStatus = GetComponent<MapStatus>();
         CameraMain = GameObject.Find("Main Camera");
         past.x =40f;
-        past.y = 0.9f;
+        past.y = 1.1f;
     }
 
 
