@@ -37,7 +37,9 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField]
     private GameObject PlayerMoveFran;             //playerの移動制限解除用
     [SerializeField]
-    private GameObject map;
+    private GameObject map;                     //mapオブジェクト変更
+    [SerializeField]
+    private GameObject mainGameMgr;
 
     [SerializeField]
     private GameObject  textPrefab;             //  コマンド用のPrefab
@@ -247,7 +249,7 @@ public class MiniGameManager : MonoBehaviour
         map.GetComponent<MapStatus>().MapObjectState[2] = true;
         map.GetComponent<MapStatus>().MapObjectState[1] = true;
         PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
-        PlayerMoveFran.GetComponent<PlayerPositionSync>().PastMode = false;
+        mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
         PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
 
 
@@ -260,7 +262,7 @@ public class MiniGameManager : MonoBehaviour
     {
 
         PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
-        PlayerMoveFran.GetComponent<PlayerPositionSync>().PastMode = false;
+        mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
         PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
         StartCoroutine(DisplayFaildText());
     }
