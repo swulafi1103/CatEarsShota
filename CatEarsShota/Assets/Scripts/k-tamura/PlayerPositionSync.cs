@@ -17,6 +17,7 @@ public class PlayerPositionSync : MonoBehaviour
     GameObject CameraMain;
     [SerializeField]
     Vector3 past;
+    bool PastMode;
 
     private void Start()
     {
@@ -25,24 +26,35 @@ public class PlayerPositionSync : MonoBehaviour
         _mapStatus = GetComponent<MapStatus>();
         CameraMain = GameObject.Find("Main Camera");
         past.x =40f;
+        past.y = 0.9f;
     }
 
 
     void Update()
     {
-        PerraultPositon = Perrault.transform.position;
-        if (Input.GetKeyDown(KeyCode.F) && Perrault.active == true)
+
+
+        if (Input.GetKeyDown(KeyCode.F) && PastMode==false)
         {
-            Fran.transform.position = PerraultPositon+past;
+            Fran.transform.position = PerraultPositon;
             CameraMain.GetComponent<Camera>().PastMode = true;
-            Perrault.SetActive(false);
+            PastMode = true;
 
         }
-        else if (Input.GetKeyDown(KeyCode.F) && Perrault.active == false)
+        else if (Input.GetKeyDown(KeyCode.F) && PastMode == true)
         {
-            Perrault.SetActive(true);
+            PastMode = false;
             Perrault.transform.position = Fran.transform.position-past;
             CameraMain.GetComponent<Camera>().PastMode = false;
+        }
+        if (PastMode)
+        {
+            Perrault.transform.position = Fran.transform.position - past;
+        }
+        else
+        {
+            Fran.transform.position = Perrault.transform.position + past;
+            PerraultPositon = Fran.transform.position;
         }
 
     }

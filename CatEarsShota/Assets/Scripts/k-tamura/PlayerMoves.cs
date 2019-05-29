@@ -7,17 +7,20 @@ public class PlayerMoves : MonoBehaviour
 {
     [Header("PlayerMoveParamater")]
     [SerializeField]
-    [Range(1,50)]
+    [Range(1, 50)]
     private float MoveSpeed = 0.1f;
     [SerializeField]
-    [Range(1,500)]
+    [Range(1, 500)]
     private float JumpPower = 0.1f;
     private Rigidbody2D rb2d;
-    private Vector2 AddVector = new Vector2(1.00f,1.00f);
+    private Vector2 AddVector = new Vector2(1.00f, 1.00f);
     private Animator anim;
-    private int JumpNum=0;
+    private int JumpNum = 0;
     private bool Ground = false;
+    public bool Notmoves = false;
     Vector3 scale;
+    GameObject MinigameMgr;
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -28,13 +31,13 @@ public class PlayerMoves : MonoBehaviour
     }
     void Start()
     {
-        
+        MinigameMgr = GameObject.Find("MiniGameCanvas");
     }
 
     // Update is called once per frame
     void Update()
     {
-          
+
         Move();
         Jump();
         Action();
@@ -45,36 +48,38 @@ public class PlayerMoves : MonoBehaviour
     private void Move()
     {
         //RightMove
-
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Notmoves == false)
         {
-            if (scale.x > 0)
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                scale.x *= -1;
-                transform.localScale = scale;
+                if (scale.x > 0)
+                {
+                    scale.x *= -1;
+                    transform.localScale = scale;
+                }
+                AddVector.x = MoveSpeed;
+                rb2d.AddForce(AddVector - rb2d.velocity, ForceMode2D.Force);
+                anim.SetBool("SetWaitAnimator", false);
+                anim.SetBool("SetWalkAnimator", true);
             }
-            AddVector.x = MoveSpeed;
-            rb2d.AddForce(AddVector - rb2d.velocity, ForceMode2D.Force);
-            anim.SetBool("SetWaitAnimator", false);
-            anim.SetBool("SetWalkAnimator", true);
-        }
-        //LeftMove
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            if (scale.x < 0)
+            //LeftMove
+            else if (Input.GetKey(KeyCode.LeftArrow))
             {
-                scale.x *= -1f;
-                transform.localScale = scale;
+                if (scale.x < 0)
+                {
+                    scale.x *= -1f;
+                    transform.localScale = scale;
+                }
+                AddVector.x = -1 * MoveSpeed;
+                rb2d.AddForce(AddVector - rb2d.velocity, ForceMode2D.Force);
+                anim.SetBool("SetWaitAnimator", false);
+                anim.SetBool("SetWalkAnimator", true);
             }
-            AddVector.x = -1 * MoveSpeed;
-            rb2d.AddForce(AddVector - rb2d.velocity, ForceMode2D.Force);
-            anim.SetBool("SetWaitAnimator", false);
-            anim.SetBool("SetWalkAnimator", true);
-        }
-        else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            anim.SetBool("SetWaitAnimator", true);
-            anim.SetBool("SetWalkAnimator", false);
+            else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                anim.SetBool("SetWaitAnimator", true);
+                anim.SetBool("SetWalkAnimator", false);
+            }
         }
 
 
@@ -84,31 +89,35 @@ public class PlayerMoves : MonoBehaviour
     /// </summary>
     void Jump()
     {
-        if (Ground == true)
+        if (Notmoves == false)
         {
-
-
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Ground == true)
             {
-                
-                if (JumpNum < 2)
+
+
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    JumpNum++;
-                    AddVector.y *= JumpPower;
-                    rb2d.AddForce(AddVector);
-                    Debug.Log(JumpNum);
+
+                    if (JumpNum < 2)
+                    {
+                        JumpNum++;
+                        AddVector.y *= JumpPower;
+                        rb2d.AddForce(AddVector);
+                        Debug.Log(JumpNum);
+                    }
+
                 }
-                
+                else
+                {
+
+                    AddVector.y = 1;
+                }
             }
             else
             {
-
-                AddVector.y = 1;
+                Ground = false;
+                JumpNum = 0;
             }
-        }else
-        {
-            Ground = false;
-            JumpNum = 0;
         }
     }
     /// <summary>
@@ -128,11 +137,24 @@ public class PlayerMoves : MonoBehaviour
         {
 
         }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground") Ground = true;
         JumpNum = 0;
-        Debug.Log(Ground);  
+        Debug.Log(Ground);
+        if (collision.gameObject.tag == "MiniGames")
+        {
+            if (Input.GetKeyDown(KeyCode.A))//調べ
+            {
+                Notmoves = true;
+                MinigameMgr.GetComponent<MiniGameManager>().TouchGenerator();
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                MinigameMgr.GetComponent<MiniGameManager>().StartMiniGame();
+            }
+        }
     }
 }

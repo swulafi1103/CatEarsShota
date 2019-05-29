@@ -32,6 +32,8 @@ public class MiniGameManager : MonoBehaviour
     private GameObject  mistakeCountObj;        //  失敗回数を表示する用  
     [SerializeField]
     private GameObject  commandParentObj;       //  コマンドの表示用
+    [SerializeField]
+    private GameObject PlayerMove;              //playerの移動制限解除用
 
     [SerializeField]
     private GameObject  textPrefab;             //  コマンド用のPrefab
@@ -68,10 +70,11 @@ public class MiniGameManager : MonoBehaviour
     {
         CheckTypingKey();
         //  テスト用
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TouchGenerator();
-        }
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+            //TouchGenerator();
+        //}
     }
 
     /// <summary>
@@ -234,6 +237,7 @@ public class MiniGameManager : MonoBehaviour
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
+        PlayerMove.GetComponent<PlayerMoves>().Notmoves = false;
     }
 
     /// <summary>
@@ -242,6 +246,7 @@ public class MiniGameManager : MonoBehaviour
     void MinigameFaild()
     {
         StartCoroutine(DisplayFaildText());
+        PlayerMove.GetComponent<PlayerMoves>().Notmoves = false;
     }
 
     /// <summary>
