@@ -19,14 +19,19 @@ public class PlayerMoves : MonoBehaviour
     private bool Ground = false;
     public bool Notmoves = false;
     Vector3 scale;
+    [SerializeField]
     GameObject MinigameMgr;
+    [SerializeField]
+    GameObject fran;
+    [SerializeField]
+    GameObject perrault;
 
 
     // Start is called before the first frame update
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = perrault.GetComponent<Animator>();
         scale = transform.localScale;
     }
     void Start()

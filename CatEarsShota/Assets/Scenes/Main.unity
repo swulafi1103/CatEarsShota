@@ -185,6 +185,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1467140829, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
+      propertyPath: MinigameMgr
+      value: 
+      objectReference: {fileID: 40466946}
+    - target: {fileID: 1467140829, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
+      propertyPath: fran
+      value: 
+      objectReference: {fileID: 8142337639306744066}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
 --- !u!1 &123045779
@@ -415,6 +423,11 @@ PrefabInstance:
       objectReference: {fileID: 1550975320}
     - target: {fileID: 8748181472790546824, guid: 2ed0922fb7758452284fac7d7697ea6c,
         type: 3}
+      propertyPath: Door
+      value: 
+      objectReference: {fileID: 1835151732}
+    - target: {fileID: 8748181472790546824, guid: 2ed0922fb7758452284fac7d7697ea6c,
+        type: 3}
       propertyPath: PlayerMovePerrault
       value: 
       objectReference: {fileID: 1700370550}
@@ -430,9 +443,9 @@ PrefabInstance:
       objectReference: {fileID: 1835151732}
     - target: {fileID: 8748181472790546824, guid: 2ed0922fb7758452284fac7d7697ea6c,
         type: 3}
-      propertyPath: Door
+      propertyPath: mainGameMgr
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 840000545}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
 --- !u!1 &336588924
@@ -1079,6 +1092,16 @@ PrefabInstance:
     - target: {fileID: 753413026863262135, guid: e5fd26985fcc34a36b336c655c7426ed,
         type: 3}
       propertyPath: playermoves
+      value: 
+      objectReference: {fileID: 1700370550}
+    - target: {fileID: 7173901889378885128, guid: e5fd26985fcc34a36b336c655c7426ed,
+        type: 3}
+      propertyPath: MinigameMgr
+      value: 
+      objectReference: {fileID: 40466946}
+    - target: {fileID: 7173901889378885128, guid: e5fd26985fcc34a36b336c655c7426ed,
+        type: 3}
+      propertyPath: perrault
       value: 
       objectReference: {fileID: 1700370550}
     m_RemovedComponents: []

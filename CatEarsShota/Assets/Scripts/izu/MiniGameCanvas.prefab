@@ -1539,6 +1539,7 @@ MonoBehaviour:
   PlayerMovePerrault: {fileID: 0}
   PlayerMoveFran: {fileID: 0}
   map: {fileID: 0}
+  mainGameMgr: {fileID: 0}
   textPrefab: {fileID: 2465732357361030039, guid: 0304944beabfe4c75b66bbce5b87bc77,
     type: 3}
   beforeColor: {r: 0, g: 0, b: 0, a: 1}

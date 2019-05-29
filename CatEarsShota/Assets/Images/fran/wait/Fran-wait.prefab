@@ -155,6 +155,9 @@ MonoBehaviour:
   MoveSpeed: 10
   JumpPower: 329
   Notmoves: 0
+  MinigameMgr: {fileID: 0}
+  fran: {fileID: 8142337639306744066}
+  perrault: {fileID: 0}
 --- !u!114 &753413026863262135
 MonoBehaviour:
   m_ObjectHideFlags: 0
