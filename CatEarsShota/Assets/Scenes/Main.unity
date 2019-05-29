@@ -639,12 +639,7 @@ PrefabInstance:
     - target: {fileID: 7693629363694771068, guid: 8430d6ce22553c648a747953ab845e32,
         type: 3}
       propertyPath: m_Name
-      value: fran 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7693629363694771068, guid: 8430d6ce22553c648a747953ab845e32,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: fran
       objectReference: {fileID: 0}
     - target: {fileID: 7693629363694771064, guid: 8430d6ce22553c648a747953ab845e32,
         type: 3}
@@ -1119,16 +1114,6 @@ PrefabInstance:
     - target: {fileID: 1527914900465359582, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7708829511576360237, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
-        type: 3}
-      propertyPath: MapObjectState.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8662791587255837187, guid: 7f6698c0fc6b87d4b85ebf13f9d98b0c,
-        type: 3}
-      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
