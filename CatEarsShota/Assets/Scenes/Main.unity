@@ -787,8 +787,8 @@ MonoBehaviour:
   ColorVideo: {fileID: 2106469261}
   RangeToPlayer: 10
   CameraLimit:
-  - -10
-  - 10
+  - -11
+  - 11
 --- !u!1 &1700370550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2547405339827579850, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
