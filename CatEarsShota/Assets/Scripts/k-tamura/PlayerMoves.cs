@@ -26,6 +26,7 @@ public class PlayerMoves : MonoBehaviour
     GameObject fran;
     [SerializeField]
     GameObject perrault;
+  
 
 
     // Start is called before the first frame update
@@ -134,7 +135,7 @@ public class PlayerMoves : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))//攻撃
         {
-
+            anim.SetTrigger("AttackTrigger");
         }
         if (Input.GetKeyDown(KeyCode.A))//調べ
         {
@@ -144,7 +145,6 @@ public class PlayerMoves : MonoBehaviour
         {
 
         }
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
