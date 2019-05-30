@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 10
-  JumpPower: 316
+  JumpPower: 344
   Notmoves: 0
   MinigameMgr: {fileID: 0}
   fran: {fileID: 0}

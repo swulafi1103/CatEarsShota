@@ -13,7 +13,8 @@ public class PlayerMoves : MonoBehaviour
     [Range(1, 500)]
     private float JumpPower = 0.1f;
     private Rigidbody2D rb2d;
-    private Vector2 AddVector = new Vector2(1.00f, 1.00f);
+    private Vector2 WalkVector = new Vector2(1.00f, 1.00f);
+    private Vector2 JumpVector = new Vector2(1.00f, 1.00f);
     private Animator anim;
     private int JumpNum = 0;
     private bool Ground = false;
@@ -62,12 +63,13 @@ public class PlayerMoves : MonoBehaviour
                     scale.x *= -1;
                     transform.localScale = scale;
                 }
-                AddVector.x = MoveSpeed;
-                rb2d.AddForce(AddVector - rb2d.velocity, ForceMode2D.Force);
+                WalkVector.x = MoveSpeed;
+                rb2d.AddForce(WalkVector - rb2d.velocity, ForceMode2D.Force);
                 anim.SetBool("SetWaitAnimator", false);
                 anim.SetBool("SetWalkAnimator", true);
             }
             //LeftMove
+
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
                 if (scale.x < 0)
@@ -75,8 +77,8 @@ public class PlayerMoves : MonoBehaviour
                     scale.x *= -1f;
                     transform.localScale = scale;
                 }
-                AddVector.x = -1 * MoveSpeed;
-                rb2d.AddForce(AddVector - rb2d.velocity, ForceMode2D.Force);
+                WalkVector.x = -1 * MoveSpeed;
+                rb2d.AddForce(WalkVector - rb2d.velocity, ForceMode2D.Force);
                 anim.SetBool("SetWaitAnimator", false);
                 anim.SetBool("SetWalkAnimator", true);
             }
@@ -106,8 +108,8 @@ public class PlayerMoves : MonoBehaviour
                     if (JumpNum < 2)
                     {
                         JumpNum++;
-                        AddVector.y *= JumpPower;
-                        rb2d.AddForce(AddVector);
+                        JumpVector.y += JumpPower;
+                        rb2d.AddForce(JumpVector);
                         Debug.Log(JumpNum);
                     }
 
@@ -115,7 +117,7 @@ public class PlayerMoves : MonoBehaviour
                 else
                 {
 
-                    AddVector.y = 1;
+                    JumpVector.y = 1;
                 }
             }
             else
