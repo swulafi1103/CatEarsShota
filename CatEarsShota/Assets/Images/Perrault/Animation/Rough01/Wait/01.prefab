@@ -99,7 +99,7 @@ Transform:
   m_GameObject: {fileID: 2547405339827579850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.1066613, y: -0.8727595, z: 0}
-  m_LocalScale: {x: 0.27161932, y: 0.27161932, z: 0.27161932}
+  m_LocalScale: {x: 0.2716193, y: 0.2716193, z: 0}
   m_Children:
   - {fileID: 21241382}
   m_Father: {fileID: 0}
@@ -141,7 +141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 320414902e4d31c469ba7a0d528bb296, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -187,7 +187,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.1
-  m_GravityScale: 1
+  m_GravityScale: 1.92
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -222,4 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 10
-  JumpPower: 150
+  JumpPower: 344
+  Notmoves: 0
+  MinigameMgr: {fileID: 0}
+  fran: {fileID: 0}
+  perrault: {fileID: 2547405339827579850}
