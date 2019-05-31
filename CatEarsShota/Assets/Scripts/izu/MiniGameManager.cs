@@ -16,9 +16,11 @@ public class MiniGameManager : MonoBehaviour
     private int         numOrder;               //  解答中のコマンドの並び
     private bool        isMinigame = false;     //  ミニゲーム中か
     private bool        isCountdownEnd = false; //  ミニゲームのカウントダウンは終わったか
+    private bool        isFadeing = false;      //  フェード中か
     [SerializeField, Range(0.1f, 15f)]
     private float       defaultTimeLimit = 10f; //  ミニゲームの制限時間
     private float       timeLimit;
+    private float       fadeAlpha = 0;
 
     [SerializeField]
     private GameObject  discriptionObj;         //  説明用のUI
@@ -39,6 +41,7 @@ public class MiniGameManager : MonoBehaviour
     private Color       beforeColor;
     [SerializeField]
     private Color       afterColor;
+    private Color       fadeColor = Color.red;
     private Text[]      commandTexts;
 
     //[SerializeField]
@@ -58,11 +61,6 @@ public class MiniGameManager : MonoBehaviour
      * すべて時間内に打ち終わると成功
      */
 
-    void Start()
-    {
-
-    }
-
 
     void Update()
     {
@@ -71,6 +69,17 @@ public class MiniGameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TouchGenerator();
+        }
+    }
+
+    void OnGUI()
+    {
+        if (isFadeing)
+        {
+            //色と透明度を更新して白テクスチャを描画 .
+            fadeColor.a = fadeAlpha;
+            GUI.color = fadeColor;
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
         }
     }
 
@@ -223,6 +232,7 @@ public class MiniGameManager : MonoBehaviour
             MinigameFaild();
             return;
         }
+        StartCoroutine(DamegeEffect(0.25f));
         timeLimit -= 1;
         numOrder = 0;
         GenerateRandomNums(5);
@@ -339,7 +349,22 @@ public class MiniGameManager : MonoBehaviour
         countdownObj.color = Color.red;
         isMinigame = false;
         isCountdownEnd = false;
-        yield return new WaitForSeconds(2);
+        isFadeing = true;
+        float time = 0;
+        while (time <= 0.5f)
+        {
+            fadeAlpha = Mathf.Lerp(0, 1f, time / 0.5f);
+            time += Time.unscaledDeltaTime;
+            yield return 0;
+        }
+        time = 0;
+        while (time <= 2)
+        {
+            fadeAlpha = Mathf.Lerp(1f, 0f, time / 2);
+            time += Time.unscaledDeltaTime;
+            yield return 0;
+        }
+        isFadeing = false;
         countdownObj.text = "";
         miniGameViewObj.SetActive(false);
         mistakeCount = 0;
@@ -361,6 +386,22 @@ public class MiniGameManager : MonoBehaviour
             obj.transform.position = pos;
         }
         obj.transform.position = pos;
+        yield break;
+    }
+
+    IEnumerator DamegeEffect(float interval)
+    {
+        isFadeing = true;
+        //だんだん明るく
+        float time = 0;
+        while (time <= interval)
+        {
+            fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
+            time += Time.unscaledDeltaTime;
+            yield return 0;
+        }
+        isFadeing = false;
+
         yield break;
     }
 
