@@ -63,10 +63,10 @@ public class MiniGameManager : MonoBehaviour
     {
         CheckTypingKey();
         //  テスト用
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TouchGenerator();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    TouchGenerator();
+        //}
     }
 
     void OnGUI()
