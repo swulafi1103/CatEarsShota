@@ -193,7 +193,8 @@ PrefabInstance:
       propertyPath: fran
       value: 
       objectReference: {fileID: 8142337639306744066}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1467140829, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
 --- !u!1 &123045779
 GameObject:
@@ -566,8 +567,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840000546}
-  - component: {fileID: 840000548}
-  - component: {fileID: 840000547}
   m_Layer: 0
   m_Name: MainGameManager
   m_TagString: Untagged
@@ -589,36 +588,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &840000547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840000545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d64def8308c3430c826a00255268d16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PerraultPositon: {x: 0, y: 0, z: 0}
-  Perrault: {fileID: 1700370550}
-  Fran: {fileID: 8142337639306744066}
-  CameraMain: {fileID: 1550975320}
-  past: {x: 0, y: 0, z: 0}
-  PastMode: 0
---- !u!114 &840000548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840000545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6038a2ea441da43539d8bff2ba3284fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &960752718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,6 +984,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 256986727461289083, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
+        type: 3}
+      propertyPath: MapObjectState.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d04df1a9d4f83944a611a09a0b2a6f5, type: 3}
 --- !u!1001 &5868226073143069691
@@ -1104,7 +1078,9 @@ PrefabInstance:
       propertyPath: perrault
       value: 
       objectReference: {fileID: 1700370550}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7173901889378885128, guid: e5fd26985fcc34a36b336c655c7426ed, type: 3}
+    - {fileID: 753413026863262135, guid: e5fd26985fcc34a36b336c655c7426ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5fd26985fcc34a36b336c655c7426ed, type: 3}
 --- !u!1001 &7708829511503235237
 PrefabInstance:
