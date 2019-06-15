@@ -12,3 +12,5 @@
 (語り手 そのまんま。)  
   
 追憶のペロー :The memories of Perrault  
+  
+アルファー版最終更新 Revision 05

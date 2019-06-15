@@ -1,0 +1,109 @@
+@startuml
+
+package Common{
+    class FadeManager{
+    public void　Fade();
+    }
+
+}
+
+package Game {
+    class Player{
+        public int HP;
+        public void Attack();
+        public void Jump();
+    }
+    class Camera{
+        public void ChengeCamera();
+    }
+    class EffectManager{
+
+    }
+    class ChatBubbleManager{
+
+    }
+    class EventManager{
+
+    }
+    class MapManager{
+        map1
+        map2
+    }
+
+    class TutorialManager{
+
+    }
+
+    class ItemManager{
+        パンツ
+        アイテム
+        テキスト
+    }
+
+
+}
+
+
+package Title{
+    class TitleController{
+        
+    }
+}
+
+package Map1{
+    class TypeingGameManager{
+
+    }
+}
+
+package Map2{
+    class FadeManager{
+        public void　Fade();
+    }
+    class TileGameManager{
+
+    }
+
+    package 敵{
+        class Enemy{
+        -HP:int
+        -Name:string    
+        }
+
+        class GroundEnemy{
+
+        }
+        class AirEnemy{
+
+        }
+        class WallEnemy{
+
+        }
+        interface IAttackable{
+            +ApplayDamage(int damage)
+        }
+    }
+    
+
+    class GameOver{
+
+    }
+
+    class FlagManager{
+
+    }
+
+        Enemy -down-> IAttackable
+
+
+    GroundEnemy -do-> Enemy
+    AirEnemy -do-> Enemy
+    WallEnemy -do-> Enemy
+
+}
+
+Common -> Title
+Common -> Game
+Game -> Map1
+Game -> Map2
+@enduml

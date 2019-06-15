@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class MiniGameManager : MonoBehaviour
 {
+    public GameObject CameraMain;
+    public GameObject Door;
+
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
     private KeyCode[]   questionCommand;        //  問題のキー配列
     private const int   MISTAKELIMIT = 4;       //  ミス上限値
@@ -28,9 +31,17 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField]
     private Text        countdownObj;           //  カウントダウン用
     [SerializeField]
-    private GameObject  mistakeCountObj;        //  失敗回数を表示する用  
+    private GameObject  mistakeCountObj;        //  失敗回数を表示する用
     [SerializeField]
     private GameObject  commandParentObj;       //  コマンドの表示用
+    [SerializeField]
+    private GameObject PlayerMovePerrault;
+    [SerializeField]
+    private GameObject PlayerMoveFran;             //playerの移動制限解除用
+    [SerializeField]
+    private GameObject map;                     //mapオブジェクト変更
+    [SerializeField]
+    private GameObject mainGameMgr;
 
     [SerializeField]
     private GameObject  textPrefab;             //  コマンド用のPrefab
@@ -40,6 +51,7 @@ public class MiniGameManager : MonoBehaviour
     private Color       afterColor;
     private Color       fadeColor = Color.red;
     private Text[]      commandTexts;
+
 
     //[SerializeField]
     //private Sprite[]    keySprites;           //  問題に並べる画像
@@ -87,6 +99,8 @@ public class MiniGameManager : MonoBehaviour
     {
         discriptionObj.SetActive(true);
         isMinigame = true;
+        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = true;
+        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = true;
     }
 
     /// <summary>
@@ -241,6 +255,13 @@ public class MiniGameManager : MonoBehaviour
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
+        map.GetComponent<MapStatus>().MapObjectState[2] = true;
+        map.GetComponent<MapStatus>().MapObjectState[1] = true;
+        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
+        mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
+        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
+
+
     }
 
     /// <summary>
@@ -248,6 +269,10 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void MinigameFaild()
     {
+
+        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
+        mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
+        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
         StartCoroutine(DisplayFaildText());
     }
 
@@ -325,6 +350,8 @@ public class MiniGameManager : MonoBehaviour
         numOrder = 0;
         mistakeCount = 0;
         mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
+        CameraMain.GetComponent<Camera>().PastMode = false;
+        Door.GetComponent<MapStatus>().MapObjectState[2] = true;
         yield break;
     }
 

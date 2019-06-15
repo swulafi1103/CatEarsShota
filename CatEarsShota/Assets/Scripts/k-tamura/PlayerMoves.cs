@@ -24,7 +24,7 @@ public class PlayerMoves : MonoBehaviour
     GameObject MinigameMgr;
     [SerializeField]
     GameObject fran;
-  
+
 
 
     // Start is called before the first frame update
