@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: YellowOrb
   m_EditorClassIdentifier: 
   type: 0
-  itemNum: 1
+  itemNum: 0
   itemName: "\u9EC4\u8272\u306E\u30AA\u30FC\u30D6"
+  itemSprite: {fileID: 0}
   reportText: 

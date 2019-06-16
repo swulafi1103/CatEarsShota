@@ -8,10 +8,14 @@ public class ItemData : ScriptableObject
 {
     public enum ItemType {
         Nomal=0,
-        Report,
+        TextReport,
+        SpriteReport,
         Pants
     };
 
+    /// <summary>
+    /// アイテムの種類
+    /// </summary>
     [SerializeField]
     private ItemType type;
 
@@ -19,6 +23,9 @@ public class ItemData : ScriptableObject
         get { return type; }
     }
 
+    /// <summary>
+    /// ペローアイテム.elsxをもとに振っていく
+    /// </summary>
     [SerializeField]
     private int itemNum;
 
@@ -26,6 +33,9 @@ public class ItemData : ScriptableObject
         get { return itemNum; }
     }
 
+    /// <summary>
+    /// アイテム欄に載るアイテム名(載せるのなら)
+    /// </summary>
     [SerializeField]
     private string itemName;
 
@@ -33,6 +43,9 @@ public class ItemData : ScriptableObject
         get { return itemName; }
     }
 
+    /// <summary>
+    /// アイテム欄に載る画像
+    /// </summary>
     [SerializeField]
     private Sprite itemSprite;
 
@@ -52,4 +65,14 @@ public class ItemData : ScriptableObject
         get { return reportText; }
     }
 
+    /// <summary>
+    /// レポートのみ表示されるイラスト
+    /// (その他はitemManagerの方で取得しないようにする)
+    /// </summary>
+    [SerializeField]
+    private Sprite reportSprite;
+
+    public Sprite GetReportSprite {
+        get { return reportSprite; }
+    }
 }
