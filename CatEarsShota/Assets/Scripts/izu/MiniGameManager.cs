@@ -31,7 +31,7 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField]
     private Text        countdownObj;           //  カウントダウン用
     [SerializeField]
-    private GameObject  mistakeCountObj;        //  失敗回数を表示する用  
+    private GameObject  mistakeCountObj;        //  失敗回数を表示する用
     [SerializeField]
     private GameObject  commandParentObj;       //  コマンドの表示用
     [SerializeField]
@@ -51,7 +51,7 @@ public class MiniGameManager : MonoBehaviour
     private Color       afterColor;
     private Color       fadeColor = Color.red;
     private Text[]      commandTexts;
-    
+
 
     //[SerializeField]
     //private Sprite[]    keySprites;           //  問題に並べる画像
@@ -75,10 +75,9 @@ public class MiniGameManager : MonoBehaviour
     {
         CheckTypingKey();
         //  テスト用
-
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
-            //TouchGenerator();
+        //    TouchGenerator();
         //}
     }
 

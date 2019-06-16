@@ -24,16 +24,14 @@ public class PlayerMoves : MonoBehaviour
     GameObject MinigameMgr;
     [SerializeField]
     GameObject fran;
-    [SerializeField]
-    GameObject perrault;
-  
+
 
 
     // Start is called before the first frame update
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        anim = perrault.GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
         scale = transform.localScale;
     }
     void Start()
