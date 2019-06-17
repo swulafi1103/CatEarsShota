@@ -8,7 +8,6 @@ public class ItemData : ScriptableObject
 {
     public enum ItemType {
         Nomal=0,
-        TextReport,
         SpriteReport,
         Pants
     };
@@ -54,15 +53,15 @@ public class ItemData : ScriptableObject
     }
 
     /// <summary>
-    /// レポートのみ表示される文章を書く
+    /// アイテムのみ表示される詳細文章を書く
     /// (その他はitemManagerの方で取得しないようにする)
     /// </summary>
     [SerializeField]
     [Multiline]
-    private string reportText;
+    private string detailText;
 
-    public string GetReportText {
-        get { return reportText; }
+    public string GetDetailText {
+        get { return detailText; }
     }
 
     /// <summary>

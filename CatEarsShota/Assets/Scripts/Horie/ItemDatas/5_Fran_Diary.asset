@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a573cfea7451a408b90fcf40ecab04, type: 3}
+  m_Name: 5_Fran_Diary
+  m_EditorClassIdentifier: 
+  type: 1
+  itemNum: 5
+  itemName: "\u30D5\u30E9\u30F3\u306E\u7814\u7A76\u65E5\u8A8C"
+  itemSprite: {fileID: 21300000, guid: a23c586c528fa54419957cbaff6c1b9c, type: 3}
+  detailText: 
+  reportSprite: {fileID: 21300000, guid: 5754f54dac07143698e06ff44ca23f91, type: 3}
