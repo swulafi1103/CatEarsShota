@@ -12,6 +12,8 @@ public class PlayerMoves : MonoBehaviour
     [SerializeField]
     [Range(1, 500)]
     private float JumpPower = 0.1f;
+    [SerializeField, Range(0.01f, 3)]
+    private float gravityRate = 1.2f;
     private Rigidbody2D rb2d;
     private Vector2 WalkVector = new Vector2(1.00f, 1.00f);
     private Vector2 JumpVector = new Vector2(1.00f, 1.00f);
@@ -44,8 +46,13 @@ public class PlayerMoves : MonoBehaviour
     {
 
         Move();
-        Jump();
+        //Jump();
         Action();
+    }
+
+    private void FixedUpdate()
+    {
+        Jump();
     }
     /// <summary>
     /// Character Move this instance.
@@ -99,24 +106,29 @@ public class PlayerMoves : MonoBehaviour
         {
             if (Ground == true)
             {
-
-
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
 
                     if (JumpNum < 2)
                     {
                         JumpNum++;
-                        JumpVector.y += JumpPower;
+                        JumpVector.y = JumpPower;
+                        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                         rb2d.AddForce(JumpVector);
                         Debug.Log(JumpNum);
                     }
 
                 }
+                if (Input.GetKeyUp(KeyCode.Space))
+                {
+                    //rb2d.AddForce(new Vector2(rb2d.velocity.x, rb2d.velocity.y * gravityRate));
+                }
+
                 else
                 {
-
-                    JumpVector.y = 1;
+                    //JumpVector.y = 1;
+                    float gravity = rb2d.velocity.y * gravityRate;
+                    rb2d.AddForce(new Vector2(rb2d.velocity.x, gravity));
                 }
             }
             else
