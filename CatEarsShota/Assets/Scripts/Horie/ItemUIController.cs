@@ -33,13 +33,8 @@ public class ItemUIController : MonoBehaviour
 
     float AnimFrame = 8;
 
-
-    List<bool> HaveData = new List<bool>();
-    List<ItemData> ItemImage = new List<ItemData>();
     List<ItemData> NowHave = new List<ItemData>();
-
-    PlayerItems Perrault;
-    PlayerItems Fran;
+    
 
     bool IsFran = false;
 
@@ -48,7 +43,6 @@ public class ItemUIController : MonoBehaviour
     bool IsActDetail = false;
 
     void Start() {
-        SetData();
     }
 
     void Update() {
@@ -62,9 +56,9 @@ public class ItemUIController : MonoBehaviour
         PushCancel();
         
         PushGangeTab();
-
-
+        
         PushShowDetail();
+
         PushMoveCursor();
 
     }
@@ -137,12 +131,17 @@ public class ItemUIController : MonoBehaviour
         
         selectNum += moves;
         if (selectNum >= NowHave.Count) selectNum = 0;
-        if (selectNum < 0) selectNum = NowHave.Count - 1;
+        if (selectNum >= items.Length) selectNum = 0;
+        if (selectNum < 0 && items.Length > NowHave.Count) selectNum = NowHave.Count - 1;
+        if (selectNum < 0 && items.Length <= NowHave.Count) selectNum = items.Length - 1;
 
         Vector3 pos = items[selectNum].GetComponent<RectTransform>().localPosition;
         SelectImage.GetComponent<RectTransform>().localPosition = pos;
     }
 
+    /// <summary>
+    /// カーソル初期設定
+    /// </summary>
     void FirstSelectIcon() {
         if (NowHave.Count == 0) {
             SelectImage.gameObject.SetActive(false);
@@ -166,7 +165,7 @@ public class ItemUIController : MonoBehaviour
         Vector3 endPos;
 
         if (act) {
-            GetPlayer();
+            IsFran = ItemManager.Instance.IsFran;
 
             SetAnim();
             selectTab = 0;
@@ -218,34 +217,7 @@ public class ItemUIController : MonoBehaviour
         DetailPanel.SetActive(act);
         yield return null;
     }
-
-    /// <summary>
-    /// 初期化処理
-    /// </summary>
-    private void SetData() {
-        Perrault = null;
-        Fran = null;
-        PlayerItems[] players = GetComponents<PlayerItems>();
-        foreach(PlayerItems player in players) {
-            if (player.GetTypes == PlayerItems.PlayerType.Perrault) {
-                Perrault = player;
-            }
-            if (player.GetTypes == PlayerItems.PlayerType.Fran) {
-                Fran = player;
-            }
-
-            if (Perrault != null && Fran != null) break;
-        }
-    }
-
-    /// <summary>
-    /// playerがペローかフランか判定
-    /// </summary>
-    void GetPlayer() {
-        //仮
-        IsFran = false;
-    }
-
+    
     /// <summary>
     /// アニメーション切り替え
     /// </summary>
@@ -265,38 +237,15 @@ public class ItemUIController : MonoBehaviour
     /// アイテム画像貼り付け
     /// </summary>
     private void SetIamges() {
-        HaveData.Clear();
-        ItemImage.Clear();
         NowHave.Clear();
-        ItemData.ItemType types = (ItemData.ItemType)Enum.ToObject(typeof(ItemData.ItemType), selectTab);
 
-        if (IsFran) {
-            HaveData = Fran.GetTypeHaveData(types);
-            ItemImage = Fran.GetTypeImage(types);
-        }
-        else {
-            HaveData = Perrault.GetTypeHaveData(types);
-            ItemImage = Perrault.GetTypeImage(types);
-        }
-
-        for(int i = 0; i < HaveData.Count; i++) {
-            if (HaveData[i]) {
-                NowHave.Add(ItemImage[i]);
-            }
-        }
-
-
+        NowHave = ItemManager.Instance.GetNowData(selectTab);
+        
         for (int i = 0; i < items.Length; i++) {
             bool act = i < NowHave.Count;
             items[i].SetActive(act);
-
-            items[i].GetComponent<ItemUIPiece>().ShadowImage.gameObject.SetActive(false);
-
             if (act) {
-                items[i].GetComponent<ItemUIPiece>().ItemImage.sprite = NowHave[i].GetItemSprite;
-            }
-            else {
-                items[i].GetComponent<ItemUIPiece>().ItemImage.sprite = null;
+                items[i].GetComponent<ItemUIPiece>().SetImage(NowHave[i]);
             }
         }
 
