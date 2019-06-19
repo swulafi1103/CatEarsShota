@@ -41,6 +41,7 @@ public class DetailPanel : MonoBehaviour
     private  void SetImages(bool act) {
         icon.gameObject.SetActive(act);
         itemName.gameObject.SetActive(act);
+        detailText.transform.parent.gameObject.SetActive(act);
         detailText.gameObject.SetActive(act);
 
         reportImage.gameObject.SetActive(!act);
