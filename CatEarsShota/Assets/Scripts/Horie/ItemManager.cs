@@ -28,26 +28,14 @@ public class ItemManager : MonoBehaviour
         
     }
 
-    /// <summary>
-    /// アイテム欄でAキーを押されたとき
-    /// </summary>
-    public void ItemClickd(ItemData item) {
-        switch (item.GetItemType) {
-            case ItemData.ItemType.Nomal:
-                break;
-            case ItemData.ItemType.SpriteReport:
-                break;
-            case ItemData.ItemType.Pants:
-                ChangePants(item.GetItemNum);
-                break;
-        }
-    }
+    
 
     /// <summary>
     /// パンツ切り替え
     /// </summary>
     /// <param name="num"></param>
-    private void ChangePants(int num) {
+    public void ChangePants(int num) {
         //getpuntsnum(num-12);  //伊豆先輩の関数呼び出す
+        Debug.Log(num - 12);
     }
 }

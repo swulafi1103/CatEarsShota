@@ -17,6 +17,7 @@ public class PlayerItems : MonoBehaviour {
 
     [SerializeField]
     private List<ItemData> canGetItems = new List<ItemData>();
+    [SerializeField]//debug用serialize
     private List<bool> itemIsGet = new List<bool>();
 
     [SerializeField]
@@ -38,7 +39,7 @@ public class PlayerItems : MonoBehaviour {
     /// </summary>
     void SetStartData() {
         for (int i = 0; i < canGetItems.Count; i++) {
-            itemIsGet.Add(true);
+            itemIsGet.Add(false);
         }
     }
 
