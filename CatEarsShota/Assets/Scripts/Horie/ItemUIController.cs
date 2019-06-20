@@ -17,7 +17,7 @@ public class ItemUIController : MonoBehaviour
     int selectNum = 0;
 
     [SerializeField]
-    GameObject[] items = new GameObject[6];
+    ItemUIPiece[] items = new ItemUIPiece[6];
 
     [SerializeField]
     GameObject ItemPanel;
@@ -31,6 +31,9 @@ public class ItemUIController : MonoBehaviour
     [SerializeField]
     Animator PlayerAnim;
 
+    [SerializeField]
+    TabBar tabBer;
+
     float AnimFrame = 8;
 
     List<ItemData> NowHave = new List<ItemData>();
@@ -42,21 +45,25 @@ public class ItemUIController : MonoBehaviour
 
     bool IsActDetail = false;
 
+    bool IsActTab = false;
+
     void Start() {
     }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.D)) {
-            IsActUI = !IsActUI;
+            if (IsActUI) return;
             IsActDetail = false;
-            StartCoroutine(SetItemUI(IsActUI));
+            StartCoroutine(SetItemUI(true));
         }
 
         if (!IsActUI) return;
         PushCancel();
-        
-        PushGangeTab();
-        
+
+        PushUpArrow();
+
+        //PushGangeTab();
+
         PushShowDetail();
 
         PushMoveCursor();
@@ -64,7 +71,7 @@ public class ItemUIController : MonoBehaviour
     }
 
     /// <summary>
-    /// タブ切り替え入力
+    /// タブ切り替え入力F
     /// </summary>
     void PushGangeTab() {
         if (!Input.GetKeyDown(KeyCode.F)) return;
@@ -81,6 +88,21 @@ public class ItemUIController : MonoBehaviour
         }
         SetTabColor();
         SetIamges();
+        FirstSelectIcon();
+    }
+
+    /// <summary>
+    /// ↑キーでタブ移動へ
+    /// </summary>
+    void PushUpArrow() {
+        if (!Input.GetKeyDown(KeyCode.UpArrow)) return;
+        if (IsActDetail && IsActTab) return;
+
+        IsActTab = true;
+
+        items[selectNum].ThisSelected(false);
+        tabBer.ActAnim(true);
+        tabBer.MoveLine(selectTab);
     }
 
     /// <summary>
@@ -88,8 +110,19 @@ public class ItemUIController : MonoBehaviour
     /// </summary>
     void PushShowDetail() {
         if (!Input.GetKeyDown(KeyCode.A)) return;
-        if (!SelectImage.gameObject.activeSelf) return;
-        StartCoroutine(SetDetailUI(true));
+
+        if (IsActTab) {
+            IsActTab = false;
+            tabBer.ActAnim(false);
+
+            SetTabColor();
+            SetIamges();
+            FirstSelectIcon();
+        }
+        else {
+            if (NowHave.Count <= 0) return;
+            StartCoroutine(SetDetailUI(true));
+        }
     }
 
     /// <summary>
@@ -112,11 +145,44 @@ public class ItemUIController : MonoBehaviour
     /// </summary>
     void PushMoveCursor() {
         if (Input.GetKeyDown(KeyCode.RightArrow)) {
-            MoveSelectIcon(true);
+            if (IsActTab) {
+                MoveTabLine(true);
+            }
+            else {
+                MoveSelectIcon(true);
+            }
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-            MoveSelectIcon(false);
+            if (IsActTab) {
+                MoveTabLine(false);
+            }
+            else {
+                MoveSelectIcon(false);
+            }
         }
+    }
+
+    /// <summary>
+    /// タブカーソル移動
+    /// </summary>
+    void MoveTabLine(bool right) {
+
+        int moves = right ? 1 : -1;
+
+        selectTab += moves;
+
+        if (IsFran) {
+            if (selectTab >= selectMaxs[0]) selectTab = 0;
+        }
+        else {
+            if (selectTab >= selectMaxs[1]) selectTab = 0;
+        }
+
+        if (selectTab < 0) {
+            selectTab = IsFran ? selectMaxs[0] - 1 : selectMaxs[1] - 1;
+        }
+
+        tabBer.MoveLine(selectTab);
     }
 
     /// <summary>
@@ -125,33 +191,42 @@ public class ItemUIController : MonoBehaviour
     /// <param name="right"></param>
     void MoveSelectIcon(bool right) {
 
-        if (!SelectImage.gameObject.activeSelf) return;
+        if (NowHave.Count <= 0) return;
 
         int moves = right ? 1 : -1;
-        
+        int beforenum = selectNum;
         selectNum += moves;
         if (selectNum >= NowHave.Count) selectNum = 0;
         if (selectNum >= items.Length) selectNum = 0;
         if (selectNum < 0 && items.Length > NowHave.Count) selectNum = NowHave.Count - 1;
         if (selectNum < 0 && items.Length <= NowHave.Count) selectNum = items.Length - 1;
 
-        Vector3 pos = items[selectNum].GetComponent<RectTransform>().localPosition;
-        SelectImage.GetComponent<RectTransform>().localPosition = pos;
+        items[beforenum].ThisSelected(false);
+        items[selectNum].ThisSelected(true);
+
+        //Vector3 pos = items[selectNum].GetComponent<RectTransform>().localPosition;
+        //SelectImage.GetComponent<RectTransform>().localPosition = pos;
     }
 
     /// <summary>
     /// カーソル初期設定
     /// </summary>
     void FirstSelectIcon() {
-        if (NowHave.Count == 0) {
-            SelectImage.gameObject.SetActive(false);
-        }
-        else {
-            SelectImage.gameObject.SetActive(true);
-            selectNum = 0;
-            Vector3 pos = items[selectNum].GetComponent<RectTransform>().localPosition;
-            SelectImage.GetComponent<RectTransform>().localPosition = pos;
-        }
+        //if (NowHave.Count == 0) {
+        //    SelectImage.gameObject.SetActive(false);
+        //}
+        //else {
+        //    SelectImage.gameObject.SetActive(true);
+        //    selectNum = 0;
+
+
+        //    //Vector3 pos = items[selectNum].GetComponent<RectTransform>().localPosition;
+        //    //.GetComponent<RectTransform>().localPosition = pos;
+        //}
+
+        if (NowHave.Count <= 0) return;
+        selectNum = 0;
+        items[selectNum].ThisSelected(true);
     }
 
     /// <summary>
@@ -161,6 +236,7 @@ public class ItemUIController : MonoBehaviour
     /// <returns></returns>
     IEnumerator SetItemUI(bool act) {
 
+        IsActUI = act;
         Vector3 startPos;
         Vector3 endPos;
 
@@ -170,6 +246,9 @@ public class ItemUIController : MonoBehaviour
             SetAnim();
             selectTab = 0;
             SetTabColor();
+            IsActTab = true;
+            tabBer.ActAnim(true);
+            tabBer.MoveLine(selectTab);
             SetIamges();
 
             startPos = new Vector3(0, -1080, 0);
@@ -243,12 +322,11 @@ public class ItemUIController : MonoBehaviour
         
         for (int i = 0; i < items.Length; i++) {
             bool act = i < NowHave.Count;
-            items[i].SetActive(act);
+            items[i].gameObject.SetActive(act);
             if (act) {
-                items[i].GetComponent<ItemUIPiece>().SetImage(NowHave[i]);
+                items[i].SetImage(NowHave[i]);
             }
         }
 
-        FirstSelectIcon();
     }
 }
