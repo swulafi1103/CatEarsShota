@@ -7,7 +7,7 @@ public class PlayerMoves : MonoBehaviour
 {
     [Header("PlayerMoveParamater")]
     [SerializeField, Range(1, 50)]
-    private float MoveSpeed = 0.1f;
+    private float MoveSpeed = 13f;
     [SerializeField, Range(1, 15)]
     private float MaxSpeed = 5f;
     [SerializeField, Range(0.01f, 0.2f)]

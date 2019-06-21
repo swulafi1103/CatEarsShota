@@ -33,7 +33,7 @@ public class Camera : MonoBehaviour
         if (transform.position.x < CameraLimit[1] && transform.position.x > CameraLimit[0])
             transform.position = Vector3.Lerp(transform.position, Player.transform.position - rangeToTarget, Time.deltaTime);
         else{
-            int tmpindex = transform.position.x > CameraLimit[1] ? 1 : 0;
+            int tmpindex = transform.position.x > CameraLimit[1] ? 0 : 1;
             transform.position = new Vector3(CameraLimit[tmpindex], transform.position.y, transform.position.z);
         }
         if (PlayVideo)
