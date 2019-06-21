@@ -57,10 +57,9 @@ public class ItemData : ScriptableObject
     /// (その他はitemManagerの方で取得しないようにする)
     /// </summary>
     [SerializeField]
-    [Multiline]
-    private string detailText;
+    private Sprite detailText;
 
-    public string GetDetailText {
+    public Sprite GetDetailText {
         get { return detailText; }
     }
 
@@ -68,10 +67,10 @@ public class ItemData : ScriptableObject
     /// レポートのみ表示されるイラスト
     /// (その他はitemManagerの方で取得しないようにする)
     /// </summary>
-    [SerializeField]
-    private Sprite reportSprite;
+    //[SerializeField]
+    //private Sprite reportSprite;
 
-    public Sprite GetReportSprite {
-        get { return reportSprite; }
-    }
+    //public Sprite GetReportSprite {
+    //    get { return reportSprite; }
+    //}
 }

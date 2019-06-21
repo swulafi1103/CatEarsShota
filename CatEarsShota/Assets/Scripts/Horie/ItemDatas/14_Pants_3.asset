@@ -16,5 +16,5 @@ MonoBehaviour:
   itemNum: 14
   itemName: "\u3057\u307E\u3057\u307E\u30D1\u30F3\u30C4"
   itemSprite: {fileID: 21300000, guid: e2b56dc72346d7c4ca3531a73ddd68b4, type: 3}
-  detailText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\n\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+  detailText: {fileID: 0}
   reportSprite: {fileID: 0}

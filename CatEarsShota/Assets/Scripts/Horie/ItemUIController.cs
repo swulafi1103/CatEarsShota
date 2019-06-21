@@ -31,8 +31,8 @@ public class ItemUIController : MonoBehaviour
     [SerializeField]
     Animator PlayerAnim;
 
-    [SerializeField]
-    TabBar tabBer;
+    //[SerializeField]
+    //TabBar tabBer;
 
     float AnimFrame = 8;
 
@@ -52,15 +52,19 @@ public class ItemUIController : MonoBehaviour
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.D)) {
-            if (IsActUI) return;
-            IsActDetail = false;
-            StartCoroutine(SetItemUI(true));
+            if (IsActUI) {
+                PushGangeTab();
+            }
+            else {
+                IsActDetail = false;
+                StartCoroutine(SetItemUI(true));
+            }
         }
 
         if (!IsActUI) return;
         PushCancel();
 
-        PushUpArrow();
+        //PushUpArrow();
 
         //PushGangeTab();
 
@@ -74,7 +78,7 @@ public class ItemUIController : MonoBehaviour
     /// タブ切り替え入力F
     /// </summary>
     void PushGangeTab() {
-        if (!Input.GetKeyDown(KeyCode.F)) return;
+        //if (!Input.GetKeyDown(KeyCode.F)) return;
 
         if (IsActDetail) return;
 
@@ -101,8 +105,8 @@ public class ItemUIController : MonoBehaviour
         IsActTab = true;
 
         items[selectNum].ThisSelected(false);
-        tabBer.ActAnim(true);
-        tabBer.MoveLine(selectTab);
+        //tabBer.ActAnim(true);
+        //tabBer.MoveLine(selectTab);
     }
 
     /// <summary>
@@ -111,18 +115,22 @@ public class ItemUIController : MonoBehaviour
     void PushShowDetail() {
         if (!Input.GetKeyDown(KeyCode.A)) return;
 
-        if (IsActTab) {
-            IsActTab = false;
-            tabBer.ActAnim(false);
 
-            SetTabColor();
-            SetIamges();
-            FirstSelectIcon();
-        }
-        else {
-            if (NowHave.Count <= 0) return;
-            StartCoroutine(SetDetailUI(true));
-        }
+        if (NowHave.Count <= 0) return;
+        StartCoroutine(SetDetailUI(true));
+
+        //if (IsActTab) {
+        //    IsActTab = false;
+        //    //tabBer.ActAnim(false);
+
+        //    SetTabColor();
+        //    SetIamges();
+        //    FirstSelectIcon();
+        //}
+        //else {
+        //    if (NowHave.Count <= 0) return;
+        //    StartCoroutine(SetDetailUI(true));
+        //}
     }
 
     /// <summary>
@@ -145,20 +153,22 @@ public class ItemUIController : MonoBehaviour
     /// </summary>
     void PushMoveCursor() {
         if (Input.GetKeyDown(KeyCode.RightArrow)) {
-            if (IsActTab) {
-                MoveTabLine(true);
-            }
-            else {
-                MoveSelectIcon(true);
-            }
+            MoveSelectIcon(true);
+            //if (IsActTab) {
+            //    MoveTabLine(true);
+            //}
+            //else {
+            //    MoveSelectIcon(true);
+            //}
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-            if (IsActTab) {
-                MoveTabLine(false);
-            }
-            else {
-                MoveSelectIcon(false);
-            }
+            MoveSelectIcon(false);
+            //if (IsActTab) {
+            //    MoveTabLine(false);
+            //}
+            //else {
+            //    MoveSelectIcon(false);
+            //}
         }
     }
 
@@ -182,7 +192,7 @@ public class ItemUIController : MonoBehaviour
             selectTab = IsFran ? selectMaxs[0] - 1 : selectMaxs[1] - 1;
         }
 
-        tabBer.MoveLine(selectTab);
+        //tabBer.MoveLine(selectTab);
     }
 
     /// <summary>
@@ -246,10 +256,11 @@ public class ItemUIController : MonoBehaviour
             SetAnim();
             selectTab = 0;
             SetTabColor();
-            IsActTab = true;
-            tabBer.ActAnim(true);
-            tabBer.MoveLine(selectTab);
+            //IsActTab = true;
+            //tabBer.ActAnim(true);
+            //tabBer.MoveLine(selectTab);
             SetIamges();
+            FirstSelectIcon();
 
             startPos = new Vector3(0, -1080, 0);
             endPos = Vector3.zero;
@@ -283,12 +294,13 @@ public class ItemUIController : MonoBehaviour
             
             switch (types) {
                 case ItemData.ItemType.Nomal:
-                    DetailPanel.GetComponent<DetailPanel>().SetItem(NowHave[selectNum]);
+                    DetailPanel.GetComponent<DetailPanel>().SetDetail(NowHave[selectNum]);
                     break;
                 case ItemData.ItemType.SpriteReport:
-                    DetailPanel.GetComponent<DetailPanel>().SetReport(NowHave[selectNum]);
+                    DetailPanel.GetComponent<DetailPanel>().SetDetail(NowHave[selectNum]);
                     break;
                 case ItemData.ItemType.Pants:
+                    IsActDetail = !act;
                     ItemManager.Instance.ChangePants(NowHave[selectNum].GetItemNum);
                     yield break;
             }

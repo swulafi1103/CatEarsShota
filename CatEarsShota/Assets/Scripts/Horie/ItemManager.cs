@@ -28,6 +28,7 @@ public class ItemManager : MonoBehaviour
         instance = this;
     }
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,7 @@ public class ItemManager : MonoBehaviour
 
             if (Perrault != null && Fran != null) break;
         }
+        
     }
 
     /// <summary>
@@ -94,6 +96,7 @@ public class ItemManager : MonoBehaviour
     /// </summary>
     void GetPlayer() {
         //仮
+        //isFran = camera.PastMode;
         isFran = false;
     }
 
