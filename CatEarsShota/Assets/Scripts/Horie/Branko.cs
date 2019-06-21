@@ -17,7 +17,8 @@ public class Branko : MonoBehaviour
 
     float timer = 0;
 
-    float harfSize = 0;
+    float harfSizeX = 0;
+    float harfSizeY = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +40,11 @@ public class Branko : MonoBehaviour
         for(int i = 0; i < lines.Length; i++) {
             linePos[i] = lines[i].transform.position;
             lines[i].SetPosition(0, linePos[i]);
-            lines[i].SetColors(Color.white, Color.white);
         }
         transform.position = MaxPos[0];
 
-        harfSize = GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        harfSizeX = GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        harfSizeY = GetComponent<SpriteRenderer>().bounds.size.y / 2;
     }
 
     void MoveBuranko() {
@@ -67,12 +68,14 @@ public class Branko : MonoBehaviour
         transform.position = pos;
 
         Vector3 line1 = pos;
-        line1.x -= harfSize;
+        line1.x -= (harfSizeX - 0.1f);
+        line1.y += harfSizeY - 0.1f;
 
         lines[0].SetPosition(1, line1);
 
         Vector3 line2 = pos;
-        line2.x += harfSize;
+        line2.x += (harfSizeX - 0.1f);
+        line2.y += harfSizeY - 0.1f;
 
         lines[1].SetPosition(1, line2);
     }
