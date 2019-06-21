@@ -43,3 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GameEffect
+    uniqueID: 1129852175
+    locked: 0
+  - name: UI
+    uniqueID: 2974201879
+    locked: 0
+  - name: UIEffect
+    uniqueID: 2362833101
+    locked: 0

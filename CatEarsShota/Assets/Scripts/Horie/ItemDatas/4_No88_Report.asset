@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a573cfea7451a408b90fcf40ecab04, type: 3}
+  m_Name: 4_No88_Report
+  m_EditorClassIdentifier: 
+  type: 1
+  itemNum: 4
+  itemName: "\u88AB\u691CNo.88\u306E\u5831\u544A\u66F8"
+  itemSprite: {fileID: 21300000, guid: 23dc1e69089d9cb47b106620aaa3c556, type: 3}
+  detailText: {fileID: 21300000, guid: bc0e02def19321a4796f821da7867c4c, type: 3}
