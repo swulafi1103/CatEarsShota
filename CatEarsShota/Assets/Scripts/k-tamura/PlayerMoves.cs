@@ -26,9 +26,8 @@ public class PlayerMoves : MonoBehaviour
     public bool isNotmoves = false;
     Vector3 scale;
     [SerializeField]
-    ContactFilter2D filter2d;
-    [SerializeField]
-    GameObject MinigameMgr;
+    private ContactFilter2D filter2d;
+    private GameObject MinigameMgr;
     //[SerializeField]
     //GameObject fran;
 

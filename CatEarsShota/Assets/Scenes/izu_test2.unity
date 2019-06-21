@@ -205,13 +205,21 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1467140824, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467140824, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1467140829, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1467140829, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
       propertyPath: JumpPower
-      value: 240
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 1467140829, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
       propertyPath: MaxSpeed
@@ -860,7 +868,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 214d005ce1cba0e449c7258a3c264e7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4bb5ed775eff74fa3b9059a1c7bb1638, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2031,18 +2039,19 @@ EdgeCollider2D:
   - {x: -4.9509125, y: -5.6560116}
   - {x: -4.9896345, y: -4.8517704}
   - {x: -3.4489388, y: -4.8107758}
-  - {x: -3.2399182, y: -3.629815}
-  - {x: -2.0204773, y: -3.5398464}
+  - {x: -3.3017435, y: -3.506165}
+  - {x: -2.2677765, y: -3.4934773}
   - {x: -2.2804632, y: -2.519516}
   - {x: 2.1427546, y: -2.5044606}
   - {x: 2.1521301, y: -3.460854}
-  - {x: 3.9530334, y: -3.5659938}
+  - {x: 3.8912086, y: -3.5196252}
   - {x: 3.9701939, y: -4.806135}
   - {x: 5.5820694, y: -4.8228054}
-  - {x: 5.576437, y: -5.5288057}
-  - {x: 7.0985165, y: -5.534769}
-  - {x: 7.084976, y: -6.6481295}
-  - {x: 7.956093, y: -7.5165167}
+  - {x: 5.576437, y: -5.5751743}
+  - {x: 7.0985165, y: -5.5811377}
+  - {x: 7.1004314, y: -6.864517}
+  - {x: 8.0487385, y: -6.698456}
+  - {x: 8.17248, y: -7.470148}
   - {x: 9.378599, y: -7.4747715}
   - {x: 9.409565, y: -7.9725027}
   - {x: 11.403143, y: -7.9803267}
