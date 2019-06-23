@@ -99,7 +99,7 @@ Transform:
   m_GameObject: {fileID: 2547405339827579850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.1066613, y: -0.8727595, z: 0}
-  m_LocalScale: {x: 0.2716193, y: 0.2716193, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0}
   m_Children:
   - {fileID: 21241382}
   m_Father: {fileID: 0}
@@ -141,8 +141,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 320414902e4d31c469ba7a0d528bb296, type: 3}
+  m_SortingOrder: 100
+  m_Sprite: {fileID: 21300000, guid: 5499be1b0bc6b2a42a8832bcc1ba8c3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -186,8 +186,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.1
-  m_GravityScale: 1.92
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -206,8 +206,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.37}
-  m_Size: {x: 1.6, y: 6.47}
+  m_Offset: {x: 0, y: -0.4}
+  m_Size: {x: 2, y: 6.5}
   m_Direction: 0
 --- !u!114 &1467140829
 MonoBehaviour:
@@ -221,9 +221,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60403384efff541e490ffb077e63a501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  JumpPower: 344
-  Notmoves: 0
-  MinigameMgr: {fileID: 0}
-  fran: {fileID: 0}
-  perrault: {fileID: 2547405339827579850}
+  MoveSpeed: 13
+  MaxSpeed: 4
+  brakePower: 0.05
+  JumpPower: 250
+  gravityRate: 1
+  isNotmoves: 0
+  filter2d:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 1
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 70
+    maxNormalAngle: 110

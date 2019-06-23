@@ -14,7 +14,7 @@ public class Minigame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A)&&gamePlaying==false)//調べ
         {
             gamePlaying = true;
-            playermoves.GetComponent<PlayerMoves>().Notmoves = true;
+            playermoves.GetComponent<PlayerMoves>().isNotmoves = true;
             MinigameMgr.GetComponent<MiniGameManager>().TouchGenerator();
         }
         if (Input.GetKeyDown(KeyCode.Return))
@@ -31,7 +31,7 @@ public class Minigame : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))//調べ
             {
 
-                playermoves.GetComponent<PlayerMoves>().Notmoves = true;
+                playermoves.GetComponent<PlayerMoves>().isNotmoves = true;
                 MinigameMgr.GetComponent<MiniGameManager>().TouchGenerator();
             }
             if (Input.GetKeyDown(KeyCode.Return))

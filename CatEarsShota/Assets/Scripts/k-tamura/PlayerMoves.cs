@@ -6,31 +6,37 @@ using UnityEngine;
 public class PlayerMoves : MonoBehaviour
 {
     [Header("PlayerMoveParamater")]
-    [SerializeField]
-    [Range(1, 50)]
-    private float MoveSpeed = 0.1f;
-    [SerializeField]
-    [Range(1, 500)]
+    [SerializeField, Range(1, 50)]
+    private float MoveSpeed = 13f;
+    [SerializeField, Range(1, 15)]
+    private float MaxSpeed = 5f;
+    [SerializeField, Range(0.01f, 0.2f)]
+    private float brakePower = 0.05f;
+    [SerializeField, Range(1, 500)]
     private float JumpPower = 0.1f;
-    private Rigidbody2D rb2d;
-    private Vector2 WalkVector = new Vector2(1.00f, 1.00f);
-    private Vector2 JumpVector = new Vector2(1.00f, 1.00f);
+    [SerializeField, Range(0.01f, 3)]
+    private float gravityRate = 1.2f;
+    private Rigidbody2D rb;
+    private Vector2 WalkVector = new Vector2(0, 0);
+    //private Vector2 JumpVector = new Vector2(0, 0);
     private Animator anim;
     private int JumpNum = 0;
-    private bool Ground = false;
-    public bool Notmoves = false;
+    private bool isGround = false;
+    private bool isJump = false;
+    public bool isNotmoves = false;
     Vector3 scale;
     [SerializeField]
-    GameObject MinigameMgr;
-    [SerializeField]
-    GameObject fran;
+    private ContactFilter2D filter2d;
+    private GameObject MinigameMgr;
+    //[SerializeField]
+    //GameObject fran;
 
 
 
     // Start is called before the first frame update
     private void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         scale = transform.localScale;
     }
@@ -42,90 +48,111 @@ public class PlayerMoves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Move();
-        Jump();
-        Action();
+        CheckGround();
+        //  操作停止中ではないか
+        if (!isNotmoves)
+        {
+            Move();
+            Jump();
+            Action();
+        }
+        //Debug.Log("JumpNum:" + JumpNum);
     }
+
+    private void FixedUpdate()
+    {
+        //Jump();
+    }
+
     /// <summary>
-    /// Character Move this instance.
+    /// 移動
     /// </summary>
     private void Move()
     {
         //RightMove
-        if (Notmoves == false)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (scale.x > 0)
             {
-                if (scale.x > 0)
-                {
-                    scale.x *= -1;
-                    transform.localScale = scale;
-                }
-                WalkVector.x = MoveSpeed;
-                rb2d.AddForce(WalkVector - rb2d.velocity, ForceMode2D.Force);
-                anim.SetBool("SetWaitAnimator", false);
-                anim.SetBool("SetWalkAnimator", true);
+                scale.x *= -1;
+                transform.localScale = scale;
             }
-            //LeftMove
+            WalkVector.x = MoveSpeed;
+            rb.AddForce(WalkVector - rb.velocity, ForceMode2D.Force);
+            //  最高速度に制限
+            rb.velocity = new Vector2(Mathf.Min(MaxSpeed, rb.velocity.x), rb.velocity.y);
+            anim.SetBool("SetWaitAnimator", false);
+            anim.SetBool("SetWalkAnimator", true);
+        }
+        //LeftMove
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            if (scale.x < 0)
+            {
+                scale.x *= -1f;
+                transform.localScale = scale;
+            }
+            WalkVector.x = -1 * MoveSpeed;
+            rb.AddForce(WalkVector - rb.velocity, ForceMode2D.Force);
+            //  最高速度に制限
+            rb.velocity = new Vector2(Mathf.Max(-MaxSpeed, rb.velocity.x), rb.velocity.y);
+            anim.SetBool("SetWaitAnimator", false);
+            anim.SetBool("SetWalkAnimator", true);
+        }
 
-            else if (Input.GetKey(KeyCode.LeftArrow))
+        if (Mathf.Abs(rb.velocity.x) > 0 && (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)))
+        {
+            if (Mathf.Abs(rb.velocity.x) >= 0.1f)
             {
-                if (scale.x < 0)
-                {
-                    scale.x *= -1f;
-                    transform.localScale = scale;
-                }
-                WalkVector.x = -1 * MoveSpeed;
-                rb2d.AddForce(WalkVector - rb2d.velocity, ForceMode2D.Force);
-                anim.SetBool("SetWaitAnimator", false);
-                anim.SetBool("SetWalkAnimator", true);
+                Debug.Log("スピード = " + rb.velocity.x);
+                rb.velocity = new Vector2(rb.velocity.x * (1 - brakePower), rb.velocity.y);
             }
-            else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+            else if (Mathf.Abs(rb.velocity.x) < 0.1f)
             {
+                //  完全に停止
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                // Idle状態に
                 anim.SetBool("SetWaitAnimator", true);
                 anim.SetBool("SetWalkAnimator", false);
             }
         }
-
-
     }
+
     /// <summary>
     /// Character Jump this instance.
     /// </summary>
     void Jump()
     {
-        if (Notmoves == false)
+        //  地面に触れているか
+        if (isGround)
         {
-            if (Ground == true)
+            JumpNum = 0;
+            isJump = false;
+        }
+        if (!isGround && !isJump)
+        {
+            JumpNum = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && JumpNum < 2)
+        {
+            JumpNum++;
+            isJump = true;
+            Vector2 JumpVector = new Vector2(0, JumpPower);
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(JumpVector);
+        }
+        else
+        {
+            if (rb.velocity.y < -0.01f)
             {
-
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-
-                    if (JumpNum < 2)
-                    {
-                        JumpNum++;
-                        JumpVector.y += JumpPower;
-                        rb2d.AddForce(JumpVector);
-                        Debug.Log(JumpNum);
-                    }
-
-                }
-                else
-                {
-
-                    JumpVector.y = 1;
-                }
-            }
-            else
-            {
-                Ground = false;
-                JumpNum = 0;
+                float gravity = rb.velocity.y * gravityRate;
+                rb.AddForce(new Vector2(rb.velocity.x, gravity));
             }
         }
+
     }
+
     /// <summary>
     /// Action
     /// </summary>
@@ -144,16 +171,23 @@ public class PlayerMoves : MonoBehaviour
 
         }
     }
+
+    //  地面に触れているか
+    void CheckGround()
+    {
+        isGround = rb.IsTouching(filter2d);
+        //Debug.Log("地面：" + isGround);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground") Ground = true;
-        JumpNum = 0;
-        Debug.Log(Ground);
+        //if (collision.gameObject.tag == "Ground") isGround = true;
+        //JumpNum = 0;
         if (collision.gameObject.tag == "MiniGames")
         {
             if (Input.GetKeyDown(KeyCode.A))//調べ
             {
-                Notmoves = true;
+                isNotmoves = true;
                 MinigameMgr.GetComponent<MiniGameManager>().TouchGenerator();
             }
             if (Input.GetKeyDown(KeyCode.Return))
