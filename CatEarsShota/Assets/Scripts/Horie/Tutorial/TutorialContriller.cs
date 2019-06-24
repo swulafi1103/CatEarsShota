@@ -54,4 +54,25 @@ public class TutorialContriller : MonoBehaviour
         Rigidbody2D p = PerraultObj.GetComponent<Rigidbody2D>();
         iconTutorial.MoveTuto(p);
     }
+
+    /// <summary>
+    /// 「調べる」チュートリアル
+    /// </summary>
+    public void CheckingTuto() {
+        iconTutorial.IconTuto(IconTutorial.IconNum.Checking);
+    }
+
+    /// <summary>
+    /// 「アイテム拾う」チュートリアル
+    /// </summary>
+    public void ItemTuto() {
+        iconTutorial.IconTuto(IconTutorial.IconNum.Item);
+    }
+
+    /// <summary>
+    /// 「アイテム欄を開く」チュートリアル
+    /// </summary>
+    public void ItemUITuto() {
+        iconTutorial.IconTuto(IconTutorial.IconNum.ItemUI);
+    }
 }

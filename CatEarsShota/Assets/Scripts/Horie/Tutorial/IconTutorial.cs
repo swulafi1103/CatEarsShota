@@ -26,6 +26,7 @@ public class IconTutorial : MonoBehaviour
         Move = 0,
         Jump,
         HiJump,
+        Checking,
         Item,
         ItemUI,
         None
@@ -54,9 +55,14 @@ public class IconTutorial : MonoBehaviour
             case IconNum.HiJump:
                 CheckHiJump();
                 break;
+            case IconNum.Checking:
+                Checking();
+                break;
             case IconNum.Item:
+                ItemTuto();
                 break;
             case IconNum.ItemUI:
+                ItemUITuto();
                 break;
             default:
                 break;
@@ -118,6 +124,30 @@ public class IconTutorial : MonoBehaviour
                 FirstJump = true;
             }
         }
+    }
+
+    /// <summary>
+    /// 「調べる」判定
+    /// </summary>
+    void Checking() {
+        if (!Input.GetKeyDown(KeyCode.A)) return;
+        StartCoroutine(EndAnim());
+    }
+
+    /// <summary>
+    /// 「アイテム拾う」判定
+    /// </summary>
+    void ItemTuto() {
+        if (!Input.GetKeyDown(KeyCode.A)) return;
+        StartCoroutine(AnimSet(IconNum.ItemUI));
+    }
+
+    /// <summary>
+    /// 「アイテム欄」判定
+    /// </summary>
+    void ItemUITuto() {
+        if (!Input.GetKeyDown(KeyCode.D)) return;
+        StartCoroutine(EndAnim());
     }
 
     /// <summary>
