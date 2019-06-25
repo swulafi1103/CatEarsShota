@@ -5,8 +5,8 @@ using System;
 
 public class ItemManager : MonoBehaviour
 {
-    //[SerializeField]
-    //private List<ItemData> itemList = new List<ItemData>();
+    [SerializeField]
+    private List<ItemData> itemList = new List<ItemData>();
 
     private static ItemManager instance;
     public static ItemManager Instance {
@@ -122,5 +122,28 @@ public class ItemManager : MonoBehaviour
     public void ChangePants(int num) {
         //getpuntsnum(num-12);  //伊豆先輩の関数呼び出す
         Debug.Log(num - 12);
+    }
+
+    public bool IsGet(int num,bool isPerrault) {
+        ItemData item = itemList[num];
+        ItemData.ItemType types = item.GetItemType;
+        List<ItemData> allList = new List<ItemData>();
+        List<bool> HaveData = new List<bool>();
+
+        if (isPerrault) {
+            allList = Perrault.GetTypeImage(types);
+            HaveData = Perrault.GetTypeHaveData(types);
+        }
+        else {
+            allList = Fran.GetTypeImage(types);
+            HaveData = Fran.GetTypeHaveData(types);
+        }
+        bool have = false;
+        for(int i = 0; i < allList.Count; i++) {
+            if (item == allList[i]) {
+                have = HaveData[i];
+            }
+        }
+        return have;
     }
 }

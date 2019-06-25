@@ -138,7 +138,8 @@ public class IconTutorial : MonoBehaviour
     /// 「アイテム拾う」判定
     /// </summary>
     void ItemTuto() {
-        if (!Input.GetKeyDown(KeyCode.A)) return;
+        bool item = ItemManager.Instance.IsGet(0, true);
+        if (!item) return;
         StartCoroutine(AnimSet(IconNum.ItemUI));
     }
 

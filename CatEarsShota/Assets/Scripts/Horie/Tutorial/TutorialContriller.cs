@@ -7,6 +7,7 @@ public class TutorialContriller : MonoBehaviour
     GameObject PerraultObj;
     GameObject FranObj;
     IconTutorial iconTutorial;
+    PanelTutorial panelTutorial;
 
     static TutorialContriller instance = null;
 
@@ -45,6 +46,7 @@ public class TutorialContriller : MonoBehaviour
         }
 
         iconTutorial = GetComponent<IconTutorial>();
+        panelTutorial = GetComponent<PanelTutorial>();
     }
 
     /// <summary>
@@ -74,5 +76,12 @@ public class TutorialContriller : MonoBehaviour
     /// </summary>
     public void ItemUITuto() {
         iconTutorial.IconTuto(IconTutorial.IconNum.ItemUI);
+    }
+
+    /// <summary>
+    /// 「時間切り替え」チュートリアル
+    /// </summary>
+    public void ChangeModeTuto() {
+        panelTutorial.PanelTuto(PanelTutorial.PanelNum.ChangeMode);
     }
 }
