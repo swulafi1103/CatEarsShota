@@ -9,13 +9,13 @@ public class PlayerMoves : MonoBehaviour
     [SerializeField, Range(1, 50)]
     private float MoveSpeed = 13f;
     [SerializeField, Range(1, 15)]
-    private float MaxSpeed = 5f;
+    private float MaxSpeed = 4f;
     [SerializeField, Range(0.01f, 0.2f)]
     private float brakePower = 0.05f;
     [SerializeField, Range(1, 500)]
-    private float JumpPower = 0.1f;
+    private float JumpPower = 250f;
     [SerializeField, Range(0.01f, 3)]
-    private float gravityRate = 1.2f;
+    private float gravityRate = 1f;
     private Rigidbody2D rb;
     private Vector2 WalkVector = new Vector2(0, 0);
     //private Vector2 JumpVector = new Vector2(0, 0);
@@ -48,20 +48,15 @@ public class PlayerMoves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //  着地チャック
         CheckGround();
         //  操作停止中ではないか
         if (!isNotmoves)
         {
-            Move();
             Jump();
+            Move();
             Action();
         }
-        //Debug.Log("JumpNum:" + JumpNum);
-    }
-
-    private void FixedUpdate()
-    {
-        //Jump();
     }
 
     /// <summary>
@@ -128,12 +123,15 @@ public class PlayerMoves : MonoBehaviour
         {
             JumpNum = 0;
             isJump = false;
+            //anim.ResetTrigger("JumpTrigger");
+            anim.SetTrigger("GroundTrigger");
         }
+        //  ジャンプせずに足場から離れたとき
         if (!isGround && !isJump)
         {
             JumpNum = 1;
         }
-
+        //  2回ジャンプしてない状態でスペースが押されたとき
         if (Input.GetKeyDown(KeyCode.Space) && JumpNum < 2)
         {
             JumpNum++;
@@ -141,7 +139,9 @@ public class PlayerMoves : MonoBehaviour
             Vector2 JumpVector = new Vector2(0, JumpPower);
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(JumpVector);
+            anim.SetTrigger("JumpTrigger");
         }
+        //  落下のスピードの調整
         else
         {
             if (rb.velocity.y < -0.01f)
@@ -176,13 +176,11 @@ public class PlayerMoves : MonoBehaviour
     void CheckGround()
     {
         isGround = rb.IsTouching(filter2d);
-        //Debug.Log("地面：" + isGround);
+        anim.SetBool("SetFloatAnimator", !isGround);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.tag == "Ground") isGround = true;
-        //JumpNum = 0;
         if (collision.gameObject.tag == "MiniGames")
         {
             if (Input.GetKeyDown(KeyCode.A))//調べ
