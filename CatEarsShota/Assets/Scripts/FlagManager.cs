@@ -27,6 +27,8 @@ public class FlagManager : MonoBehaviour
         get { return IsOpenUI; }
         set { IsOpenUI = value; }
     }
+    
+
 
     [SerializeField, EnumFlags]
     private ItemFlag itemFlag;

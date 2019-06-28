@@ -139,6 +139,7 @@ public class PlayerMoves : MonoBehaviour
             Vector2 JumpVector = new Vector2(0, JumpPower);
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(JumpVector);
+            anim.ResetTrigger("GroundTrigger");
             anim.SetTrigger("JumpTrigger");
         }
         //  落下のスピードの調整
