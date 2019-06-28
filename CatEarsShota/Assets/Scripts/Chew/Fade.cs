@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class Fade : MonoBehaviour
 {
+    private bool startfadeInOut = false;
     private bool fading = false;
+    private bool fadeswitch = false;
+    private int localcount = 0;
+
+    public GameObject RedEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +20,10 @@ public class Fade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(startfadeInOut && !fading && localcount>0)
+        {
+            FadeInOut(RedEffect, 1.5f);
+        }
     }
 
     public void StartFade(GameObject target,float time,Color newcolor)
@@ -26,6 +34,15 @@ public class Fade : MonoBehaviour
             StartCoroutine(fadeprocess(target,time,newcolor));
         }
     }
+    public void StartFade(GameObject target1, GameObject target2, float time, Color newcolor)
+    {
+        if (!fading)
+        {
+            fading = true;
+            StartCoroutine(fadeprocess(target1, time, newcolor));
+            StartCoroutine(fadeprocess(target2, time, newcolor));
+        }
+    }
     public void StartFade(GameObject target, float time, Color newcolor,System.Action task)
     {
         if (!fading)
@@ -33,6 +50,26 @@ public class Fade : MonoBehaviour
             fading = true;
             StartCoroutine(fadeprocess(target,time,newcolor,task));
         }
+    }
+    public void CallFadeIO(int count)
+    {
+        startfadeInOut = true;
+        localcount = count;
+    }
+    private void FadeInOut(GameObject target, float time)
+    {
+        switch (fadeswitch)
+        {
+            case true:
+                Color tmpClear = Color.clear;
+                StartFade(target, time, tmpClear);
+                break;
+            case false:
+                Color tmpWhite = Color.white;
+                StartFade(target, time, tmpWhite);
+                break;
+        }
+        fadeswitch = !fadeswitch;
     }
     IEnumerator fadeprocess(GameObject target, float time, Color newcolor, System.Action task = null)
     {
