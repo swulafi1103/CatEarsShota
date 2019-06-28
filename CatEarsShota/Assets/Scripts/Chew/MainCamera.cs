@@ -6,8 +6,8 @@ using UnityEngine.Video;
 
 public class MainCamera : MonoBehaviour
 {
-    [SerializeField]
-    private bool PastMode = false;
+    public GameObject FlagManager;
+
     private bool Zooming = false;
     [Tooltip("ビデオをプレイする")]
     public bool PlayVideo = false;
@@ -35,7 +35,7 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PastMode)
+        if (FlagManager.GetComponent<FlagManager>().isPast)
         {
             PastCam.transform.position = transform.position + new Vector3(40, 0, 0);
         }
@@ -60,7 +60,7 @@ public class MainCamera : MonoBehaviour
     void FixedUpdate()
     {
         if(!fading)
-            PastCam.SetActive(PastMode);
+            PastCam.SetActive(FlagManager.GetComponent<FlagManager>().isPast);
     }
     public void TriggeredVideo(uint index)
     {
