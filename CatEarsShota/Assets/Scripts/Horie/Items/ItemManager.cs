@@ -24,6 +24,27 @@ public class ItemManager : MonoBehaviour
     PlayerItems Fran;
     PlayerItems Perrault;
 
+    public enum ItemNum {
+        Yerrow_Orb = 0,
+        Blue_Orb,
+        Green_Orb,
+        Red_Orb,
+        Report_88,
+        Diary_Fran,
+        Instructions,
+        CardKey,
+        Mushroom,
+        Ilust_Piece,
+        Picture_Book,
+        BookMark,
+        Pants_1,
+        Pants_2,
+        Pants_3,
+        Pants_4,
+        Pants_5,
+        Pants_6
+    }
+
     private void Awake() {
         instance = this;
     }
@@ -105,7 +126,10 @@ public class ItemManager : MonoBehaviour
     /// </summary>
     /// <param name="item">アイテムデータ</param>
     /// <param name="fran">ペローはfalse,フランはtrue</param>
-    public void SetItemData(ItemData item,bool fran) {
+    public void SetItemData(ItemNum itemNum,bool fran) {
+
+        int num = (int)itemNum;
+        ItemData item = itemList[num];
 
         if (fran) {
             Fran.SetItemGet(item);
