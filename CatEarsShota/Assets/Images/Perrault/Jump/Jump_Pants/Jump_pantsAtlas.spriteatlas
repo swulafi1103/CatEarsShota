@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Jump_pantsAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 79e48259726e9ab4c84af4015ba3f734, type: 3}
+    totalSpriteSurfaceArea: 0
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 1f16c090c6356134b947de56185abc2e, type: 3}
+  - {fileID: 21300000, guid: 0e2338222f91d6948965e5e136dd935e, type: 3}
+  - {fileID: 21300000, guid: f01cf33320e87044daaea2d75ac672dd, type: 3}
+  - {fileID: 21300000, guid: a1c0c3736066be9468be49d96521e35a, type: 3}
+  - {fileID: 21300000, guid: b7017c956654adc4085f7243fff6f9af, type: 3}
+  - {fileID: 21300000, guid: 565c75b55d6bdc140b2b8c023b32760a, type: 3}
+  - {fileID: 21300000, guid: b47403f68f7859948a236e985e5179dc, type: 3}
+  - {fileID: 21300000, guid: 9d800ff6a1526fa468be65359a3189dc, type: 3}
+  - {fileID: 21300000, guid: 36644e373cec8f94b9b62ea004ab1f2c, type: 3}
+  - {fileID: 21300000, guid: 402f6377263cf3b478a518cfa6331c32, type: 3}
+  - {fileID: 21300000, guid: 4fed4a77619619341878a4143cdc20da, type: 3}
+  - {fileID: 21300000, guid: fb46b6b75ea1ed44b8c77318837daba3, type: 3}
+  - {fileID: 21300000, guid: 169689488622d1e4a9be910733521df4, type: 3}
+  - {fileID: 21300000, guid: a5b8ccf8d74f8734191bcc82cd4c2f3c, type: 3}
+  - {fileID: 21300000, guid: a143b2c937ff6e147a57ca2228e3de7e, type: 3}
+  - {fileID: 21300000, guid: 21aaacba40f31bf47a466b07cbf20025, type: 3}
+  - {fileID: 21300000, guid: 3669d2ca67caf6740927306391495bf7, type: 3}
+  - {fileID: 21300000, guid: 60013a9b7c59f4645909fae9e84d08f2, type: 3}
+  - {fileID: 21300000, guid: a35bc9ebe1c86384ab629556260a6235, type: 3}
+  - {fileID: 21300000, guid: 92b0b03c70261d341a13ed7f7574a9fd, type: 3}
+  - {fileID: 21300000, guid: ee69b6fc5ca5e3444905a628d7f98570, type: 3}
+  - {fileID: 21300000, guid: 778d3b5de8a308a42a8252487a68640e, type: 3}
+  - {fileID: 21300000, guid: b17af56d67adca0468742e5f3ff0f058, type: 3}
+  - {fileID: 21300000, guid: 2329aa6d53d757446a45dc3c93d8fb03, type: 3}
+  - {fileID: 21300000, guid: 49cd5daf26e9e6d44a5f245444239ea7, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - janpu_pantib_watermelon_02
+  - janpu_pantib_black_02
+  - janpu_pantib_black_05
+  - janpu_pantib_line_01
+  - janpu_pantib_square_05
+  - janpu_pantib_watermelon_01
+  - janpu_pantib_line_05
+  - janpu_pantib_black_04
+  - janpu_pantib_watermelon_03
+  - janpu_pantib_line_03
+  - janpu_pantib_black_03
+  - janpu_pantib_line_02
+  - janpu_pantib_square_01
+  - janpu_pantib_line_04
+  - janpu_pantiA_04
+  - janpu_pantib_square_02
+  - janpu_pantiA_03
+  - janpu_pantib_watermelon_05
+  - janpu_pantib_square_04
+  - janpu_pantib_square_03
+  - janpu_pantib_black_01
+  - janpu_pantiA_01
+  - janpu_pantiA_05
+  - janpu_pantiA_02
+  - janpu_pantib_watermelon_04
+  m_Tag: Jump_pantsAtlas
+  m_IsVariant: 0
