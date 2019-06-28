@@ -84,4 +84,32 @@ public class TutorialContriller : MonoBehaviour
     public void ChangeModeTuto() {
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.ChangeMode);
     }
+
+    /// <summary>
+    /// パンツ説明
+    /// </summary>
+    public void PantsTuto() {
+        panelTutorial.PanelTuto(PanelTutorial.PanelNum.Pants);
+    }
+
+    /// <summary>
+    /// パンツ切り替え説明
+    /// </summary>
+    public void ChangePantsTuto() {
+        panelTutorial.PanelTuto(PanelTutorial.PanelNum.ChangePants);
+    }
+
+    /// <summary>
+    /// タイムカプセル説明
+    /// </summary>
+    public void TimeCapsuleTuto() {
+        panelTutorial.PanelTuto(PanelTutorial.PanelNum.TimeCapsule);
+    }
+
+    /// <summary>
+    /// キノコ説明
+    /// </summary>
+    public void MushroomTuto() {
+        panelTutorial.PanelTuto(PanelTutorial.PanelNum.Mushroom);
+    }
 }
