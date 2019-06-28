@@ -7,7 +7,11 @@ using UnityEngine.Video;
 public class MainCamera : MonoBehaviour
 {
     public GameObject FlagManager;
-
+    public double VideoLength
+    {
+        get { return VideoLength; }
+        private set { VideoLength = value; }
+    }
     private bool Zooming = false;
     [Tooltip("ビデオをプレイする")]
     public bool PlayVideo = false;
@@ -50,8 +54,10 @@ public class MainCamera : MonoBehaviour
         if (PlayVideo)
         {
             ColorVideo.SetActive(true);
+            VideoLength = ColorVideo.GetComponent<VideoPlayer>().length;
             if (ColorVideo.GetComponent<VideoPlayer>().isPrepared && !ColorVideo.GetComponent<VideoPlayer>().isPlaying)
             {
+                FlagManager.GetComponent<FlagManager>().isEventing = false;
                 ColorVideo.SetActive(false);
                 PlayVideo = false;
             }
@@ -65,6 +71,7 @@ public class MainCamera : MonoBehaviour
     public void TriggeredVideo(uint index)
     {
         PlayVideo = true;
+        FlagManager.GetComponent<FlagManager>().isEventing = true;
         ColorVideo.GetComponent<VideoStorage>().index = index;
     }
     public void T_ChangeFocus(GameObject newtarget)
