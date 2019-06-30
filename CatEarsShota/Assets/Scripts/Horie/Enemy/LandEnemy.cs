@@ -16,7 +16,7 @@ public class LandEnemy : Enemy
     [SerializeField]
     float bulletHoseiY = -0.5f;
 
-    float moves = 1;
+    float moves = -1;
     
     EnemyBulletPool bulletBase;
 
@@ -24,7 +24,12 @@ public class LandEnemy : Enemy
 
     GameObject player;
 
-    int PlayerLR;
+    [SerializeField, Range(0.5f, 5)]
+    float WaitTime = 3f;
+
+    //int PlayerLR;
+
+    bool isAnim = false;
 
     bool nearPlayer = false;
     /// <summary>
@@ -35,6 +40,8 @@ public class LandEnemy : Enemy
         get { return nearPlayer; }
     }
 
+    EnemyShield shield;
+
     protected override void Start() {
         base.Start();
         Hp = 1;
@@ -43,12 +50,15 @@ public class LandEnemy : Enemy
         inPlayer = false;
         nearPlayer = false;
         bulletHoseiX = GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        shield = GetComponentInChildren<EnemyShield>();
+        isAnim = false;
     }
 
     protected override void ResetData() {
         base.ResetData();
         inPlayer = false;
         nearPlayer = false;
+        isAnim = false;
     }
 
     protected override void Attack() {
@@ -73,14 +83,17 @@ public class LandEnemy : Enemy
     /// 通常時の移動
     /// </summary>
     void DefaltMove() {
+        if (isAnim) return;
         float x = moves * MoveSpeed * Time.deltaTime;
         transform.position += new Vector3(x, 0, 0);
 
         if (transform.position.x <= maxMove[0]) {
             moves = 1;
+            SetDirection(false);
         }
         if (transform.position.x >= maxMove[1]) {
             moves = -1;
+            SetDirection(true);
         }
     }
 
@@ -89,15 +102,37 @@ public class LandEnemy : Enemy
     /// </summary>
     void GoToPlayer() {
         if (nearPlayer) return;
-        PlayerLR = transform.position.x < player.transform.position.x ? 1 : -1;
-        float x = (float)PlayerLR * MoveSpeed * Time.deltaTime;
+        int LR = transform.position.x < player.transform.position.x ? 1 : -1;
+        if (LR != moves) {
+            bool left = LR == -1;
+            StartCoroutine(ChangeDirection(left));
+            return;
+        }
+        if (isAnim) {
+            StopAllCoroutines();
+            isAnim = false;
+        }
+        moves = LR;
+        float x = (float)moves * MoveSpeed * Time.deltaTime;
         transform.position += new Vector3(x, 0, 0);
     }
 
+    IEnumerator ChangeDirection(bool left) {
+        if (isAnim) yield break;
+        isAnim = true;
+        yield return new WaitForSeconds(WaitTime);
+        int lr = left ? -1 : 1;
+        moves = lr;
+        moves = lr;
+        SetDirection(left);
+        isAnim = false;
+
+    }
+
     private void PushBullet() {
-        PlayerLR = transform.position.x < player.transform.position.x ? 1 : -1;
-        int q = PlayerLR == 1 ? 0 : 180;
-        Vector3 pos = transform.position + new Vector3(PlayerLR * bulletHoseiX, bulletHoseiY, 0);
+        if (isAnim || nearPlayer) return;
+        int q = moves == 1 ? 0 : 180;
+        Vector3 pos = transform.position + new Vector3(moves * bulletHoseiX, bulletHoseiY, 0);
         GameObject bullet = bulletBase.ReturnBullet(pos);
         bullet.transform.rotation = Quaternion.Euler(0, 0, q);
     }
@@ -106,6 +141,7 @@ public class LandEnemy : Enemy
         if (collision.gameObject.tag != "Player") return;
         player = collision.gameObject;
         inPlayer = true;
+        //moves = transform.position.x < player.transform.position.x ? 1 : -1;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
@@ -122,5 +158,17 @@ public class LandEnemy : Enemy
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.tag != "Player") return;
         nearPlayer = false;
+    }
+
+    private void SetDirection(bool left) {
+        if (left) {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        if (shield == null) return;
+        shield.SetDirection(left);
     }
 }
