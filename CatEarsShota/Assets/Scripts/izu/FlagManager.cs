@@ -3,17 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
+[DefaultExecutionOrder(-1)]
 public class FlagManager : MonoBehaviour
 {
+    #region Singleton
+    private static FlagManager instance;
+    public static FlagManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                Debug.LogWarning("FlagManager is Null");
+            }
+            return instance;
+        }
+    }
+
+    private bool CheckInstance()
+    {
+        if (instance == null)
+        {
+            instance = (FlagManager)this;
+            return true;
+        }
+        else if (Instance == this)
+        {
+            return true;
+        }
+
+        Destroy(this);
+        return false;
+    }
+    #endregion
+
     //  過去モードか
+    [SerializeField]
     private bool isPast = false;
     public bool IsPast
     {
         get { return isPast; }
-        set { isPast = value; }
+        set
+        {
+            if (isPast != value)
+            {
+                isPast = value;
+                PlayerManager.Instance.SwitchPlayerMode(IsPast);
+            }
+        }
     }
     //  イベント中か(動画や演出中など)
+    [SerializeField]
     private bool isEventing = false;
     public bool IsEventing
     {
@@ -21,6 +61,7 @@ public class FlagManager : MonoBehaviour
         set { isEventing = value; }
     }
     //  UI開いているか
+    [SerializeField]
     private bool isOpenUI = false;
     public bool IsOpenUI
     {
@@ -38,6 +79,7 @@ public class FlagManager : MonoBehaviour
 
     void Awake()
     {
+        CheckInstance();
         InitFlag();
     }
 
@@ -55,23 +97,7 @@ public class FlagManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            Debug.Log("ItemFlag:" + itemFlag + " (2進数変換: " + Convert.ToString((int)itemFlag, 2));
-        }
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            itemFlag = (ItemFlag)(-1);
-        }
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            SetItemFlag(ItemFlag.RedOrb);
-        }
-        if (Input.GetKeyDown(KeyCode.F4))
-        {
-            Debug.Log("FlagCheck : " + CheckItemFlag(ItemFlag.RedOrb));
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            FoldItemFlag(ItemFlag.RedOrb);
+            IsPast = !IsPast;
         }
     }
 
@@ -107,18 +133,22 @@ public class FlagManager : MonoBehaviour
     //  フラグのチェック
     public bool CheckItemFlag(ItemFlag item)
     {
-        if ((itemFlag.HasFlag(item)))
+        if (itemFlag.HasFlag(item))
         {
+            Debug.Log("True");
             return true;
         }
+        Debug.Log("False");
         return false;
     }
     public bool CheckGimmickFlag(GimmickFlag gimmick)
     {
-        if ((gimmickFlag.HasFlag(gimmick)))
+        if (gimmickFlag.HasFlag(gimmick))
         {
+            Debug.Log("True");
             return true;
         }
+        Debug.Log("False");
         return false;
     }
 
@@ -127,23 +157,24 @@ public class FlagManager : MonoBehaviour
 [Flags]
 public enum ItemFlag
 {
-    YellowOrb           = 1 << 0,
-    BlueOrb             = 1 << 1,
-    GreenOrb            = 1 << 2,
-    RedOrb              = 1 << 3,
-    CardKey             = 1 << 4,
-    WallPaintingPiece   = 1 << 5,
-    BookStop            = 1 << 6,
-    ReportNo88          = 1 << 7,
-    DiaryFran           = 1 << 8,
-    Instructions        = 1 << 9,
-    PlantBookPiece      = 1 << 10,
-    Pants_A             = 1 << 11,
-    Pants_B             = 1 << 12,
-    Pants_C             = 1 << 13,
-    Pants_D             = 1 << 14,
-    Pants_E             = 1 << 15,
-    Pants_F             = 1 << 16,
+    I_01_YellowOrb           = 1 << 0,
+    I_02_BlueOrb             = 1 << 1,
+    I_03_GreenOrb            = 1 << 2,
+    I_04_RedOrb              = 1 << 3,
+    I_05_CardKey = 1 << 4,
+    I_06_WallPaintingPiece = 1 << 5,
+    I_07_BookStop = 1 << 6,
+    I_08_ReportNo88 = 1 << 7,
+    I_09_DiaryFran = 1 << 8,
+    I_10_Instructions = 1 << 9,
+    I_11_PlantBookPiece = 1 << 10,
+    I_12_Pants_A = 1 << 11,
+    I_13_Pants_B = 1 << 12,
+    I_14_Pants_C = 1 << 13,
+    I_15_Pants_D = 1 << 14,
+    I_16_Pants_E = 1 << 15,
+    I_17_Pants_F = 1 << 16,
+    ALL = -1,
 }
 
 [Flags]
@@ -168,4 +199,5 @@ public enum GimmickFlag
     G_17_Minigame1_1                = 1 << 16,
     G_18_FranCheckExitDoor          = 1 << 17,
     G_19_PerraultCheckStorage       = 1 << 18,
+    ALL = -1,
 }

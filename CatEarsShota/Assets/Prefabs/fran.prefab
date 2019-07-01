@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7693629363694771065}
   - component: {fileID: 7693629363694771066}
   - component: {fileID: 7693629363694771067}
-  - component: {fileID: 7693629363694771063}
   - component: {fileID: 2708032524167151618}
   m_Layer: 0
   m_Name: fran
@@ -120,21 +119,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.03751566}
   m_Size: {x: 1.9199997, y: 8.259737}
   m_Direction: 0
---- !u!114 &7693629363694771063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693629363694771068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60403384efff541e490ffb077e63a501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  JumpPower: 250
-  Notmoves: 0
 --- !u!114 &2708032524167151618
 MonoBehaviour:
   m_ObjectHideFlags: 0

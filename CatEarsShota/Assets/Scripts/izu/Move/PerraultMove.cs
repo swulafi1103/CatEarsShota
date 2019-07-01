@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[DisallowMultipleComponent]
-public class PlayerMoves : MonoBehaviour
+public class PerraultMove : MonoBehaviour
 {
-    [Header("PlayerMoveParamater")]
+    [Header("PerraultMoveParamater")]
     [SerializeField, Range(1, 50)]
     private float MoveSpeed = 13f;
     [SerializeField, Range(1, 15)]
@@ -28,12 +27,8 @@ public class PlayerMoves : MonoBehaviour
     [SerializeField]
     private ContactFilter2D filter2d;
     private GameObject MinigameMgr;
-    //[SerializeField]
-    //GameObject fran;
 
 
-
-    // Start is called before the first frame update
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,7 +40,6 @@ public class PlayerMoves : MonoBehaviour
         MinigameMgr = GameObject.Find("MiniGameCanvas");
     }
 
-    // Update is called once per frame
     void Update()
     {
         //  着地チャック
@@ -194,4 +188,5 @@ public class PlayerMoves : MonoBehaviour
             }
         }
     }
+
 }

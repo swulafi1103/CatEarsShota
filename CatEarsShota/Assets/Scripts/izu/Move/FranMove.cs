@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[DisallowMultipleComponent]
-public class PlayerMoves : MonoBehaviour
+public class FranMove : MonoBehaviour
 {
     [Header("PlayerMoveParamater")]
     [SerializeField, Range(1, 50)]
@@ -194,4 +193,5 @@ public class PlayerMoves : MonoBehaviour
             }
         }
     }
+
 }

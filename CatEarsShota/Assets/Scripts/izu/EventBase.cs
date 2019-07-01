@@ -2,26 +2,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class EventBase : MonoBehaviour
 {
-    [EnumFlags]
-    public ItemFlag needFlag;
+    [SerializeField, EnumFlags]
+    protected ItemFlag needItemFlag;
+    [SerializeField, EnumFlags]
+    protected GimmickFlag needGimmickFlag;
 
+    [SerializeField, Space(10)]
+    private Sprite bubbleImage;
     [SerializeField]
-    protected Sprite bubbleImage;
+    private Vector2 bubblePos;
     [SerializeField]
-    protected Vector2 babblePos;
+    private bool flipBubble;
     [SerializeField]
-    protected bool isDisplayBabble;
+    private bool isDisplayBubble;
 
 
-    void Start()
+    void OnValidate()
     {
-        
+        DisplayBubble();
     }
 
-    //void Update()
-    //{
+    public virtual bool CheckFlag()
+    {
+        bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
+
+        if (flag)
+        {
+            isDisplayBubble = flag;
+        }        
+
+        DisplayBubble();
+        return flag;
+    }
+
+    public virtual void DisplayBubble()
+    {
+        if (transform.GetChild(0).name != "Babble")
+        {
+            Debug.Log("吹き出しのエラー");
+            return;
+        }
+
+        GameObject childObj = transform.GetChild(0).gameObject;
         
-    //}
+        if (isDisplayBubble)
+        {
+            if (bubbleImage != null)
+            {
+                childObj.GetComponent<SpriteRenderer>().sprite = bubbleImage;
+            }
+            childObj.transform.localPosition = bubblePos;
+            childObj.GetComponent<SpriteRenderer>().flipX = flipBubble;
+            childObj.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            childObj.GetComponent<SpriteRenderer>().enabled = false;
+        }
+    }
+
 }
