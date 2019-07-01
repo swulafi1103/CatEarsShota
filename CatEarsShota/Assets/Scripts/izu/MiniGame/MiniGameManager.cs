@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -257,9 +257,11 @@ public class MiniGameManager : MonoBehaviour
         StartCoroutine(DisplayClearText());
         map.GetComponent<MapStatus>().MapObjectState[2] = true;
         map.GetComponent<MapStatus>().MapObjectState[1] = true;
-        PlayerMoveFran.GetComponent<PlayerMoves>().isNotmoves = false;
-        mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
-        PlayerMovePerrault.GetComponent<PlayerMoves>().isNotmoves = false;
+        
+        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
+       // mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
+        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
+
 
 
     }
@@ -269,10 +271,10 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void MinigameFaild()
     {
+        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
+        //mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
+        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
 
-        PlayerMoveFran.GetComponent<PlayerMoves>().isNotmoves = false;
-        mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
-        PlayerMovePerrault.GetComponent<PlayerMoves>().isNotmoves = false;
         StartCoroutine(DisplayFaildText());
     }
 
@@ -350,7 +352,7 @@ public class MiniGameManager : MonoBehaviour
         numOrder = 0;
         mistakeCount = 0;
         mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
-        CameraMain.GetComponent<Camera>().PastMode = false;
+        //CameraMain.GetComponent<Camera>().PastMode = false;
         Door.GetComponent<MapStatus>().MapObjectState[2] = true;
         yield break;
     }

@@ -1,0 +1,23 @@
+@startuml 
+
+Class MapStatus{
+  public bool[] MapObjectState;
+  public GameObject[] MapObject;
+}
+
+Class ObjectStatus{
+  Public int index;
+  Public Sprite[] status;
+}
+
+Class Camera{
+  public bool PastMode;
+    public bool PlayVideo;
+    public GameObject PastCam;
+    public GameObject Player;
+    public GameObject ColorVideo;
+    public float RangeToPlayer;
+    public float[] CameraLimit;
+     public void TriggeredVideo();
+}
+@enduml
