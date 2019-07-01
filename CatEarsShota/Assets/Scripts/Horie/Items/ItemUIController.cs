@@ -47,10 +47,17 @@ public class ItemUIController : MonoBehaviour
 
     bool IsActTab = false;
 
+    bool IsEvent = false;
+
     void Start() {
     }
 
     void Update() {
+        if (IsEvent) {
+            PushCancel();
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.D)) {
             if (IsActUI) {
                 PushGangeTab();
@@ -92,7 +99,7 @@ public class ItemUIController : MonoBehaviour
         }
         SetTabColor();
         SetIamges();
-        FirstSelectIcon();
+        FirstSelectIcon(0);
     }
 
     /// <summary>
@@ -144,7 +151,7 @@ public class ItemUIController : MonoBehaviour
         }
         else {
             StartCoroutine(SetItemUI(false));
-            
+            if (IsEvent) IsEvent = false;
         }
     }
 
@@ -221,21 +228,10 @@ public class ItemUIController : MonoBehaviour
     /// <summary>
     /// カーソル初期設定
     /// </summary>
-    void FirstSelectIcon() {
-        //if (NowHave.Count == 0) {
-        //    SelectImage.gameObject.SetActive(false);
-        //}
-        //else {
-        //    SelectImage.gameObject.SetActive(true);
-        //    selectNum = 0;
-
-
-        //    //Vector3 pos = items[selectNum].GetComponent<RectTransform>().localPosition;
-        //    //.GetComponent<RectTransform>().localPosition = pos;
-        //}
+    void FirstSelectIcon(int num) {
 
         if (NowHave.Count <= 0) return;
-        selectNum = 0;
+        selectNum = num;
         items[selectNum].ThisSelected(true);
     }
 
@@ -260,7 +256,7 @@ public class ItemUIController : MonoBehaviour
             //tabBer.ActAnim(true);
             //tabBer.MoveLine(selectTab);
             SetIamges();
-            FirstSelectIcon();
+            FirstSelectIcon(0);
 
             startPos = new Vector3(0, -1080, 0);
             endPos = Vector3.zero;
@@ -339,6 +335,42 @@ public class ItemUIController : MonoBehaviour
                 items[i].SetImage(NowHave[i]);
             }
         }
+    }
 
+    /// <summary>
+    /// イベント用アイテムUI_Start
+    /// </summary>
+    public void SetEventUI(ItemData item) {
+        StartCoroutine(StartEventUI(item));
+    }
+
+    IEnumerator StartEventUI(ItemData item) {
+        yield return new WaitForSeconds(0.1f);
+        IsEvent = true;
+        ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        selectTab = (int)item.GetItemType;
+        SetTabColor();
+        SetIamges();
+        for (int i = 0; i < NowHave.Count; i++) {
+            if (NowHave[i] == item) {
+                items[i].SetShadow(false);
+                FirstSelectIcon(i);
+            }
+            else {
+                items[i].SetShadow(true);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// イベント用アイテムUI_End
+    /// </summary>
+    public bool EndEventUI(ItemData item) {
+        if (!IsEvent) return false;
+        if (!Input.GetKeyDown(KeyCode.A)) return false;
+        if (NowHave[selectNum] != item) return false;
+        ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
+        IsEvent = false;
+        return true;
     }
 }
