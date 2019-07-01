@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Fade : MonoBehaviour
 {
-    public GameObject FlagManager;
-
     private bool startfadeInOut = false;
     private bool fading = false;
     private bool fadeswitch = false;
@@ -29,7 +27,7 @@ public class Fade : MonoBehaviour
         else if(startfadeInOut && !fading)
         {
             startfadeInOut = false;
-            FlagManager.GetComponent<FlagManager>().isEventing = false;
+            FlagManager.Instance.IsEventing = false;
         }
     }
 
@@ -38,7 +36,7 @@ public class Fade : MonoBehaviour
         if (!fading)
         {
             fading = true;
-            FlagManager.GetComponent<FlagManager>().isEventing = true;
+            FlagManager.Instance.IsEventing = true;
             StartCoroutine(fadeprocess(target,time,newcolor));
         }
     }
@@ -47,7 +45,7 @@ public class Fade : MonoBehaviour
         if (!fading)
         {
             fading = true;
-            FlagManager.GetComponent<FlagManager>().isEventing = true;
+            FlagManager.Instance.IsEventing = true;
             StartCoroutine(fadeprocess(target1, time, newcolor));
             StartCoroutine(fadeprocess(target2, time, newcolor));
         }
@@ -57,14 +55,14 @@ public class Fade : MonoBehaviour
         if (!fading)
         {
             fading = true;
-            FlagManager.GetComponent<FlagManager>().isEventing = true;
+            FlagManager.Instance.IsEventing = true;
             StartCoroutine(fadeprocess(target,time,newcolor,task));
         }
     }
     public void CallFadeIO(int count)
     {
         startfadeInOut = true;
-        FlagManager.GetComponent<FlagManager>().isEventing = true;
+        FlagManager.Instance.IsEventing = true;
         localcount = count;
     }
     private void FadeInOut(GameObject target, float time)
@@ -91,7 +89,7 @@ public class Fade : MonoBehaviour
         }
         task();
         fading = false;
-        FlagManager.GetComponent<FlagManager>().isEventing = false;
+        FlagManager.Instance.IsEventing = false;
         yield return null;
     }
 }

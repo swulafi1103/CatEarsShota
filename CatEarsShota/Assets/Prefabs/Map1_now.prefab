@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 7511413816178951621}
   - component: {fileID: 7511413816178951622}
   m_Layer: 0
-  m_Name: Babble
+  m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 7511413816880603220}
   - component: {fileID: 7511413816880603221}
   m_Layer: 0
-  m_Name: Babble
+  m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -258,12 +258,7 @@ public class MiniGameManager : MonoBehaviour
         map.GetComponent<MapStatus>().MapObjectState[2] = true;
         map.GetComponent<MapStatus>().MapObjectState[1] = true;
         
-        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
-       // mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
-        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
-
-
-
+        FlagManager.Instance.IsPast = false;
     }
 
     /// <summary>
@@ -271,10 +266,7 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void MinigameFaild()
     {
-        PlayerMoveFran.GetComponent<PlayerMoves>().Notmoves = false;
-        //mainGameMgr.GetComponent<PlayerPositionSync>().PastMode = false;
-        PlayerMovePerrault.GetComponent<PlayerMoves>().Notmoves = false;
-
+        FlagManager.Instance.IsPast = true;
         StartCoroutine(DisplayFaildText());
     }
 

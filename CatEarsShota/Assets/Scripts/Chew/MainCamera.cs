@@ -6,7 +6,6 @@ using UnityEngine.Video;
 
 public class MainCamera : MonoBehaviour
 {
-    public GameObject FlagManager;
     public double VideoLength
     {
         get { return VideoLength; }
@@ -39,7 +38,7 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FlagManager.GetComponent<FlagManager>().isPast)
+        if (FlagManager.Instance.IsPast)
         {
             PastCam.transform.position = transform.position + new Vector3(40, 0, 0);
         }
@@ -57,7 +56,7 @@ public class MainCamera : MonoBehaviour
             VideoLength = ColorVideo.GetComponent<VideoPlayer>().length;
             if (ColorVideo.GetComponent<VideoPlayer>().isPrepared && !ColorVideo.GetComponent<VideoPlayer>().isPlaying)
             {
-                FlagManager.GetComponent<FlagManager>().isEventing = false;
+                FlagManager.Instance.IsEventing = false;
                 ColorVideo.SetActive(false);
                 PlayVideo = false;
             }
@@ -66,12 +65,12 @@ public class MainCamera : MonoBehaviour
     void FixedUpdate()
     {
         if(!fading)
-            PastCam.SetActive(FlagManager.GetComponent<FlagManager>().isPast);
+            PastCam.SetActive(FlagManager.Instance.IsPast);
     }
     public void TriggeredVideo(uint index)
     {
         PlayVideo = true;
-        FlagManager.GetComponent<FlagManager>().isEventing = true;
+        FlagManager.Instance.IsEventing = true;
         ColorVideo.GetComponent<VideoStorage>().index = index;
     }
     public void T_ChangeFocus(GameObject newtarget)

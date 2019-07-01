@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 1984703494109831786}
   - component: {fileID: 2667758731737082114}
   - component: {fileID: 9017274429427884572}
-  - component: {fileID: 7173901889378885128}
-  - component: {fileID: 753413026863262135}
+  - component: {fileID: 4567061677664441157}
   m_Layer: 0
   m_Name: Fran-wait
   m_TagString: Untagged
@@ -31,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8142337639306744066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 41.31, y: 0.83, z: 0}
-  m_LocalScale: {x: 0.3945304, y: 0.3945304, z: 0.3945304}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,7 +91,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8142337639306744066}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3e6d67b7016ca4b55b17d4a28a13098b, type: 2}
   m_CullingMode: 0
@@ -140,7 +139,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.03751566}
   m_Size: {x: 1.9199997, y: 8.259737}
   m_Direction: 0
---- !u!114 &7173901889378885128
+--- !u!114 &4567061677664441157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,26 +148,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 8142337639306744066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60403384efff541e490ffb077e63a501, type: 3}
+  m_Script: {fileID: 11500000, guid: 518c4497ae7541444955824a08619773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  JumpPower: 329
-  Notmoves: 0
-  MinigameMgr: {fileID: 0}
-  fran: {fileID: 8142337639306744066}
-  perrault: {fileID: 0}
---- !u!114 &753413026863262135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8142337639306744066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024f9fbe8078f4924a9ba5e09be16546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinigameMgr: {fileID: 0}
-  playermoves: {fileID: 0}
+  MoveSpeed: 13
+  MaxSpeed: 4
+  brakePower: 0.05
+  JumpPower: 250
+  gravityRate: 1
+  isNotmoves: 0
+  filter2d:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 1
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 70
+    maxNormalAngle: 110
