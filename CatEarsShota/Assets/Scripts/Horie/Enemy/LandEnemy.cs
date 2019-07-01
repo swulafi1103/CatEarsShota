@@ -136,15 +136,14 @@ public class LandEnemy : Enemy
         GameObject bullet = bulletBase.ReturnBullet(pos);
         bullet.transform.rotation = Quaternion.Euler(0, 0, q);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
+    
+    public void JudgementEnter(Collider2D collision) {
         if (collision.gameObject.tag != "Player") return;
         player = collision.gameObject;
         inPlayer = true;
-        //moves = transform.position.x < player.transform.position.x ? 1 : -1;
     }
-
-    private void OnTriggerExit2D(Collider2D collision) {
+    
+    public void JudgementExit(Collider2D collision) {
         if (collision.gameObject.tag != "Player") return;
         player = null;
         inPlayer = false;
