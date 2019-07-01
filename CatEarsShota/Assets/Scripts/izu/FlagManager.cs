@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[DefaultExecutionOrder(-1)]
+[DefaultExecutionOrder(-10)]
 public class FlagManager : MonoBehaviour
 {
     #region Singleton

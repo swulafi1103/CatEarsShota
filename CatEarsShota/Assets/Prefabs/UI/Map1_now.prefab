@@ -1015,8 +1015,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7511413816158754029}
   - component: {fileID: 7511413816158754031}
-  - component: {fileID: 7511413816158754016}
   - component: {fileID: 7511413816158754017}
+  - component: {fileID: 7511413816158754016}
   m_Layer: 0
   m_Name: Band
   m_TagString: Untagged
@@ -1087,25 +1087,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7511413816158754016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7511413816158754028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f342656a098cf2438106a591506eaa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
-  bubblePos: {x: 0.6, y: 0.6}
-  flipBubble: 0
-  isDisplayBubble: 0
-  standgimmickFlag: 8
 --- !u!61 &7511413816158754017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1132,6 +1113,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7511413816158754016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511413816158754028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f342656a098cf2438106a591506eaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needItemFlag: 0
+  needGimmickFlag: 0
+  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
+  bubblePos: {x: 0.6, y: 0.6}
+  flipBubble: 0
+  isDisplayBubble: 0
+  standgimmickFlag: 8
 --- !u!1 &7511413816178951620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,8 +1614,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7511413817940430866}
   - component: {fileID: 7511413817940430869}
-  - component: {fileID: 7511413817940430868}
   - component: {fileID: 7511413817940430867}
+  - component: {fileID: 7511413817940430868}
   m_Layer: 0
   m_Name: Generetor
   m_TagString: Untagged
@@ -1686,25 +1686,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7511413817940430868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7511413817940430865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f342656a098cf2438106a591506eaa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 256
-  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
-  bubblePos: {x: 1, y: 1}
-  flipBubble: 0
-  isDisplayBubble: 0
-  standgimmickFlag: 1024
 --- !u!61 &7511413817940430867
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1731,6 +1712,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &7511413817940430868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511413817940430865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f342656a098cf2438106a591506eaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needItemFlag: 0
+  needGimmickFlag: 256
+  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
+  bubblePos: {x: 1, y: 1}
+  flipBubble: 0
+  isDisplayBubble: 0
+  standgimmickFlag: 1024
 --- !u!1 &7933554744303672397
 GameObject:
   m_ObjectHideFlags: 0

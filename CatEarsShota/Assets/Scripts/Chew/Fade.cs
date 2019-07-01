@@ -5,19 +5,54 @@ using UnityEngine.UI;
 
 public class Fade : MonoBehaviour
 {
+    #region Singleton
+    private static Fade instance;
+    public static Fade Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                Debug.LogWarning("Fade is Null");
+            }
+            return instance;
+        }
+    }
+
+    private bool CheckInstance()
+    {
+        if (instance == null)
+        {
+            instance = (Fade)this;
+            return true;
+        }
+        else if (Instance == this)
+        {
+            return true;
+        }
+
+        Destroy(this);
+        return false;
+    }
+    #endregion
+
     private bool startfadeInOut = false;
     private bool fading = false;
     private bool fadeswitch = false;
     private int localcount = 0;
 
     public GameObject RedEffect;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        CheckInstance();
+    }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(startfadeInOut && !fading && localcount>0)
@@ -80,14 +115,17 @@ public class Fade : MonoBehaviour
         }
         fadeswitch = !fadeswitch;
     }
-    IEnumerator fadeprocess(GameObject target, float time, Color newcolor, System.Action task = null)
+    IEnumerator fadeprocess(GameObject target, float time, Color newcolor, System.Action task=null)
     {
         for (float i = 0.0f; i < time; i += 0.1f)
         {
             target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, newcolor, i + 0.1f / time);
             yield return new WaitForSeconds(0.1f);
         }
-        task();
+        if (task != null)
+        {
+            task();
+        }        
         fading = false;
         FlagManager.Instance.IsEventing = false;
         yield return null;

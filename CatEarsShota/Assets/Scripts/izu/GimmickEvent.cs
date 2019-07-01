@@ -19,6 +19,7 @@ public class GimmickEvent : EventBase, ICheckable
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
         {
             FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
+            //Fade
             gameObject.SetActive(false);
         }        
     }
