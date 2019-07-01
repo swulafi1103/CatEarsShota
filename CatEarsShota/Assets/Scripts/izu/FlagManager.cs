@@ -37,6 +37,11 @@ public class FlagManager : MonoBehaviour
     }
     #endregion
 
+    private void OnValidate()
+    {
+        IsPast = IsPast;
+    }
+
     //  過去モードか
     [SerializeField]
     private bool isPast = false;
@@ -45,11 +50,8 @@ public class FlagManager : MonoBehaviour
         get { return isPast; }
         set
         {
-            if (isPast != value)
-            {
-                isPast = value;
-                PlayerManager.Instance.SwitchPlayerMode(IsPast);
-            }
+            isPast = value;
+            PlayerManager.Instance.SwitchPlayerMode(IsPast);
         }
     }
     //  イベント中か(動画や演出中など)

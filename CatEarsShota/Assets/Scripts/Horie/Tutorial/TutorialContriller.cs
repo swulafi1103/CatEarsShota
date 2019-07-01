@@ -25,7 +25,7 @@ public class TutorialContriller : MonoBehaviour
     void Start()
     {
         SetData();
-        MoveTutorial();
+        //MoveTutorial();   //debug
     }
 
     // Update is called once per frame
@@ -35,15 +35,8 @@ public class TutorialContriller : MonoBehaviour
     }
 
     void SetData() {
-        PlayerMoves[] objs = FindObjectsOfType<PlayerMoves>();
-        foreach(PlayerMoves player in objs) {
-            if (player.gameObject.name == "Perrault") {
-                PerraultObj = player.gameObject;
-            }
-            if (player.gameObject.name == "Fran") {
-                FranObj = player.gameObject;
-            }
-        }
+        PerraultObj = FindObjectOfType<PerraultMove>().gameObject;
+        //FranObj = FindObjectOfType<FranMove>().gameObject;
 
         iconTutorial = GetComponent<IconTutorial>();
         panelTutorial = GetComponent<PanelTutorial>();

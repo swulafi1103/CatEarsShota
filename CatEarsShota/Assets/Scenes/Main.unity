@@ -308,6 +308,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &140800585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7511413817940430865, guid: c020ab05729747942b7b596b27b1f4f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7511413816682678008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &167824340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -462,6 +468,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
+--- !u!1 &269915115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7511413816158754028, guid: c020ab05729747942b7b596b27b1f4f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7511413816682678008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336588924
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,8 +616,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gimmickObjects:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 269915115}
+  - {fileID: 140800585}
   itemObjects: []
 --- !u!114 &605330557
 MonoBehaviour:
