@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GimmickEvent : MonoBehaviour
+[RequireComponent(typeof(BoxCollider))]
+public class GimmickEvent : EventBase, ICheckable
 {
-    // Start is called before the first frame update
+    [SerializeField, EnumFlags]
+    private GimmickFlag standgimmickFlag;
+
     void Start()
     {
-        
+        CheckFlag();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    //  プレイヤーから呼ばれる
+    public void Check()
     {
-        
+        if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
+        {
+            FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
+            gameObject.SetActive(false);
+        }        
     }
 }

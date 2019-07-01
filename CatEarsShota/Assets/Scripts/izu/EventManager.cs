@@ -84,12 +84,8 @@ public class EventManager : MonoBehaviour
     }
 }
 
-public interface IPickupable
-{
-    void PickUpItem(ItemFlag item);
-}
 
-public interface IExaminable
+public interface ICheckable
 {
-
+    void Check();
 }

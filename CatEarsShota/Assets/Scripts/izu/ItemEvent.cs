@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemEvent : EventBase
+[RequireComponent(typeof(BoxCollider2D))]
+public class ItemEvent : EventBase, ICheckable
 {
+    [SerializeField, EnumFlags]
+    private ItemFlag standItemFlag;
+
     void Start()
     {
         CheckFlag();
     }
 
-    void Update()
+
+    public void Check()
     {
-        
+        FlagManager.Instance.SetItemFlag(standItemFlag);
     }
 }

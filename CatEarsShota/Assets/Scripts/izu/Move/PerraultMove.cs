@@ -27,6 +27,8 @@ public class PerraultMove : MonoBehaviour
     [SerializeField]
     private ContactFilter2D filter2d;
     private GameObject MinigameMgr;
+    [SerializeField]
+    private List<GameObject> examinableObjects = new List<GameObject>();
 
 
     private void Awake()
@@ -107,7 +109,7 @@ public class PerraultMove : MonoBehaviour
     }
 
     /// <summary>
-    /// Character Jump this instance.
+    /// ジャンプ
     /// </summary>
     void Jump()
     {
@@ -148,7 +150,7 @@ public class PerraultMove : MonoBehaviour
     }
 
     /// <summary>
-    /// Action
+    /// 攻撃・調べる・アイテム欄
     /// </summary>
     void Action()
     {
@@ -158,7 +160,12 @@ public class PerraultMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A))//調べ
         {
-
+            if (examinableObjects.Count != 0)
+            {
+                //  ギミックの発動
+                Debug.Log("ギミック作動");
+                examinableObjects[0].GetComponent<ICheckable>().Check();
+            }
         }
         if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
         {
@@ -187,6 +194,25 @@ public class PerraultMove : MonoBehaviour
                 MinigameMgr.GetComponent<MiniGameManager>().StartMiniGame();
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //  要素の追加
+        if (collision.gameObject.GetComponent<ICheckable>() != null)
+        {
+            if (!examinableObjects.Contains(collision.gameObject))
+            {
+                examinableObjects.Add(collision.gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //  要素の破棄
+        examinableObjects.Remove(collision.gameObject);
+
     }
 
 }

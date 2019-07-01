@@ -38,9 +38,10 @@ public class EventBase : MonoBehaviour
         return flag;
     }
 
+    //  吹き出しの表示・非表示
     public virtual void DisplayBubble()
     {
-        if (transform.GetChild(0).name != "Babble")
+        if (transform.GetChild(0).name != "Bubble")
         {
             Debug.Log("吹き出しのエラー");
             return;

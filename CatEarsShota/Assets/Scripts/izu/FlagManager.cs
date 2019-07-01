@@ -67,8 +67,7 @@ public class FlagManager : MonoBehaviour
     {
         get { return IsOpenUI; }
         set { IsOpenUI = value; }
-    }
-    
+    }    
 
 
     [SerializeField, EnumFlags]
@@ -113,10 +112,12 @@ public class FlagManager : MonoBehaviour
     public void SetItemFlag(ItemFlag item)
     {
         itemFlag = itemFlag | item;
+        EventManager.Instance.UpdateBubble();
     }
     public void SetGimmickFlag(GimmickFlag gimmick)
     {
         gimmickFlag = gimmickFlag | gimmick;
+        EventManager.Instance.UpdateBubble();
     }
 
     //  フラグの削除
@@ -145,10 +146,8 @@ public class FlagManager : MonoBehaviour
     {
         if (gimmickFlag.HasFlag(gimmick))
         {
-            Debug.Log("True");
             return true;
         }
-        Debug.Log("False");
         return false;
     }
 
@@ -161,19 +160,19 @@ public enum ItemFlag
     I_02_BlueOrb             = 1 << 1,
     I_03_GreenOrb            = 1 << 2,
     I_04_RedOrb              = 1 << 3,
-    I_05_CardKey = 1 << 4,
-    I_06_WallPaintingPiece = 1 << 5,
-    I_07_BookStop = 1 << 6,
-    I_08_ReportNo88 = 1 << 7,
-    I_09_DiaryFran = 1 << 8,
-    I_10_Instructions = 1 << 9,
-    I_11_PlantBookPiece = 1 << 10,
-    I_12_Pants_A = 1 << 11,
-    I_13_Pants_B = 1 << 12,
-    I_14_Pants_C = 1 << 13,
-    I_15_Pants_D = 1 << 14,
-    I_16_Pants_E = 1 << 15,
-    I_17_Pants_F = 1 << 16,
+    I_05_CardKey             = 1 << 4,
+    I_06_WallPaintingPiece   = 1 << 5,
+    I_07_BookStop            = 1 << 6,
+    I_08_ReportNo88          = 1 << 7,
+    I_09_DiaryFran           = 1 << 8,
+    I_10_Instructions        = 1 << 9,
+    I_11_PlantBookPiece      = 1 << 10,
+    I_12_Pants_A             = 1 << 11,
+    I_13_Pants_B             = 1 << 12,
+    I_14_Pants_C             = 1 << 13,
+    I_15_Pants_D             = 1 << 14,
+    I_16_Pants_E             = 1 << 15,
+    I_17_Pants_F             = 1 << 16,
     ALL = -1,
 }
 
