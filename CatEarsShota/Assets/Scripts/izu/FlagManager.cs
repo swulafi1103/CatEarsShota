@@ -37,11 +37,6 @@ public class FlagManager : MonoBehaviour
     }
     #endregion
 
-    private void OnValidate()
-    {
-        IsPast = IsPast;
-    }
-
     //  過去モードか
     [SerializeField]
     private bool isPast = false;

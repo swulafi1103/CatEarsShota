@@ -25,7 +25,7 @@ public class TutorialContriller : MonoBehaviour
     void Start()
     {
         SetData();
-        //MoveTutorial();   //debug
+        MoveTutorial();   //debug
     }
 
     // Update is called once per frame
