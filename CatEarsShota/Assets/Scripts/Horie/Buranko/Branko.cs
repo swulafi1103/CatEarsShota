@@ -59,10 +59,10 @@ public class Branko : MonoBehaviour
         Vector3 pos;
         
         if (IsRight) {
-            pos = Vector3.Slerp(MaxPos[0], MaxPos[1], t);
+            pos = Vector3.Lerp(MaxPos[0], MaxPos[1], t);
         }
         else {
-            pos = Vector3.Slerp(MaxPos[1], MaxPos[0], t);
+            pos = Vector3.Lerp(MaxPos[1], MaxPos[0], t);
         }
 
         transform.position = pos;
