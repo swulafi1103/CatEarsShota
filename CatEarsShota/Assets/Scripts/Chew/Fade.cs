@@ -42,6 +42,7 @@ public class Fade : MonoBehaviour
     private int localcount = 0;
 
     public GameObject RedEffect;
+    public GameObject FadeScreen;
 
     private void Awake()
     {
@@ -50,7 +51,8 @@ public class Fade : MonoBehaviour
 
     void Start()
     {
-        
+        FadeScreen = transform.GetChild(0).gameObject;
+        RedEffect = transform.GetChild(1).gameObject;
     }
 
     void Update()
@@ -66,32 +68,32 @@ public class Fade : MonoBehaviour
         }
     }
 
-    public void StartFade(GameObject target,float time,Color newcolor)
+    public void StartFade(float time,Color newcolor)
     {
         if (!fading)
         {
             fading = true;
             FlagManager.Instance.IsEventing = true;
-            StartCoroutine(fadeprocess(target,time,newcolor));
+            StartCoroutine(fadeprocess(FadeScreen,time,newcolor));
         }
     }
-    public void StartFade(GameObject target1, GameObject target2, float time, Color newcolor)
+    public void ClearFade(float time, Color newcolor)
     {
         if (!fading)
         {
             fading = true;
             FlagManager.Instance.IsEventing = true;
-            StartCoroutine(fadeprocess(target1, time, newcolor));
-            StartCoroutine(fadeprocess(target2, time, newcolor));
+            StartCoroutine(fadeprocess(FadeScreen, time, newcolor));
+            StartCoroutine(fadeprocess(RedEffect, time, newcolor));
         }
     }
-    public void StartFade(GameObject target, float time, Color newcolor,System.Action task)
+    public void StartFade(float time, Color newcolor,System.Action task)
     {
         if (!fading)
         {
             fading = true;
             FlagManager.Instance.IsEventing = true;
-            StartCoroutine(fadeprocess(target,time,newcolor,task));
+            StartCoroutine(fadeprocess(FadeScreen,time,newcolor,task));
         }
     }
     public void CallFadeIO(int count)
@@ -100,22 +102,22 @@ public class Fade : MonoBehaviour
         FlagManager.Instance.IsEventing = true;
         localcount = count;
     }
-    private void FadeInOut(GameObject target, float time)
+    private void FadeInOut(GameObject target,float time)
     {
         switch (fadeswitch)
         {
             case true:
                 Color tmpClear = Color.clear;
-                StartFade(target, time, tmpClear);
+                StartFade(time, tmpClear);
                 break;
             case false:
                 Color tmpWhite = Color.white;
-                StartFade(target, time, tmpWhite);
+                StartFade(time, tmpWhite);
                 break;
         }
         fadeswitch = !fadeswitch;
     }
-    IEnumerator fadeprocess(GameObject target, float time, Color newcolor, System.Action task=null)
+    IEnumerator fadeprocess(GameObject target,float time, Color newcolor, System.Action task=null)
     {
         for (float i = 0.0f; i < time; i += 0.1f)
         {
