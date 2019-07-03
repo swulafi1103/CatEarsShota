@@ -16,4 +16,4 @@ MonoBehaviour:
   itemNum: 5
   itemName: "\u30D5\u30E9\u30F3\u306E\u7814\u7A76\u65E5\u8A8C"
   itemSprite: {fileID: 21300000, guid: a23c586c528fa54419957cbaff6c1b9c, type: 3}
-  detailText: {fileID: 21300000, guid: bc0e02def19321a4796f821da7867c4c, type: 3}
+  detailText: {fileID: 21300000, guid: 37984c38a98deef49858ef9376a52106, type: 3}

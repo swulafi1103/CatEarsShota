@@ -24,6 +24,8 @@ public class ItemManager : MonoBehaviour
     PlayerItems Fran;
     PlayerItems Perrault;
 
+    ItemUIController UIContriller;
+
     public enum ItemNum {
         Yerrow_Orb = 0,
         Blue_Orb,
@@ -66,6 +68,7 @@ public class ItemManager : MonoBehaviour
     /// 初期化処理
     /// </summary>
     private void SetData() {
+        UIContriller = GetComponent<ItemUIController>();
         Perrault = null;
         Fran = null;
         PlayerItems[] players = GetComponents<PlayerItems>();
@@ -116,9 +119,8 @@ public class ItemManager : MonoBehaviour
     /// playerがペローかフランか判定
     /// </summary>
     void GetPlayer() {
-        //仮
-        //isFran = camera.PastMode;
-        isFran = false;
+        isFran = FlagManager.Instance.IsPast;
+        //isFran = true;
     }
 
     /// <summary>
@@ -169,5 +171,18 @@ public class ItemManager : MonoBehaviour
             }
         }
         return have;
+    }
+
+    public void SetEventUI(ItemNum item) {
+        int num = (int)item;
+        ItemData data = itemList[num];
+        UIContriller.SetEventUI(data);
+    }
+
+    public bool SelectedEventItem(ItemNum item) {
+        int num = (int)item;
+        ItemData data = itemList[num];
+        bool select = UIContriller.EndEventUI(data);
+        return select;
     }
 }

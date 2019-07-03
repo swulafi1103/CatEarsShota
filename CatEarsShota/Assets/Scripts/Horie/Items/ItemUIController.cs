@@ -24,15 +24,13 @@ public class ItemUIController : MonoBehaviour
 
     [SerializeField]
     GameObject DetailPanel;
+    
 
     [SerializeField]
-    GameObject SelectImage;
-
+    Image PlayerPanel;
     [SerializeField]
-    Animator PlayerAnim;
-
-    //[SerializeField]
-    //TabBar tabBer;
+    Sprite[] Playerimage = new Sprite[2];
+    
 
     float AnimFrame = 8;
 
@@ -47,10 +45,17 @@ public class ItemUIController : MonoBehaviour
 
     bool IsActTab = false;
 
+    bool IsEvent = false;
+
     void Start() {
     }
 
     void Update() {
+        if (IsEvent) {
+            PushCancel();
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.D)) {
             if (IsActUI) {
                 PushGangeTab();
@@ -63,10 +68,7 @@ public class ItemUIController : MonoBehaviour
 
         if (!IsActUI) return;
         PushCancel();
-
-        //PushUpArrow();
-
-        //PushGangeTab();
+        
 
         PushShowDetail();
 
@@ -92,22 +94,9 @@ public class ItemUIController : MonoBehaviour
         }
         SetTabColor();
         SetIamges();
-        FirstSelectIcon();
+        FirstSelectIcon(0);
     }
-
-    /// <summary>
-    /// ↑キーでタブ移動へ
-    /// </summary>
-    void PushUpArrow() {
-        if (!Input.GetKeyDown(KeyCode.UpArrow)) return;
-        if (IsActDetail && IsActTab) return;
-
-        IsActTab = true;
-
-        items[selectNum].ThisSelected(false);
-        //tabBer.ActAnim(true);
-        //tabBer.MoveLine(selectTab);
-    }
+    
 
     /// <summary>
     /// 詳細ウィンドウ切り替え
@@ -118,19 +107,7 @@ public class ItemUIController : MonoBehaviour
 
         if (NowHave.Count <= 0) return;
         StartCoroutine(SetDetailUI(true));
-
-        //if (IsActTab) {
-        //    IsActTab = false;
-        //    //tabBer.ActAnim(false);
-
-        //    SetTabColor();
-        //    SetIamges();
-        //    FirstSelectIcon();
-        //}
-        //else {
-        //    if (NowHave.Count <= 0) return;
-        //    StartCoroutine(SetDetailUI(true));
-        //}
+        
     }
 
     /// <summary>
@@ -144,7 +121,7 @@ public class ItemUIController : MonoBehaviour
         }
         else {
             StartCoroutine(SetItemUI(false));
-            
+            if (IsEvent) IsEvent = false;
         }
     }
 
@@ -154,21 +131,9 @@ public class ItemUIController : MonoBehaviour
     void PushMoveCursor() {
         if (Input.GetKeyDown(KeyCode.RightArrow)) {
             MoveSelectIcon(true);
-            //if (IsActTab) {
-            //    MoveTabLine(true);
-            //}
-            //else {
-            //    MoveSelectIcon(true);
-            //}
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             MoveSelectIcon(false);
-            //if (IsActTab) {
-            //    MoveTabLine(false);
-            //}
-            //else {
-            //    MoveSelectIcon(false);
-            //}
         }
     }
 
@@ -191,8 +156,7 @@ public class ItemUIController : MonoBehaviour
         if (selectTab < 0) {
             selectTab = IsFran ? selectMaxs[0] - 1 : selectMaxs[1] - 1;
         }
-
-        //tabBer.MoveLine(selectTab);
+        
     }
 
     /// <summary>
@@ -213,29 +177,16 @@ public class ItemUIController : MonoBehaviour
 
         items[beforenum].ThisSelected(false);
         items[selectNum].ThisSelected(true);
-
-        //Vector3 pos = items[selectNum].GetComponent<RectTransform>().localPosition;
-        //SelectImage.GetComponent<RectTransform>().localPosition = pos;
+        
     }
 
     /// <summary>
     /// カーソル初期設定
     /// </summary>
-    void FirstSelectIcon() {
-        //if (NowHave.Count == 0) {
-        //    SelectImage.gameObject.SetActive(false);
-        //}
-        //else {
-        //    SelectImage.gameObject.SetActive(true);
-        //    selectNum = 0;
-
-
-        //    //Vector3 pos = items[selectNum].GetComponent<RectTransform>().localPosition;
-        //    //.GetComponent<RectTransform>().localPosition = pos;
-        //}
+    void FirstSelectIcon(int num) {
 
         if (NowHave.Count <= 0) return;
-        selectNum = 0;
+        selectNum = num;
         items[selectNum].ThisSelected(true);
     }
 
@@ -251,16 +202,13 @@ public class ItemUIController : MonoBehaviour
         Vector3 endPos;
 
         if (act) {
-            IsFran = ItemManager.Instance.IsFran;
+            IsFran = FlagManager.Instance.IsPast;
 
             SetAnim();
             selectTab = 0;
             SetTabColor();
-            //IsActTab = true;
-            //tabBer.ActAnim(true);
-            //tabBer.MoveLine(selectTab);
             SetIamges();
-            FirstSelectIcon();
+            FirstSelectIcon(0);
 
             startPos = new Vector3(0, -1080, 0);
             endPos = Vector3.zero;
@@ -314,6 +262,15 @@ public class ItemUIController : MonoBehaviour
     /// </summary>
     void SetAnim() {
         //アニメーション切り替え
+
+        if (IsFran) {
+            PlayerPanel.sprite = Playerimage[1];
+        }
+        else {
+            PlayerPanel.sprite = Playerimage[0];
+        }
+
+        PlayerPanel.SetNativeSize();
     }
 
 
@@ -339,6 +296,42 @@ public class ItemUIController : MonoBehaviour
                 items[i].SetImage(NowHave[i]);
             }
         }
+    }
 
+    /// <summary>
+    /// イベント用アイテムUI_Start
+    /// </summary>
+    public void SetEventUI(ItemData item) {
+        StartCoroutine(StartEventUI(item));
+    }
+
+    IEnumerator StartEventUI(ItemData item) {
+        yield return new WaitForSeconds(0.1f);
+        IsEvent = true;
+        ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        selectTab = (int)item.GetItemType;
+        SetTabColor();
+        SetIamges();
+        for (int i = 0; i < NowHave.Count; i++) {
+            if (NowHave[i] == item) {
+                items[i].SetShadow(false);
+                FirstSelectIcon(i);
+            }
+            else {
+                items[i].SetShadow(true);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// イベント用アイテムUI_End
+    /// </summary>
+    public bool EndEventUI(ItemData item) {
+        if (!IsEvent) return false;
+        if (!Input.GetKeyDown(KeyCode.A)) return false;
+        if (NowHave[selectNum] != item) return false;
+        ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
+        IsEvent = false;
+        return true;
     }
 }

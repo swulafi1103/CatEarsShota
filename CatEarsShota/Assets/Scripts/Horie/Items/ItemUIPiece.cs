@@ -46,7 +46,7 @@ public class ItemUIPiece : MonoBehaviour
     /// 影表示
     /// </summary>
     /// <param name="act"></param>
-    private void SetShadow(bool act) {
+    public void SetShadow(bool act) {
         ShadowImage.gameObject.SetActive(act);
     }
 }
