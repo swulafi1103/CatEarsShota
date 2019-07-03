@@ -119,8 +119,8 @@ public class ItemManager : MonoBehaviour
     /// playerがペローかフランか判定
     /// </summary>
     void GetPlayer() {
-        //isFran = FlagManager.Instance.IsPast;
-        isFran = true;
+        isFran = FlagManager.Instance.IsPast;
+        //isFran = true;
     }
 
     /// <summary>
