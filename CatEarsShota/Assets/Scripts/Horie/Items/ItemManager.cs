@@ -119,8 +119,7 @@ public class ItemManager : MonoBehaviour
     /// playerがペローかフランか判定
     /// </summary>
     void GetPlayer() {
-        //仮
-        //isFran = camera.PastMode;
+        //isFran = FlagManager.Instance.IsPast;
         isFran = true;
     }
 
