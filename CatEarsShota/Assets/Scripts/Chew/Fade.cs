@@ -41,8 +41,8 @@ public class Fade : MonoBehaviour
     private bool fadeswitch = false;
     private int localcount = 0;
 
-    public GameObject RedEffect;
-    public GameObject FadeScreen;
+    private GameObject RedEffect;
+    private GameObject FadeScreen;
 
     private void Awake()
     {
@@ -53,6 +53,7 @@ public class Fade : MonoBehaviour
     {
         FadeScreen = transform.GetChild(0).gameObject;
         RedEffect = transform.GetChild(1).gameObject;
+
     }
 
     void Update()
@@ -75,6 +76,15 @@ public class Fade : MonoBehaviour
             fading = true;
             FlagManager.Instance.IsEventing = true;
             StartCoroutine(fadeprocess(FadeScreen,time,newcolor));
+        }
+    }
+    public void StartFadeInOut(float time, Color newcolor)
+    {
+        if (!fading)
+        {
+            fading = true;
+            FlagManager.Instance.IsEventing = true;
+            StartCoroutine(fadeinoutProcess(FadeScreen, time, newcolor));
         }
     }
     public void ClearFade(float time, Color newcolor)
@@ -119,15 +129,46 @@ public class Fade : MonoBehaviour
     }
     IEnumerator fadeprocess(GameObject target,float time, Color newcolor, System.Action task=null)
     {
-        for (float i = 0.0f; i < time; i += 0.1f)
+        float countTime = 0;
+
+        while (countTime < time)
         {
-            target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, newcolor, i + 0.1f / time);
-            yield return new WaitForSeconds(0.1f);
+            target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, newcolor, countTime / time);
+            countTime += Time.unscaledDeltaTime;
+            yield return null;
         }
+        target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, newcolor, 1);
         if (task != null)
         {
             task();
         }        
+        fading = false;
+        FlagManager.Instance.IsEventing = false;
+        yield return null;
+    }
+    IEnumerator fadeinoutProcess(GameObject target, float time, Color newcolor, System.Action task = null)
+    {
+        float countTime = 0;
+
+        while (countTime < time)
+        {
+            target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, newcolor, countTime / time);
+            countTime += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, newcolor, 1);
+        if (task != null)
+        {
+            task();
+        }
+        countTime = 0;
+        while (countTime < time)
+        {
+            target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, Color.clear, countTime / time);
+            countTime += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, Color.clear, 0);
         fading = false;
         FlagManager.Instance.IsEventing = false;
         yield return null;

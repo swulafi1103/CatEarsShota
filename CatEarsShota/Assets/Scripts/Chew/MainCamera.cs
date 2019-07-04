@@ -4,12 +4,46 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
+
+[DefaultExecutionOrder(-21)]
 public class MainCamera : MonoBehaviour
 {
+    #region Singleton
+    private static MainCamera instance;
+    public static MainCamera Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                Debug.LogWarning("MainCamera is Null");
+            }
+            return instance;
+        }
+    }
+
+    public bool CheckInstance()
+    {
+        if (instance == null)
+        {
+            instance = (MainCamera)this;
+            return true;
+        }
+        else if (Instance == this)
+        {
+            return true;
+        }
+
+        Destroy(this);
+        return false;
+    }
+    #endregion
+
+    private double vidoLength;
     public double VideoLength
     {
-        get { return VideoLength; }
-        private set { VideoLength = value; }
+        get { return vidoLength; }
+        private set { vidoLength = value; }
     }
     private bool Zooming = false;
     [Tooltip("ビデオをプレイする")]
@@ -29,10 +63,17 @@ public class MainCamera : MonoBehaviour
     private bool fading = false;
 
     private Vector3 rangeToTarget;
+
+    void Awake()
+    {
+        CheckInstance();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         rangeToTarget = new Vector3(0,0,RangeToPlayer);
+        ColorVideo.GetComponent<VideoPlayer>().loopPointReached += MovieFinished;
     }
 
     // Update is called once per frame
@@ -54,6 +95,7 @@ public class MainCamera : MonoBehaviour
         {
             ColorVideo.SetActive(true);
             VideoLength = ColorVideo.GetComponent<VideoPlayer>().length;
+            FlagManager.Instance.IsEventing = true;
             if (ColorVideo.GetComponent<VideoPlayer>().isPrepared && !ColorVideo.GetComponent<VideoPlayer>().isPlaying)
             {
                 FlagManager.Instance.IsEventing = false;
@@ -69,10 +111,18 @@ public class MainCamera : MonoBehaviour
     }
     public void TriggeredVideo(uint index)
     {
-        PlayVideo = true;
         FlagManager.Instance.IsEventing = true;
+        //StartCoroutine(FadeInMovie());
         ColorVideo.GetComponent<VideoStorage>().index = index;
+        PlayVideo = true;
     }
+    //  動画終了時のフェード
+    void MovieFinished(VideoPlayer sorce)
+    {
+        Fade.Instance.StartFade(0.5f, Color.clear);
+        StartCoroutine(FadeOutMovie());
+    }
+
     public void T_ChangeFocus(GameObject newtarget)
     {
         if(!Zooming)
@@ -97,6 +147,31 @@ public class MainCamera : MonoBehaviour
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay, zoomspeed, zoomsize, zoompause));
+    }
+    //  動画のフェードイン・アウト
+    IEnumerator FadeInMovie()
+    {
+        float time = 0;
+        while (time < 1)
+        {
+            yield return null;
+            ColorVideo.GetComponent<VideoPlayer>().targetCameraAlpha = Mathf.Lerp(0, 1, time / 1);
+            time += Time.unscaledDeltaTime;
+        }
+        ColorVideo.GetComponent<VideoPlayer>().targetCameraAlpha = 1;
+        yield break;
+    }
+    IEnumerator FadeOutMovie()
+    {
+        float time = 0;
+        while (time < 1)
+        {
+            yield return null;
+            ColorVideo.GetComponent<VideoPlayer>().targetCameraAlpha = Mathf.Lerp(1, 0, time / 1);
+            time += Time.unscaledDeltaTime;
+        }
+        ColorVideo.GetComponent<VideoPlayer>().targetCameraAlpha = 0;
+        yield break;
     }
     IEnumerator changefocus(GameObject newtarget,float zoomdelay = 0.5f,float zoomspeed = 1.0f,float zoomsize= 1.0f,float zoompause=1.0f )
     {

@@ -62,7 +62,7 @@ public class FlagManager : MonoBehaviour
     private bool isOpenUI = false;
     public bool IsOpenUI
     {
-        get { return IsOpenUI; }
+        get { return isOpenUI; }
         set { IsOpenUI = value; }
     }    
 
@@ -76,6 +76,9 @@ public class FlagManager : MonoBehaviour
     void Awake()
     {
         CheckInstance();
+        //  初回の動画再生
+        MainCamera.Instance.CheckInstance();
+        MainCamera.Instance.TriggeredVideo(0);
         InitFlag();
     }
 
@@ -94,6 +97,10 @@ public class FlagManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
             IsPast = !IsPast;
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            SetItemFlag(ItemFlag.ALL);
         }
     }
 

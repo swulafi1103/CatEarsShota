@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PerraultAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /*
+     * 待機
+     * 歩き
+     * 攻撃
+     * ジャンプ
+     * 浮遊
+     * 着地
+     */
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

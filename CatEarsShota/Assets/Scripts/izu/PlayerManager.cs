@@ -72,6 +72,21 @@ public class PlayerManager : MonoBehaviour
             fran.GetComponent<FranMove>().enabled = false;
         }
     }
+
+    //  プレイヤーの座標取得
+    public Vector2 GetPlayerPos()
+    {
+        Vector2 vec2;
+        if (!FlagManager.Instance.IsPast)
+        {
+            vec2 = perrault.transform.position;
+        }
+        else
+        {
+            vec2 = fran.transform.position;
+        }
+        return vec2;
+    }
     
 
 }

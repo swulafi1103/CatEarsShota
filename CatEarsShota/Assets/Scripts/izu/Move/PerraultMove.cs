@@ -165,6 +165,7 @@ public class PerraultMove : MonoBehaviour
                 //  ギミックの発動
                 Debug.Log("ギミック作動");
                 examinableObjects[0].GetComponent<ICheckable>().Check();
+                examinableObjects.Remove(examinableObjects[0]);
             }
         }
         if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
@@ -177,6 +178,10 @@ public class PerraultMove : MonoBehaviour
     void CheckGround()
     {
         isGround = rb.IsTouching(filter2d);
+        if (!isGround)
+        {
+            anim.ResetTrigger("GroundTrigger");
+        }
         anim.SetBool("SetFloatAnimator", !isGround);
     }
 
