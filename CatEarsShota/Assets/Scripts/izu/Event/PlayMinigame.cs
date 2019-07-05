@@ -13,11 +13,13 @@ public class PlayMinigame : GimmickEvent, ICheckable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Debug.Log("aaaa");
-            miniGameManager.GetComponent<MiniGameManager>().TouchGenerator();
-        }
+
+        Debug.Log("GENERETOR" + GetComponent<BoxCollider2D>().enabled);
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    Debug.Log("aaaa");
+        //    miniGameManager.GetComponent<MiniGameManager>().TouchGenerator();
+        //}
     }
 
 
@@ -30,5 +32,10 @@ public class PlayMinigame : GimmickEvent, ICheckable
             Debug.Log(needGimmickFlag + " : TRUE");
             //gameObject.SetActive(false);
         }
+        if (!FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
+        {
+            Debug.Log("False");
+        }
+        
     }
 }

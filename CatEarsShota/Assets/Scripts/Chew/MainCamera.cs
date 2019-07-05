@@ -51,6 +51,7 @@ public class MainCamera : MonoBehaviour
     [Tooltip("過去のカメラ")]
     public GameObject PastCam;
     public GameObject Player;
+    public GameObject Fran;
     [Tooltip("ビデオの保存場所")]
     public GameObject ColorVideo;
     [Tooltip("カメラとプレイヤーの距離")]
@@ -59,6 +60,7 @@ public class MainCamera : MonoBehaviour
     public float DefaultScreenSize = 5.0f;
     [Tooltip("カメラの移動範囲制限")]
     public float[] CameraLimit = new float[2];
+    public float[] PastCameraLimit = new float[2];
 
     private bool fading = false;
 
@@ -81,15 +83,26 @@ public class MainCamera : MonoBehaviour
     {
         if (FlagManager.Instance.IsPast)
         {
-            PastCam.transform.position = transform.position + new Vector3(40, 0, 0);
+            if (Player.transform.position.x < PastCameraLimit[1] && Player.transform.position.x > CameraLimit[0])
+                PastCam.transform.position = Vector3.Lerp(PastCam.transform.position, Fran.transform.position - rangeToTarget, Time.deltaTime);
+            else
+            {
+                int tmpindex = Fran.transform.position.x > PastCameraLimit[1] ? 0 : 1;
+                Vector3 limitpos = new Vector3(PastCameraLimit[tmpindex], PastCam.transform.position.y, PastCam.transform.position.z);
+                PastCam.transform.position = Vector3.Lerp(PastCam.transform.position, limitpos, Time.deltaTime);
+            }
         }
-        if (Player.transform.position.x < CameraLimit[1] && Player.transform.position.x > CameraLimit[0])
-            transform.position = Vector3.Lerp(transform.position, Player.transform.position - rangeToTarget, Time.deltaTime);
-        else{
-            int tmpindex = Player.transform.position.x > CameraLimit[1] ? 0 : 1;
-            Vector3 limitpos = new Vector3(CameraLimit[tmpindex], transform.position.y, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position,limitpos, Time.deltaTime);
-     
+        else
+        {
+            if (Player.transform.position.x < CameraLimit[1] && Player.transform.position.x > CameraLimit[0])
+                transform.position = Vector3.Lerp(transform.position, Player.transform.position - rangeToTarget, Time.deltaTime);
+            else
+            {
+                int tmpindex = Player.transform.position.x > CameraLimit[1] ? 0 : 1;
+                Vector3 limitpos = new Vector3(CameraLimit[tmpindex], transform.position.y, transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, limitpos, Time.deltaTime);
+
+            }
         }
         if (PlayVideo)
         {

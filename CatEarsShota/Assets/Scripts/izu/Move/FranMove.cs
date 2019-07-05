@@ -12,7 +12,7 @@ public class FranMove : MonoBehaviour
     [SerializeField, Range(0.01f, 0.2f)]
     private float brakePower = 0.05f;
     [SerializeField, Range(1, 500)]
-    private float JumpPower = 250f;
+    private float JumpPower = 300f;
     [SerializeField, Range(0.01f, 3)]
     private float gravityRate = 1f;
     private Rigidbody2D rb;
@@ -27,8 +27,8 @@ public class FranMove : MonoBehaviour
     [SerializeField]
     private ContactFilter2D filter2d;
     private GameObject MinigameMgr;
-    //[SerializeField]
-    //GameObject fran;
+    [SerializeField]
+    private List<GameObject> examinableObjects = new List<GameObject>();
 
 
 
@@ -36,7 +36,7 @@ public class FranMove : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponent<Animator>();
+        //anim = gameObject.GetComponent<Animator>();
         scale = transform.localScale;
     }
     void Start()
@@ -130,7 +130,7 @@ public class FranMove : MonoBehaviour
             JumpNum = 1;
         }
         //  2回ジャンプしてない状態でスペースが押されたとき
-        if (Input.GetKeyDown(KeyCode.Space) && JumpNum < 2)
+        if (Input.GetKeyDown(KeyCode.Space) && JumpNum < 1)
         {
             JumpNum++;
             isJump = true;
@@ -149,8 +149,8 @@ public class FranMove : MonoBehaviour
                 rb.AddForce(new Vector2(rb.velocity.x, gravity));
             }
         }
-
     }
+
 
     /// <summary>
     /// Action
@@ -163,14 +163,18 @@ public class FranMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A))//調べ
         {
+            if (examinableObjects.Count != 0)
+            {
+                //  ギミックの発動
+                Debug.Log("ギミック作動");
+                examinableObjects[0].GetComponent<ICheckable>().Check();
+            }
+            if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
+            {
 
-        }
-        if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
-        {
-
+            }
         }
     }
-
     //  地面に触れているか
     void CheckGround()
     {
@@ -180,6 +184,7 @@ public class FranMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "MiniGames")
         {
             if (Input.GetKeyDown(KeyCode.A))//調べ
@@ -193,5 +198,29 @@ public class FranMove : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+        //  要素の追加
+        if (collision.gameObject.GetComponent<ICheckable>() != null)
+        {
+            if (!examinableObjects.Contains(collision.gameObject))
+            {
+                examinableObjects.Add(collision.gameObject);
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //  要素の破棄
+        examinableObjects.Remove(collision.gameObject);
+    }
+
 
 }

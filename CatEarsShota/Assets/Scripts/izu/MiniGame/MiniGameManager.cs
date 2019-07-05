@@ -101,11 +101,13 @@ public class MiniGameManager : MonoBehaviour
     void Update()
     {
         CheckTypingKey();
-        //  テスト用
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    TouchGenerator();
-        //}
+        if (isMinigame)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                StartMiniGame();
+            }
+        }
     }
 
     void OnGUI()

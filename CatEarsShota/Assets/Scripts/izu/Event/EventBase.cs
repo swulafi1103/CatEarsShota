@@ -48,7 +48,7 @@ public class EventBase : MonoBehaviour
         }
 
         GameObject childObj = transform.GetChild(0).gameObject;
-        if (childObj.name == "Bubble")
+        if (childObj.name != "Bubble")
         {
             Debug.Log("吹き出し無しの名前:" + childObj.name);
             return;
@@ -66,6 +66,7 @@ public class EventBase : MonoBehaviour
         }
         else
         {
+            //Debug.Log("名前:" + childObj.transform.parent.name);
             childObj.GetComponent<SpriteRenderer>().enabled = false;
         }
     }

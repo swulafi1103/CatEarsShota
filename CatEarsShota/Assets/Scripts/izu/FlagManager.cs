@@ -98,9 +98,10 @@ public class FlagManager : MonoBehaviour
         {
             IsPast = !IsPast;
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F10))
         {
-            SetItemFlag(ItemFlag.ALL);
+            Debug.Log("更新");
+            PlayerManager.Instance.SwitchPlayerMode(IsPast);
         }
     }
 
