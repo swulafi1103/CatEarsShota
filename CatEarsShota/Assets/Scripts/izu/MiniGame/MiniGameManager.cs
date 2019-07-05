@@ -79,6 +79,9 @@ public class MiniGameManager : MonoBehaviour
     private Color       fadeColor = Color.red;
     private Text[]      commandTexts;
 
+    [SerializeField]
+    private GameObject pastDoor;
+
 
     //[SerializeField]
     //private Sprite[]    keySprites;           //  問題に並べる画像
@@ -283,9 +286,8 @@ public class MiniGameManager : MonoBehaviour
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
-        map.GetComponent<MapStatus>().MapObjectState[2] = true;
-        map.GetComponent<MapStatus>().MapObjectState[1] = true;
-        
+        Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
+        StartCoroutine(ChengeFran());
         FlagManager.Instance.IsPast = false;
     }
 
@@ -296,6 +298,7 @@ public class MiniGameManager : MonoBehaviour
     {
         FlagManager.Instance.IsPast = true;
         StartCoroutine(DisplayFaildText());
+        pastDoor.GetComponent<PlayMinigame>().isOpenMinigame = false;
     }
 
     /// <summary>
@@ -322,6 +325,12 @@ public class MiniGameManager : MonoBehaviour
                 Debug.Log("?の文字:" + keyCode);
                 return "?";
         }
+    }
+
+    IEnumerator ChengeFran()
+    {
+        Fade.Instance.StartFadeInOut(1, Color.white);
+        yield break;
     }
 
     /// <summary>

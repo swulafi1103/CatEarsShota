@@ -20,10 +20,6 @@ public class EventBase : MonoBehaviour
     protected bool isDisplayBubble;
 
 
-    void OnValidate()
-    {
-        DisplayBubble();
-    }
 
     public virtual bool CheckFlag()
     {

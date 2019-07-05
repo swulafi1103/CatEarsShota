@@ -6,21 +6,18 @@ public class PlayMinigame : GimmickEvent, ICheckable
 {
     [SerializeField]
     private GameObject miniGameManager;
+    [SerializeField]
+    private GameObject rangeObject;
+    public bool isOpenMinigame = false;
     void Start()
     {
         CheckFlag();
     }
 
-    private void Update()
-    {
+    //private void Update()
+    //{
 
-        Debug.Log("GENERETOR" + GetComponent<BoxCollider2D>().enabled);
-        //if (Input.GetKeyDown(KeyCode.Return))
-        //{
-        //    Debug.Log("aaaa");
-        //    miniGameManager.GetComponent<MiniGameManager>().TouchGenerator();
-        //}
-    }
+    //}
 
 
     public override void Check()
@@ -28,8 +25,14 @@ public class PlayMinigame : GimmickEvent, ICheckable
         //base.Check();
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
         {
-            MiniGameManager.Instance.TouchGenerator();
-            Debug.Log(needGimmickFlag + " : TRUE");
+            if (!isOpenMinigame)
+            {
+                miniGameManager.GetComponent<MiniGameManager>().TouchGenerator();
+                isOpenMinigame = true;
+                Debug.Log(needGimmickFlag + " : TRUE");
+                rangeObject.SetActive(false);
+            }
+            
             //gameObject.SetActive(false);
         }
         if (!FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))

@@ -17,5 +17,6 @@ public class ItemEvent : EventBase, ICheckable
     public void Check()
     {
         FlagManager.Instance.SetItemFlag(standItemFlag);
+        gameObject.SetActive(false);
     }
 }

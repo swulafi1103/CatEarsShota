@@ -351,7 +351,6 @@ GameObject:
   - component: {fileID: 7979608084774574069}
   - component: {fileID: 743841078735744874}
   - component: {fileID: 3208017413035605699}
-  - component: {fileID: 772845635}
   - component: {fileID: 4987470507573805293}
   m_Layer: 0
   m_Name: Generetor
@@ -465,27 +464,6 @@ MonoBehaviour:
   status:
   - {fileID: 21300000, guid: e6207389e0838da458a092fa26a4ac4d, type: 3}
   - {fileID: 21300000, guid: c1537738ab63d5e4782c72f089d4ec5a, type: 3}
---- !u!50 &772845635
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3208017413035605698}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!114 &4987470507573805293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +484,7 @@ MonoBehaviour:
   isDisplayBubble: 0
   standgimmickFlag: 0
   miniGameManager: {fileID: 0}
+  rangeObject: {fileID: 0}
 --- !u!1 &3730738751165379914
 GameObject:
   m_ObjectHideFlags: 0

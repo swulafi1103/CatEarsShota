@@ -20,7 +20,9 @@ public class TouchGeneretor : GimmickEvent
     {
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
         {
-            Debug.Log(needGimmickFlag + " : TRUE");
+            Debug.Log("koko");
+            FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_04_TouchYellowGenerator);
+            Debug.Log("kokoFlag = " +FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_04_TouchYellowGenerator));
             StartCoroutine(ChengeFran());
             gameObject.SetActive(false);
         }

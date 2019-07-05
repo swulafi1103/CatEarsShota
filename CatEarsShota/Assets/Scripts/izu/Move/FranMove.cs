@@ -36,7 +36,7 @@ public class FranMove : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        //anim = gameObject.GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
         scale = transform.localScale;
     }
     void Start()
@@ -137,7 +137,7 @@ public class FranMove : MonoBehaviour
             Vector2 JumpVector = new Vector2(0, JumpPower);
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(JumpVector);
-            anim.ResetTrigger("GroundTrigger");
+            //anim.ResetTrigger("GroundTrigger");
             anim.SetTrigger("JumpTrigger");
         }
         //  落下のスピードの調整
@@ -159,7 +159,7 @@ public class FranMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))//攻撃
         {
-            anim.SetTrigger("AttackTrigger");
+            //anim.SetTrigger("AttackTrigger");
         }
         if (Input.GetKeyDown(KeyCode.A))//調べ
         {
@@ -179,12 +179,11 @@ public class FranMove : MonoBehaviour
     void CheckGround()
     {
         isGround = rb.IsTouching(filter2d);
-        anim.SetBool("SetFloatAnimator", !isGround);
+        //anim.SetBool("SetFloatAnimator", !isGround);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "MiniGames")
         {
             if (Input.GetKeyDown(KeyCode.A))//調べ
@@ -199,14 +198,8 @@ public class FranMove : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log(collision.name);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         //  要素の追加
         if (collision.gameObject.GetComponent<ICheckable>() != null)
         {
