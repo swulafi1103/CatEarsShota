@@ -50,7 +50,7 @@ public class FranMove : MonoBehaviour
         //  着地チャック
         CheckGround();
         //  操作停止中ではないか
-        if (!isNotmoves)
+        if (CanMove())
         {
             Jump();
             Move();
@@ -175,6 +175,21 @@ public class FranMove : MonoBehaviour
             }
         }
     }
+
+    //  動けるのか
+    bool CanMove()
+    {
+        if (FlagManager.Instance.IsOpenUI)
+        {
+            return false;
+        }
+        if (FlagManager.Instance.IsEventing)
+        {
+            return false;
+        }
+        return true;
+    }
+
     //  地面に触れているか
     void CheckGround()
     {

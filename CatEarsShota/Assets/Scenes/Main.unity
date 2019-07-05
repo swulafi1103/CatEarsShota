@@ -1456,7 +1456,7 @@ VideoPlayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106469261}
-  m_Enabled: 1
+  m_Enabled: 0
   m_VideoClip: {fileID: 32900000, guid: 8a9213c3718a0f1488030f7bb8190199, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
@@ -2067,6 +2067,11 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[27].y
       value: -3.557766
       objectReference: {fileID: 0}
+    - target: {fileID: 2794936260209556747, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 850150e96b11e93419528e3d10a44166, type: 2}
     - target: {fileID: 6429075788347597950, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
         type: 3}
       propertyPath: m_Name
@@ -2765,6 +2770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: needItemFlag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107188450488438983, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c020ab05729747942b7b596b27b1f4f2, type: 3}

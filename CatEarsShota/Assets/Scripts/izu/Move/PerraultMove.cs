@@ -9,7 +9,7 @@ public class PerraultMove : MonoBehaviour
     private float MoveSpeed = 13f;
     [SerializeField, Range(1, 15)]
     private float MaxSpeed = 4f;
-    [SerializeField, Range(0.01f, 0.2f)]
+    [SerializeField, Range(0.01f, 0.5f)]
     private float brakePower = 0.05f;
     [SerializeField, Range(1, 500)]
     private float JumpPower = 250f;
@@ -47,7 +47,7 @@ public class PerraultMove : MonoBehaviour
         //  着地チャック
         CheckGround();
         //  操作停止中ではないか
-        if (!isNotmoves)
+        if (CanMove())
         {
             Jump();
             Move();
@@ -147,6 +147,20 @@ public class PerraultMove : MonoBehaviour
             }
         }
 
+    }
+
+    //  移動できるか
+    bool CanMove()
+    {
+        if (FlagManager.Instance.IsOpenUI)
+        {
+            return false;
+        }
+        if (FlagManager.Instance.IsEventing)
+        {
+            return false;
+        }        
+        return true;
     }
 
     /// <summary>

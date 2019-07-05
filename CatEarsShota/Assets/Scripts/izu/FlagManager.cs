@@ -54,7 +54,7 @@ public class FlagManager : MonoBehaviour
     private bool isEventing = false;
     public bool IsEventing
     {
-        get { return IsEventing; }
+        get { return isEventing; }
         set { isEventing = value; }
     }
     //  UI開いているか
