@@ -120,7 +120,7 @@ public class MainCamera : MonoBehaviour
     void MovieFinished(VideoPlayer sorce)
     {
         Fade.Instance.StartFade(0.5f, Color.clear);
-        StartCoroutine(FadeOutMovie());
+        //StartCoroutine(FadeOutMovie());
     }
 
     public void T_ChangeFocus(GameObject newtarget)

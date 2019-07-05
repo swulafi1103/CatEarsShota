@@ -41,7 +41,7 @@ public class TouchGeneretor : GimmickEvent
 
     IEnumerator ChengeFran()
     {
-
+        Fade.Instance.StartFadeInOut(1, Color.white);
         yield break;
     }
 

@@ -21,6 +21,6 @@ public class GimmickEvent : EventBase, ICheckable
         {
             Debug.Log(needGimmickFlag + " : TRUE");
             gameObject.SetActive(false);
-        }        
+        }
     }    
 }

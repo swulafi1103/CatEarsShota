@@ -37,7 +37,16 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     private GameObject perrault = null;
+    public GameObject Pero
+    {
+        get { return perrault; }
+    }
+
     private GameObject fran = null;
+    public GameObject Fran
+    {
+        get { return fran; }
+    }
 
     void Awake()
     {

@@ -48,7 +48,12 @@ public class EventBase : MonoBehaviour
         }
 
         GameObject childObj = transform.GetChild(0).gameObject;
-        
+        if (childObj.name == "Bubble")
+        {
+            Debug.Log("吹き出し無しの名前:" + childObj.name);
+            return;
+        }
+
         if (isDisplayBubble)
         {
             if (bubbleImage != null)

@@ -84,7 +84,7 @@ public class Fade : MonoBehaviour
         {
             fading = true;
             FlagManager.Instance.IsEventing = true;
-            StartCoroutine(fadeinoutProcess(FadeScreen, time, newcolor));
+            StartCoroutine(fadeinoutProcess(FadeScreen, time, newcolor, FlagManager.Instance.ChegeFranPero));
         }
     }
     public void ClearFade(float time, Color newcolor)

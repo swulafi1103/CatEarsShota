@@ -6,6 +6,37 @@ using UnityEngine.UI;
 
 public class MiniGameManager : MonoBehaviour
 {
+    #region Singleton
+    private static MiniGameManager instance;
+    public static MiniGameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                Debug.LogWarning("MiniGameManager is Null");
+            }
+            return instance;
+        }
+    }
+
+    private bool CheckInstance()
+    {
+        if (instance == null)
+        {
+            instance = (MiniGameManager)this;
+            return true;
+        }
+        else if (Instance == this)
+        {
+            return true;
+        }
+
+        Destroy(this);
+        return false;
+    }
+    #endregion
+
     public GameObject CameraMain;
     public GameObject Door;
 
@@ -34,10 +65,6 @@ public class MiniGameManager : MonoBehaviour
     private GameObject  mistakeCountObj;        //  失敗回数を表示する用
     [SerializeField]
     private GameObject  commandParentObj;       //  コマンドの表示用
-    [SerializeField]
-    private GameObject PlayerMovePerrault;
-    [SerializeField]
-    private GameObject PlayerMoveFran;             //playerの移動制限解除用
     [SerializeField]
     private GameObject map;                     //mapオブジェクト変更
     [SerializeField]
@@ -99,8 +126,7 @@ public class MiniGameManager : MonoBehaviour
     {
         discriptionObj.SetActive(true);
         isMinigame = true;
-        PlayerMovePerrault.GetComponent<PlayerMoves>().isNotmoves = true;
-        PlayerMoveFran.GetComponent<PlayerMoves>().isNotmoves = true;
+        FlagManager.Instance.IsEventing = true;
     }
 
     /// <summary>

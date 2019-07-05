@@ -155,6 +155,11 @@ public class FlagManager : MonoBehaviour
         return false;
     }
 
+    public void ChegeFranPero()
+    {
+        IsPast = !IsPast;
+    }
+
 }
 
 [Flags]
