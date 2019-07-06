@@ -68,6 +68,7 @@ public class FranMove : MonoBehaviour
         {
             if (scale.x > 0)
             {
+                anim.SetBool("FaceLeft", false);
                 scale.x *= -1;
                 transform.localScale = scale;
             }
@@ -83,6 +84,7 @@ public class FranMove : MonoBehaviour
         {
             if (scale.x < 0)
             {
+                anim.SetBool("FaceLeft", true);
                 scale.x *= -1f;
                 transform.localScale = scale;
             }
@@ -127,6 +129,7 @@ public class FranMove : MonoBehaviour
         //  ジャンプせずに足場から離れたとき
         if (!isGround && !isJump)
         {
+            anim.ResetTrigger("GroundTrigger");
             JumpNum = 1;
         }
         //  2回ジャンプしてない状態でスペースが押されたとき
@@ -137,7 +140,7 @@ public class FranMove : MonoBehaviour
             Vector2 JumpVector = new Vector2(0, JumpPower);
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(JumpVector);
-            //anim.ResetTrigger("GroundTrigger");
+            anim.ResetTrigger("GroundTrigger");
             anim.SetTrigger("JumpTrigger");
         }
         //  落下のスピードの調整
