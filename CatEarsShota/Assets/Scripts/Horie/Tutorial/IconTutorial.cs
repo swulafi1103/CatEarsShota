@@ -183,6 +183,7 @@ public class IconTutorial : MonoBehaviour
         color.a = 0;
         IconImage.color = color;
         IconImage.sprite = Icons[SPNum];
+        IconImage.SetNativeSize();
         IconImage.enabled = true;
         for (int i = 0; i <= AnimFrame; i++) {
             float a = (float)i / AnimFrame;

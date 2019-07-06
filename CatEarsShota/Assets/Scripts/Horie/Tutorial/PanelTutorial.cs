@@ -76,6 +76,7 @@ public class PanelTutorial : MonoBehaviour
             yield break;
         }
         PanelImage.sprite = panels[num];
+        PanelImage.SetNativeSize();
 
         for(float f = 0; f <= AnimFrame; f++) {
             float sizeY = firstSize.y * (f / AnimFrame);
