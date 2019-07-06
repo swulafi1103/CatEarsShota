@@ -69,7 +69,7 @@ public class Fade : MonoBehaviour
         }
     }
 
-    public void StartFade(float time,Color newcolor)
+    public void StartFade(float time,Color newcolor) //色と実行時間だけ入力
     {
         if (!fading)
         {
@@ -78,7 +78,7 @@ public class Fade : MonoBehaviour
             StartCoroutine(fadeprocess(FadeScreen,time,newcolor));
         }
     }
-    public void StartFadeInOut(float time, Color newcolor)
+    public void StartFadeInOut(float time, Color newcolor)　//赤色のエフェクトの専用フェイド
     {
         if (!fading)
         {
@@ -87,7 +87,7 @@ public class Fade : MonoBehaviour
             StartCoroutine(fadeinoutProcess(FadeScreen, time, newcolor, FlagManager.Instance.ChegeFranPero));
         }
     }
-    public void ClearFade(float time, Color newcolor)
+    public void ClearFade(float time, Color newcolor) //エフェクトとフェイド画像を同時に透明化
     {
         if (!fading)
         {
@@ -97,7 +97,7 @@ public class Fade : MonoBehaviour
             StartCoroutine(fadeprocess(RedEffect, time, newcolor));
         }
     }
-    public void StartFade(float time, Color newcolor,System.Action task)
+    public void StartFade(float time, Color newcolor,System.Action task)//フェイド直後にコマンドを入れられる
     {
         if (!fading)
         {
@@ -106,7 +106,7 @@ public class Fade : MonoBehaviour
             StartCoroutine(fadeprocess(FadeScreen,time,newcolor,task));
         }
     }
-    public void CallFadeIO(int count)
+    public void CallFadeIO(int count) //赤いエフェクトの実行（実行繰り返しの回数）
     {
         startfadeInOut = true;
         FlagManager.Instance.IsEventing = true;

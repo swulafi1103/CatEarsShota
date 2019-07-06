@@ -40,7 +40,7 @@ public class MainCamera : MonoBehaviour
     #endregion
 
     private double vidoLength;
-    public double VideoLength
+    public double VideoLength　//映像の長さ
     {
         get { return vidoLength; }
         private set { vidoLength = value; }
@@ -122,7 +122,7 @@ public class MainCamera : MonoBehaviour
         if(!fading)
             PastCam.SetActive(FlagManager.Instance.IsPast);
     }
-    public void TriggeredVideo(uint index)
+    public void TriggeredVideo(uint index)　//動画を放送
     {
         FlagManager.Instance.IsEventing = true;
         //StartCoroutine(FadeInMovie());
@@ -136,27 +136,27 @@ public class MainCamera : MonoBehaviour
         //StartCoroutine(FadeOutMovie());
     }
 
-    public void T_ChangeFocus(GameObject newtarget)
+    public void T_ChangeFocus(GameObject newtarget)　//カメラを映るターゲット
     {
         if(!Zooming)
         StartCoroutine(changefocus(newtarget));
     }
-    public void T_ChangeFocus(GameObject newtarget, float zoomdelay)
+    public void T_ChangeFocus(GameObject newtarget, float zoomdelay)　//遅延時間の追加
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay));
     }
-    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed)
+    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed)　//拡大速度の追加
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay, zoomspeed));
     }
-    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed, float zoomsize)
+    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed, float zoomsize)　//拡大倍数の追加
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay, zoomspeed, zoomsize));
     }
-    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed, float zoomsize, float zoompause)
+    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed, float zoomsize, float zoompause)　//拡大後止まる時間の追加
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay, zoomspeed, zoomsize, zoompause));
