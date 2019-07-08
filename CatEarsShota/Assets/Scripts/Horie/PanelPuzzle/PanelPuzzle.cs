@@ -121,14 +121,17 @@ public class PanelPuzzle : MonoBehaviour
                 SetData();
                 break;
             case GameState.PanelSeted:
-                bool haves = ItemManager.Instance.IsGet(ItemManager.ItemNum.Ilust_Piece);
-                if (haves)
-                {
-                    DKeyImage.enabled = true;
-                }
+                SetDIcon();
                 break;
         }
         panelAct = true;
+    }
+
+    void SetDIcon()
+    {
+        bool haves = ItemManager.Instance.IsGet(ItemManager.ItemNum.Ilust_Piece);
+        if (!haves) return;
+        DKeyImage.enabled = true;
     }
     
     /// <summary>
@@ -177,6 +180,7 @@ public class PanelPuzzle : MonoBehaviour
 
         _gameState = GameState.PanelSeted;
         selectCarsor.gameObject.SetActive(false);
+        SetDIcon();
     }
 
     /// <summary>
@@ -230,6 +234,7 @@ public class PanelPuzzle : MonoBehaviour
             if (panelNum[i] != 0) continue;
             panels[i].sprite = PanelImage[5];
             panels[i].enabled = true;
+            DKeyImage.enabled = false;
             _gameState = GameState.Conprete;
             //フラグ書き換え
             return;

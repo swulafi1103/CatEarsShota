@@ -115,6 +115,7 @@ public class ItemUIController : MonoBehaviour
     /// </summary>
     void PushCancel() {
         if (!Input.GetKeyDown(KeyCode.X)) return;
+        Debug.Log(IsEvent);
 
         if (IsActDetail) {
             StartCoroutine(SetDetailUI(false));
@@ -301,11 +302,14 @@ public class ItemUIController : MonoBehaviour
     /// <summary>
     /// イベント用アイテムUI_Start
     /// </summary>
-    public void SetEventUI(ItemData item) {
+    public void SetEventUI(ItemData item)
+    {
+        IsActUI = false;
         StartCoroutine(StartEventUI(item));
     }
 
-    IEnumerator StartEventUI(ItemData item) {
+    IEnumerator StartEventUI(ItemData item)
+    {
         yield return new WaitForSeconds(0.1f);
         IsEvent = true;
         ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
@@ -330,8 +334,9 @@ public class ItemUIController : MonoBehaviour
         if (!IsEvent) return false;
         if (!Input.GetKeyDown(KeyCode.A)) return false;
         if (NowHave[selectNum] != item) return false;
-        ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
         IsEvent = false;
+        ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
+        StopAllCoroutines();
         return true;
     }
 }
