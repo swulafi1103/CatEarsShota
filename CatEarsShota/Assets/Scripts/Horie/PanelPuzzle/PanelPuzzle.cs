@@ -19,6 +19,7 @@ public class PanelPuzzle : MonoBehaviour
     RectTransform selectCarsor;
     
     bool panelAct = false;
+    bool ItemUIAct = false;
     
     Image DKeyImage;
 
@@ -52,8 +53,11 @@ public class PanelPuzzle : MonoBehaviour
                 break;
             case GameState.PanelSeted:
                 PushXkey();
+                PushDkey();
+                SelectPiece();
                 break;
             case GameState.Conprete:
+                PushXkey();
                 break;
         }
 
@@ -65,6 +69,7 @@ public class PanelPuzzle : MonoBehaviour
     void SetData()
     {
         panelAct = false;
+        ItemUIAct = false;
         for (int i = 0; i < 6; i++)
         {
             panels[i] = transform.GetChild(i + 1).GetComponent<Image>();
@@ -201,6 +206,34 @@ public class PanelPuzzle : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.X)) return;
         panelAct = false;
         this.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// DKey
+    /// </summary>
+    void PushDkey()
+    {
+        if (!DKeyImage.enabled) return;
+        if (!Input.GetKeyDown(KeyCode.D)) return;
+        ItemManager.Instance.SetEventUI(ItemManager.ItemNum.Ilust_Piece);
+        ItemUIAct = true;
+    }
+
+    void SelectPiece()
+    {
+        if (!ItemUIAct) return;
+        bool select = ItemManager.Instance.SelectedEventItem(ItemManager.ItemNum.Ilust_Piece);
+        if (!select) return;
+        ItemUIAct = false;
+        for(int i = 0; i < panelNum.Length; i++)
+        {
+            if (panelNum[i] != 0) continue;
+            panels[i].sprite = PanelImage[5];
+            panels[i].enabled = true;
+            _gameState = GameState.Conprete;
+            //フラグ書き換え
+            return;
+        }
     }
 
     /// <summary>
