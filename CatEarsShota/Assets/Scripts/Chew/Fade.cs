@@ -53,7 +53,6 @@ public class Fade : MonoBehaviour
     {
         FadeScreen = transform.GetChild(0).gameObject;
         RedEffect = transform.GetChild(1).gameObject;
-
     }
 
     void Update()
