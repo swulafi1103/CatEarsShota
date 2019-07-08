@@ -18,6 +18,9 @@ public class PanelPuzzle : MonoBehaviour
     Vector3[] movePos = new Vector3[6];
     RectTransform selectCarsor;
     
+    bool panelAct = false;
+    
+    Image DKeyImage;
 
     enum GameState
     {
@@ -27,12 +30,12 @@ public class PanelPuzzle : MonoBehaviour
         Conprete
     }
 
-    GameState _gameState;
+    GameState _gameState = GameState.wait;
 
     // Start is called before the first frame update
     void Start()
     {
-        SetData();
+
     }
 
     // Update is called once per frame
@@ -40,13 +43,15 @@ public class PanelPuzzle : MonoBehaviour
     {
         switch (_gameState) {
             case GameState.wait:
-                CheckStart();
                 break;
             case GameState.Start:
                 MoveCarsor();
                 PushAKey();
+                PushSKey();
+                PushXkey();
                 break;
             case GameState.PanelSeted:
+                PushXkey();
                 break;
             case GameState.Conprete:
                 break;
@@ -54,19 +59,23 @@ public class PanelPuzzle : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// データ初期化
+    /// </summary>
     void SetData()
     {
-        for(int i = 0; i < 6; i++)
+        panelAct = false;
+        for (int i = 0; i < 6; i++)
         {
             panels[i] = transform.GetChild(i + 1).GetComponent<Image>();
             movePos[i] = panels[i].transform.localPosition;
             
         }
 
-        _gameState = GameState.wait;
-        carsorSelectNum = 0;
+        _gameState = GameState.Start;
         selectCarsor = transform.GetChild(7).GetComponent<RectTransform>();
-        selectCarsor.localPosition = movePos[0];
+
+        DKeyImage = transform.GetChild(10).GetComponent<Image>();
 
         SetStartPanel();
     }
@@ -76,29 +85,47 @@ public class PanelPuzzle : MonoBehaviour
     /// </summary>
     void SetStartPanel()
     {
-        panelNum = startPos;
         for(int i = 0; i < 6; i++)
         {
+            panelNum[i] = startPos[i];
             if (panelNum[i] == 0)
             {
                 panels[i].enabled = false;
             }
             else
             {
+                panels[i].enabled = true;
                 panels[i].sprite = PanelImage[panelNum[i] - 1];
             }
         }
+        carsorSelectNum = 0;
+        selectCarsor.localPosition = movePos[carsorSelectNum];
+        DKeyImage.enabled = false;
     }
-
+    
     /// <summary>
-    /// 表示、非表示
+    /// 呼び出し
     /// </summary>
-    void CheckStart() {
-        //flag取得処理
+    public void PushStart()
+    {
+        if (panelAct) return;
 
-        _gameState = GameState.Start;
+        switch (_gameState)
+        {
+            case GameState.wait:
+                SetData();
+                break;
+            case GameState.PanelSeted:
+                bool haves = ItemManager.Instance.IsGet(ItemManager.ItemNum.Ilust_Piece, true);
+                if (haves)
+                {
+                    DKeyImage.enabled = true;
+                }
+                break;
+        }
+        panelAct = true;
     }
-
+    
     /// <summary>
     /// 矢印入力
     /// </summary>
@@ -145,15 +172,35 @@ public class PanelPuzzle : MonoBehaviour
 
         _gameState = GameState.PanelSeted;
         selectCarsor.gameObject.SetActive(false);
-        Debug.Log("5 Seted");
     }
 
     /// <summary>
-    /// AKey
+    /// AKey(In Game)
     /// </summary>
     void PushAKey() {
+        if (!panelAct) return;
         if (!Input.GetKeyDown(KeyCode.A)) return;
         SwitchingPanel();
+    }
+
+
+    /// <summary>
+    /// SKey
+    /// </summary>
+    void PushSKey()
+    {
+        if (!Input.GetKeyDown(KeyCode.S)) return;
+        SetStartPanel();
+    }
+
+    /// <summary>
+    /// XKey
+    /// </summary>
+    void PushXkey()
+    {
+        if (!Input.GetKeyDown(KeyCode.X)) return;
+        panelAct = false;
+        this.gameObject.SetActive(false);
     }
 
     /// <summary>

@@ -150,7 +150,14 @@ public class ItemManager : MonoBehaviour
         Debug.Log(num - 12);
     }
 
-    public bool IsGet(int num,bool isPerrault) {
+    /// <summary>
+    /// 特定のアイテムを持っているか
+    /// </summary>
+    /// <param name="num"></param>
+    /// <param name="isPerrault"></param>
+    /// <returns></returns>
+    public bool IsGet(ItemNum itemNum,bool isPerrault) {
+        int num = (int)itemNum;
         ItemData item = itemList[num];
         ItemData.ItemType types = item.GetItemType;
         List<ItemData> allList = new List<ItemData>();
@@ -173,16 +180,26 @@ public class ItemManager : MonoBehaviour
         return have;
     }
 
+    /// <summary>
+    /// 特定のアイテムしか選択できないアイテム欄出現
+    /// </summary>
+    /// <param name="item"></param>
     public void SetEventUI(ItemNum item) {
         int num = (int)item;
         ItemData data = itemList[num];
         UIContriller.SetEventUI(data);
     }
 
+    /// <summary>
+    /// 特定のアイテムしか選択できないアイテム欄出現後、アイテムを選択したか
+    /// </summary>
+    /// <param name="item"></param>
+    /// <returns></returns>
     public bool SelectedEventItem(ItemNum item) {
         int num = (int)item;
         ItemData data = itemList[num];
         bool select = UIContriller.EndEventUI(data);
         return select;
     }
+    
 }
