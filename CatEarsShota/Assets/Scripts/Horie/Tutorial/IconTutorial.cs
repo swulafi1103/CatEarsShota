@@ -138,7 +138,7 @@ public class IconTutorial : MonoBehaviour
     /// 「アイテム拾う」判定
     /// </summary>
     void ItemTuto() {
-        bool item = ItemManager.Instance.IsGet(ItemManager.ItemNum.Yerrow_Orb, true);
+        bool item = ItemManager.Instance.IsGet(ItemManager.ItemNum.Yerrow_Orb);
         if (!item) return;
         StartCoroutine(AnimSet(IconNum.ItemUI));
     }

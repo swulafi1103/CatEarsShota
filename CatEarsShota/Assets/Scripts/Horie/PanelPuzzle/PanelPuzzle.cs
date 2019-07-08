@@ -116,7 +116,7 @@ public class PanelPuzzle : MonoBehaviour
                 SetData();
                 break;
             case GameState.PanelSeted:
-                bool haves = ItemManager.Instance.IsGet(ItemManager.ItemNum.Ilust_Piece, true);
+                bool haves = ItemManager.Instance.IsGet(ItemManager.ItemNum.Ilust_Piece);
                 if (haves)
                 {
                     DKeyImage.enabled = true;
