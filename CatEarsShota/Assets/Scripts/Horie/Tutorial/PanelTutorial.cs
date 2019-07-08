@@ -18,9 +18,7 @@ public class PanelTutorial : MonoBehaviour
     {
         get { return actAnim; }
     }
-
-    [SerializeField]
-    Vector2 firstSize = new Vector2(800, 600);
+    
 
     public enum PanelNum {
         ChangeMode = 0,
@@ -46,9 +44,7 @@ public class PanelTutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) {
-            PanelTuto(PanelNum.ChangeMode);
-        }
+        if (TutorialContriller.Instance.ActAnim()) return;
         CheckBackKey();
     }
 
@@ -73,7 +69,7 @@ public class PanelTutorial : MonoBehaviour
 
         actAnim = true;
 
-        PanelTrans.sizeDelta = new Vector2(firstSize.x, 0);
+        PanelTrans.localScale = new Vector2(1, 0);
         int num = (int)nowNum;
         if (num >= panels.Count) {
             Debug.Log("NULL NUM:" + num);
@@ -83,10 +79,11 @@ public class PanelTutorial : MonoBehaviour
         PanelImage.SetNativeSize();
 
         for(float f = 0; f <= AnimFrame; f++) {
-            float sizeY = firstSize.y * (f / AnimFrame);
-            PanelTrans.sizeDelta = new Vector2(firstSize.x, sizeY);
+            float sizeY = f / AnimFrame;
+            PanelTrans.localScale = new Vector2(1, sizeY);
             yield return null;
         }
+        //PanelImage.SetNativeSize();
         actAnim = false;
     }
 
@@ -95,10 +92,10 @@ public class PanelTutorial : MonoBehaviour
 
         actAnim = true;
 
-        PanelTrans.sizeDelta = firstSize;
+        PanelTrans.localScale = Vector2.one;
         for (float f = AnimFrame; f >= 0; f--) {
-            float sizeY = firstSize.y * (f / AnimFrame);
-            PanelTrans.sizeDelta = new Vector2(firstSize.x, sizeY);
+            float sizeY = f / AnimFrame;
+            PanelTrans.localScale = new Vector2(1, sizeY);
             yield return null;
         }
         nowNum = PanelNum.None;

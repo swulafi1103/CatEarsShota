@@ -50,6 +50,7 @@ public class IconTutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (TutorialContriller.Instance.ActAnim()) return;
         switch (NowNum) {
             case IconNum.Move:
                 CheckMove();

@@ -40,8 +40,9 @@ public class TutorialContriller : MonoBehaviour
         ChangeModeTuto();
     }
 
-    bool ActAnim()
+    public bool ActAnim()
     {
+        if (FlagManager.Instance.IsEventing) return false;
         bool icon = iconTutorial.ActAnim;
         bool panel = panelTutorial.ActAnim;
         if (!icon && !panel) return false;
