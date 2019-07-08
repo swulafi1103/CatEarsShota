@@ -14,11 +14,15 @@ public class ItemManager : MonoBehaviour
     }
 
     private bool isFran;
-    public bool IsFran {
-        get {
-            GetPlayer();
-            return isFran;
-        }
+
+
+    /// <summary>
+    /// playerがペローかフランか判定
+    /// </summary>
+    bool IsFran()
+    {
+        isFran = FlagManager.Instance.IsPast;
+        return isFran;
     }
 
     PlayerItems Fran;
@@ -97,7 +101,7 @@ public class ItemManager : MonoBehaviour
 
         ItemData.ItemType types = (ItemData.ItemType)Enum.ToObject(typeof(ItemData.ItemType), t);
 
-        if (IsFran) {
+        if (IsFran()) {
             HaveData = Fran.GetTypeHaveData(types);
             allList = Fran.GetTypeImage(types);
         }
@@ -116,24 +120,16 @@ public class ItemManager : MonoBehaviour
     }
 
     /// <summary>
-    /// playerがペローかフランか判定
-    /// </summary>
-    void GetPlayer() {
-        isFran = FlagManager.Instance.IsPast;
-        //isFran = true;
-    }
-
-    /// <summary>
     /// アイテム取得情報変更（ペローはfalse,フランはtrue）
     /// </summary>
     /// <param name="item">アイテムデータ</param>
     /// <param name="fran">ペローはfalse,フランはtrue</param>
-    public void SetItemData(ItemNum itemNum,bool fran) {
+    public void SetItemData(ItemNum itemNum) {
 
         int num = (int)itemNum;
         ItemData item = itemList[num];
 
-        if (fran) {
+        if (IsFran()) {
             Fran.SetItemGet(item);
         }
         else {
@@ -156,20 +152,22 @@ public class ItemManager : MonoBehaviour
     /// <param name="num"></param>
     /// <param name="isPerrault"></param>
     /// <returns></returns>
-    public bool IsGet(ItemNum itemNum,bool isPerrault) {
+    public bool IsGet(ItemNum itemNum) {
         int num = (int)itemNum;
         ItemData item = itemList[num];
         ItemData.ItemType types = item.GetItemType;
         List<ItemData> allList = new List<ItemData>();
         List<bool> HaveData = new List<bool>();
 
-        if (isPerrault) {
-            allList = Perrault.GetTypeImage(types);
-            HaveData = Perrault.GetTypeHaveData(types);
-        }
-        else {
+        if (IsFran())
+        {
             allList = Fran.GetTypeImage(types);
             HaveData = Fran.GetTypeHaveData(types);
+        }
+        else
+        {
+            allList = Perrault.GetTypeImage(types);
+            HaveData = Perrault.GetTypeHaveData(types);
         }
         bool have = false;
         for(int i = 0; i < allList.Count; i++) {
