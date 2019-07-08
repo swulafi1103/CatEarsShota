@@ -53,13 +53,17 @@ public class EventManager : MonoBehaviour
 
     void Update()
     {
+        //
         if (Input.GetKeyDown(KeyCode.F5))
         {
-            UpdateBubble();
+            UpdateEvent();
         }
     }
 
-    public void UpdateBubble()
+    /// <summary>
+    /// フラグのチェックと更新
+    /// </summary>
+    public void UpdateEvent()
     {
         foreach(GameObject obj in gimmickObjects)
         {
@@ -84,7 +88,9 @@ public class EventManager : MonoBehaviour
     }
 }
 
-
+/// <summary>
+/// キャラの調べる反応させる関数
+/// </summary>
 public interface ICheckable
 {
     void Check();
