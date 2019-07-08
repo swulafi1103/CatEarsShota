@@ -125,7 +125,6 @@ public class BubbleEvent : MonoBehaviour
         int count = 0;
         while (time < 3)
         {
-            Debug.Log("Time = " + time);
             yield return null;
             childBubble.GetComponent<SpriteRenderer>().sprite = bubbles[now];
             time += Time.deltaTime + chengeTime;

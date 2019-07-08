@@ -89,10 +89,14 @@ public class FlagManager : MonoBehaviour
 
     void Update()
     {
-        test();
+        DebugFlag();
     }
 
-    private void test()
+
+    /// <summary>
+    /// デバッグ用
+    /// </summary>
+    private void DebugFlag()
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
@@ -105,7 +109,9 @@ public class FlagManager : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// フラグの初期化
+    /// </summary>
     private void InitFlag()
     {
         itemFlag = 0;
@@ -113,30 +119,38 @@ public class FlagManager : MonoBehaviour
     }
 
 
-    //  フラグの追加
+    /// <summary>アイテムフラグの追加</summary>
+    /// <param name="item">追加するアイテムフラグ</param>
     public void SetItemFlag(ItemFlag item)
     {
         itemFlag = itemFlag | item;
-        EventManager.Instance.UpdateBubble();
+        EventManager.Instance.UpdateEvent();
     }
+    /// <summary>ギミックフラグの追加</summary>
+    /// <param name="gimmick">追加するギミックフラグ</param>
     public void SetGimmickFlag(GimmickFlag gimmick)
     {
         gimmickFlag = gimmickFlag | gimmick;
-        EventManager.Instance.UpdateBubble();
+        EventManager.Instance.UpdateEvent();
     }
 
-    //  フラグの削除
+    /// <summary>アイテムフラグの削除</summary>
+    /// <param name="item">削除する対象</param>    
     public void FoldItemFlag(ItemFlag item)
     {
         itemFlag = itemFlag & ~item;
     }
+    /// <summary>ギミックフラグの削除</summary>
+    /// <param name="gimmick">削除する対象</param>
     public void FoldGimmickFlag(GimmickFlag gimmick)
     {
         gimmickFlag = gimmickFlag & ~gimmick;
     }
 
 
-    //  フラグのチェック
+    /// <summary>アイテムフラグのチェック</summary>
+    /// <param name="item">チェックの対象</param>
+    /// <returns></returns>
     public bool CheckItemFlag(ItemFlag item)
     {
         if (itemFlag.HasFlag(item))
@@ -147,6 +161,9 @@ public class FlagManager : MonoBehaviour
         Debug.Log("False");
         return false;
     }
+    /// <summary>ギミックフラグのチェック</summary>
+    /// <param name="gimmick">チェックの対象</param>
+    /// <returns></returns>
     public bool CheckGimmickFlag(GimmickFlag gimmick)
     {
         if (gimmickFlag.HasFlag(gimmick))
@@ -156,6 +173,9 @@ public class FlagManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// モードの切り替え
+    /// </summary>
     public void ChegeFranPero()
     {
         IsPast = !IsPast;
@@ -183,7 +203,6 @@ public enum ItemFlag
     I_15_Pants_D             = 1 << 14,
     I_16_Pants_E             = 1 << 15,
     I_17_Pants_F             = 1 << 16,
-    ALL = -1,
 }
 
 [Flags]
@@ -208,5 +227,4 @@ public enum GimmickFlag
     G_17_Minigame1_1                = 1 << 16,
     G_18_FranCheckExitDoor          = 1 << 17,
     G_19_PerraultCheckStorage       = 1 << 18,
-    ALL = -1,
 }

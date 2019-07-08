@@ -5,24 +5,17 @@ using UnityEngine;
 public class PlayMinigame : GimmickEvent, ICheckable
 {
     [SerializeField]
-    private GameObject miniGameManager;
+    private GameObject miniGameManager = default;
     [SerializeField]
-    private GameObject rangeObject;
+    private GameObject rangeObject = default;
     public bool isOpenMinigame = false;
     void Start()
     {
         CheckFlag();
     }
 
-    //private void Update()
-    //{
-
-    //}
-
-
     public override void Check()
     {
-        //base.Check();
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
         {
             if (!isOpenMinigame)

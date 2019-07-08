@@ -200,11 +200,6 @@ public class PerraultMove : MonoBehaviour
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log(collision.name);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //  要素の追加

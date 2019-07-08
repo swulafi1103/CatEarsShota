@@ -20,8 +20,7 @@ public class TouchGeneretor : GimmickEvent
     {
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
         {
-            Debug.Log("koko");
-            FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_04_TouchYellowGenerator);
+            FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
             Debug.Log("kokoFlag = " +FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_04_TouchYellowGenerator));
             StartCoroutine(ChengeFran());
             gameObject.SetActive(false);
@@ -34,6 +33,7 @@ public class TouchGeneretor : GimmickEvent
         bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
         if (flag)
         {
+            Debug.Log("黄色");
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
             isDisplayBubble = flag;
         }
