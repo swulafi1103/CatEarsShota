@@ -51,6 +51,8 @@ public class ItemUIController : MonoBehaviour
     }
 
     void Update() {
+        if (FlagManager.Instance.IsEventing) return;
+
         if (IsEvent) {
             PushCancel();
             return;

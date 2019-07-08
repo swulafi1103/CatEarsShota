@@ -13,7 +13,11 @@ public class PanelTutorial : MonoBehaviour
     Image PanelImage;
 
     float AnimFrame = 10;
-    bool ActAnim = false;
+    bool actAnim = false;
+    public bool ActAnim
+    {
+        get { return actAnim; }
+    }
 
     [SerializeField]
     Vector2 firstSize = new Vector2(800, 600);
@@ -35,7 +39,7 @@ public class PanelTutorial : MonoBehaviour
         nowNum = PanelNum.None;
         PanelTrans = Panel.GetComponent<RectTransform>();
         PanelImage = Panel.GetComponent<Image>();
-        ActAnim = false;
+        actAnim = false;
 
     }
 
@@ -65,9 +69,9 @@ public class PanelTutorial : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator StartAnim() {
-        if (ActAnim) yield break;
+        if (actAnim) yield break;
 
-        ActAnim = true;
+        actAnim = true;
 
         PanelTrans.sizeDelta = new Vector2(firstSize.x, 0);
         int num = (int)nowNum;
@@ -83,13 +87,13 @@ public class PanelTutorial : MonoBehaviour
             PanelTrans.sizeDelta = new Vector2(firstSize.x, sizeY);
             yield return null;
         }
-        ActAnim = false;
+        actAnim = false;
     }
 
     IEnumerator EndAnim() {
-        if (ActAnim) yield break;
+        if (actAnim) yield break;
 
-        ActAnim = true;
+        actAnim = true;
 
         PanelTrans.sizeDelta = firstSize;
         for (float f = AnimFrame; f >= 0; f--) {
@@ -98,6 +102,6 @@ public class PanelTutorial : MonoBehaviour
             yield return null;
         }
         nowNum = PanelNum.None;
-        ActAnim = false;
+        actAnim = false;
     }
 }
