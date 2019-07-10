@@ -71,6 +71,8 @@ public class ItemUIController : MonoBehaviour
     }
 
     public void StartItemUI() {
+        if (IsActUI) return;
+        FlagManager.Instance.IsOpenUI = true;
         IsActDetail = false;
         StartCoroutine(SetItemUI(true));
     }
