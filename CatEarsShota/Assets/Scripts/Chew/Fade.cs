@@ -140,6 +140,7 @@ public class Fade : MonoBehaviour
         target.GetComponent<Image>().color = Color.Lerp(target.GetComponent<Image>().color, newcolor, 1);
         if (task != null)
         {
+            Debug.Log("Task通過");
             task();
         }        
         fading = false;

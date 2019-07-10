@@ -34,4 +34,9 @@ public class PlayMinigame : GimmickEvent, ICheckable
         }
         
     }
+
+    public void MiniGameCler()
+    {
+
+    }
 }

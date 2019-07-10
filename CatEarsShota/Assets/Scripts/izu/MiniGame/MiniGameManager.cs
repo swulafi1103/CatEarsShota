@@ -285,7 +285,7 @@ public class MiniGameManager : MonoBehaviour
         Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
         map.GetComponent<MapStatus>().ChangeColorObj();
         StartCoroutine(ChengeFran());
-        FlagManager.Instance.IsPast = false;
+        //FlagManager.Instance.IsPast = false;
     }
 
     /// <summary>
