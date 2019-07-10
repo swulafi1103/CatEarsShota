@@ -8,6 +8,8 @@ TagManager:
   - MiniGames
   - Enemy
   - Bullet
+  - Item
+  - Gimmick
   layers:
   - Default
   - TransparentFX
@@ -45,7 +47,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: GameEffect
+  - name: Item
+    uniqueID: 3754078107
+    locked: 0
+  - name: Effect
     uniqueID: 1129852175
     locked: 0
   - name: UI

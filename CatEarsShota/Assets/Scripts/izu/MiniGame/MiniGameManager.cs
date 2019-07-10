@@ -38,7 +38,8 @@ public class MiniGameManager : MonoBehaviour
     #endregion
 
     public GameObject CameraMain;
-    public GameObject Door;
+    [SerializeField]
+    private GameObject map;                    //mapオブジェクト変更
 
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
     private KeyCode[]   questionCommand;        //  問題のキー配列
@@ -65,11 +66,6 @@ public class MiniGameManager : MonoBehaviour
     private GameObject  mistakeCountObj;        //  失敗回数を表示する用
     [SerializeField]
     private GameObject  commandParentObj;       //  コマンドの表示用
-    [SerializeField]
-    private GameObject map;                     //mapオブジェクト変更
-    [SerializeField]
-    private GameObject mainGameMgr;
-
     [SerializeField]
     private GameObject  textPrefab;             //  コマンド用のPrefab
     [SerializeField]
@@ -287,8 +283,9 @@ public class MiniGameManager : MonoBehaviour
     {
         StartCoroutine(DisplayClearText());
         Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
+        map.GetComponent<MapStatus>().ChangeColorObj();
         StartCoroutine(ChengeFran());
-        FlagManager.Instance.IsPast = false;
+        //FlagManager.Instance.IsPast = false;
     }
 
     /// <summary>
@@ -382,7 +379,7 @@ public class MiniGameManager : MonoBehaviour
         mistakeCount = 0;
         mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         //CameraMain.GetComponent<Camera>().PastMode = false;
-        Door.GetComponent<MapStatus>().MapObjectState[2] = true;
+        map.GetComponent<MapStatus>().MapObjectState[2] = true;
         yield break;
     }
 

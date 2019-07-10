@@ -11,11 +11,11 @@ public class EventBase : MonoBehaviour
     protected GimmickFlag needGimmickFlag;
 
     [SerializeField, Space(10)]
-    private Sprite bubbleImage;
+    private Sprite bubbleImage = default;
     [SerializeField]
-    private Vector2 bubblePos;
+    private Vector2 bubblePos = default;
     [SerializeField]
-    private bool flipBubble;
+    private bool flipBubble = default;
     [SerializeField]
     protected bool isDisplayBubble;
 
@@ -24,12 +24,10 @@ public class EventBase : MonoBehaviour
     public virtual bool CheckFlag()
     {
         bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
-
         if (flag)
         {
             isDisplayBubble = flag;
-        }        
-
+        }
         DisplayBubble();
         return flag;
     }
@@ -37,19 +35,20 @@ public class EventBase : MonoBehaviour
     //  吹き出しの表示・非表示
     public virtual void DisplayBubble()
     {
-        if (transform.GetChild(0).name != "Bubble")
+        GameObject childObj;
+        //  子の数が0だったらReturn
+        if (transform.childCount == 0)
         {
-            Debug.Log("吹き出しのエラー");
+            Debug.Log("吹き出し無し : " + gameObject.name);
             return;
         }
-
-        GameObject childObj = transform.GetChild(0).gameObject;
+        childObj = transform.GetChild(0).gameObject;
         if (childObj.name != "Bubble")
         {
-            Debug.Log("吹き出し無しの名前:" + childObj.name);
+            Debug.Log("吹き出し無しの名前 : " + childObj.name);
             return;
         }
-
+        //  表示
         if (isDisplayBubble)
         {
             if (bubbleImage != null)
@@ -60,9 +59,9 @@ public class EventBase : MonoBehaviour
             childObj.GetComponent<SpriteRenderer>().flipX = flipBubble;
             childObj.GetComponent<SpriteRenderer>().enabled = true;
         }
+        //  非表示
         else
         {
-            //Debug.Log("名前:" + childObj.transform.parent.name);
             childObj.GetComponent<SpriteRenderer>().enabled = false;
         }
     }

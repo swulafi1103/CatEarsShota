@@ -6,6 +6,7 @@ public class MapStatus : MonoBehaviour
 {
     public bool[] MapObjectState = new bool[3];
     public GameObject[] MapObject = new GameObject[3];
+    public YelloObj[] yelloObjs = new YelloObj[10];
     void Start()
     {
         
@@ -26,4 +27,19 @@ public class MapStatus : MonoBehaviour
                 MapObject[i].GetComponent<ObjectStatus>().index = 0;
         }
     }
+
+    public void ChangeColorObj()
+    {
+        for (int i = 0; i < yelloObjs.Length; i++)
+        {
+            yelloObjs[i].ChangeObj.GetComponent<SpriteRenderer>().sprite = yelloObjs[i].yellowSprite;
+        }
+    }
+}
+
+[System.Serializable]
+public struct YelloObj
+{
+    public GameObject ChangeObj;
+    public Sprite yellowSprite;    
 }

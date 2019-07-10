@@ -8,6 +8,8 @@ public class GimmickEvent : EventBase, ICheckable
 {
     [SerializeField, EnumFlags]
     protected GimmickFlag standgimmickFlag;
+    [SerializeField]
+    protected bool isComplete = false;
 
     void Start()
     {
@@ -22,5 +24,26 @@ public class GimmickEvent : EventBase, ICheckable
             Debug.Log(needGimmickFlag + " : TRUE");
             gameObject.SetActive(false);
         }
-    }    
+    }
+    
+    public virtual void CompleteGimmick()
+    {
+        isComplete = true;
+    }
+
+    public override bool CheckFlag()
+    {
+        bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
+        if (flag)
+        {
+            isDisplayBubble = flag;
+        }
+        if (isComplete)
+        {
+            isDisplayBubble = false;
+        }
+        DisplayBubble();
+        return flag;
+    }
+
 }
