@@ -63,7 +63,7 @@ public class FlagManager : MonoBehaviour
     public bool IsOpenUI
     {
         get { return isOpenUI; }
-        set { IsOpenUI = value; }
+        set { isOpenUI = value; }
     }    
 
 
