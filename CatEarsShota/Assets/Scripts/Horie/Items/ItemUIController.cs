@@ -57,18 +57,10 @@ public class ItemUIController : MonoBehaviour
             PushCancel();
             return;
         }
-
-        if (Input.GetKeyDown(KeyCode.D)) {
-            if (IsActUI) {
-                PushGangeTab();
-            }
-            else {
-                IsActDetail = false;
-                StartCoroutine(SetItemUI(true));
-            }
-        }
+        
 
         if (!IsActUI) return;
+        PushGangeTab();
         PushCancel();
         
 
@@ -78,11 +70,16 @@ public class ItemUIController : MonoBehaviour
 
     }
 
+    public void StartItemUI() {
+        IsActDetail = false;
+        StartCoroutine(SetItemUI(true));
+    }
+
     /// <summary>
-    /// タブ切り替え入力F
+    /// タブ切り替え入力D
     /// </summary>
     void PushGangeTab() {
-        //if (!Input.GetKeyDown(KeyCode.F)) return;
+        if (!Input.GetKeyDown(KeyCode.D)) return;
 
         if (IsActDetail) return;
 

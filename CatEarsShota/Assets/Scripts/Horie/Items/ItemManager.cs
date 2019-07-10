@@ -200,4 +200,7 @@ public class ItemManager : MonoBehaviour
         return select;
     }
     
+    public void SetItemUI() {
+        UIContriller.StartItemUI();
+    }
 }
