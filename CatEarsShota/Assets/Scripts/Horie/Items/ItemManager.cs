@@ -14,11 +14,15 @@ public class ItemManager : MonoBehaviour
     }
 
     private bool isFran;
-    public bool IsFran {
-        get {
-            GetPlayer();
-            return isFran;
-        }
+
+
+    /// <summary>
+    /// playerがペローかフランか判定
+    /// </summary>
+    bool IsFran()
+    {
+        isFran = FlagManager.Instance.IsPast;
+        return isFran;
     }
 
     PlayerItems Fran;
@@ -97,7 +101,7 @@ public class ItemManager : MonoBehaviour
 
         ItemData.ItemType types = (ItemData.ItemType)Enum.ToObject(typeof(ItemData.ItemType), t);
 
-        if (IsFran) {
+        if (IsFran()) {
             HaveData = Fran.GetTypeHaveData(types);
             allList = Fran.GetTypeImage(types);
         }
@@ -116,24 +120,16 @@ public class ItemManager : MonoBehaviour
     }
 
     /// <summary>
-    /// playerがペローかフランか判定
-    /// </summary>
-    void GetPlayer() {
-        isFran = FlagManager.Instance.IsPast;
-        //isFran = true;
-    }
-
-    /// <summary>
     /// アイテム取得情報変更（ペローはfalse,フランはtrue）
     /// </summary>
     /// <param name="item">アイテムデータ</param>
     /// <param name="fran">ペローはfalse,フランはtrue</param>
-    public void SetItemData(ItemNum itemNum,bool fran) {
+    public void SetItemData(ItemNum itemNum) {
 
         int num = (int)itemNum;
         ItemData item = itemList[num];
 
-        if (fran) {
+        if (IsFran()) {
             Fran.SetItemGet(item);
         }
         else {
@@ -150,19 +146,28 @@ public class ItemManager : MonoBehaviour
         Debug.Log(num - 12);
     }
 
-    public bool IsGet(int num,bool isPerrault) {
+    /// <summary>
+    /// 特定のアイテムを持っているか
+    /// </summary>
+    /// <param name="num"></param>
+    /// <param name="isPerrault"></param>
+    /// <returns></returns>
+    public bool IsGet(ItemNum itemNum) {
+        int num = (int)itemNum;
         ItemData item = itemList[num];
         ItemData.ItemType types = item.GetItemType;
         List<ItemData> allList = new List<ItemData>();
         List<bool> HaveData = new List<bool>();
 
-        if (isPerrault) {
-            allList = Perrault.GetTypeImage(types);
-            HaveData = Perrault.GetTypeHaveData(types);
-        }
-        else {
+        if (IsFran())
+        {
             allList = Fran.GetTypeImage(types);
             HaveData = Fran.GetTypeHaveData(types);
+        }
+        else
+        {
+            allList = Perrault.GetTypeImage(types);
+            HaveData = Perrault.GetTypeHaveData(types);
         }
         bool have = false;
         for(int i = 0; i < allList.Count; i++) {
@@ -173,16 +178,29 @@ public class ItemManager : MonoBehaviour
         return have;
     }
 
+    /// <summary>
+    /// 特定のアイテムしか選択できないアイテム欄出現
+    /// </summary>
+    /// <param name="item"></param>
     public void SetEventUI(ItemNum item) {
         int num = (int)item;
         ItemData data = itemList[num];
         UIContriller.SetEventUI(data);
     }
 
+    /// <summary>
+    /// 特定のアイテムしか選択できないアイテム欄出現後、アイテムを選択したか
+    /// </summary>
+    /// <param name="item"></param>
+    /// <returns></returns>
     public bool SelectedEventItem(ItemNum item) {
         int num = (int)item;
         ItemData data = itemList[num];
         bool select = UIContriller.EndEventUI(data);
         return select;
+    }
+    
+    public void SetItemUI() {
+        UIContriller.StartItemUI();
     }
 }

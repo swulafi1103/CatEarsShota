@@ -53,9 +53,6 @@ public class EnemyController : MonoBehaviour
             MaxTime.Add(Fly_E_RespawnTime);
             FalseTime.Add(0);
         }
-        
-
-        Debug.Log(RespawnEnemys.Count);
     }
 
     private void RespawnTimer() {

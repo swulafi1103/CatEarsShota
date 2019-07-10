@@ -13,10 +13,12 @@ public class PanelTutorial : MonoBehaviour
     Image PanelImage;
 
     float AnimFrame = 10;
-    bool ActAnim = false;
-
-    [SerializeField]
-    Vector2 firstSize = new Vector2(800, 600);
+    bool actAnim = false;
+    public bool ActAnim
+    {
+        get { return actAnim; }
+    }
+    
 
     public enum PanelNum {
         ChangeMode = 0,
@@ -35,16 +37,14 @@ public class PanelTutorial : MonoBehaviour
         nowNum = PanelNum.None;
         PanelTrans = Panel.GetComponent<RectTransform>();
         PanelImage = Panel.GetComponent<Image>();
-        ActAnim = false;
+        actAnim = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) {
-            PanelTuto(PanelNum.ChangeMode);
-        }
+        if (TutorialContriller.Instance.ActAnim()) return;
         CheckBackKey();
     }
 
@@ -65,38 +65,40 @@ public class PanelTutorial : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator StartAnim() {
-        if (ActAnim) yield break;
+        if (actAnim) yield break;
 
-        ActAnim = true;
+        actAnim = true;
 
-        PanelTrans.sizeDelta = new Vector2(firstSize.x, 0);
+        PanelTrans.localScale = new Vector2(1, 0);
         int num = (int)nowNum;
         if (num >= panels.Count) {
             Debug.Log("NULL NUM:" + num);
             yield break;
         }
         PanelImage.sprite = panels[num];
+        PanelImage.SetNativeSize();
 
         for(float f = 0; f <= AnimFrame; f++) {
-            float sizeY = firstSize.y * (f / AnimFrame);
-            PanelTrans.sizeDelta = new Vector2(firstSize.x, sizeY);
+            float sizeY = f / AnimFrame;
+            PanelTrans.localScale = new Vector2(1, sizeY);
             yield return null;
         }
-        ActAnim = false;
+        //PanelImage.SetNativeSize();
+        actAnim = false;
     }
 
     IEnumerator EndAnim() {
-        if (ActAnim) yield break;
+        if (actAnim) yield break;
 
-        ActAnim = true;
+        actAnim = true;
 
-        PanelTrans.sizeDelta = firstSize;
+        PanelTrans.localScale = Vector2.one;
         for (float f = AnimFrame; f >= 0; f--) {
-            float sizeY = firstSize.y * (f / AnimFrame);
-            PanelTrans.sizeDelta = new Vector2(firstSize.x, sizeY);
+            float sizeY = f / AnimFrame;
+            PanelTrans.localScale = new Vector2(1, sizeY);
             yield return null;
         }
         nowNum = PanelNum.None;
-        ActAnim = false;
+        actAnim = false;
     }
 }
