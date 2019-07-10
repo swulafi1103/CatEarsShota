@@ -111,17 +111,26 @@ public class Fade : MonoBehaviour
         FlagManager.Instance.IsEventing = true;
         localcount = count;
     }
+    private void StartFadeRed(float time, Color newcolor)
+    {
+        if (!fading)
+        {
+            fading = true;
+            FlagManager.Instance.IsEventing = true;
+            StartCoroutine(fadeprocess(RedEffect, time, newcolor));
+        }
+    }
     private void FadeInOut(GameObject target,float time)
     {
         switch (fadeswitch)
         {
             case true:
                 Color tmpClear = Color.clear;
-                StartFade(time, tmpClear);
+                StartFadeRed(time, tmpClear);
                 break;
             case false:
                 Color tmpWhite = Color.white;
-                StartFade(time, tmpWhite);
+                StartFadeRed(time, tmpWhite);
                 break;
         }
         fadeswitch = !fadeswitch;

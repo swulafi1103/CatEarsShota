@@ -190,7 +190,7 @@ public class PerraultMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
         {
-
+            ItemManager.Instance.SetItemUI();
         }
     }
 

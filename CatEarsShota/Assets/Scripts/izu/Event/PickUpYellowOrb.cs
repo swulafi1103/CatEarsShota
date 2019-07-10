@@ -26,7 +26,7 @@ public class PickUpYellowOrb : ItemEvent, ICheckable
     public override void Check()
     {
         FlagManager.Instance.SetItemFlag(standItemFlag);
-        ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb, false);
+        ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
         gameObject.SetActive(false);
     }
 

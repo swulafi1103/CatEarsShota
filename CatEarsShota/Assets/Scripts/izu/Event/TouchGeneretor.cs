@@ -55,11 +55,11 @@ public class TouchGeneretor : GimmickEvent
         Debug.Log("暗転終了");
         FlagManager.Instance.IsEventing = true;
         yield return new WaitForSeconds(2f);
-        //  アラーム音再生
+        //  アラーム音再生(3回)
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
         yield return new WaitForSeconds(0.25f);
-        //  赤い演出
-        Fade.Instance.CallFadeIO(10);
+        //  赤い演出(3回)
+        Fade.Instance.CallFadeIO(3);
         //  ガラスが割れる音再生
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_01_BreakWin, 0.25f);
         yield return new WaitForSeconds(0.25f);
