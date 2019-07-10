@@ -59,7 +59,7 @@ public class TouchGeneretor : GimmickEvent
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
         yield return new WaitForSeconds(0.25f);
         //  赤い演出
-        //Fade.Instance.
+        Fade.Instance.CallFadeIO(10);
         //  ガラスが割れる音再生
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_01_BreakWin, 0.25f);
         yield return new WaitForSeconds(0.25f);
@@ -75,11 +75,11 @@ public class TouchGeneretor : GimmickEvent
         Debug.Log("明転終了");
         //  フランの左右キョロキョロ
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = true;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = false;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = true;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = false;
         yield return new WaitForSeconds(0.5f);
         FlagManager.Instance.IsEventing = false;
