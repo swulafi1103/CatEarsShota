@@ -132,7 +132,7 @@ public class MainCamera : MonoBehaviour
     //  動画終了時のフェード
     void MovieFinished(VideoPlayer sorce)
     {
-        Fade.Instance.StartFade(0.5f, Color.clear);
+        Fade.Instance.StartFade(1f, Color.clear);
         //StartCoroutine(FadeOutMovie());
     }
 

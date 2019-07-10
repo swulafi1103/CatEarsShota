@@ -36,7 +36,7 @@ public class Title : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         for (float i = 0; i < 1; i += 0.01f)
         {
-            WhiteScreen.GetComponent<Image>().color = Color.Lerp(Color.clear, Color.white, i);
+            WhiteScreen.GetComponent<Image>().color = Color.Lerp(Color.clear, Color.black, i);
             yield return new WaitForSeconds(0.01f);
         }
         fading = false;

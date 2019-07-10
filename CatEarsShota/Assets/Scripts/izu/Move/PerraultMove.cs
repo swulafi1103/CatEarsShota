@@ -65,6 +65,7 @@ public class PerraultMove : MonoBehaviour
         {
             if (scale.x > 0)
             {
+                anim.SetBool("FaceLeft", false);
                 scale.x *= -1;
                 transform.localScale = scale;
             }
@@ -80,6 +81,7 @@ public class PerraultMove : MonoBehaviour
         {
             if (scale.x < 0)
             {
+                anim.SetBool("FaceLeft", true);
                 scale.x *= -1f;
                 transform.localScale = scale;
             }
@@ -118,18 +120,22 @@ public class PerraultMove : MonoBehaviour
         {
             JumpNum = 0;
             isJump = false;
-            //anim.ResetTrigger("JumpTrigger");
+            
             anim.SetTrigger("GroundTrigger");
+            anim.ResetTrigger("JumpTrigger");
         }
         //  ジャンプせずに足場から離れたとき
         if (!isGround && !isJump)
         {
             JumpNum = 1;
+            
         }
         //  2回ジャンプしてない状態でスペースが押されたとき
         if (Input.GetKeyDown(KeyCode.Space) && JumpNum < 2)
         {
             JumpNum++;
+            if(JumpNum == 2)
+                anim.SetTrigger("DoubleJumpTrigger");
             isJump = true;
             Vector2 JumpVector = new Vector2(0, JumpPower);
             rb.velocity = new Vector2(rb.velocity.x, 0);

@@ -30,7 +30,7 @@ public class FranMove : MonoBehaviour
     [SerializeField]
     private List<GameObject> examinableObjects = new List<GameObject>();
 
-
+    private bool temp = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -55,6 +55,11 @@ public class FranMove : MonoBehaviour
             Jump();
             Move();
             Action();
+        }
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            temp = !temp;
+            anim.SetBool("NoPero", temp);
         }
     }
 
