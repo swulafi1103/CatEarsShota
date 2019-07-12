@@ -872,15 +872,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28472f0d37e4a4836b9825d0ec79f43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PastMode: 0
   PlayVideo: 0
   PastCam: {fileID: 2022203476}
   Player: {fileID: 1700370550}
+  Fran: {fileID: 0}
   ColorVideo: {fileID: 2106469261}
   RangeToPlayer: 10
+  DefaultScreenSize: 5
   CameraLimit:
   - -11
   - 11
+  PastCameraLimit:
+  - 0
+  - 0
 --- !u!1 &1700370550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2547405339827579850, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
@@ -1002,6 +1006,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  examinableObjects: []
 --- !u!50 &1793851665
 Rigidbody2D:
   serializedVersion: 4

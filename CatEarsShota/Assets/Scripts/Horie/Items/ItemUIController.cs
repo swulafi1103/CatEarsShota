@@ -51,22 +51,16 @@ public class ItemUIController : MonoBehaviour
     }
 
     void Update() {
+        if (FlagManager.Instance.IsEventing) return;
+
         if (IsEvent) {
             PushCancel();
             return;
         }
-
-        if (Input.GetKeyDown(KeyCode.D)) {
-            if (IsActUI) {
-                PushGangeTab();
-            }
-            else {
-                IsActDetail = false;
-                StartCoroutine(SetItemUI(true));
-            }
-        }
+        
 
         if (!IsActUI) return;
+        PushGangeTab();
         PushCancel();
         
 
@@ -76,11 +70,18 @@ public class ItemUIController : MonoBehaviour
 
     }
 
+    public void StartItemUI() {
+        if (IsActUI) return;
+        FlagManager.Instance.IsOpenUI = true;
+        IsActDetail = false;
+        StartCoroutine(SetItemUI(true));
+    }
+
     /// <summary>
-    /// タブ切り替え入力F
+    /// タブ切り替え入力D
     /// </summary>
     void PushGangeTab() {
-        //if (!Input.GetKeyDown(KeyCode.F)) return;
+        if (!Input.GetKeyDown(KeyCode.D)) return;
 
         if (IsActDetail) return;
 
@@ -115,6 +116,7 @@ public class ItemUIController : MonoBehaviour
     /// </summary>
     void PushCancel() {
         if (!Input.GetKeyDown(KeyCode.X)) return;
+        Debug.Log(IsEvent);
 
         if (IsActDetail) {
             StartCoroutine(SetDetailUI(false));
@@ -301,11 +303,14 @@ public class ItemUIController : MonoBehaviour
     /// <summary>
     /// イベント用アイテムUI_Start
     /// </summary>
-    public void SetEventUI(ItemData item) {
+    public void SetEventUI(ItemData item)
+    {
+        IsActUI = false;
         StartCoroutine(StartEventUI(item));
     }
 
-    IEnumerator StartEventUI(ItemData item) {
+    IEnumerator StartEventUI(ItemData item)
+    {
         yield return new WaitForSeconds(0.1f);
         IsEvent = true;
         ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
@@ -330,8 +335,9 @@ public class ItemUIController : MonoBehaviour
         if (!IsEvent) return false;
         if (!Input.GetKeyDown(KeyCode.A)) return false;
         if (NowHave[selectNum] != item) return false;
-        ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
         IsEvent = false;
+        ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
+        StopAllCoroutines();
         return true;
     }
 }

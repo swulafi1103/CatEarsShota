@@ -113,19 +113,18 @@ public class BubbleEvent : MonoBehaviour
         {
             return;
         }
-        baseBubble.SetActive(true);
         StartCoroutine(BubbleAnimation(bubbles.ToArray(), count, deleyTime));
     }
 
     IEnumerator BubbleAnimation(Sprite[] bubbles, int length, float delaytime = 0)
     {
         yield return new WaitForSeconds(delaytime);
+        baseBubble.SetActive(true);
         float time = 0;
         int now = 0;
         int count = 0;
         while (time < 3)
         {
-            Debug.Log("Time = " + time);
             yield return null;
             childBubble.GetComponent<SpriteRenderer>().sprite = bubbles[now];
             time += Time.deltaTime + chengeTime;

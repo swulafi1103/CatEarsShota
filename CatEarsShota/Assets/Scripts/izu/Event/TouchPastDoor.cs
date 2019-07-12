@@ -7,21 +7,16 @@ public class TouchPastDoor : GimmickEvent, ICheckable
     // Start is called before the first frame update
     void Start()
     {
-        
+        CheckFlag();   
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void Check()
     {
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
         {
             Debug.Log("TouchDoor");
-            FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);
+            FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
             BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Power);
             gameObject.GetComponent<TouchPastDoor>().enabled = false;
         }

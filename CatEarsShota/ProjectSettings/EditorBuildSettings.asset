@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Init/Loading.unity
     guid: 385c717921acb5c4c8a3a7af81b81faa
   - enabled: 1
-    path: Assets/Scenes/Title.unity
+    path: Assets/Scenes/Title2.unity
     guid: ba90ce7bf1ce2422598f5809fceee6a9
   - enabled: 0
     path: Assets/Scenes/Dev/tamura_test.unity

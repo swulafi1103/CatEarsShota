@@ -190,7 +190,7 @@ public class PerraultMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
         {
-
+            ItemManager.Instance.SetItemUI();
         }
     }
 
@@ -205,11 +205,6 @@ public class PerraultMove : MonoBehaviour
         anim.SetBool("SetFloatAnimator", !isGround);
     }
 
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log(collision.name);
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

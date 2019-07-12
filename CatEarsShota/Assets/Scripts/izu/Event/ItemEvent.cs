@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemEvent : EventBase, ICheckable
 {
     [SerializeField, EnumFlags]
-    private ItemFlag standItemFlag;
+    protected ItemFlag standItemFlag = default;
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class ItemEvent : EventBase, ICheckable
     }
 
 
-    public void Check()
+    public virtual void Check()
     {
         FlagManager.Instance.SetItemFlag(standItemFlag);
         gameObject.SetActive(false);

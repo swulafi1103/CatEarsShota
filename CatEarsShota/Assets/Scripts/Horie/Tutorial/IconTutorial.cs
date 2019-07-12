@@ -14,7 +14,11 @@ public class IconTutorial : MonoBehaviour
 
     Rigidbody2D PlayerRid;
 
-    bool ActAnim = false;
+    bool actAnim = false;
+    public bool ActAnim
+    {
+        get { return actAnim; }
+    }
 
     float moveVec = 0;
     [SerializeField]
@@ -27,6 +31,7 @@ public class IconTutorial : MonoBehaviour
         Jump,
         HiJump,
         Checking,
+        Checking2,
         Item,
         ItemUI,
         None
@@ -38,13 +43,14 @@ public class IconTutorial : MonoBehaviour
     void Start()
     {
         NowNum = IconNum.None;
-        ActAnim = false;
+        actAnim = false;
         FirstJump = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (TutorialContriller.Instance.ActAnim()) return;
         switch (NowNum) {
             case IconNum.Move:
                 CheckMove();
@@ -57,6 +63,9 @@ public class IconTutorial : MonoBehaviour
                 break;
             case IconNum.Checking:
                 Checking();
+                break;
+            case IconNum.Checking2:
+                Checking2();
                 break;
             case IconNum.Item:
                 ItemTuto();
@@ -113,6 +122,7 @@ public class IconTutorial : MonoBehaviour
         if (FirstJump) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 StartCoroutine(EndAnim());
+                FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_02_Tuto_MoveAndJump);
                 FirstJump = false;
             }else if (Mathf.Abs(PlayerRid.velocity.y) == 0) {
                 FirstJump = false;
@@ -130,7 +140,17 @@ public class IconTutorial : MonoBehaviour
     /// 「調べる」判定
     /// </summary>
     void Checking() {
-        if (!Input.GetKeyDown(KeyCode.A)) return;
+        //if (!Input.GetKeyDown(KeyCode.A)) return;
+        bool check1 = FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_03_EquipBand);
+        if (!check1) return;
+        StartCoroutine(EndAnim());
+    }
+
+    void Checking2()
+    {
+        //if (!Input.GetKeyDown(KeyCode.A)) return;
+        bool check2 = FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_04_TouchYellowGenerator);
+        if (!check2) return;
         StartCoroutine(EndAnim());
     }
 
@@ -138,7 +158,7 @@ public class IconTutorial : MonoBehaviour
     /// 「アイテム拾う」判定
     /// </summary>
     void ItemTuto() {
-        bool item = ItemManager.Instance.IsGet(0, true);
+        bool item = ItemManager.Instance.IsGet(ItemManager.ItemNum.Yerrow_Orb);
         if (!item) return;
         StartCoroutine(AnimSet(IconNum.ItemUI));
     }
@@ -167,10 +187,10 @@ public class IconTutorial : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator StartAnim() {
-        if (ActAnim) {
+        if (actAnim) {
             yield break;
         }
-        ActAnim = true;
+        actAnim = true;
 
         int SPNum = (int)NowNum;
         if (SPNum >= Icons.Count) {
@@ -183,6 +203,7 @@ public class IconTutorial : MonoBehaviour
         color.a = 0;
         IconImage.color = color;
         IconImage.sprite = Icons[SPNum];
+        IconImage.SetNativeSize();
         IconImage.enabled = true;
         for (int i = 0; i <= AnimFrame; i++) {
             float a = (float)i / AnimFrame;
@@ -190,7 +211,7 @@ public class IconTutorial : MonoBehaviour
             IconImage.color = color;
             yield return null;
         }
-        ActAnim = false;
+        actAnim = false;
     }
 
     /// <summary>
@@ -198,10 +219,10 @@ public class IconTutorial : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator EndAnim() {
-        if (ActAnim) {
+        if (actAnim) {
             yield break;
         }
-        ActAnim = true;
+        actAnim = true;
 
         Color color = Color.white;
         color.a = 1;
@@ -214,6 +235,6 @@ public class IconTutorial : MonoBehaviour
             yield return null;
         }
         NowNum = IconNum.None;
-        ActAnim = false;
+        actAnim = false;
     }
 }
