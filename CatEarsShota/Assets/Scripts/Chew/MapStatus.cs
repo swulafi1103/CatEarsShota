@@ -15,7 +15,10 @@ public class MapStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ChangeColorObj();
+        }
     }
     void FixedUpdate()
     {
@@ -32,7 +35,14 @@ public class MapStatus : MonoBehaviour
     {
         for (int i = 0; i < yelloObjs.Length; i++)
         {
-            yelloObjs[i].ChangeObj.GetComponent<SpriteRenderer>().sprite = yelloObjs[i].yellowSprite;
+            if (yelloObjs[i].ChangeObj != null)
+            {
+                yelloObjs[i].ChangeObj.GetComponent<SpriteRenderer>().sprite = yelloObjs[i].yellowSprite;
+            }
+            if (yelloObjs[i].ChangeObj == null)
+            {
+                Debug.Log("黄色でエラー");
+            }
         }
     }
 }

@@ -64,7 +64,15 @@ public class FlagManager : MonoBehaviour
     {
         get { return isOpenUI; }
         set { isOpenUI = value; }
-    }    
+    }
+
+    [SerializeField]
+    private bool isYellow = false;
+    public bool IsYellow
+    {
+        get { return isYellow; }
+        set { isYellow = value; }
+    }
 
 
     [SerializeField, EnumFlags]
