@@ -51,7 +51,14 @@ public class PanelTutorial : MonoBehaviour
     void CheckBackKey() {
         if (nowNum == PanelNum.None) return;
         if (!Input.GetKeyDown(KeyCode.X)) return;
-        StartCoroutine(EndAnim());
+        if (nowNum == PanelNum.Pants)
+        {
+            StartCoroutine(AnimSet(PanelNum.ChangePants));
+        }
+        else
+        {
+            StartCoroutine(EndAnim());
+        }
     }
 
     public void PanelTuto(PanelNum num) {
@@ -85,6 +92,7 @@ public class PanelTutorial : MonoBehaviour
         }
         //PanelImage.SetNativeSize();
         actAnim = false;
+        yield break;
     }
 
     IEnumerator EndAnim() {
@@ -100,5 +108,20 @@ public class PanelTutorial : MonoBehaviour
         }
         nowNum = PanelNum.None;
         actAnim = false;
+
+        yield break;
+    }
+
+    IEnumerator AnimSet(PanelNum num)
+    {
+        Coroutine col = StartCoroutine(EndAnim());
+        yield return col;
+
+        nowNum = num;
+
+        col = StartCoroutine(StartAnim());
+        yield return col;
+
+        yield break;
     }
 }

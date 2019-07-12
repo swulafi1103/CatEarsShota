@@ -123,6 +123,7 @@ public class ItemUIController : MonoBehaviour
         }
         else {
             StartCoroutine(SetItemUI(false));
+            FlagManager.Instance.IsOpenUI = false;
             if (IsEvent) IsEvent = false;
         }
     }
@@ -313,6 +314,7 @@ public class ItemUIController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         IsEvent = true;
+        FlagManager.Instance.IsOpenUI = true;
         ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
         selectTab = (int)item.GetItemType;
         SetTabColor();
