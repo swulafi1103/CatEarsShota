@@ -37,64 +37,46 @@ public class MiniGameManager : MonoBehaviour
     }
     #endregion
 
-    public GameObject CameraMain;
     [SerializeField]
     private GameObject map;                    //mapオブジェクト変更
 
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
     private KeyCode[]   questionCommand;        //  問題のキー配列
-    private const int   MISTAKELIMIT = 4;       //  ミス上限値
-    private int         mistakeCount = 0;       //  ミスのカウント
+    //private const int   MISTAKELIMIT = 4;     //  ミス上限値
+    //private int         mistakeCount = 0;     //  ミスのカウント
     private int         numOrder;               //  解答中のコマンドの並び
     private bool        isMinigame = false;     //  ミニゲーム中か
     private bool        isCountdownEnd = false; //  ミニゲームのカウントダウンは終わったか
     private bool        isFadeing = false;      //  フェード中か
-    [SerializeField, Range(0.1f, 15f)]
-    private float       defaultTimeLimit = 10f; //  ミニゲームの制限時間
+    private float       defaultTimeLimit = 20f; //  ミニゲームの制限時間
     private float       timeLimit;
     private float       fadeAlpha = 0;
 
-    [SerializeField]
     private GameObject  discriptionObj;         //  説明用のUI
-    [SerializeField]
     private GameObject  miniGameViewObj;        //  ミニゲームのコマンドなどが表示されるUI
-    [SerializeField]
+
     private GameObject  timerObj;               //  タイマーを表示する用
-    [SerializeField]
     private Text        countdownObj;           //  カウントダウン用
-    [SerializeField]
-    private GameObject  mistakeCountObj;        //  失敗回数を表示する用
-    [SerializeField]
+
+    //[SerializeField]
+    //private GameObject  mistakeCountObj;      //  失敗回数を表示する用
     private GameObject  commandParentObj;       //  コマンドの表示用
+
     [SerializeField]
-    private GameObject  textPrefab;             //  コマンド用のPrefab
-    [SerializeField]
-    private GameObject[] keyObjects = new GameObject[5];
+    private GameObject[] keyObjects = new GameObject[5];    //  コマンドの画像のPrefab
     private Color       fadeColor = Color.red;
-    private GameObject[]      commandTexts;
+    private GameObject[] commandTexts;
 
 
     [SerializeField]
     private GameObject pastDoor;
 
-
-    //[SerializeField]
-    //private Sprite[]    keySprites;           //  問題に並べる画像
-    //[SerializeField]
-    //private Image[] countDownImage;
-
-
-    /*
-     * プレイヤーが発電機に触れることイベント開始
-     * ミニゲームの説明画面とStartボタンが表示される
-     * スタートボタンを押された後、カウントダウン開始
-     * 問題の表示と制限時間の表示
-     * キー入力のチェック
-     * 間違えるとコマンドもリセット
-     * 一定数のミスで再スタート
-     * すべて時間内に打ち終わると成功
-     */
-
+    void Awake()
+    {
+        CheckInstance();
+        //  必要なObejctの検索、見当たらない場合はLogを出す
+        FindNeedObject();
+    }
 
     void Update()
     {
@@ -119,6 +101,37 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
+    void FindNeedObject()
+    {
+        discriptionObj = transform.GetChild(0).gameObject;
+        miniGameViewObj = transform.GetChild(1).gameObject;
+        timerObj = transform.Find("SecondText").gameObject;
+        countdownObj = transform.Find("SecondText").GetComponent<Text>();
+        commandParentObj = transform.Find("CommandParent").gameObject;
+        string log = "MiniGame Find Succes";
+        if (discriptionObj == null)
+        {
+            log = "MiniGame Find Faild" + ": MissingObj : " + discriptionObj.name;
+        }
+        if (miniGameViewObj == null)
+        {
+            log = "MiniGame Find Faild" + ": MissingObj : " + miniGameViewObj.name;
+        }
+        if (timerObj == null)
+        {
+            log = "MiniGame Find Faild" + ": MissingObj : " + timerObj.name;
+        }
+        if (countdownObj == null)
+        {
+            log = "MiniGame Find Faild" + ": MissingObj : " + countdownObj.name;
+        }
+        if (commandParentObj == null)
+        {
+            log = "MiniGame Find Faild" + ": MissingObj : " + commandParentObj.name;
+        }
+        Debug.Log(log);
+    }
+
     /// <summary>
     /// 発電機を触れたら
     /// </summary>
@@ -134,7 +147,8 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     public void StartMiniGame()
     {
-        mistakeCount = 0;
+        //  失敗数でゲームオーバーになるように(処理を変えたためコメントアウト)
+        //mistakeCount = 0;
         countdownObj.color = Color.white;
         discriptionObj.SetActive(false);
         miniGameViewObj.SetActive(true);
@@ -276,14 +290,14 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void IncorrectAnswer()
     {
-        mistakeCount++;
-        mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
+        //mistakeCount++;
+        //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         StartCoroutine(ShakeObject(0.2f, miniGameViewObj));
-        if (mistakeCount >= MISTAKELIMIT)
-        {
-            MinigameFaild();
-            return;
-        }
+        //if (mistakeCount >= MISTAKELIMIT)
+        //{
+        //    MinigameFaild();
+        //    return;
+        //}
         StartCoroutine(DamegeEffect(0.25f));
         timeLimit -= 1;
         numOrder = 0;
@@ -390,9 +404,8 @@ public class MiniGameManager : MonoBehaviour
         countdownObj.text = "";
         miniGameViewObj.SetActive(false);
         numOrder = 0;
-        mistakeCount = 0;
-        mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
-        //CameraMain.GetComponent<Camera>().PastMode = false;
+        //mistakeCount = 0;
+        //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         map.GetComponent<MapStatus>().MapObjectState[2] = true;
         yield break;
     }
@@ -431,8 +444,8 @@ public class MiniGameManager : MonoBehaviour
         isFadeing = false;
         countdownObj.text = "";
         miniGameViewObj.SetActive(false);
-        mistakeCount = 0;
-        mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
+        //mistakeCount = 0;
+        //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         yield break;
     }
 

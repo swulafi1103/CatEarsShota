@@ -24,9 +24,7 @@ public class PlayMinigame : GimmickEvent, ICheckable
                 isOpenMinigame = true;
                 Debug.Log(needGimmickFlag + " : TRUE");
                 rangeObject.SetActive(false);
-            }
-            
-            //gameObject.SetActive(false);
+            }            
         }
         if (!FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
         {

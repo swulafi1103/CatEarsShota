@@ -635,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4708192461682228894
 RectTransform:
   m_ObjectHideFlags: 0
@@ -963,7 +963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4708192461945892901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 4708192461959853150}
   - component: {fileID: 4708192461959853148}
   m_Layer: 5
-  m_Name: TextParent
+  m_Name: CommandParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,19 +1602,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fc9274ebf001345ba4e61f712db1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraMain: {fileID: 0}
   map: {fileID: 0}
-  defaultTimeLimit: 10
-  discriptionObj: {fileID: 4708192460812670981}
-  miniGameViewObj: {fileID: 4708192461682228895}
-  timerObj: {fileID: 4708192462111923406}
-  countdownObj: {fileID: 4708192460738447682}
-  mistakeCountObj: {fileID: 4708192461866618502}
-  commandParentObj: {fileID: 4708192461959853151}
-  textPrefab: {fileID: 2465732357361030039, guid: 0304944beabfe4c75b66bbce5b87bc77,
-    type: 3}
-  beforeColor: {r: 0, g: 0, b: 0, a: 1}
-  afterColor: {r: 0.9056604, g: 0.36921924, b: 0.2776789, a: 1}
+  keyObjects:
+  - {fileID: 2465732357361030039, guid: 224679072c5c41144ab16938c5c25d50, type: 3}
+  - {fileID: 2465732357361030039, guid: 04e401dabaf754142a3cd8d26dbe7b4b, type: 3}
+  - {fileID: 2465732357361030039, guid: 5485499ab82211240b330c30c69f3ebb, type: 3}
+  - {fileID: 2465732357361030039, guid: 3cb2a486c6cd95943a21eea8cb4bdcdd, type: 3}
+  - {fileID: 2465732357361030039, guid: 988715a0db1e2fd48afff2e706e81be1, type: 3}
   pastDoor: {fileID: 0}
 --- !u!1 &4708192462488134675
 GameObject:
