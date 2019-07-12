@@ -71,7 +71,13 @@ public class Fade : MonoBehaviour
             FlagManager.Instance.IsEventing = false;
         }
     }
-
+    public void SwitchCanvasCam(bool ispast)
+    {
+        if (ispast)
+            transform.GetComponent<Canvas>().worldCamera = subcam;
+        else
+            transform.GetComponent<Canvas>().worldCamera = maincam;
+    }
     public void StartFade(float time,Color newcolor) //色と実行時間だけ入力
     {
         if (!fading)
@@ -141,10 +147,6 @@ public class Fade : MonoBehaviour
     }
     IEnumerator fadeprocess(GameObject target,float time, Color newcolor, System.Action task=null)
     {
-        if (FlagManager.Instance.IsPast)
-            transform.GetComponent<Canvas>().worldCamera = subcam;
-        else
-            transform.GetComponent<Canvas>().worldCamera = maincam;
         float countTime = 0;
 
         while (countTime < time)
@@ -165,10 +167,6 @@ public class Fade : MonoBehaviour
     }
     IEnumerator fadeinoutProcess(GameObject target, float time, Color newcolor, System.Action task = null)
     {
-        if (FlagManager.Instance.IsPast)
-            transform.GetComponent<Canvas>().worldCamera = subcam;
-        else
-            transform.GetComponent<Canvas>().worldCamera = maincam;
         float countTime = 0;
 
         while (countTime < time)

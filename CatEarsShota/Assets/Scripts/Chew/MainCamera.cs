@@ -119,8 +119,8 @@ public class MainCamera : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(!fading)
-            PastCam.SetActive(FlagManager.Instance.IsPast);
+        Fade.Instance.SwitchCanvasCam(FlagManager.Instance.IsPast);
+        PastCam.SetActive(FlagManager.Instance.IsPast);
     }
     public void TriggeredVideo(uint index)　//動画を放送
     {
