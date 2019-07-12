@@ -47,7 +47,8 @@ public class ItemUIController : MonoBehaviour
 
     bool IsEvent = false;
 
-    int pantsNum = 0;
+    int pantsNum = -1;
+    int waitAnim = 0;
 
     void Start() {
     }
@@ -267,16 +268,23 @@ public class ItemUIController : MonoBehaviour
     /// アニメーション切り替え
     /// </summary>
     void SetAnim() {
-        //アニメーション切り替え
 
-        if (IsFran) {
-            //PlayerPanel.sprite = Playerimage[1];
+
+        if (pantsNum < 0) pantsNum = 0;
+        
+        if (!PlayerPanel.GetCurrentAnimatorStateInfo(0).IsName("wait"))
+        {
+            PlayerPanel.SetTrigger("AnimReset");
+        }
+        //アニメーション切り替え
+        if (IsFran)
+        {
+            PlayerPanel.SetTrigger("Fran");
         }
         else {
-            //PlayerPanel.sprite = Playerimage[0];
+            PlayerPanel.SetInteger("Pants", pantsNum);
         }
-
-        //PlayerPanel.SetNativeSize();
+        
     }
 
     void PantsChangeAnim()
