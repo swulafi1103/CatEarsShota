@@ -67,14 +67,12 @@ public class MiniGameManager : MonoBehaviour
     private Color       fadeColor = Color.red;
     private GameObject[] commandTexts;
 
-
-    [SerializeField]
-    private GameObject pastDoor;
+    [HideInInspector]
+    public GameObject pastDoor;
 
     void Awake()
     {
         CheckInstance();
-        //  必要なObejctの検索、見当たらない場合はLogを出す
         FindNeedObject();
     }
 
@@ -153,7 +151,7 @@ public class MiniGameManager : MonoBehaviour
         discriptionObj.SetActive(false);
         miniGameViewObj.SetActive(true);
         timeLimit = defaultTimeLimit;
-        timerObj.GetComponent<Text>().text = timeLimit.ToString("0");
+        timerObj.GetComponent<Text>().text = timeLimit.ToString();
         StartCoroutine(CountDown());
     }
 
@@ -290,14 +288,7 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void IncorrectAnswer()
     {
-        //mistakeCount++;
-        //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         StartCoroutine(ShakeObject(0.2f, miniGameViewObj));
-        //if (mistakeCount >= MISTAKELIMIT)
-        //{
-        //    MinigameFaild();
-        //    return;
-        //}
         StartCoroutine(DamegeEffect(0.25f));
         timeLimit -= 1;
         numOrder = 0;

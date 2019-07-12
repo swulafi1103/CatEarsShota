@@ -35,15 +35,14 @@ public class EventManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField]
-    private GameObject[] gimmickObjects;
-    [SerializeField]
-    private GameObject[] itemObjects;
+    private List<GameObject> gimmickList = new List<GameObject>();
+    private List<GameObject> itemList = new List<GameObject>();
 
 
     void Awake()
     {
         CheckInstance();
+        SetGimmickItemObject();
     }
 
     void Start()
@@ -65,7 +64,7 @@ public class EventManager : MonoBehaviour
     /// </summary>
     public void UpdateEvent()
     {
-        foreach(GameObject obj in gimmickObjects)
+        foreach(GameObject obj in gimmickList)
         {
             if (obj != null)
             {
@@ -75,7 +74,7 @@ public class EventManager : MonoBehaviour
                 }
             }
         }
-        foreach (GameObject obj in itemObjects)
+        foreach (GameObject obj in itemList)
         {
             if (obj != null)
             {
@@ -84,6 +83,26 @@ public class EventManager : MonoBehaviour
                     obj.GetComponent<EventBase>().CheckFlag();
                 }
             }            
+        }
+    }
+
+    void SetGimmickItemObject()
+    {
+        GameObject[] GimmickObjects = GameObject.FindGameObjectsWithTag("Gimmick");
+        foreach (var obj in GimmickObjects)
+        {
+            if (!gimmickList.Contains(obj))
+            {
+                gimmickList.Add(obj);
+            }
+        }
+        GameObject[] ItemObjects = GameObject.FindGameObjectsWithTag("Item");
+        foreach (var obj in ItemObjects)
+        {
+            if (!itemList.Contains(obj))
+            {
+                itemList.Add(obj);
+            }
         }
     }
 }

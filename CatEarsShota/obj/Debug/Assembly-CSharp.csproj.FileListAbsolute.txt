@@ -557,7 +557,6 @@ C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\Temp\bin\Debug\Unity
 C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
-C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
 C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSharp.dll
@@ -844,3 +843,4 @@ C:\Users\ytfee\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSh
 C:\Users\ytfee\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\ytfee\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSharp.dll
 C:\Users\ytfee\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSharp.pdb
+C:\Users\student\Documents\GitHub\CatEarsShota\CatEarsShota\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
