@@ -70,7 +70,7 @@ public class BubbleEvent : MonoBehaviour
         //  デバッグ
         if (Input.GetKeyDown(KeyCode.F6))
         {
-            Debug.Log("aaaa");
+            Debug.Log("デバッグ用");
             DisplayBubbles(BubbleType.Repair);
         }
         

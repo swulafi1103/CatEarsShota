@@ -105,9 +105,9 @@ public class MiniGameManager : MonoBehaviour
     {
         discriptionObj = transform.GetChild(0).gameObject;
         miniGameViewObj = transform.GetChild(1).gameObject;
-        timerObj = transform.Find("SecondText").gameObject;
-        countdownObj = transform.Find("SecondText").GetComponent<Text>();
-        commandParentObj = transform.Find("CommandParent").gameObject;
+        timerObj = transform.Find("MinigameBackGround/TimerBackGround/SecondText").gameObject;
+        countdownObj = transform.Find("MinigameBackGround/CountDown").GetComponent<Text>();
+        commandParentObj = transform.Find("MinigameBackGround/CommandParent").gameObject;
         string log = "MiniGame Find Succes";
         if (discriptionObj == null)
         {

@@ -108,7 +108,7 @@ public class FlagManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            IsPast = !IsPast;
+            ChegeFranPero();
         }
         if (Input.GetKeyDown(KeyCode.F10))
         {
