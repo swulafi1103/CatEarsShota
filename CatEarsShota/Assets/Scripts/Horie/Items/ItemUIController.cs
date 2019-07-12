@@ -27,7 +27,7 @@ public class ItemUIController : MonoBehaviour
     
 
     [SerializeField]
-    Image PlayerPanel;
+    Animator PlayerPanel;
     [SerializeField]
     Sprite[] Playerimage = new Sprite[2];
     
@@ -46,6 +46,8 @@ public class ItemUIController : MonoBehaviour
     bool IsActTab = false;
 
     bool IsEvent = false;
+
+    int pantsNum = 0;
 
     void Start() {
     }
@@ -253,11 +255,12 @@ public class ItemUIController : MonoBehaviour
                 case ItemData.ItemType.Pants:
                     IsActDetail = !act;
                     ItemManager.Instance.ChangePants(NowHave[selectNum].GetItemNum);
+                    PantsChangeAnim();
                     yield break;
             }
         }
         DetailPanel.SetActive(act);
-        yield return null;
+        yield break;
     }
     
     /// <summary>
@@ -267,13 +270,21 @@ public class ItemUIController : MonoBehaviour
         //アニメーション切り替え
 
         if (IsFran) {
-            PlayerPanel.sprite = Playerimage[1];
+            //PlayerPanel.sprite = Playerimage[1];
         }
         else {
-            PlayerPanel.sprite = Playerimage[0];
+            //PlayerPanel.sprite = Playerimage[0];
         }
 
-        PlayerPanel.SetNativeSize();
+        //PlayerPanel.SetNativeSize();
+    }
+
+    void PantsChangeAnim()
+    {
+
+        pantsNum = NowHave[selectNum].GetItemNum - 12;
+        PlayerPanel.SetTrigger("AnimReset");
+        PlayerPanel.SetInteger("Pants", pantsNum);
     }
 
 
