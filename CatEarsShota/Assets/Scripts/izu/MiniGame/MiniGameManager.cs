@@ -69,11 +69,10 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField]
     private GameObject  textPrefab;             //  コマンド用のPrefab
     [SerializeField]
-    private Color       beforeColor;
-    [SerializeField]
-    private Color       afterColor;
+    private GameObject[] keyObjects = new GameObject[5];
     private Color       fadeColor = Color.red;
-    private Text[]      commandTexts;
+    private GameObject[]      commandTexts;
+
 
     [SerializeField]
     private GameObject pastDoor;
@@ -188,14 +187,29 @@ public class MiniGameManager : MonoBehaviour
                 Destroy(obj.gameObject);
             }
         }
-        commandTexts = new Text[randomNums.Length];
+        commandTexts = new GameObject[randomNums.Length];
         for (int i = 0; i < randomNums.Length; i++)
         {
             questionCommand[i] = USEKEYS[randomNums[i]];
-            GameObject obj = Instantiate(textPrefab, commandParentObj.transform);
-            obj.GetComponent<Text>().color = beforeColor;
-            commandTexts[i] = obj.GetComponent<Text>();
-            commandTexts[i].text = ChangeKeyCodeString(questionCommand[i]);
+            switch (questionCommand[i])
+            {
+                case KeyCode.A:
+                    commandTexts[i] = Instantiate(keyObjects[0], commandParentObj.transform);
+                    break;
+                case KeyCode.S:
+                    commandTexts[i] = Instantiate(keyObjects[1], commandParentObj.transform);
+                    break;
+                case KeyCode.D:
+                    commandTexts[i] = Instantiate(keyObjects[2], commandParentObj.transform);
+                    break;
+                case KeyCode.LeftArrow:
+                    commandTexts[i] = Instantiate(keyObjects[3], commandParentObj.transform);
+                    break;
+                case KeyCode.RightArrow:
+                    commandTexts[i] = Instantiate(keyObjects[4], commandParentObj.transform);
+                    break;
+            }
+            commandTexts[i].GetComponent<Image>().SetNativeSize();
         }
     }
 
@@ -236,7 +250,7 @@ public class MiniGameManager : MonoBehaviour
                         //  文字の色変え
                         for (int i = 0; i < numOrder; i++)
                         {
-                            commandTexts[i].GetComponent<Text>().color = afterColor;
+                            commandTexts[i].GetComponent<ChangePressKey>().ChangeAfterSprite();
                         }
                     }
                 }
@@ -365,7 +379,7 @@ public class MiniGameManager : MonoBehaviour
         {
             foreach (var obj in commandTexts)
             {
-                obj.text = "";
+                Destroy(obj);
                 yield return null;
             }
         }
@@ -391,7 +405,7 @@ public class MiniGameManager : MonoBehaviour
         {
             foreach (var obj in commandTexts)
             {
-                obj.text = "";
+                Destroy(obj);
                 yield return null;
             }
         }

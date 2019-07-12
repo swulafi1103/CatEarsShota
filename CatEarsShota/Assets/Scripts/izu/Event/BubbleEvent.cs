@@ -70,8 +70,8 @@ public class BubbleEvent : MonoBehaviour
         //  デバッグ
         if (Input.GetKeyDown(KeyCode.F6))
         {
-            Debug.Log("");
-            DisplayBubbles(BubbleType.Door);
+            Debug.Log("aaaa");
+            DisplayBubbles(BubbleType.Repair);
         }
         
         if (baseBubble.activeSelf == true)
