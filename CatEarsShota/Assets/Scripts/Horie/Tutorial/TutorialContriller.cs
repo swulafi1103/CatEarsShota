@@ -40,6 +40,7 @@ public class TutorialContriller : MonoBehaviour
         if (ActAnim()) return;
         MoveTutorial();
         ChangeModeTuto();
+        PantsTuto();
     }
 
     public bool ActAnim()
@@ -110,6 +111,7 @@ public class TutorialContriller : MonoBehaviour
         if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_08_PowerShortageDoor)) return;
         iconTutorial.IconTuto(IconTutorial.IconNum.Item);
         tutoFlag[3] = true;
+        TutoColliderObj.SetActive(false);
     }
     
 
@@ -131,7 +133,7 @@ public class TutorialContriller : MonoBehaviour
     void PantsTuto()
     {
         if (tutoFlag[5]) return;
-        if (!FlagManager.Instance.CheckItemFlag(ItemFlag.I_13_Pants_B)) return;
+        if (!FlagManager.Instance.CheckItemFlag(ItemFlag.I_12_Pants_A)) return;
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.Pants);
         tutoFlag[5] = true;
     }
@@ -170,7 +172,6 @@ public class TutorialContriller : MonoBehaviour
     /// </summary>
     public void OnTutoCollider()
     {
-        TutoColliderObj.SetActive(false);
         switch (NowColliderNum)
         {
             case 0:

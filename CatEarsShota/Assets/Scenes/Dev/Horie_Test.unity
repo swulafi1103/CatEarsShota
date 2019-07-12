@@ -975,6 +975,7 @@ MonoBehaviour:
   isPast: 0
   isEventing: 0
   isOpenUI: 0
+  isYellow: 0
   itemFlag: 0
   gimmickFlag: 0
 --- !u!114 &117326762
@@ -3541,7 +3542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1287770203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3554,6 +3555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bbf8f5d8b7f57343b5edad708649efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maincam: {fileID: 0}
+  subcam: {fileID: 0}
 --- !u!114 &1287770204
 MonoBehaviour:
   m_ObjectHideFlags: 0
