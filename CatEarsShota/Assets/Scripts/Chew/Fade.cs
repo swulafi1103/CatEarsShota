@@ -35,6 +35,8 @@ public class Fade : MonoBehaviour
         return false;
     }
     #endregion
+    public Camera maincam;
+    public Camera subcam;
 
     private bool startfadeInOut = false;
     private bool fading = false;
@@ -47,12 +49,13 @@ public class Fade : MonoBehaviour
     private void Awake()
     {
         CheckInstance();
+        FadeScreen = transform.GetChild(0).gameObject;
+        RedEffect = transform.GetChild(1).gameObject;
     }
 
     void Start()
     {
-        FadeScreen = transform.GetChild(0).gameObject;
-        RedEffect = transform.GetChild(1).gameObject;
+        
     }
 
     void Update()
@@ -60,6 +63,7 @@ public class Fade : MonoBehaviour
         if(startfadeInOut && !fading && localcount>0)
         {
             FadeInOut(RedEffect, 1.5f);
+            localcount--;
         }
         else if(startfadeInOut && !fading)
         {
@@ -128,6 +132,10 @@ public class Fade : MonoBehaviour
     }
     IEnumerator fadeprocess(GameObject target,float time, Color newcolor, System.Action task=null)
     {
+        if (FlagManager.Instance.IsPast)
+            transform.GetComponent<Canvas>().worldCamera = subcam;
+        else
+            transform.GetComponent<Canvas>().worldCamera = maincam;
         float countTime = 0;
 
         while (countTime < time)
@@ -147,6 +155,10 @@ public class Fade : MonoBehaviour
     }
     IEnumerator fadeinoutProcess(GameObject target, float time, Color newcolor, System.Action task = null)
     {
+        if (FlagManager.Instance.IsPast)
+            transform.GetComponent<Canvas>().worldCamera = subcam;
+        else
+            transform.GetComponent<Canvas>().worldCamera = maincam;
         float countTime = 0;
 
         while (countTime < time)
