@@ -222,6 +222,7 @@ public class ItemUIController : MonoBehaviour
         else {
             startPos = Vector3.zero;
             endPos = new Vector3(0, -1080, 0);
+            PlayerPanel.Play("wait");
         }
         ItemPanel.GetComponent<RectTransform>().localPosition = startPos;
 
@@ -271,18 +272,13 @@ public class ItemUIController : MonoBehaviour
 
 
         if (pantsNum < 0) pantsNum = 0;
-        
-        if (!PlayerPanel.GetCurrentAnimatorStateInfo(0).IsName("wait"))
-        {
-            PlayerPanel.SetTrigger("AnimReset");
-        }
         //アニメーション切り替え
         if (IsFran)
         {
-            PlayerPanel.SetTrigger("Fran");
+            PlayerPanel.Play("UI_Fran");
         }
         else {
-            PlayerPanel.SetInteger("Pants", pantsNum);
+            PlayerPanel.Play("UI_Perrault_" + pantsNum);
         }
         
     }
@@ -291,8 +287,9 @@ public class ItemUIController : MonoBehaviour
     {
 
         pantsNum = NowHave[selectNum].GetItemNum - 12;
-        PlayerPanel.SetTrigger("AnimReset");
-        PlayerPanel.SetInteger("Pants", pantsNum);
+        //PlayerPanel.SetTrigger("AnimReset");
+        //PlayerPanel.SetInteger("Pants", pantsNum);
+        PlayerPanel.Play("UI_Perrault_" + pantsNum);
     }
 
 
