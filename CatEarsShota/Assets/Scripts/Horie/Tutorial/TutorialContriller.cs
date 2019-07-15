@@ -11,7 +11,11 @@ public class TutorialContriller : MonoBehaviour
 
     static TutorialContriller instance = null;
 
-    bool[] tutoFlag = new bool[10];
+    bool[] tutoFlag = new bool[8];
+
+    GameObject TutoColliderObj;
+
+    int NowColliderNum = 0;
 
     public static TutorialContriller Instance {
         get { return instance; }
@@ -35,9 +39,8 @@ public class TutorialContriller : MonoBehaviour
         if (FlagManager.Instance.IsEventing) return;
         if (ActAnim()) return;
         MoveTutorial();
-        CheckingTuto();
-        ItemTuto();
         ChangeModeTuto();
+        PantsTuto();
     }
 
     public bool ActAnim()
@@ -56,6 +59,9 @@ public class TutorialContriller : MonoBehaviour
         iconTutorial = GetComponent<IconTutorial>();
         panelTutorial = GetComponent<PanelTutorial>();
 
+        TutoColliderObj = FindObjectOfType<TutoCollider>().gameObject;
+        TutoColliderObj.SetActive(false);
+
         for(int i = 0; i < tutoFlag.Length; i++)
         {
             tutoFlag[i] = false;
@@ -72,6 +78,7 @@ public class TutorialContriller : MonoBehaviour
         Rigidbody2D p = PerraultObj.GetComponent<Rigidbody2D>();
         iconTutorial.MoveTuto(p);
         tutoFlag[0] = true;
+        SetCollider(0);
     }
 
     /// <summary>
@@ -84,11 +91,13 @@ public class TutorialContriller : MonoBehaviour
         {
             iconTutorial.IconTuto(IconTutorial.IconNum.Checking);
             tutoFlag[1] = true;
+            SetCollider(1);
         }
         if (FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_03_EquipBand) && !tutoFlag[2])
         {
             iconTutorial.IconTuto(IconTutorial.IconNum.Checking2);
             tutoFlag[2] = true;
+            SetCollider(2);
         }
     }
 
@@ -102,47 +111,37 @@ public class TutorialContriller : MonoBehaviour
         if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_08_PowerShortageDoor)) return;
         iconTutorial.IconTuto(IconTutorial.IconNum.Item);
         tutoFlag[3] = true;
+        TutoColliderObj.SetActive(false);
     }
-
-    /// <summary>
-    /// 「アイテム欄を開く」チュートリアル
-    /// 4
-    /// </summary>
-    void ItemUITuto()
-    {
-        iconTutorial.IconTuto(IconTutorial.IconNum.ItemUI);
-    }
+    
 
     /// <summary>
     /// 「時間切り替え」チュートリアル
-    /// 5
+    /// 4
     /// </summary>
     void ChangeModeTuto() {
-        if (tutoFlag[5]) return;
+        if (tutoFlag[4]) return;
         if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_04_TouchYellowGenerator)) return;
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.ChangeMode);
-        tutoFlag[5] = true;
+        tutoFlag[4] = true;
     }
 
     /// <summary>
     /// パンツ説明
-    /// 6
+    /// 5
     /// </summary>
-    void PantsTuto() {
+    void PantsTuto()
+    {
+        if (tutoFlag[5]) return;
+        if (!FlagManager.Instance.CheckItemFlag(ItemFlag.I_12_Pants_A)) return;
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.Pants);
+        tutoFlag[5] = true;
     }
-
-    /// <summary>
-    /// パンツ切り替え説明
-    /// 7
-    /// </summary>
-    void ChangePantsTuto() {
-        panelTutorial.PanelTuto(PanelTutorial.PanelNum.ChangePants);
-    }
+    
 
     /// <summary>
     /// タイムカプセル説明
-    /// 8
+    /// 6
     /// </summary>
     void TimeCapsuleTuto() {
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.TimeCapsule);
@@ -150,9 +149,42 @@ public class TutorialContriller : MonoBehaviour
 
     /// <summary>
     /// キノコ説明
-    /// 9
+    /// 7
     /// </summary>
     void MushroomTuto() {
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.Mushroom);
+    }
+
+    /// <summary>
+    /// objctに近づいたら発生するチュートリアル用のコライダー生成
+    /// 0:check1,1:check2,2:item
+    /// </summary>
+    /// <param name="num">0:check1,1:check2,2:item</param>
+    void SetCollider(int num) {
+        TutoColliderObj.SetActive(true);
+        TutoColliderObj.GetComponent<TutoCollider>().SetPosition(num);
+        NowColliderNum = num;
+    }
+
+    /// <summary>
+    /// objctに近づいたら発生するチュートリアル
+    /// 0:check1,1:check2,2:item
+    /// </summary>
+    public void OnTutoCollider()
+    {
+        switch (NowColliderNum)
+        {
+            case 0:
+                CheckingTuto();
+                break;
+            case 1:
+                CheckingTuto();
+                break;
+            case 2:
+                ItemTuto();
+                break;
+            case 3:
+                break;
+        }
     }
 }

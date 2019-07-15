@@ -1605,8 +1605,8 @@ MonoBehaviour:
   map: {fileID: 0}
   keyObjects:
   - {fileID: 2465732357361030039, guid: 224679072c5c41144ab16938c5c25d50, type: 3}
-  - {fileID: 2465732357361030039, guid: 04e401dabaf754142a3cd8d26dbe7b4b, type: 3}
   - {fileID: 2465732357361030039, guid: 5485499ab82211240b330c30c69f3ebb, type: 3}
+  - {fileID: 2465732357361030039, guid: 04e401dabaf754142a3cd8d26dbe7b4b, type: 3}
   - {fileID: 2465732357361030039, guid: 3cb2a486c6cd95943a21eea8cb4bdcdd, type: 3}
   - {fileID: 2465732357361030039, guid: 988715a0db1e2fd48afff2e706e81be1, type: 3}
   pastDoor: {fileID: 0}

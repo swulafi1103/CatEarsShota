@@ -68,6 +68,10 @@ public class PlayerManager : MonoBehaviour
             Debug.LogWarning("FindFaild");
     }
 
+    /// <summary>
+    /// ペローとフランの移動制限
+    /// </summary>
+    /// <param name="past"></param>
     public void SwitchPlayerMode(bool past)
     {
         if (past)

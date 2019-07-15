@@ -7,6 +7,8 @@ public class ItemEvent : EventBase, ICheckable
 {
     [SerializeField, EnumFlags]
     protected ItemFlag standItemFlag = default;
+    [SerializeField]
+    ItemManager.ItemNum itemNum;
 
     void Start()
     {
@@ -16,6 +18,7 @@ public class ItemEvent : EventBase, ICheckable
 
     public virtual void Check()
     {
+        ItemManager.Instance.SetItemData(itemNum);
         FlagManager.Instance.SetItemFlag(standItemFlag);
         gameObject.SetActive(false);
     }
