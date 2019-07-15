@@ -30,11 +30,14 @@ public class PerraultMove : MonoBehaviour
     [SerializeField]
     private List<GameObject> examinableObjects = new List<GameObject>();
 
+    public GameObject Pants;
+    private Animator animpants;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+        animpants = Pants.GetComponent<Animator>();
         scale = transform.localScale;
     }
     void Start()
@@ -75,6 +78,8 @@ public class PerraultMove : MonoBehaviour
             rb.velocity = new Vector2(Mathf.Min(MaxSpeed, rb.velocity.x), rb.velocity.y);
             anim.SetBool("SetWaitAnimator", false);
             anim.SetBool("SetWalkAnimator", true);
+            animpants.SetBool("SetWaitAnimator", false);
+            animpants.SetBool("SetWalkAnimator", true);
         }
         //LeftMove
         else if (Input.GetKey(KeyCode.LeftArrow))
@@ -91,6 +96,8 @@ public class PerraultMove : MonoBehaviour
             rb.velocity = new Vector2(Mathf.Max(-MaxSpeed, rb.velocity.x), rb.velocity.y);
             anim.SetBool("SetWaitAnimator", false);
             anim.SetBool("SetWalkAnimator", true);
+            animpants.SetBool("SetWaitAnimator", false);
+            animpants.SetBool("SetWalkAnimator", true);
         }
 
         if (Mathf.Abs(rb.velocity.x) > 0 && (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)))
@@ -106,6 +113,8 @@ public class PerraultMove : MonoBehaviour
                 // Idle状態に
                 anim.SetBool("SetWaitAnimator", true);
                 anim.SetBool("SetWalkAnimator", false);
+                animpants.SetBool("SetWaitAnimator", true);
+                animpants.SetBool("SetWalkAnimator", false);
             }
         }
     }
@@ -120,28 +129,35 @@ public class PerraultMove : MonoBehaviour
         {
             JumpNum = 0;
             isJump = false;
-            
+
             anim.SetTrigger("GroundTrigger");
             anim.ResetTrigger("JumpTrigger");
+            animpants.SetTrigger("GroundTrigger");
+            animpants.ResetTrigger("JumpTrigger");
         }
         //  ジャンプせずに足場から離れたとき
         if (!isGround && !isJump)
         {
             JumpNum = 1;
-            
+
         }
         //  2回ジャンプしてない状態でスペースが押されたとき
         if (Input.GetKeyDown(KeyCode.Space) && JumpNum < 2)
         {
             JumpNum++;
-            if(JumpNum == 2)
+            if (JumpNum == 2)
+            {
                 anim.SetTrigger("DoubleJumpTrigger");
+                animpants.SetTrigger("DoubleJumpTrigger");
+            }
             isJump = true;
             Vector2 JumpVector = new Vector2(0, JumpPower);
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(JumpVector);
             anim.ResetTrigger("GroundTrigger");
             anim.SetTrigger("JumpTrigger");
+            animpants.ResetTrigger("GroundTrigger");
+            animpants.SetTrigger("JumpTrigger");
         }
         //  落下のスピードの調整
         else
@@ -165,7 +181,7 @@ public class PerraultMove : MonoBehaviour
         if (FlagManager.Instance.IsEventing)
         {
             return false;
-        }        
+        }
         return true;
     }
 
@@ -177,6 +193,7 @@ public class PerraultMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))//攻撃
         {
             anim.SetTrigger("AttackTrigger");
+            animpants.SetTrigger("AttackTrigger");
         }
         if (Input.GetKeyDown(KeyCode.A))//調べ
         {
@@ -201,8 +218,10 @@ public class PerraultMove : MonoBehaviour
         if (!isGround)
         {
             anim.ResetTrigger("GroundTrigger");
+            animpants.ResetTrigger("GroundTrigger");
         }
         anim.SetBool("SetFloatAnimator", !isGround);
+        animpants.SetBool("SetFloatAnimator", !isGround);
     }
 
 
