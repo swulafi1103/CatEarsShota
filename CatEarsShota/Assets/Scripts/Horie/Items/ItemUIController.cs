@@ -29,8 +29,10 @@ public class ItemUIController : MonoBehaviour
     [SerializeField]
     Animator PlayerPanel;
     [SerializeField]
-    Sprite[] Playerimage = new Sprite[2];
-    
+    Camera PerraultCamera;
+    [SerializeField]
+    Camera FranCamera;
+
 
     float AnimFrame = 8;
 
@@ -209,7 +211,7 @@ public class ItemUIController : MonoBehaviour
 
         if (act) {
             IsFran = FlagManager.Instance.IsPast;
-
+            SetCamera();
             SetAnim();
             selectTab = 0;
             SetTabColor();
@@ -317,6 +319,15 @@ public class ItemUIController : MonoBehaviour
         }
     }
 
+    void SetCamera() {
+        if (IsFran) {
+            transform.parent.GetComponent<Canvas>().worldCamera = FranCamera;
+        }
+        else {
+            transform.parent.GetComponent<Canvas>().worldCamera = PerraultCamera;
+        }
+    }
+
     /// <summary>
     /// イベント用アイテムUI_Start
     /// </summary>
@@ -331,6 +342,8 @@ public class ItemUIController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         IsEvent = true;
         FlagManager.Instance.IsOpenUI = true;
+        IsFran = FlagManager.Instance.IsPast;
+        SetCamera();
         ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
         selectTab = (int)item.GetItemType;
         SetTabColor();
