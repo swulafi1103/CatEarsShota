@@ -176,12 +176,14 @@ public class FranMove : MonoBehaviour
                 //  ギミックの発動
                 Debug.Log("ギミック作動");
                 examinableObjects[0].GetComponent<ICheckable>().Check();
-            }
-            if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
-            {
-
+                examinableObjects.Remove(examinableObjects[0]);
             }
         }
+        if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
+        {
+            ItemManager.Instance.SetItemUI();
+        }
+
     }
 
     //  動けるのか
