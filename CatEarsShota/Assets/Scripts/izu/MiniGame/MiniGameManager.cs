@@ -42,6 +42,7 @@ public class MiniGameManager : MonoBehaviour
 
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
     private KeyCode[]   questionCommand;        //  問題のキー配列
+
     //private const int   MISTAKELIMIT = 4;     //  ミス上限値
     //private int         mistakeCount = 0;     //  ミスのカウント
     private int         numOrder;               //  解答中のコマンドの並び
@@ -301,10 +302,8 @@ public class MiniGameManager : MonoBehaviour
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
-        Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
-        map.GetComponent<MapStatus>().ChangeColorObj();
-        StartCoroutine(ChengeFran());
-        //FlagManager.Instance.IsPast = false;
+        //StartCoroutine(ChengeFran());
+        FlagManager.Instance.IsEventing = false;
     }
 
     /// <summary>

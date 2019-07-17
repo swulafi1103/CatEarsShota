@@ -921,8 +921,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec3db5bf4ba5b44b97bfa52f4000559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gimmickObjects: []
-  itemObjects: []
 --- !u!114 &605330557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1402,32 +1400,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7511413816682678008}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1321594496 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1664567498500750786, guid: c020ab05729747942b7b596b27b1f4f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 7511413816682678008}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1321594501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321594496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c27e0d5b10a8a24ab8e4f85e9e7d8b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
-  bubblePos: {x: 0, y: 0}
-  flipBubble: 0
-  isDisplayBubble: 0
-  standgimmickFlag: 1
-  isComplete: 0
 --- !u!1 &1550975320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,32 +2076,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
         type: 3}
-      propertyPath: bubbleImage
-      value: 
-      objectReference: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898,
-        type: 3}
-    - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
-        type: 3}
-      propertyPath: needGimmickFlag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
-        type: 3}
-      propertyPath: bubblePos.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
-        type: 3}
-      propertyPath: bubblePos.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
-        type: 3}
-      propertyPath: standgimmickFlag
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
-        type: 3}
       propertyPath: miniGameManager
       value: 
       objectReference: {fileID: 40466946}
@@ -2433,11 +2379,6 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[27].y
       value: -3.557766
       objectReference: {fileID: 0}
-    - target: {fileID: 2794936260209556747, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 850150e96b11e93419528e3d10a44166, type: 2}
     - target: {fileID: 6429075788347597950, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
         type: 3}
       propertyPath: m_Name
@@ -2807,6 +2748,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2448284019562847411, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: needGimmickFlag
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448284019562847411, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: standgimmickFlag
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: needGimmickFlag
       value: 8
@@ -2820,20 +2771,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 1664567498500750786, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Gimmick
+      objectReference: {fileID: 0}
     - target: {fileID: 9136577378096424601, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664567498500750786, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817940430865, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 5481485370912399969, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
@@ -2843,17 +2789,22 @@ PrefabInstance:
     - target: {fileID: 7511413816158754028, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
       propertyPath: m_TagString
-      value: Item
+      value: Gimmick
       objectReference: {fileID: 0}
     - target: {fileID: 5162944064808593311, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Gimmick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995363943728227925, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 5995363943728227925, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
-      propertyPath: m_TagString
-      value: Item
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1767069008774646034, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
@@ -3303,10 +3254,15 @@ PrefabInstance:
       propertyPath: needItemFlag
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6107188450488438983, guid: c020ab05729747942b7b596b27b1f4f2,
+    - target: {fileID: 4212684209106053631, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
-      propertyPath: m_Material
-      value: 
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038438029219956636, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: needGimmickFlag
+      value: 2048
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c020ab05729747942b7b596b27b1f4f2, type: 3}
