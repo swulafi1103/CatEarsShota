@@ -1645,9 +1645,8 @@ MonoBehaviour:
   ItemPanel: {fileID: 7162481612473419357}
   DetailPanel: {fileID: 7162481610455533129}
   PlayerPanel: {fileID: 8505768235576013047}
-  Playerimage:
-  - {fileID: 21300000, guid: e499b634859d9924d8fc9d259de4211b, type: 3}
-  - {fileID: 21300000, guid: 566a131bbc7c24b80aa441e819e11e0a, type: 3}
+  PerraultCamera: {fileID: 0}
+  FranCamera: {fileID: 0}
 --- !u!1 &7162481612028649663
 GameObject:
   m_ObjectHideFlags: 0
