@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class TouchGeneretor : GimmickEvent
 {
-    
+
     void Start()
     {
         CheckFlag();
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
     public override void Check()
@@ -53,6 +53,10 @@ public class TouchGeneretor : GimmickEvent
         yield return new WaitUntil(() => flag == true);
         Debug.Log("暗転終了");
         FlagManager.Instance.IsEventing = true;
+        //  チュートリアル発生
+        TutorialContriller.Instance.ChangeModeTuto();
+        //  チュートリアルが終わるまで待機
+        yield return new WaitUntil(() => FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_05_Tuto_TimeChenge) == true);
         yield return new WaitForSeconds(2f);
         //  アラーム音再生(3回)
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
@@ -72,6 +76,7 @@ public class TouchGeneretor : GimmickEvent
         Fade.Instance.StartFade(1, Color.clear, callback);
         yield return new WaitUntil(() => flag == true);
         Debug.Log("明転終了");
+        FlagManager.Instance.IsEventing = true;
         //  フランの左右キョロキョロ
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = true;
         yield return new WaitForSeconds(0.5f);
@@ -80,10 +85,9 @@ public class TouchGeneretor : GimmickEvent
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = true;
         yield return new WaitForSeconds(0.5f);
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = false;
-        yield return new WaitForSeconds(0.5f);
-        FlagManager.Instance.IsEventing = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Escape);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
 
