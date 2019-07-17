@@ -308,7 +308,8 @@ public class MiniGameManager : MonoBehaviour
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
-        //StartCoroutine(ChengeFran());
+        //  ミニゲーム１のクリアフラグSet
+        FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);                
         FlagManager.Instance.IsEventing = false;
     }
 
