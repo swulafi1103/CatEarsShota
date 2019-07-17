@@ -42,6 +42,7 @@ public class MiniGameManager : MonoBehaviour
 
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
     private KeyCode[]   questionCommand;        //  問題のキー配列
+
     //private const int   MISTAKELIMIT = 4;     //  ミス上限値
     //private int         mistakeCount = 0;     //  ミスのカウント
     private int         numOrder;               //  解答中のコマンドの並び
@@ -67,14 +68,12 @@ public class MiniGameManager : MonoBehaviour
     private Color       fadeColor = Color.red;
     private GameObject[] commandTexts;
 
-
-    [SerializeField]
-    private GameObject pastDoor;
+    [HideInInspector]
+    public GameObject pastDoor;
 
     void Awake()
     {
         CheckInstance();
-        //  必要なObejctの検索、見当たらない場合はLogを出す
         FindNeedObject();
     }
 
@@ -153,7 +152,7 @@ public class MiniGameManager : MonoBehaviour
         discriptionObj.SetActive(false);
         miniGameViewObj.SetActive(true);
         timeLimit = defaultTimeLimit;
-        timerObj.GetComponent<Text>().text = timeLimit.ToString("0");
+        timerObj.GetComponent<Text>().text = timeLimit.ToString();
         StartCoroutine(CountDown());
     }
 
@@ -290,14 +289,7 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void IncorrectAnswer()
     {
-        //mistakeCount++;
-        //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         StartCoroutine(ShakeObject(0.2f, miniGameViewObj));
-        //if (mistakeCount >= MISTAKELIMIT)
-        //{
-        //    MinigameFaild();
-        //    return;
-        //}
         StartCoroutine(DamegeEffect(0.25f));
         timeLimit -= 1;
         numOrder = 0;
@@ -310,10 +302,8 @@ public class MiniGameManager : MonoBehaviour
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
-        Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
-        map.GetComponent<MapStatus>().ChangeColorObj();
-        StartCoroutine(ChengeFran());
-        //FlagManager.Instance.IsPast = false;
+        //StartCoroutine(ChengeFran());
+        FlagManager.Instance.IsEventing = false;
     }
 
     /// <summary>

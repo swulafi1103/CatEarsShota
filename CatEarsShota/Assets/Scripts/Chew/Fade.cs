@@ -119,7 +119,7 @@ public class Fade : MonoBehaviour
     {
         startfadeInOut = true;
         FlagManager.Instance.IsEventing = true;
-        localcount = count;
+        localcount = count * 2;
     }
     private void StartFadeRed(float time, Color newcolor)
     {

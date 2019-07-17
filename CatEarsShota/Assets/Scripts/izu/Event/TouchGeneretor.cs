@@ -21,7 +21,6 @@ public class TouchGeneretor : GimmickEvent
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag) && !isComplete)
         {
             FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
-            Debug.Log("AAA");
             StartCoroutine(ChengeFran());
             CompleteGimmick();
         }
@@ -51,7 +50,7 @@ public class TouchGeneretor : GimmickEvent
         bool flag = false;
         System.Action callback = () => flag = true;
         Fade.Instance.StartFade(1, Color.black, callback);
-        yield return new WaitUntil(() => flag == true);        
+        yield return new WaitUntil(() => flag == true);
         Debug.Log("暗転終了");
         FlagManager.Instance.IsEventing = true;
         yield return new WaitForSeconds(2f);

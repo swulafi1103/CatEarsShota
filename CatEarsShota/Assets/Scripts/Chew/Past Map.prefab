@@ -53,6 +53,27 @@ MonoBehaviour:
   - {fileID: 4996520802766792089}
   - {fileID: 1578784508787769284}
   - {fileID: 3208017413035605698}
+  yelloObjs:
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 0}
+    yellowSprite: {fileID: 0}
 --- !u!1 &520588968973507005
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +257,7 @@ MonoBehaviour:
   flipBubble: 1
   isDisplayBubble: 0
   standgimmickFlag: 512
+  isComplete: 0
 --- !u!1 &1267798015779771257
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +630,8 @@ MonoBehaviour:
   bubblePos: {x: 1, y: 1}
   flipBubble: 0
   isDisplayBubble: 0
-  standgimmickFlag: 0
+  standgimmickFlag: 512
+  isComplete: 0
   miniGameManager: {fileID: 0}
   rangeObject: {fileID: 0}
   isOpenMinigame: 0
@@ -1312,7 +1335,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 6429075788347597950}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 850150e96b11e93419528e3d10a44166, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
