@@ -51,13 +51,17 @@ public class PanelTutorial : MonoBehaviour
     void CheckBackKey() {
         if (nowNum == PanelNum.None) return;
         if (!Input.GetKeyDown(KeyCode.X)) return;
-        if (nowNum == PanelNum.Pants)
-        {
-            StartCoroutine(AnimSet(PanelNum.ChangePants));
-        }
-        else
-        {
-            StartCoroutine(EndAnim());
+        switch (nowNum) {
+            case PanelNum.ChangeMode:
+                FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_05_Tuto_TimeChenge);
+                StartCoroutine(EndAnim());
+                break;
+            case PanelNum.Pants:
+                StartCoroutine(AnimSet(PanelNum.ChangePants));
+                break;
+            default:
+                StartCoroutine(EndAnim());
+                break;
         }
     }
 

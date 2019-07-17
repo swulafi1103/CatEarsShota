@@ -39,7 +39,6 @@ public class TutorialContriller : MonoBehaviour
         if (FlagManager.Instance.IsEventing) return;
         if (ActAnim()) return;
         MoveTutorial();
-        ChangeModeTuto();
         PantsTuto();
     }
 
@@ -119,9 +118,8 @@ public class TutorialContriller : MonoBehaviour
     /// 「時間切り替え」チュートリアル
     /// 4
     /// </summary>
-    void ChangeModeTuto() {
+    public void ChangeModeTuto() {
         if (tutoFlag[4]) return;
-        if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_04_TouchYellowGenerator)) return;
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.ChangeMode);
         tutoFlag[4] = true;
     }
