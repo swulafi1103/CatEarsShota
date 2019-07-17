@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TouchPastDoor : GimmickEvent, ICheckable
 {
-    // Start is called before the first frame update
+
     void Start()
     {
         CheckFlag();   

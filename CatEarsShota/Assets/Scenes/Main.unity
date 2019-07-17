@@ -2084,6 +2084,16 @@ PrefabInstance:
       propertyPath: rangeObject
       value: 
       objectReference: {fileID: 7511413816682678009}
+    - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
+        type: 3}
+      propertyPath: needGimmickFlag
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
+        type: 3}
+      propertyPath: standgimmickFlag
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 4694640469868631154, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
         type: 3}
       propertyPath: m_SortingOrder
@@ -2639,6 +2649,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1474857171709743637, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
+        type: 3}
+      propertyPath: needItemFlag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d04df1a9d4f83944a611a09a0b2a6f5, type: 3}
 --- !u!1 &4074538694380041633 stripped
@@ -3150,21 +3165,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
-      propertyPath: m_Points.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Points.Array.data[3].x
-      value: 7.0395846
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Points.Array.data[3].y
-      value: -6.1746507
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
       propertyPath: m_Points.Array.data[4].x
       value: 7.0395846
       objectReference: {fileID: 0}
@@ -3172,36 +3172,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Points.Array.data[4].y
       value: -6.1746507
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Points.Array.data[2].x
-      value: 7.038653
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Points.Array.data[2].y
-      value: 3.5757618
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Points.Array.data[0].x
-      value: -7.214454
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Points.Array.data[0].y
-      value: -5.9292297
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Points.Array.data[1].x
-      value: -7.202872
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511413817082153717, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Points.Array.data[1].y
-      value: 3.4612484
       objectReference: {fileID: 0}
     - target: {fileID: 1955956477126654684, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
@@ -3272,18 +3242,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7511413816682678008}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7511413816682678010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7511413816682678009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1077c68dad5a1294fa1e4d8bf44fac06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7828346649737009438
 PrefabInstance:
   m_ObjectHideFlags: 0

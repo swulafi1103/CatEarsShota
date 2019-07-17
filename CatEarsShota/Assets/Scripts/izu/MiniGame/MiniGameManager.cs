@@ -69,7 +69,7 @@ public class MiniGameManager : MonoBehaviour
     private GameObject[] commandTexts;
 
     [HideInInspector]
-    public GameObject pastDoor;
+    public GameObject generetor;
 
     void Awake()
     {
@@ -284,11 +284,17 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
+    bool isDameged = false;
+
     /// <summary>
     /// 不正解の時の処理
     /// </summary>
     void IncorrectAnswer()
     {
+        if (isDameged)
+        {
+            return;
+        }
         StartCoroutine(ShakeObject(0.2f, miniGameViewObj));
         StartCoroutine(DamegeEffect(0.25f));
         timeLimit -= 1;
@@ -311,9 +317,9 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void MinigameFaild()
     {
-        FlagManager.Instance.IsPast = true;
+        FlagManager.Instance.IsEventing = false;
         StartCoroutine(DisplayFaildText());
-        pastDoor.GetComponent<PlayMinigame>().isOpenMinigame = false;
+        generetor.GetComponent<PlayMinigame>().isOpenMinigame = false;
     }
 
     /// <summary>
@@ -441,6 +447,7 @@ public class MiniGameManager : MonoBehaviour
 
     IEnumerator ShakeObject(float time, GameObject obj)
     {
+        isDameged = true;
         const float shakePower = 0.2f;
         Vector3 pos = obj.transform.position;
         while (time >= 0)
@@ -453,6 +460,7 @@ public class MiniGameManager : MonoBehaviour
             obj.transform.position = pos;
         }
         obj.transform.position = pos;
+        isDameged = false;
         yield break;
     }
 
