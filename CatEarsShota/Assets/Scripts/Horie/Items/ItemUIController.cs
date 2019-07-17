@@ -27,7 +27,7 @@ public class ItemUIController : MonoBehaviour
     
 
     [SerializeField]
-    Image PlayerPanel;
+    Animator PlayerPanel;
     [SerializeField]
     Sprite[] Playerimage = new Sprite[2];
     
@@ -46,6 +46,9 @@ public class ItemUIController : MonoBehaviour
     bool IsActTab = false;
 
     bool IsEvent = false;
+
+    int pantsNum = -1;
+    int waitAnim = 0;
 
     void Start() {
     }
@@ -219,6 +222,7 @@ public class ItemUIController : MonoBehaviour
         else {
             startPos = Vector3.zero;
             endPos = new Vector3(0, -1080, 0);
+            PlayerPanel.Play("wait");
         }
         ItemPanel.GetComponent<RectTransform>().localPosition = startPos;
 
@@ -253,27 +257,39 @@ public class ItemUIController : MonoBehaviour
                 case ItemData.ItemType.Pants:
                     IsActDetail = !act;
                     ItemManager.Instance.ChangePants(NowHave[selectNum].GetItemNum);
+                    PantsChangeAnim();
                     yield break;
             }
         }
         DetailPanel.SetActive(act);
-        yield return null;
+        yield break;
     }
     
     /// <summary>
     /// アニメーション切り替え
     /// </summary>
     void SetAnim() {
-        //アニメーション切り替え
 
-        if (IsFran) {
-            PlayerPanel.sprite = Playerimage[1];
+
+        if (pantsNum < 0) pantsNum = 0;
+        //アニメーション切り替え
+        if (IsFran)
+        {
+            PlayerPanel.Play("UI_Fran");
         }
         else {
-            PlayerPanel.sprite = Playerimage[0];
+            PlayerPanel.Play("UI_Perrault_" + pantsNum);
         }
+        
+    }
 
-        PlayerPanel.SetNativeSize();
+    void PantsChangeAnim()
+    {
+
+        pantsNum = NowHave[selectNum].GetItemNum - 12;
+        //PlayerPanel.SetTrigger("AnimReset");
+        //PlayerPanel.SetInteger("Pants", pantsNum);
+        PlayerPanel.Play("UI_Perrault_" + pantsNum);
     }
 
 
