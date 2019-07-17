@@ -309,7 +309,8 @@ public class MiniGameManager : MonoBehaviour
     {
         StartCoroutine(DisplayClearText());
         //  ミニゲーム１のクリアフラグSet
-        FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);                
+        generetor.GetComponent<PlayMinigame>().CompleteGimmick();
+        FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);
         FlagManager.Instance.IsEventing = false;
     }
 
