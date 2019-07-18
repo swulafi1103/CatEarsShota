@@ -15,5 +15,5 @@ MonoBehaviour:
   type: 1
   itemNum: 4
   itemName: "\u88AB\u691CNo.88\u306E\u5831\u544A\u66F8"
-  itemSprite: {fileID: 21300000, guid: 23dc1e69089d9cb47b106620aaa3c556, type: 3}
-  detailText: {fileID: 21300000, guid: 37984c38a98deef49858ef9376a52106, type: 3}
+  itemSprite: {fileID: 21300000, guid: 694d6d3bce6f0a648abfef7ab5961d02, type: 3}
+  detailText: {fileID: 21300000, guid: 694d6d3bce6f0a648abfef7ab5961d02, type: 3}
