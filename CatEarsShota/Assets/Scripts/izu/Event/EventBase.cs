@@ -38,13 +38,13 @@ public class EventBase : MonoBehaviour
         //  子の数が0だったらReturn
         if (transform.childCount == 0)
         {
-            Debug.Log("吹き出し無し : " + gameObject.name);
+            //Debug.Log("吹き出し無し : " + gameObject.name);
             return;
         }
         childObj = transform.GetChild(0).gameObject;
         if (childObj.name != "Bubble")
         {
-            Debug.Log("吹き出し無しの名前 : " + childObj.name);
+            //Debug.Log("吹き出し無しの名前 : " + childObj.name);
             return;
         }
         //  表示

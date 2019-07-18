@@ -7,7 +7,9 @@ public class TouchGeneretor_after : GimmickEvent
     private GameObject map;
 
     [SerializeField]
-    private GameObject limitObj;
+    private GameObject limitObj = default;
+    [SerializeField]
+    private GameObject moyaObj = default;
 
     void Start()
     {
@@ -45,6 +47,8 @@ public class TouchGeneretor_after : GimmickEvent
         yield return new WaitForSeconds(delay);
         map.GetComponent<MapStatus>().ChangeColorObj();
         limitObj.SetActive(false);
+        Debug.Log("黄色！！！！" + moyaObj.transform.parent.name);
+        moyaObj.SetActive(false);
         CompleteGimmick();
         FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
         yield break;

@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 8dcedc9451a654f13857d581af6a1502, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.1
-  m_GravityScale: 1.96
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -136,8 +136,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03751566}
-  m_Size: {x: 1.9199997, y: 8.259737}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2, y: 8.5}
   m_Direction: 0
 --- !u!114 &4567061677664441157
 MonoBehaviour:
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 13
   MaxSpeed: 4
-  brakePower: 0.05
-  JumpPower: 250
+  brakePower: 0.125
+  JumpPower: 300
   gravityRate: 1
   isNotmoves: 0
   filter2d:
@@ -171,3 +171,4 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 70
     maxNormalAngle: 110
+  examinableObjects: []

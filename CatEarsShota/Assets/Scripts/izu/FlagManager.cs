@@ -163,10 +163,10 @@ public class FlagManager : MonoBehaviour
     {
         if (itemFlag.HasFlag(item))
         {
-            Debug.Log("True");
+            //Debug.Log("True");
             return true;
         }
-        Debug.Log("False");
+        //Debug.Log("False");
         return false;
     }
     /// <summary>ギミックフラグのチェック</summary>
