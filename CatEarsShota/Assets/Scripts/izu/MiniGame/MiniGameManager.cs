@@ -83,13 +83,13 @@ public class MiniGameManager : MonoBehaviour
     void Update()
     {
         CheckTypingKey();
-        if (isMinigame && !isCountdownEnd)
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                StartMiniGame();
-            }
-        }
+        //if (isMinigame && !isCountdownEnd)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.A))
+        //    {
+        //        StartMiniGame();
+        //    }
+        //}
     }
 
     void OnGUI()
@@ -140,9 +140,38 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     public void TouchGenerator()
     {
-        discriptionObj.SetActive(true);
+        StartCoroutine(SetTuto());
+    }
+
+    IEnumerator SetTuto() {
         isMinigame = true;
         FlagManager.Instance.IsEventing = true;
+        discriptionObj.SetActive(true);
+        discriptionObj.transform.localScale = new Vector3(1, 0, 1);
+
+        float animTime = 0.2f;
+        float time = 0;
+
+        while (time <= animTime) {
+            discriptionObj.transform.localScale = new Vector3(1, time / animTime, 1);
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        discriptionObj.transform.localScale = Vector3.one;
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.A));
+
+        time = 0;
+
+        while (time <= animTime) {
+            discriptionObj.transform.localScale = new Vector3(1, 1 - (time / animTime), 1);
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        discriptionObj.transform.localScale = new Vector3(1, 0, 1);
+        StartMiniGame();
+
+        yield break;
     }
 
     /// <summary>
