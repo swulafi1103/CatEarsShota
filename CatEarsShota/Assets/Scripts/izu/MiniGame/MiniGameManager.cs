@@ -80,9 +80,9 @@ public class MiniGameManager : MonoBehaviour
     void Update()
     {
         CheckTypingKey();
-        if (isMinigame)
+        if (isMinigame && !isCountdownEnd)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 StartMiniGame();
             }
@@ -311,7 +311,6 @@ public class MiniGameManager : MonoBehaviour
         //  ミニゲーム１のクリアフラグSet
         generetor.GetComponent<PlayMinigame>().CompleteGimmick();
         FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);
-        FlagManager.Instance.IsEventing = false;
     }
 
     /// <summary>
@@ -405,6 +404,7 @@ public class MiniGameManager : MonoBehaviour
         //mistakeCount = 0;
         //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
         map.GetComponent<MapStatus>().MapObjectState[2] = true;
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
 

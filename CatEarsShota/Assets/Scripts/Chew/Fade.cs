@@ -55,14 +55,14 @@ public class Fade : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
         if(startfadeInOut && !fading && localcount>0)
         {
-            FadeInOut(RedEffect, 1.5f);
+            FadeInOut(RedEffect, 0.5f);
             localcount--;
         }
         else if(startfadeInOut && !fading)
@@ -160,7 +160,7 @@ public class Fade : MonoBehaviour
         {
             Debug.Log("Task通過");
             task();
-        }        
+        }
         fading = false;
         FlagManager.Instance.IsEventing = false;
         yield return null;
