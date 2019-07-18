@@ -11,33 +11,7 @@ public class Minigame : MonoBehaviour
     bool gamePlaying;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)&&gamePlaying==false)//調べ
-        {
-            gamePlaying = true;
-            playermoves.GetComponent<PlayerMoves>().isNotmoves = true;
-            MinigameMgr.GetComponent<MiniGameManager>().TouchGenerator();
-        }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            MinigameMgr.GetComponent<MiniGameManager>().StartMiniGame();
-        }
-    }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "MiniGames")
-        {
 
-            if (Input.GetKeyDown(KeyCode.A))//調べ
-            {
-
-                playermoves.GetComponent<PlayerMoves>().isNotmoves = true;
-                MinigameMgr.GetComponent<MiniGameManager>().TouchGenerator();
-            }
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                MinigameMgr.GetComponent<MiniGameManager>().StartMiniGame();
-            }
-        }
     }
+    
 }
