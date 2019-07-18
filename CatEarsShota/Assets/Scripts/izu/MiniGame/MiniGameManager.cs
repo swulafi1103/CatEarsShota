@@ -40,6 +40,9 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField]
     private GameObject map;                    //mapオブジェクト変更
 
+    [SerializeField]
+    private Sprite[] countdownImage = new Sprite[4];
+
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
     private KeyCode[]   questionCommand;        //  問題のキー配列
 
@@ -55,9 +58,9 @@ public class MiniGameManager : MonoBehaviour
 
     private GameObject  discriptionObj;         //  説明用のUI
     private GameObject  miniGameViewObj;        //  ミニゲームのコマンドなどが表示されるUI
-
+    private Text clearText;
     private GameObject  timerObj;               //  タイマーを表示する用
-    private Text        countdownObj;           //  カウントダウン用
+    private Image       countdownObj;           //  カウントダウン用
 
     //[SerializeField]
     //private GameObject  mistakeCountObj;      //  失敗回数を表示する用
@@ -105,7 +108,8 @@ public class MiniGameManager : MonoBehaviour
         discriptionObj = transform.GetChild(0).gameObject;
         miniGameViewObj = transform.GetChild(1).gameObject;
         timerObj = transform.Find("MinigameBackGround/TimerBackGround/SecondText").gameObject;
-        countdownObj = transform.Find("MinigameBackGround/CountDown").GetComponent<Text>();
+        countdownObj = transform.Find("MinigameBackGround/CountDown").GetComponent<Image>();
+        clearText= transform.Find("MinigameBackGround/ClearText").GetComponent<Text>();
         commandParentObj = transform.Find("MinigameBackGround/CommandParent").gameObject;
         string log = "MiniGame Find Succes";
         if (discriptionObj == null)
@@ -149,6 +153,7 @@ public class MiniGameManager : MonoBehaviour
         //  失敗数でゲームオーバーになるように(処理を変えたためコメントアウト)
         //mistakeCount = 0;
         countdownObj.color = Color.white;
+        clearText.color = Color.white;
         discriptionObj.SetActive(false);
         miniGameViewObj.SetActive(true);
         timeLimit = defaultTimeLimit;
@@ -360,20 +365,20 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     IEnumerator CountDown()
     {
-        Text txtObj = countdownObj;
         yield return new WaitForSeconds(1f);
-        txtObj.enabled = true;
-        txtObj.text = "3";
+        countdownObj.enabled = true;
+        countdownObj.sprite = countdownImage[0];
+        countdownObj.SetNativeSize();
         yield return new WaitForSeconds(0.5f);
-        txtObj.text = "2";
+        countdownObj.sprite = countdownImage[1];
         yield return new WaitForSeconds(0.5f);
-        txtObj.text = "1";
+        countdownObj.sprite = countdownImage[2];
         yield return new WaitForSeconds(0.5f);
-        txtObj.text = "START";
+        countdownObj.sprite = countdownImage[3];
+        countdownObj.SetNativeSize();
         isCountdownEnd = true;
         yield return new WaitForSeconds(0.5f);
-        txtObj.enabled = false;
-        txtObj.text = "";
+        countdownObj.enabled = false;
         GenerateRandomNums(5);
         yield break;
     }
@@ -384,8 +389,7 @@ public class MiniGameManager : MonoBehaviour
     /// <returns>The clear text.</returns>
     IEnumerator DisplayClearText()
     {
-        Text txtObj = countdownObj;
-        txtObj.enabled = true;
+        clearText.enabled = true;
         if (commandTexts != null)
         {
             foreach (var obj in commandTexts)
@@ -394,11 +398,12 @@ public class MiniGameManager : MonoBehaviour
                 yield return null;
             }
         }
-        countdownObj.text = "CLEAR!!";
+        clearText.text = "CLEAR!!";
         isMinigame = false;
         isCountdownEnd = false;
         yield return new WaitForSeconds(2);
-        countdownObj.text = "";
+        clearText.text = "";
+        clearText.enabled = false;
         miniGameViewObj.SetActive(false);
         numOrder = 0;
         //mistakeCount = 0;
@@ -410,8 +415,7 @@ public class MiniGameManager : MonoBehaviour
 
     IEnumerator DisplayFaildText()
     {
-        Text txtObj = countdownObj;
-        txtObj.enabled = true;
+        clearText.enabled = true;
         if (commandTexts != null)
         {
             foreach (var obj in commandTexts)
@@ -420,8 +424,8 @@ public class MiniGameManager : MonoBehaviour
                 yield return null;
             }
         }
-        countdownObj.text = "ERROR";
-        countdownObj.color = Color.red;
+        clearText.text = "ERROR";
+        clearText.color = Color.red;
         isMinigame = false;
         isCountdownEnd = false;
         isFadeing = true;
@@ -440,7 +444,8 @@ public class MiniGameManager : MonoBehaviour
             yield return 0;
         }
         isFadeing = false;
-        countdownObj.text = "";
+        clearText.text = "";
+        clearText.enabled = false;
         miniGameViewObj.SetActive(false);
         //mistakeCount = 0;
         //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
