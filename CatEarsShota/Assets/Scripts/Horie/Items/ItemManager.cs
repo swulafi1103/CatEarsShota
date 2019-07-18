@@ -135,6 +135,10 @@ public class ItemManager : MonoBehaviour
         else {
             Perrault.SetItemGet(item);
         }
+
+        if (item.GetItemType == ItemData.ItemType.SpriteReport) {
+            UIContriller.SetDetail(item);
+        }
     }
 
     /// <summary>
