@@ -87,6 +87,7 @@ public class TouchGeneretor : GimmickEvent
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = false;
         yield return new WaitForSeconds(0.25f);
         BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Escape);
+        FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_06_EscapeAlarm);
         FlagManager.Instance.IsEventing = false;
         yield break;
     }

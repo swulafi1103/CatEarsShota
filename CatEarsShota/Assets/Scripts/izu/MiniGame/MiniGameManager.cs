@@ -311,6 +311,7 @@ public class MiniGameManager : MonoBehaviour
         //  ミニゲーム１のクリアフラグSet
         generetor.GetComponent<PlayMinigame>().CompleteGimmick();
         FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);
+        generetor.GetComponent<PlayMinigame>().MiniGameClear();
     }
 
     /// <summary>

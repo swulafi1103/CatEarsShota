@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayMinigame : GimmickEvent, ICheckable
 {
-    [SerializeField]
-    private GameObject miniGameManager = default;
-    [SerializeField]
-    private GameObject rangeObject = default;
+    [HideInInspector]
     public bool isOpenMinigame = false;
+    [SerializeField]
+    private GameObject FocusDoor;
 
     void Start()
     {
@@ -23,8 +22,8 @@ public class PlayMinigame : GimmickEvent, ICheckable
             {
                 //  ミニゲームの説明表示
                 isOpenMinigame = true;
-                miniGameManager.GetComponent<MiniGameManager>().TouchGenerator();
-                miniGameManager.GetComponent<MiniGameManager>().generetor = gameObject;
+                MiniGameManager.Instance.TouchGenerator();
+                MiniGameManager.Instance.generetor = gameObject;
             }            
         }
         if (!FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
@@ -34,8 +33,21 @@ public class PlayMinigame : GimmickEvent, ICheckable
         
     }
 
-    public void MiniGameCler()
+    public void MiniGameClear()
     {
+        StartCoroutine(DoorOpenEvent());
+    }
 
+    IEnumerator DoorOpenEvent()
+    {
+        Debug.Log("MiniGameClear");
+        //  ドアのほうにカメラを移動する
+        //MainCamera.Instance.T_ChangeFocus(FocusDoor);
+        //  ドアを開ける
+        transform.root.gameObject.GetComponent<MapStatus>().MapObjectState[1] = true;
+        //  ドアのコライダーの無効化
+        FocusDoor.GetComponent<BoxCollider2D>().enabled = false;
+        FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_10_OpenDoor);
+        yield break;
     }
 }
