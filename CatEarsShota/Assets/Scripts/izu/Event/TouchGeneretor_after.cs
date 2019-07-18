@@ -6,6 +6,9 @@ public class TouchGeneretor_after : GimmickEvent
 {
     private GameObject map;
 
+    [SerializeField]
+    private GameObject limitObj;
+
     void Start()
     {
         CheckFlag();
@@ -16,7 +19,6 @@ public class TouchGeneretor_after : GimmickEvent
     {
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag) && !isComplete)
         {
-            FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
             Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
             StartCoroutine(ChangeYellowColor(2));
         }
@@ -25,10 +27,10 @@ public class TouchGeneretor_after : GimmickEvent
     public override bool CheckFlag()
     {
         bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
+        gameObject.SetActive(flag);
         if (flag)
         {
             isDisplayBubble = flag;
-            gameObject.SetActive(flag);
         }
         if (isComplete)
         {
@@ -42,7 +44,9 @@ public class TouchGeneretor_after : GimmickEvent
     {
         yield return new WaitForSeconds(delay);
         map.GetComponent<MapStatus>().ChangeColorObj();
+        limitObj.SetActive(false);
         CompleteGimmick();
+        FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
         yield break;
     }
 
