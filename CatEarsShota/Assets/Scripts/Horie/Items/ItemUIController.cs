@@ -121,7 +121,6 @@ public class ItemUIController : MonoBehaviour
     /// </summary>
     void PushCancel() {
         if (!Input.GetKeyDown(KeyCode.X)) return;
-        Debug.Log(IsEvent);
 
         if (IsActDetail) {
             StartCoroutine(SetDetailUI(false));
@@ -129,7 +128,10 @@ public class ItemUIController : MonoBehaviour
         else {
             StartCoroutine(SetItemUI(false));
             FlagManager.Instance.IsOpenUI = false;
-            if (IsEvent) IsEvent = false;
+        }
+        if (IsEvent) {
+            FlagManager.Instance.IsOpenUI = false;
+            IsEvent = false;
         }
     }
 
@@ -236,6 +238,18 @@ public class ItemUIController : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    /// <summary>
+    /// レポート取得時に詳細表示
+    /// </summary>
+    /// <param name="item"></param>
+    public void SetDetail(ItemData item) {
+        IsEvent = true;
+        IsActDetail = true;
+        FlagManager.Instance.IsOpenUI = true;
+        DetailPanel.GetComponent<DetailPanel>().SetDetail(item);
+        DetailPanel.SetActive(true);
     }
 
     /// <summary>
