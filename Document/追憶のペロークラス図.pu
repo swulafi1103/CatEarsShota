@@ -1,0 +1,248 @@
+@startuml
+
+package Common{
+    class FadeManager{
+        +Fade(color c)
+        +Fade(texture tex)
+    }
+
+    class EffectManager{
+
+    }
+
+    class SoundManager{
+        SE[]
+        BGM[]
+        VOICE[]
+        +PlaySE()
+        +PlayBGM()
+        +PlayVoice()
+        +FadeOutSound(SoundType)
+    }
+
+    enum SoundType{
+        NONE
+        BGM
+        SE
+        VOICE
+        ALL
+    }
+
+    enum BGM_NAME{
+        TITLE
+        MAP1
+        MAP2
+    }
+
+    enum SE_NAME{
+        NONE
+        FOOTSTEP_Pero
+        FOOTSTEP_Fran
+        JUMP
+        PICKUP
+        BUTTON
+        MINIGAME_ENTER
+        MINIGAME_CLEAR
+        MINIGAME_CORRECT_ANSWER
+        MINIGAME_INCORRECT_ANSWER
+        CHENGETIME
+        ENEMY_ATTACK1
+        ENEMY_ATTACK2
+        ENEMY_ATTACK3
+    }
+
+    enum VOICE_NAME{
+        PERO_ATTACK
+        PERO_DAMAGE
+        FRAN_TALK1
+        FRAN_TALK2
+        FRAN_TALK3
+    }
+
+    BGM_NAME -up-> SoundManager
+    SE_NAME -up-> SoundManager
+    VOICE_NAME -up-> SoundManager
+    SoundType -up-> SoundManager
+
+}
+
+node Game {
+
+    node Player{
+        
+        class Player{
+            public int HP;
+            public void Attack();
+            public void Jump();
+        }
+
+        class PeroAnimation{
+
+        }
+
+        class FranAnimation{
+
+        }
+
+    }
+
+    class Camera{
+        public bool PastMode;
+        public bool PlayVideo;
+        public GameObject PastCam;
+        public GameObject Player;
+        public GameObject ColorVideo;
+        public float RangeToPlayer;
+        public float[] CameraLimit;
+        public void TriggeredVideo();
+    }
+
+    Camera -do-> Player
+
+    package Flag{
+        class EventManager{
+
+        }
+
+        class ChatBubbleManager{
+
+        }
+
+
+        Class MapStatus{
+            public bool[] MapObjectState;
+            public GameObject[] MapObject;
+        }
+
+        Class ObjectStatus{
+            Public int index;
+            Public Sprite[] status;
+        }
+
+        class TutorialManager{
+            
+        }
+
+    }
+
+    ChatBubbleManager -up-> EventManager
+    ObjectStatus -ri-> EventManager
+    MapStatus -ri-> EventManager
+    TutorialManager -up-> EventManager
+
+    package Itam{
+        class ItemManager{
+            パンツ
+            アイテム
+            テキスト
+        }
+        note bottom of ItemManager
+        各アイテムのテキスト情報
+        endnote
+
+        class PerraultItem{
+            -bool redOrb
+            +void SetRedOrb()
+        }
+        note top of PerraultItem
+        ペローが取得可能な
+        アイテムのみのbool群と
+        その値変更用関数
+        endnote
+
+        class FranItem{
+            -bool panel
+            +void SetPanel()
+        }
+        note top of FranItem
+        フランが取得可能な
+        アイテムのみのbool群と
+        その値変更用関数
+        endnote
+
+        class ItemUI{
+            bool IsNow
+            void SetImage()
+        }
+        note right of ItemUI
+        アイテム欄操作
+        IsNowでフラン、ペローの
+        アイテム情報切り替え
+        endnote
+
+        ItemUI -do->ItemManager
+        PerraultItem -do->ItemManager
+        FranItem -do->ItemManager
+
+        PerraultItem ->ItemUI
+        FranItem ->ItemUI
+
+    }
+
+}
+
+frame Scene{
+    node "Title"{
+        class TitleController{
+            
+        }
+    }
+
+
+    node "Map1"{
+        class TypeingGameManager{
+
+        }
+    }
+
+    node "Map2"{
+        
+        class TileGameManager{
+            ピース
+        }
+
+        class Swing{
+            ブランコ
+        }
+
+        package 敵{
+            class Enemy{
+            -HP:int
+            -Name:string    
+            }
+
+            class GroundEnemy{
+
+            }
+            class AirEnemy{
+
+            }
+            class WallEnemy{
+
+            }
+            interface IAttackable{
+                +ApplayDamage(int damage)
+            }
+        }
+        
+
+
+        class FlagManager{
+
+        }
+
+        Enemy -down-> IAttackable
+
+        GroundEnemy -do-> Enemy
+        AirEnemy -do-> Enemy
+        WallEnemy -do-> Enemy
+
+    }
+
+}
+ 
+Common -left-> Game
+Game -do-> Map1
+Game -do-> Map2
+
+@enduml
