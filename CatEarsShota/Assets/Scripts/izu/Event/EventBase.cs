@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class EventBase : MonoBehaviour
 {
     [SerializeField, EnumFlags]

@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 469513031}
   m_Layer: 0
   m_Name: CultureDevice
-  m_TagString: Ground
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -697,12 +697,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needItemFlag: 0
-  needGimmickFlag: 0
+  needGimmickFlag: 1024
   bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
   bubblePos: {x: 2, y: 2}
   flipBubble: 0
   isDisplayBubble: 0
-  standgimmickFlag: 0
+  standgimmickFlag: 2048
   isComplete: 0
 --- !u!1 &2836702609874233560
 GameObject:
@@ -799,7 +799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4006535337300505013
 Transform:
   m_ObjectHideFlags: 0
@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 3419050577429831026}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 3037504422819911281}
   m_Layer: 0
   m_Name: Pants
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1527,26 +1527,18 @@ MonoBehaviour:
   - {fileID: 5162944064808593311}
   - {fileID: 9136577378096424601}
   yelloObjs:
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
-  - ChangeObj: {fileID: 0}
-    yellowSprite: {fileID: 0}
+  - ChangeObj: {fileID: 7511413817674363902}
+    yellowSprite: {fileID: 21300000, guid: c4ffa6f3392bcc1419cd2aee1a23eb68, type: 3}
+  - ChangeObj: {fileID: 4888254925205670690}
+    yellowSprite: {fileID: 21300000, guid: 5986d34dadb4c2f42bd93311430f3410, type: 3}
+  - ChangeObj: {fileID: 2836702609874233560}
+    yellowSprite: {fileID: 21300000, guid: 588e1074bd2a51a4d947f53536db79db, type: 3}
+  - ChangeObj: {fileID: 1122716875843305253}
+    yellowSprite: {fileID: 21300000, guid: 96c4e86b45e9e214cabc67141805a750, type: 3}
+  - ChangeObj: {fileID: 7028062107517103377}
+    yellowSprite: {fileID: 21300000, guid: 87edd7432edb17a4c8e589ed5d07eb76, type: 3}
+  - ChangeObj: {fileID: 2293633566741172331}
+    yellowSprite: {fileID: 21300000, guid: 5ecdf738e23c76a4cbaedbb5167a121b, type: 3}
 --- !u!1 &5995363943728227925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,11 +1553,11 @@ GameObject:
   - component: {fileID: 2038438029219956636}
   m_Layer: 0
   m_Name: YellowOrb
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3552732192636023410
 Transform:
   m_ObjectHideFlags: 0
@@ -1668,7 +1660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needItemFlag: 0
-  needGimmickFlag: 8
+  needGimmickFlag: 2048
   bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
   bubblePos: {x: -1, y: 0.5}
   flipBubble: 1
@@ -1891,7 +1883,7 @@ GameObject:
   - component: {fileID: 6559754152209567171}
   m_Layer: 0
   m_Name: Band
-  m_TagString: Untagged
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1998,7 +1990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needItemFlag: 0
-  needGimmickFlag: 0
+  needGimmickFlag: 2
   bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
   bubblePos: {x: 0.6, y: 0.6}
   flipBubble: 0
@@ -2250,7 +2242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7511413817082153715
 Transform:
   m_ObjectHideFlags: 0
@@ -2299,8 +2291,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1129852175
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e2fc1e0a4423fbd4aaec16a0f9dacb67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
