@@ -62,7 +62,7 @@ public class Fade : MonoBehaviour
     {
         if(startfadeInOut && !fading && localcount>0)
         {
-            FadeInOut(RedEffect, 1.5f);
+            FadeInOut(RedEffect, 0.5f);
             localcount--;
         }
         else if(startfadeInOut && !fading)
@@ -119,7 +119,7 @@ public class Fade : MonoBehaviour
     {
         startfadeInOut = true;
         FlagManager.Instance.IsEventing = true;
-        localcount = count;
+        localcount = count*2;
     }
     private void StartFadeRed(float time, Color newcolor)
     {
