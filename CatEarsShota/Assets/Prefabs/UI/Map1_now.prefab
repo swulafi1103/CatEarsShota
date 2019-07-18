@@ -1538,11 +1538,11 @@ MonoBehaviour:
   - ChangeObj: {fileID: 1122716875843305253}
     yellowSprite: {fileID: 21300000, guid: 96c4e86b45e9e214cabc67141805a750, type: 3}
   - ChangeObj: {fileID: 7028062107517103377}
-    yellowSprite: {fileID: 21300000, guid: 87edd7432edb17a4c8e589ed5d07eb76, type: 3}
+    yellowSprite: {fileID: 21300000, guid: eafb01a8ffba7b24787b3dfbe9e407fd, type: 3}
   - ChangeObj: {fileID: 2293633566741172331}
     yellowSprite: {fileID: 21300000, guid: 5ecdf738e23c76a4cbaedbb5167a121b, type: 3}
   - ChangeObj: {fileID: 1664567498500750786}
-    yellowSprite: {fileID: 21300000, guid: d5be9d9c43c359842b27fcef293d9b87, type: 3}
+    yellowSprite: {fileID: 21300000, guid: 29bfaee7f965f1248914328d2ac3763f, type: 3}
   - ChangeObj: {fileID: 5162944064808593311}
     yellowSprite: {fileID: 21300000, guid: ccaf343df7f637e47806e188d4a87d14, type: 3}
   - ChangeObj: {fileID: 9136577378096424601}
