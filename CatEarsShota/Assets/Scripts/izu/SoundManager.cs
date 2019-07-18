@@ -75,6 +75,11 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponents<AudioSource>();
     }
 
+    private void Start() {
+        audioSource[0].clip = BGM[(int)BGM_Name.BGM_05_Green];
+        audioSource[0].Play();
+    }
+
     /// <summary>
     /// debug
     /// </summary>
