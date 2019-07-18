@@ -7,6 +7,8 @@ public class MapStatus : MonoBehaviour
     public bool[] MapObjectState = new bool[3];
     public GameObject[] MapObject = new GameObject[3];
     public YelloObj[] yelloObjs = new YelloObj[10];
+
+    private bool turnyellow = false;
     void Start()
     {
         
@@ -22,17 +24,25 @@ public class MapStatus : MonoBehaviour
     }
     void FixedUpdate()
     {
-        for(int i=0; i < 3; i++)
+        if (!turnyellow)
         {
-            if (MapObjectState[i] == true)
-                MapObject[i].GetComponent<ObjectStatus>().index = 1;
-            else
-                MapObject[i].GetComponent<ObjectStatus>().index = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if (MapObjectState[i] == true)
+                    MapObject[i].GetComponent<ObjectStatus>().index = 1;
+                else
+                    MapObject[i].GetComponent<ObjectStatus>().index = 0;
+            }
         }
     }
 
     public void ChangeColorObj()
     {
+        turnyellow = true;
+        for (int i = 0; i < 3; i++)
+        {
+            MapObject[i].GetComponent<ObjectStatus>().index = 3;
+        }
         for (int i = 0; i < yelloObjs.Length; i++)
         {
             if (yelloObjs[i].ChangeObj != null)

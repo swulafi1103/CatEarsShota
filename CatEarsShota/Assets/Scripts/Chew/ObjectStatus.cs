@@ -17,6 +17,8 @@ public class ObjectStatus : MonoBehaviour
     {
         if (index > -1 && index < 2)
             gameObject.GetComponent<SpriteRenderer>().sprite = status[index];
+        else if (index == 3)
+            ;
         else
             Debug.Log("sprite index error");
     }

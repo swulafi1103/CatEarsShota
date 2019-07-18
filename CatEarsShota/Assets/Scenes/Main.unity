@@ -912,9 +912,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7511413816682678008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &499750353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7308255269861545803, guid: c020ab05729747942b7b596b27b1f4f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7511413816682678008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &517277450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5899590655937504289, guid: c020ab05729747942b7b596b27b1f4f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7511413816682678008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &562608767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9136577378096424601, guid: c020ab05729747942b7b596b27b1f4f2,
     type: 3}
   m_PrefabInstance: {fileID: 7511413816682678008}
   m_PrefabAsset: {fileID: 0}
@@ -1047,9 +1059,21 @@ MonoBehaviour:
   - sprites:
     - {fileID: 21300000, guid: 73b745ecd24c2634097ad4ff711f95ec, type: 3}
     - {fileID: 21300000, guid: 8337f6f11de034c4282d315375ee990c, type: 3}
+--- !u!1 &633340155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1664567498500750786, guid: c020ab05729747942b7b596b27b1f4f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7511413816682678008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &646204270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4888254925205670690, guid: c020ab05729747942b7b596b27b1f4f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7511413816682678008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &795712775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5162944064808593311, guid: c020ab05729747942b7b596b27b1f4f2,
     type: 3}
   m_PrefabInstance: {fileID: 7511413816682678008}
   m_PrefabAsset: {fileID: 0}
@@ -2790,7 +2814,7 @@ PrefabInstance:
     - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
       propertyPath: yelloObjs.Array.size
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
@@ -2862,6 +2886,50 @@ PrefabInstance:
       propertyPath: yelloObjs.Array.data[5].yellowSprite
       value: 
       objectReference: {fileID: 21300000, guid: 5ecdf738e23c76a4cbaedbb5167a121b,
+        type: 3}
+    - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: yelloObjs.Array.data[6].ChangeObj
+      value: 
+      objectReference: {fileID: 633340155}
+    - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: yelloObjs.Array.data[6].yellowSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d5be9d9c43c359842b27fcef293d9b87,
+        type: 3}
+    - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: yelloObjs.Array.data[7].ChangeObj
+      value: 
+      objectReference: {fileID: 795712775}
+    - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: yelloObjs.Array.data[7].yellowSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ccaf343df7f637e47806e188d4a87d14,
+        type: 3}
+    - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: yelloObjs.Array.data[8].ChangeObj
+      value: 
+      objectReference: {fileID: 562608767}
+    - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: yelloObjs.Array.data[8].yellowSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c583e82fd385f04791cbbdb93a1bfa7,
+        type: 3}
+    - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: yelloObjs.Array.data[9].ChangeObj
+      value: 
+      objectReference: {fileID: 499750353}
+    - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: yelloObjs.Array.data[9].yellowSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c34584b8fbf88c34399ffbc97329108c,
         type: 3}
     - target: {fileID: 7511413816158754029, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
@@ -3180,7 +3248,8 @@ PrefabInstance:
       propertyPath: needGimmickFlag
       value: 2048
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9178921146337039331, guid: c020ab05729747942b7b596b27b1f4f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c020ab05729747942b7b596b27b1f4f2, type: 3}
 --- !u!1 &7511413816682678009 stripped
 GameObject:
