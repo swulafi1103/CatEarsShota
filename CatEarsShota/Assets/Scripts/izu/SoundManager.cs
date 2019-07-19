@@ -108,11 +108,6 @@ public class SoundManager : MonoBehaviour
     public void PlayBGM(BGM_Name _Name)
     {
         switch (_Name) {
-            case BGM_Name.BGM_00_Opening:
-                _perraultBGM = _Name;
-                audioSource[0].clip = BGM[(int)_Name];
-                StartCoroutine(FadeIn());
-                break;
             case BGM_Name.BGM_01_Gray:
                 _perraultBGM = _Name;
                 audioSource[1].clip = BGM[(int)_Name];
