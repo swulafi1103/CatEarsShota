@@ -452,11 +452,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurorialCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 9166539173687898029, guid: e4b2f36e7d442044992bd8829eb59402,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9166539173687898025, guid: e4b2f36e7d442044992bd8829eb59402,
         type: 3}
       propertyPath: m_LocalPosition.x
