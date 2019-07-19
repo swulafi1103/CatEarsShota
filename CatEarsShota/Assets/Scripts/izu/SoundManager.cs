@@ -123,6 +123,21 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void FadeInBGM(BGM_Name _Name)
+    {
+        bool isFran = FlagManager.Instance.IsPast;
+        if (isFran)
+        {
+            _franBGM = _Name;
+        }
+        else
+        {
+            _perraultBGM = _Name;
+        }
+        audioSource[0].clip = BGM[(int)_Name];
+        StartCoroutine(FadeIn());
+    }
+
     /// <summary>
     /// 過去未来切り替え時の切り替え
     /// </summary>
