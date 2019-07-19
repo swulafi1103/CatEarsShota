@@ -23,6 +23,7 @@ public class Title : MonoBehaviour
         {
             started = true;
             fading = true;
+            SoundManager.Instance.PlayBGM(SoundManager.BGM_Name.BGM_00_Opening);
             StartCoroutine(LoadScene());
         }
     }

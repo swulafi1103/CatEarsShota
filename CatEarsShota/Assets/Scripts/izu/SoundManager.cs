@@ -24,10 +24,12 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = (SoundManager)this;
+            DontDestroyOnLoad(this.gameObject);
             return true;
         }
         else if (Instance == this)
         {
+            DontDestroyOnLoad(this.gameObject);
             return true;
         }
 
@@ -108,6 +110,9 @@ public class SoundManager : MonoBehaviour
     public void PlayBGM(BGM_Name _Name)
     {
         switch (_Name) {
+            case BGM_Name.BGM_00_Opening:
+                StartCoroutine(ChangeBGM1(_Name));
+                break;
             case BGM_Name.BGM_01_Gray:
                 _perraultBGM = _Name;
                 audioSource[1].clip = BGM[(int)_Name];
@@ -150,6 +155,7 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator WithBGMPlay() {
+        audioSource[0].clip = BGM[(int)BGM_Name.BGM_00_Opening];
         audioSource[0].volume = 0.5f;
         audioSource[1].volume = 0;
         float time = 0;
@@ -208,6 +214,17 @@ public class SoundManager : MonoBehaviour
         yield break;
     }
 
+    IEnumerator ChangeBGM1(BGM_Name _Name)
+    {
+        _perraultBGM = _Name;
+        var col = StartCoroutine(FadeOut());
+        yield return col;
+        audioSource[0].clip = BGM[(int)_Name];
+        col = StartCoroutine(FadeIn());
+        yield return col;
+        yield break;
+    }
+
     /// <summary>
     /// 時間切り替えのみのBGM切り替え
     /// </summary>
@@ -216,11 +233,18 @@ public class SoundManager : MonoBehaviour
         bool isFran = FlagManager.Instance.IsPast;
         var col = StartCoroutine(FadeOut());
         yield return col;
-        if (isFran) {
-            audioSource[0].clip = BGM[(int)_perraultBGM];
-        }
-        else {
+        if (isFran)
+        {
             audioSource[0].clip = BGM[(int)_franBGM];
+        }
+        else
+        {
+            if (_perraultBGM == BGM_Name.BGM_01_Gray)
+            {
+                StartCoroutine(WithBGMPlay());
+                yield break;
+            }
+            audioSource[0].clip = BGM[(int)_perraultBGM];
         }
         col = StartCoroutine(FadeIn());
         yield return col;
@@ -248,14 +272,28 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator FadeOut() {
+        bool act1 = audioSource[1].isPlaying;
         float time = 0;
         while (time <= fadeTime) {
-            audioSource[0].volume = 1 - (time / fadeTime);
+            if (act1)
+            {
+                audioSource[1].volume = 1 - (time / fadeTime);
+                audioSource[0].volume = (1 - (time / fadeTime)) / 2;
+            }
+            else
+            {
+                audioSource[0].volume = 1 - (time / fadeTime);
+            }
             time += Time.unscaledDeltaTime;
             yield return null;
         }
         audioSource[0].volume = 0;
         audioSource[0].Stop();
+        if (act1)
+        {
+            audioSource[1].volume = 0;
+            audioSource[1].Stop();
+        }
         yield break;
     }
 
@@ -278,7 +316,7 @@ public class SoundManager : MonoBehaviour
     /// <param name="_Vol"></param>
     public void PlaySE(SE_Name _Name, float _Vol)
     {
-        audioSource[0].PlayOneShot(SE[(int)_Name], _Vol);
+        audioSource[2].PlayOneShot(SE[(int)_Name], _Vol);
     }
 
 

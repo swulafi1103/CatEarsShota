@@ -21,6 +21,7 @@ public class TouchGeneretor_after : GimmickEvent
     {
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag) && !isComplete)
         {
+            SoundManager.Instance.PlayBGM(SoundManager.BGM_Name.BGM_02_Yellow);
             Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
             StartCoroutine(ChangeYellowColor(2));
         }

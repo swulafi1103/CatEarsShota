@@ -51,6 +51,8 @@ public class TouchGeneretor : GimmickEvent
     {
         //  暗転
         bool flag = false;
+        //  BGMのストップ
+        SoundManager.Instance.StopBGM();
         System.Action callback = () => flag = true;
         Fade.Instance.StartFade(1, Color.black, callback);
         yield return new WaitUntil(() => flag == true);
@@ -63,9 +65,13 @@ public class TouchGeneretor : GimmickEvent
         yield return new WaitForSeconds(2f);
         //  アラーム音再生(3回)
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
-        yield return new WaitForSeconds(0.25f);
         //  赤い演出(3回)
         Fade.Instance.CallFadeIO(3);
+        yield return new WaitForSeconds(0.25f);
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
+        yield return new WaitForSeconds(0.5f);
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
+        yield return new WaitForSeconds(0.5f);
         //  ガラスが割れる音再生
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_01_BreakWin, 0.25f);
         yield return new WaitForSeconds(0.25f);

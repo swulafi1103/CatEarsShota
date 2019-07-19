@@ -204,12 +204,17 @@ public class MainCamera : MonoBehaviour
         }
         
         yield return new WaitForSeconds(zoomdelay);
-        for(float i=0;i<1;i+=0.1f)
+        for(float i=0;i<1;i+=0.025f)
         {
-            currentcam.GetComponent<Camera>().orthographicSize = Mathf.Lerp(DefaultScreenSize,DefaultScreenSize-zoomsize,i+0.1f);
-            yield return new WaitForSeconds(zoomspeed/10);
+            currentcam.GetComponent<Camera>().orthographicSize = Mathf.Lerp(DefaultScreenSize, DefaultScreenSize - zoomsize, i + 0.025f);
+            yield return new WaitForSeconds(zoomspeed/40);
         }
         yield return new WaitForSeconds(zoompause);
+        for (float i = 0; i < 1; i += 0.025f)
+        {
+            currentcam.GetComponent<Camera>().orthographicSize = Mathf.Lerp(DefaultScreenSize - zoomsize, DefaultScreenSize, i + 0.025f);
+            yield return new WaitForSeconds(zoomspeed / 40);
+        }
         if (FlagManager.Instance.IsPast)
             Fran = tmp;
         else

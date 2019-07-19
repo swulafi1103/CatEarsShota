@@ -42,7 +42,7 @@ public class PlayMinigame : GimmickEvent, ICheckable
     {
         Debug.Log("MiniGameClear");
         //  ドアのほうにカメラを移動する
-        //MainCamera.Instance.T_ChangeFocus(FocusDoor);
+        MainCamera.Instance.T_ChangeFocus(FocusDoor);
         //  ドアを開ける
         transform.root.gameObject.GetComponent<MapStatus>().MapObjectState[1] = true;
         //  ドアのコライダーの無効化

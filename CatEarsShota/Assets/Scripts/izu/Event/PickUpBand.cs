@@ -16,6 +16,8 @@ public class PickUpBand : GimmickEvent, ICheckable
     {
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
         {
+            //bgm
+            SoundManager.Instance.PlayBGM(SoundManager.BGM_Name.BGM_01_Gray);
             //  バンドをつける動画の再生
             Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(1));
             //  動画の長さを計算

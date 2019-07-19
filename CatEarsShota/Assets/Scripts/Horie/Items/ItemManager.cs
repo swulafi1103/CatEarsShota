@@ -146,7 +146,7 @@ public class ItemManager : MonoBehaviour
     /// </summary>
     /// <param name="num"></param>
     public void ChangePants(int num) {
-        //getpuntsnum(num-12);  //伊豆先輩の関数呼び出す
+        PlayerManager.Instance.Pero.transform.GetChild(1).GetComponent<Animator>().SetInteger("pants_number", num - 12);
         Debug.Log(num - 12);
     }
 
