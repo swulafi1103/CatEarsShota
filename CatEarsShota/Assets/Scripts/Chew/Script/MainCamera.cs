@@ -188,14 +188,31 @@ public class MainCamera : MonoBehaviour
     }
     IEnumerator changefocus(GameObject newtarget,float zoomdelay = 0.5f,float zoomspeed = 1.0f,float zoomsize= 1.0f,float zoompause=1.0f )
     {
-        Player = newtarget;
+        GameObject tmp;
+        GameObject currentcam;
+        if (FlagManager.Instance.IsPast)
+        {
+            tmp = Fran;
+            Fran = newtarget;
+            currentcam = PastCam;
+        }
+        else
+        {
+            tmp = Player;
+            Player = newtarget;
+            currentcam = gameObject;
+        }
+        
         yield return new WaitForSeconds(zoomdelay);
         for(float i=0;i<1;i+=0.1f)
         {
-            GetComponent<Camera>().orthographicSize = Mathf.Lerp(DefaultScreenSize,DefaultScreenSize-zoomsize,i+0.1f);
+            currentcam.GetComponent<Camera>().orthographicSize = Mathf.Lerp(DefaultScreenSize,DefaultScreenSize-zoomsize,i+0.1f);
             yield return new WaitForSeconds(zoomspeed/10);
         }
         yield return new WaitForSeconds(zoompause);
-        
+        if (FlagManager.Instance.IsPast)
+            Fran = tmp;
+        else
+            Player = tmp;
     }
 }
