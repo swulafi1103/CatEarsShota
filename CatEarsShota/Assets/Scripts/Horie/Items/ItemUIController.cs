@@ -248,6 +248,8 @@ public class ItemUIController : MonoBehaviour
         IsEvent = true;
         IsActDetail = true;
         FlagManager.Instance.IsOpenUI = true;
+        IsFran = FlagManager.Instance.IsPast;
+        SetCamera();
         DetailPanel.GetComponent<DetailPanel>().SetDetail(item);
         DetailPanel.SetActive(true);
     }
