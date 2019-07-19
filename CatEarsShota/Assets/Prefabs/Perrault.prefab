@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 1467140825}
   - component: {fileID: 550507260459011157}
   m_Layer: 0
-  m_Name: 01
+  m_Name: Perrault
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 13
   MaxSpeed: 4
-  brakePower: 0.05
+  brakePower: 0.25
   JumpPower: 250
   gravityRate: 1
   isNotmoves: 0
@@ -242,6 +242,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 70
     maxNormalAngle: 110
+  examinableObjects: []
+  Pants: {fileID: 0}
 --- !u!1 &7434695833830251134
 GameObject:
   m_ObjectHideFlags: 0

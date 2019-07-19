@@ -18,8 +18,11 @@ public class PickUpYellowOrb : ItemEvent, ICheckable
         {
             isDisplayBubble = flag;
         }
+        if (!FlagManager.Instance.CheckItemFlag(standItemFlag))
+        {
+            gameObject.SetActive(flag);
+        }
         DisplayBubble();
-        gameObject.SetActive(flag);
         return flag;
     }
 

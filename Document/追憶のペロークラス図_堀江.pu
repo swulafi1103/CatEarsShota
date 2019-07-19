@@ -1,0 +1,154 @@
+@startuml
+
+package Common{
+    class FadeManager{
+    public void　Fade();
+    }
+
+}
+
+package Game {
+    class Player{
+        public int HP;
+        public void Attack();
+        public void Jump();
+    }
+    class Camera{
+        public void ChengeCamera();
+    }
+    class EffectManager{
+
+    }
+    class ChatBubbleManager{
+
+    }
+    class EventManager{
+
+    }
+    class MapManager{
+        map1
+        map2
+    }
+
+    class TutorialManager{
+
+    }
+
+    package Itam{
+
+        class ItemManager{
+           パンツ
+          アイテム
+          テキスト
+        }
+        note bottom of ItemManager
+        各アイテムのテキスト情報
+        endnote
+
+        class PerraultItem{
+            -bool redOrb
+            +void SetRedOrb()
+        }
+        note top of PerraultItem
+        ペローが取得可能な
+        アイテムのみのbool群と
+        その値変更用関数
+        endnote
+
+        class FranItem{
+            -bool panel
+            +void SetPanel()
+        }
+        note top of FranItem
+        フランが取得可能な
+        アイテムのみのbool群と
+        その値変更用関数
+        endnote
+
+        class ItemUI{
+            bool IsNow
+            void SetImage()
+        }
+        note right of ItemUI
+        アイテム欄操作
+        IsNowでフラン、ペローの
+        アイテム情報切り替え
+        endnote
+
+        ItemUI -do->ItemManager
+        PerraultItem -do->ItemManager
+        FranItem -do->ItemManager
+
+        PerraultItem ->ItemUI
+        FranItem ->ItemUI
+
+    }
+
+
+
+}
+
+
+package Title{
+    class TitleController{
+        
+    }
+}
+
+package Map1{
+    class TypeingGameManager{
+
+    }
+}
+
+package Map2{
+    class FadeManager{
+        public void　Fade();
+    }
+    class TileGameManager{
+
+    }
+
+    package 敵{
+        class Enemy{
+        -HP:int
+        -Name:string    
+        }
+
+        class GroundEnemy{
+
+        }
+        class AirEnemy{
+
+        }
+        class WallEnemy{
+
+        }
+        interface IAttackable{
+            +ApplayDamage(int damage)
+        }
+    }
+    
+
+    class GameOver{
+
+    }
+
+    class FlagManager{
+
+    }
+
+        Enemy -down-> IAttackable
+
+
+    GroundEnemy -do-> Enemy
+    AirEnemy -do-> Enemy
+    WallEnemy -do-> Enemy
+
+}
+
+Common -> Title
+Common -> Game
+Game -> Map1
+Game -> Map2
+@enduml

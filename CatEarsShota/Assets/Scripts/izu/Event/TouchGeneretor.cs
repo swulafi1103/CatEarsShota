@@ -5,6 +5,9 @@ using UnityEngine;
 public class TouchGeneretor : GimmickEvent
 {
 
+    [SerializeField]
+    private GameObject moyaObj;
+
     void Start()
     {
         CheckFlag();
@@ -22,7 +25,6 @@ public class TouchGeneretor : GimmickEvent
         {
             FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
             StartCoroutine(ChengeFran());
-            CompleteGimmick();
         }
     }
 
@@ -30,15 +32,16 @@ public class TouchGeneretor : GimmickEvent
     {
         //  黄色のもやを表示
         bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
-        if (flag)
+        if (flag && !isComplete)
         {
             Debug.Log("黄色");
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            moyaObj.SetActive(true);
             isDisplayBubble = flag;
         }
         if (isComplete)
         {
             isDisplayBubble = false;
+            gameObject.SetActive(!flag);
         }
         DisplayBubble();
         return flag;
@@ -87,20 +90,10 @@ public class TouchGeneretor : GimmickEvent
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = false;
         yield return new WaitForSeconds(0.25f);
         BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Escape);
+        FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_06_EscapeAlarm);
         FlagManager.Instance.IsEventing = false;
+        CompleteGimmick();
         yield break;
-    }
-
-    IEnumerator subCoroutin(System.Action callback)
-    {
-        Debug.Log("aaa");
-        yield return new WaitForSeconds(0.1f);
-        Debug.Log("bbb");
-        yield return new WaitForSeconds(0.1f);
-        Debug.Log("ccc");
-        yield return new WaitForSeconds(0.1f);
-        callback();
-        yield return null;
     }
 
 }

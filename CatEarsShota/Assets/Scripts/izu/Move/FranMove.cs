@@ -207,22 +207,7 @@ public class FranMove : MonoBehaviour
         //anim.SetBool("SetFloatAnimator", !isGround);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "MiniGames")
-        {
-            if (Input.GetKeyDown(KeyCode.A))//調べ
-            {
-                isNotmoves = true;
-                MinigameMgr.GetComponent<MiniGameManager>().TouchGenerator();
-            }
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                MinigameMgr.GetComponent<MiniGameManager>().StartMiniGame();
-            }
-        }
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //  要素の追加
