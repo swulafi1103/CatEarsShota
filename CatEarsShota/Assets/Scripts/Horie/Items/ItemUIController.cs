@@ -7,7 +7,7 @@ using System;
 public class ItemUIController : MonoBehaviour
 {
     [SerializeField]
-    Sprite[] PanelSprites = new Sprite[3];
+    Sprite[] PanelSprites = new Sprite[5];
     [SerializeField]
     Image ImagePanel;
 
@@ -315,7 +315,12 @@ public class ItemUIController : MonoBehaviour
     /// タブ切り替え
     /// </summary>
     private void SetTabColor() {
-        ImagePanel.sprite = PanelSprites[selectTab];
+        if (IsFran) {
+            ImagePanel.sprite = PanelSprites[selectTab + 3];
+        }
+        else {
+            ImagePanel.sprite = PanelSprites[selectTab];
+        }
     }
 
     /// <summary>

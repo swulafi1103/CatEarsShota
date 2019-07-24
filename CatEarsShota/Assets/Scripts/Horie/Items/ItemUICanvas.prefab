@@ -1631,9 +1631,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelSprites:
-  - {fileID: 21300000, guid: 993e6179021c6b94d8e1674685911702, type: 3}
-  - {fileID: 21300000, guid: 51420f957ca43b644b50263d502eeeb8, type: 3}
-  - {fileID: 21300000, guid: 27d5a5102d5ff2f459c7c7f75231d853, type: 3}
+  - {fileID: 21300000, guid: 99b804e2877022041b4661361ac62b17, type: 3}
+  - {fileID: 21300000, guid: 269c20a91a8ebff47a745f45d3b1dbfd, type: 3}
+  - {fileID: 21300000, guid: bd759382801d0de46a6d03bf7a54e693, type: 3}
+  - {fileID: 21300000, guid: 7e1ddfdb45950b947a4f64932b69fca4, type: 3}
+  - {fileID: 21300000, guid: 969d80c769601084d81c499a20660463, type: 3}
   ImagePanel: {fileID: 7162481612028649649}
   items:
   - {fileID: 7162481611152986157}
@@ -1712,7 +1714,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 27d5a5102d5ff2f459c7c7f75231d853, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99b804e2877022041b4661361ac62b17, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
