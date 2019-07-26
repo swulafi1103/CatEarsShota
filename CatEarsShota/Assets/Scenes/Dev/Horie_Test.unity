@@ -958,12 +958,7 @@ PrefabInstance:
     - target: {fileID: 9166539173687898029, guid: e4b2f36e7d442044992bd8829eb59402,
         type: 3}
       propertyPath: m_Name
-      value: TurorialCanvas (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9166539173687898029, guid: e4b2f36e7d442044992bd8829eb59402,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: TurorialCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 9166539173687898025, guid: e4b2f36e7d442044992bd8829eb59402,
         type: 3}
@@ -3547,7 +3542,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &921549671
