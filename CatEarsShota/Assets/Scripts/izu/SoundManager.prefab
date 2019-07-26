@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9092551833449176404}
-  - component: {fileID: 9092551833449176406}
   - component: {fileID: 9092551833449176405}
+  - component: {fileID: 9092551833449176406}
   - component: {fileID: 416993944}
-  - component: {fileID: 1690404229}
+  - component: {fileID: 8869376756503479656}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -34,6 +34,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9092551833449176405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9092551833449176403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ba0cbff6bcc9d4b94ebaef730ca799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGM:
+  - {fileID: 8300000, guid: d98df09c6f7723942a35cc2cad8e87ee, type: 3}
+  - {fileID: 8300000, guid: 5220a9b47ffb000449c44dfa2a5c9abe, type: 3}
+  - {fileID: 8300000, guid: ea93d8689dc161844a25aadd3b90aadf, type: 3}
+  - {fileID: 8300000, guid: 76f88eac4d0cdc442829e01dc8ef6d48, type: 3}
+  - {fileID: 8300000, guid: e16e6e9bcfba601408d0f8201b6cc88b, type: 3}
+  - {fileID: 8300000, guid: 5220a9b47ffb000449c44dfa2a5c9abe, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  SE:
+  - {fileID: 8300000, guid: 50d4405364fd7c94d96532e2a7933948, type: 3}
+  - {fileID: 8300000, guid: b8edb128a1450c1499cc53492d6576ec, type: 3}
+  - {fileID: 8300000, guid: 289a42469743d714f965bcb85084a43d, type: 3}
+  fadeTime: 3
 --- !u!82 &9092551833449176406
 AudioSource:
   m_ObjectHideFlags: 0
@@ -130,32 +156,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9092551833449176405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9092551833449176403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05ba0cbff6bcc9d4b94ebaef730ca799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BGM:
-  - {fileID: 8300000, guid: d98df09c6f7723942a35cc2cad8e87ee, type: 3}
-  - {fileID: 8300000, guid: 5220a9b47ffb000449c44dfa2a5c9abe, type: 3}
-  - {fileID: 8300000, guid: ea93d8689dc161844a25aadd3b90aadf, type: 3}
-  - {fileID: 8300000, guid: 76f88eac4d0cdc442829e01dc8ef6d48, type: 3}
-  - {fileID: 8300000, guid: e16e6e9bcfba601408d0f8201b6cc88b, type: 3}
-  - {fileID: 8300000, guid: 5220a9b47ffb000449c44dfa2a5c9abe, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  SE:
-  - {fileID: 8300000, guid: 50d4405364fd7c94d96532e2a7933948, type: 3}
-  - {fileID: 8300000, guid: b8edb128a1450c1499cc53492d6576ec, type: 3}
-  - {fileID: 8300000, guid: 289a42469743d714f965bcb85084a43d, type: 3}
-  fadeTime: 3
 --- !u!82 &416993944
 AudioSource:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &1690404229
+--- !u!82 &8869376756503479656
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

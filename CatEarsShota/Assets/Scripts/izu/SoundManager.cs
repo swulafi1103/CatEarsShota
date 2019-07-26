@@ -101,6 +101,9 @@ public class SoundManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9)) {
             ChangeTimesBGM();
         }
+        if (Input.GetKeyDown(KeyCode.M)) {
+            PlaySE(SE_Name.SE_00_Alerm,0.5f);
+        }
     }
 
     /// <summary>
@@ -305,12 +308,6 @@ public class SoundManager : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-    /// <summary>SEの再生</summary>
-    /// <param name="_Name"></param>
-    public void PlaySE(SE_Name _Name)
-    {
-        audioSource[0].PlayOneShot(SE[(int)_Name]);
-    }
     /// <summary>SEの再生(音量調整)</summary>
     /// <param name="_Name"></param>
     /// <param name="_Vol"></param>
