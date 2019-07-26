@@ -1572,7 +1572,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e4a7bee5df4cfe64ca8788399dc4255c, type: 2}
   - {fileID: 11400000, guid: c7aacde29743be9449167fa766cf0a12, type: 2}
   - {fileID: 11400000, guid: 0b4a19f6a1b92224d90b3d6a42992c65, type: 2}
-  - {fileID: 11400000, guid: df73846b2983b8240b7bd30ef536cf53, type: 2}
+  - {fileID: 11400000, guid: 2bfe3e88795854c4f9f262620aea8869, type: 2}
   itemIsGet: 
   PerraultPants: {fileID: 11400000, guid: edfd821f72ecb914a90ff28af7e786bf, type: 2}
 --- !u!114 &7162481612014066608
@@ -1606,6 +1606,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6cfca7e840afab54ea4e8362b0adb6dc, type: 2}
   - {fileID: 11400000, guid: 31287de0ebe8cf74c8f08ffea9d6e9a6, type: 2}
   - {fileID: 11400000, guid: aac32609d96a84d4cb46de5235c97d65, type: 2}
+  - {fileID: 11400000, guid: 2bfe3e88795854c4f9f262620aea8869, type: 2}
 --- !u!114 &7162481612014066620
 MonoBehaviour:
   m_ObjectHideFlags: 0

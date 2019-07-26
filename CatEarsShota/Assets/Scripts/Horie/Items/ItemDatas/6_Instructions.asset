@@ -15,6 +15,6 @@ MonoBehaviour:
   type: 1
   itemNum: 6
   itemName: "\u30A8\u30CD\u30EB\u30AE\u30FC\u88C5\u7F6E\u306E\u8AAC\u660E\u66F8"
-  itemSprite: {fileID: 21300000, guid: 8b9d7806a2e446a4ab7e7b0afe8749dd, type: 3}
-  detailText: {fileID: 21300000, guid: 8b9d7806a2e446a4ab7e7b0afe8749dd, type: 3}
-  selectIcon: {fileID: 21300000, guid: 84b90305fde121b46867d686414dbe7b, type: 3}
+  itemSprite: {fileID: 21300000, guid: 8d0da0c37456a734ca7502a09ebe47a4, type: 3}
+  detailText: {fileID: 21300000, guid: 75b2679f8009ebf4e826347149a41c25, type: 3}
+  selectIcon: {fileID: 21300000, guid: b0fa78a7641da86418660c7521e2a831, type: 3}

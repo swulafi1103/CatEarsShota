@@ -16,5 +16,5 @@ MonoBehaviour:
   itemNum: 1
   itemName: "\u7D3A\u8272\u306E\u30AA\u30FC\u30D6"
   itemSprite: {fileID: 21300000, guid: 931da835f9eb1b54e883e215c99152e7, type: 3}
-  detailText: {fileID: 21300000, guid: 37984c38a98deef49858ef9376a52106, type: 3}
-  selectIcon: {fileID: 21300000, guid: 84b90305fde121b46867d686414dbe7b, type: 3}
+  detailText: {fileID: 21300000, guid: a7abac71f2b447f4c93248d641ff1763, type: 3}
+  selectIcon: {fileID: 21300000, guid: 58dc95a5e3e60e94cbe1ac9ff57e467c, type: 3}

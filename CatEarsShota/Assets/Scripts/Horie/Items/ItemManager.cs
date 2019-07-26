@@ -42,13 +42,14 @@ public class ItemManager : MonoBehaviour
         Mushroom,
         Ilust_Piece,
         Picture_Book,
-        BookMark,
+        BookMark_now,
         Pants_1,
         Pants_2,
         Pants_3,
         Pants_4,
         Pants_5,
-        Pants_6
+        Pants_6,
+        BookMark_Past
     }
 
     private void Awake() {
