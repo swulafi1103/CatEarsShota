@@ -64,13 +64,13 @@ public class ItemData : ScriptableObject
     }
 
     /// <summary>
-    /// レポートのみ表示されるイラスト
-    /// (その他はitemManagerの方で取得しないようにする)
+    /// アイテム欄でセレクトされたときに表示される画像
     /// </summary>
-    //[SerializeField]
-    //private Sprite reportSprite;
+    [SerializeField]
+    private Sprite selectIcon;
 
-    //public Sprite GetReportSprite {
-    //    get { return reportSprite; }
-    //}
+    public Sprite GetSelecticon
+    {
+        get { return selectIcon; }
+    }
 }

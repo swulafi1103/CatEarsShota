@@ -3271,6 +3271,16 @@ PrefabInstance:
       propertyPath: FranCamera
       value: 
       objectReference: {fileID: 207132561}
+    - target: {fileID: 7162481612014066621, guid: 838efe4ea7045e4478ebba08821cf7fa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162481612014066621, guid: 838efe4ea7045e4478ebba08821cf7fa,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 838efe4ea7045e4478ebba08821cf7fa, type: 3}
 --- !u!1001 &853889556

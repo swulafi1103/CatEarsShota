@@ -9,9 +9,9 @@ public class ItemUIPiece : MonoBehaviour
     private Image ItemImage;
     [SerializeField]
     private Image ShadowImage;
+    private ItemData nowItem;
 
-    [SerializeField]
-    Sprite[] baseImage = new Sprite[2];
+    Vector2 defaltSize;
 
     Image thisImage;
     RectTransform trans;
@@ -19,6 +19,7 @@ public class ItemUIPiece : MonoBehaviour
     private void Start() {
         thisImage = GetComponent<Image>();
         trans = GetComponent<RectTransform>();
+        defaltSize = ItemImage.rectTransform.sizeDelta;
     }
 
     /// <summary>
@@ -27,18 +28,22 @@ public class ItemUIPiece : MonoBehaviour
     /// <param name="item"></param>
     public void SetImage(ItemData item) {
         SetShadow(false);
+        nowItem = item;
+        ItemImage.sprite = nowItem.GetItemSprite;
         ThisSelected(false);
-        ItemImage.sprite = item.GetItemSprite;
     }
 
     public void ThisSelected(bool select) {
         if (select) {
-            trans.localScale = new Vector3(1.1f, 1.1f, 1.1f);
-            thisImage.sprite = baseImage[0];
+            thisImage.enabled = false;
+            ItemImage.sprite = nowItem.GetSelecticon;
+            ItemImage.SetNativeSize();
         }
-        else {
-            trans.localScale = Vector3.one;
-            thisImage.sprite = baseImage[1];
+        else
+        {
+            thisImage.enabled = true;
+            ItemImage.sprite = nowItem.GetItemSprite;
+            ItemImage.rectTransform.sizeDelta = defaltSize;
         }
     }
 
