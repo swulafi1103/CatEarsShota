@@ -265,7 +265,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e56a25ecce89ebf4fbd1817ee5f01c8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 266622e5e5bc6b14e9a4797d7ee0f3fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -316,8 +316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   status:
-  - {fileID: 21300000, guid: e56a25ecce89ebf4fbd1817ee5f01c8f, type: 3}
-  - {fileID: 21300000, guid: 127335d6f47d4f4409b8d3834354f4a5, type: 3}
+  - {fileID: 21300000, guid: 266622e5e5bc6b14e9a4797d7ee0f3fe, type: 3}
+  - {fileID: 21300000, guid: 72fa7f7bbcade4841931b664672bb74f, type: 3}
 --- !u!114 &469513031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,7 +564,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9266cd1099ad1364784366ff4aa5d740, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b30b762261a37c848bdcb15561e35964, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1246,8 +1246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   status:
-  - {fileID: 21300000, guid: e061831444d7fdc44a9bb4485a7bfec5, type: 3}
-  - {fileID: 21300000, guid: c645e39a886e2534d97cfb3e4e073549, type: 3}
+  - {fileID: 21300000, guid: 1fbe8eadefd95404aa99e741cb5fc86c, type: 3}
+  - {fileID: 21300000, guid: d5fff1834b5ed3c4787e46841cf5eb95, type: 3}
 --- !u!114 &3419050577429831026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2878,7 +2878,7 @@ SpriteRenderer:
   m_Size: {x: 3.53, y: 4.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &9178921146337039340
@@ -2921,8 +2921,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   status:
-  - {fileID: 21300000, guid: 975f11256f0756647a12e8660490015a, type: 3}
-  - {fileID: 21300000, guid: 99f287bcb572c224a9beaa3f9a9475c3, type: 3}
+  - {fileID: 21300000, guid: b9398bf819f460643a559284097b40e6, type: 3}
+  - {fileID: 21300000, guid: 12b68b17b3ec4f642bfbd5066ee6ccf4, type: 3}
 --- !u!70 &200028143047134815
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
