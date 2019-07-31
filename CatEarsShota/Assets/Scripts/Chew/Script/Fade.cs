@@ -40,6 +40,10 @@ public class Fade : MonoBehaviour
 
     private bool startfadeInOut = false;
     private bool fading = false;
+    public bool Fading
+    {
+        get { return fading; }
+    }
     private bool fadeswitch = false;
     private int localcount = 0;
 

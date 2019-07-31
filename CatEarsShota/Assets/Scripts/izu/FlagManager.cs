@@ -49,7 +49,15 @@ public class FlagManager : MonoBehaviour
             PlayerManager.Instance.SwitchPlayerMode(IsPast);
         }
     }
-    //  イベント中か(動画や演出中など)
+    //  動画再生中か
+    [SerializeField]
+    private bool isMovie = false;
+    public bool IsMovie
+    {
+        get { return isMovie; }
+        set { isMovie = value; }
+    }
+    //  イベント中か(演出中など)
     [SerializeField]
     private bool isEventing = false;
     public bool IsEventing
@@ -188,7 +196,13 @@ public class FlagManager : MonoBehaviour
     {
         IsPast = !IsPast;
     }
-
+    public void ChegeFranPero(bool isPero)
+    {
+        if (isPero)
+            IsPast = false;
+        else
+            IsPast = true;
+    }
 }
 
 [Flags]
