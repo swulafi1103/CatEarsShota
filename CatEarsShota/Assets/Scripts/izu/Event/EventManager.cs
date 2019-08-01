@@ -151,6 +151,7 @@ public class EventManager : MonoBehaviour
 
 
     public EventExcel eventExcel;
+    public GameObject[] zoomObjects = new GameObject[3];
 
     public void PlayEvent()
     {
@@ -177,6 +178,8 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("Movie");
         yield return new WaitForSeconds(delayTime);
+        //  フェード中か
+        //yield return new WaitWhile(() => !Fade.Instance.Fading);
         Debug.Log("Uint = " + (uint)value);
         MainCamera.Instance.TriggeredVideo((uint)value);
         yield break;
@@ -185,6 +188,10 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("FadeIn");
         yield return new WaitForSeconds(delayTime);
+        //  フェード中か
+        //Debug.Log("1111111111" + Fade.Instance.Fading);
+        //yield return new WaitWhile(() => Fade.Instance.Fading == false);
+        //Debug.Log("222222" + Fade.Instance.Fading);
         switch (value)
         {
             case 0:
@@ -210,11 +217,36 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("CameraZoom");
         yield return new WaitForSeconds(delayTime);
+        switch (value)
+        {
+            case 0:
+                Debug.Log("Map1の出入り口をズーム");
+                MainCamera.Instance.T_ChangeFocus(zoomObjects[0]);
+                break;
+            case 1:
+                Debug.Log("水槽をズーム(過去)");
+                MainCamera.Instance.T_ChangeFocus(zoomObjects[1]);
+                break;
+            case 2:
+                Debug.Log("研究所出口をズーム(過去)");
+                MainCamera.Instance.T_ChangeFocus(zoomObjects[2]);
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
         yield break;
     }
     IEnumerator Bubble(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("Bubble");
+        Debug.Log("BubbleValue:" + value);
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
         switch (value)
         {
@@ -222,6 +254,7 @@ public class EventManager : MonoBehaviour
                 BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Door);
                 break;
             case 1:
+                Debug.Log("BUbbleeeeeee");
                 BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Repair);
                 break;
             case 2:
@@ -245,6 +278,10 @@ public class EventManager : MonoBehaviour
     IEnumerator ChangeTime(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("ChangeTime");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
         if (value == 0)
             FlagManager.Instance.ChegeFranPero(true);
@@ -256,36 +293,178 @@ public class EventManager : MonoBehaviour
     IEnumerator WarpPositionPero(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("WarpPero");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
+        switch (value)
+        {
+            case 0:
+                Debug.Log("0番目にワープ(セーブの座標統合予定)");
+                break;
+            case 1:
+                Debug.Log("0番目にワープ(セーブの座標統合予定)");
+                break;
+            case 2:
+                Debug.Log("0番目にワープ(セーブの座標統合予定)");
+                break;
+            case 3:
+                Debug.Log("0番目にワープ(セーブの座標統合予定)");
+                break;
+            default:
+                Debug.Log("まだこの座標は未実装");
+                break;
+        }
         yield break;
     }
     IEnumerator WarpPositionFran(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("WarpFran");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
+        switch (value)
+        {
+            case 0:
+                Debug.Log("0番目にワープ(セーブの座標統合予定)");
+                break;
+            case 1:
+                Debug.Log("0番目にワープ(セーブの座標統合予定)");
+                break;
+            case 2:
+                Debug.Log("0番目にワープ(セーブの座標統合予定)");
+                break;
+            case 3:
+                Debug.Log("0番目にワープ(セーブの座標統合予定)");
+                break;
+            default:
+                Debug.Log("まだこの座標は未実装");
+                break;
+        }
         yield break;
     }
     IEnumerator DropItem(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("DropItem");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
         yield break;
     }
     IEnumerator PickupItem(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("PickUpItem");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
+        switch (value)
+        {
+            case 0:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 1:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Blue_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_02_BlueOrb);
+                break;
+            case 2:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Green_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_03_GreenOrb);
+                break;
+            case 3:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Red_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_04_RedOrb);
+                break;
+            case 4:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.CardKey);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_05_CardKey);
+                break;
+            case 5:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_06_WallPaintingPiece);
+                break;
+            case 6:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.BookMark_Past);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_07_BookStop);
+                break;
+            //----------------------------------------------------------------
+            case 7:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 8:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 9:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 10:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 11:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 12:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 13:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 14:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 15:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 16:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            case 17:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                break;
+            default:
+                Debug.LogWarning("アイテム取得で未実装の番号が選択されました。番号：" + value);
+                break;
+        }
         yield break;
     }
     IEnumerator Tutorial(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("Tutorial");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
         switch (value)
         {
             case 0:
+                //  過去・現在切り替えのチュートリアル
+                TutorialContriller.Instance.ChangeModeTuto();
+                yield return new WaitWhile(() => FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_05_Tuto_TimeChenge) == true);
                 break;
             case 1:
+                Debug.Log("未実装：ミニゲーム１の２番");
+                break;
+            default:
+                Debug.Log("未実装の番号です。番号：" + value);
                 break;
         }
         yield break;
@@ -293,18 +472,32 @@ public class EventManager : MonoBehaviour
     IEnumerator Minigame1(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("Minigame1");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
+        //  ミニゲーム１表示
         yield break;
     }
     IEnumerator Minigame2(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("Minigame2");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
+        //  ミニゲーム２表示
         yield break;
     }
     IEnumerator PlayBGM(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("BGM");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
         switch (value)
         {
@@ -341,6 +534,10 @@ public class EventManager : MonoBehaviour
     IEnumerator PlaySE(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
         Debug.Log("SE");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
         switch (value)
         {
