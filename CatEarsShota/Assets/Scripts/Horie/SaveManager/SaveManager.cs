@@ -53,6 +53,9 @@ public class SaveManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 直前セーブポイントへ移動
+    /// </summary>
     public void RestartPointer() {
         if (FlagManager.Instance.IsPast) {
             fran.transform.position = pastRestartPos[pastPos];
@@ -73,6 +76,21 @@ public class SaveManager : MonoBehaviour
             pastPos++;
             sevePosObjs[1].SetSavePos(pastRestartPos[pastPos + 1]);
             Debug.Log("past Save");
+        }
+    }
+
+    /// <summary>
+    /// 指定の場所に移動
+    /// </summary>
+    /// <param name="num"></param>
+    public void RestartWithPos(int num) {
+        if (FlagManager.Instance.IsPast) {
+            if (num >= pastRestartPos.Count) return;
+            fran.transform.position = pastRestartPos[num];
+        }
+        else {
+            if (num >= nowRestartPos.Count) return;
+            perrault.transform.position = nowRestartPos[num];
         }
     }
 }
