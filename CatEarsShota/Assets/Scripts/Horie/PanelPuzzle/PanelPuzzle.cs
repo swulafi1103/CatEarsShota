@@ -210,6 +210,7 @@ public class PanelPuzzle : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.X)) return;
         panelAct = false;
         this.gameObject.SetActive(false);
+        FlagManager.Instance.IsEventing = false;
     }
 
     /// <summary>

@@ -19,20 +19,26 @@ public class PanelPuzzleControl : MonoBehaviour
         isOnce = true;
     }
 
+    static PanelPuzzleControl instance;
+    public PanelPuzzleControl Instance {
+        get { return instance; }
+    }
+    private void Awake() {
+        if (instance == null) instance = this;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-        CheckStart();
         TutoEnd();
     }
     
     /// <summary>
     /// パネルの起動判定
     /// </summary>
-    void CheckStart()
+    public void StartPanelPuzzle()
     {
-        //フラグ判定
-        if (!Input.GetKeyDown(KeyCode.A)) return;
         if (isOnce)
         {
             tutoPanel.SetActive(true);
@@ -42,6 +48,7 @@ public class PanelPuzzleControl : MonoBehaviour
             panelPuzzle.gameObject.SetActive(true);
             panelPuzzle.PushStart();
         }
+        FlagManager.Instance.IsEventing = true;
     }
 
     void TutoEnd()
