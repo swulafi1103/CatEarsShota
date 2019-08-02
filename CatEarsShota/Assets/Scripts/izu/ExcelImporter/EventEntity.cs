@@ -25,6 +25,7 @@ public enum EventCategory
     Tutorial,
     Minigame1,
     Minigame2,
+    ChangeColor,
     BGM,
     SE,
 }

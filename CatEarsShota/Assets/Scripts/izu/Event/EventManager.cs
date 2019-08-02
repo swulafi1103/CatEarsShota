@@ -137,6 +137,8 @@ public class EventManager : MonoBehaviour
                 return Minigame1(value, delayTime, waitMovie);
             case EventCategory.Minigame2:
                 return Minigame2(value, delayTime, waitMovie);
+            case EventCategory.ChangeColor:
+                return ChangeColor(value, delayTime, waitMovie);
             case EventCategory.BGM:
                 return PlayBGM(value, delayTime, waitMovie);
             case EventCategory.SE:
@@ -176,22 +178,24 @@ public class EventManager : MonoBehaviour
 
     IEnumerator PlayMovie(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("Movie");
         yield return new WaitForSeconds(delayTime);
         //  フェード中か
-        //yield return new WaitWhile(() => !Fade.Instance.Fading);
-        Debug.Log("Uint = " + (uint)value);
+        yield return new WaitWhile(() => Fade.Instance.Fading == false);
+        Debug.Log("Movie");
         MainCamera.Instance.TriggeredVideo((uint)value);
         yield break;
     }
     IEnumerator FadeIn(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("FadeIn");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
         //  フェード中か
-        //Debug.Log("1111111111" + Fade.Instance.Fading);
-        //yield return new WaitWhile(() => Fade.Instance.Fading == false);
-        //Debug.Log("222222" + Fade.Instance.Fading);
+        Debug.Log("111111" + Fade.Instance.Fading);
+        yield return new WaitWhile(() => Fade.Instance.Fading == false);
+        Debug.Log("FadeIn");
         switch (value)
         {
             case 0:
@@ -208,15 +212,23 @@ public class EventManager : MonoBehaviour
     }
     IEnumerator FadeOut(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("FadeOut");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("FadeOut");
         Fade.Instance.ClearFade(0.5f, Color.clear);
         yield break;
     }
     IEnumerator CameraZoom(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("CameraZoom");
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("CameraZoom");
         switch (value)
         {
             case 0:
@@ -242,12 +254,12 @@ public class EventManager : MonoBehaviour
     }
     IEnumerator Bubble(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("BubbleValue:" + value);
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("BubbleValue:" + value);
         switch (value)
         {
             case 0:
@@ -276,12 +288,12 @@ public class EventManager : MonoBehaviour
         yield break;
     }
     IEnumerator ChangeTime(int value = 0, float delayTime = 0, bool waitMovie = false)
-    {
-        Debug.Log("ChangeTime");
+    {        
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
+        Debug.Log("ChangeTime");
         yield return new WaitForSeconds(delayTime);
         if (value == 0)
             FlagManager.Instance.ChegeFranPero(true);
@@ -292,12 +304,12 @@ public class EventManager : MonoBehaviour
     // セーブの処理にも座標情報があるのでそこを流用予定
     IEnumerator WarpPositionPero(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("WarpPero");
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("WarpPero");
         switch (value)
         {
             case 0:
@@ -320,12 +332,12 @@ public class EventManager : MonoBehaviour
     }
     IEnumerator WarpPositionFran(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("WarpFran");
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("WarpFran");
         switch (value)
         {
             case 0:
@@ -348,22 +360,22 @@ public class EventManager : MonoBehaviour
     }
     IEnumerator DropItem(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("DropItem");
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("DropItem");
         yield break;
     }
     IEnumerator PickupItem(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("PickUpItem");
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("PickUpItem");
         switch (value)
         {
             case 0:
@@ -447,12 +459,12 @@ public class EventManager : MonoBehaviour
     }
     IEnumerator Tutorial(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("Tutorial");
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("Tutorial");
         switch (value)
         {
             case 0:
@@ -471,34 +483,46 @@ public class EventManager : MonoBehaviour
     }
     IEnumerator Minigame1(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("Minigame1");
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("Minigame1");
         //  ミニゲーム１表示
         yield break;
     }
     IEnumerator Minigame2(int value = 0, float delayTime = 0, bool waitMovie = false)
-    {
-        Debug.Log("Minigame2");
+    {        
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("Minigame2");
+        //PanelPuzzleControl.ins
         //  ミニゲーム２表示
+        yield break;
+    }
+    IEnumerator ChangeColor(int value = 0, float delayTime = 0, bool waitMovie = false)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("ChngeColor");
+        //  mapの色変え
         yield break;
     }
     IEnumerator PlayBGM(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("BGM");
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("BGM");
         switch (value)
         {
             case 0:
@@ -533,12 +557,12 @@ public class EventManager : MonoBehaviour
     }
     IEnumerator PlaySE(int value = 0, float delayTime = 0, bool waitMovie = false)
     {
-        Debug.Log("SE");
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("SE");
         switch (value)
         {
             case 0:

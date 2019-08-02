@@ -124,7 +124,7 @@ public class MainCamera : MonoBehaviour
     }
     public void TriggeredVideo(uint index)　//動画を放送
     {
-        FlagManager.Instance.IsEventing = true;
+        FlagManager.Instance.IsMovie = true;
         //StartCoroutine(FadeInMovie());
         ColorVideo.GetComponent<VideoStorage>().index = index;
         PlayVideo = true;
@@ -132,8 +132,9 @@ public class MainCamera : MonoBehaviour
     //  動画終了時のフェード
     void MovieFinished(VideoPlayer sorce)
     {
-        Fade.Instance.StartFade(1f, Color.clear);
+        //Fade.Instance.StartFade(1f, Color.clear);
         //StartCoroutine(FadeOutMovie());
+        FlagManager.Instance.IsMovie = false;
     }
 
     public void T_ChangeFocus(GameObject newtarget)　//カメラを映るターゲット
