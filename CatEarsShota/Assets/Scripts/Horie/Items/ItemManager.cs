@@ -193,6 +193,17 @@ public class ItemManager : MonoBehaviour
         UIContriller.SetEventUI(data);
     }
 
+    public void SetEvents(ItemNum[] list)
+    {
+        ItemData[] datas = new ItemData[list.Length];
+        for(int i = 0; i < list.Length; i++)
+        {
+            int num = (int)list[i];
+            datas[i] = itemList[num];
+        }
+        UIContriller.SetEvents(datas);
+    }
+
     /// <summary>
     /// 特定のアイテムしか選択できないアイテム欄出現後、アイテムを選択したか
     /// </summary>
