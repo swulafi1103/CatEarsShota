@@ -109,7 +109,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    private IEnumerator CallCorutine(EventCategory eventCategory, int value, float delayTime, bool waitMovie, GameObject target = null)
+    private IEnumerator CallCorutine(EventCategory eventCategory, int value, float delayTime, bool waitMovie, float volume, GameObject target = null)
     {
         switch (eventCategory)
         {
@@ -144,7 +144,7 @@ public class EventManager : MonoBehaviour
             case EventCategory.BGM:
                 return PlayBGM(value, delayTime, waitMovie);
             case EventCategory.SE:
-                return PlaySE(value, delayTime, waitMovie);
+                return PlaySE(value, delayTime, waitMovie, volume);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -190,7 +190,7 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             FlagManager.Instance.IsEventing = true;
-            yield return StartCoroutine(CallCorutine(entity[i].category, entity[i].value, entity[i].delayTime, entity[i].waitMovie, target));
+            yield return StartCoroutine(CallCorutine(entity[i].category, entity[i].value, entity[i].delayTime, entity[i].waitMovie, entity[i].volume, target));
         }
         FlagManager.Instance.IsEventing = false;
         Debug.Log("イベント終了");
@@ -397,6 +397,8 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("PickUpItem");
+        //  非表示
+        target.SetActive(false);
         switch (value)
         {
             case 0:
@@ -608,7 +610,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator PlaySE(int value, float delayTime, bool waitMovie)
+    IEnumerator PlaySE(int value, float delayTime, bool waitMovie, float vol)
     {
         if (waitMovie)
         {
