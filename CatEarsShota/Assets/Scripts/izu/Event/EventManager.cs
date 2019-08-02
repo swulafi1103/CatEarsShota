@@ -136,7 +136,7 @@ public class EventManager : MonoBehaviour
             case EventCategory.Minigame1:
                 return Minigame1(value, delayTime, waitMovie);
             case EventCategory.Minigame2:
-                return Minigame2(value, delayTime, waitMovie);
+                return Minigame2(value, delayTime, waitMovie, target);
             case EventCategory.ChangeColor:
                 return ChangeColor(value, delayTime, waitMovie);
             case EventCategory.TextWindow:
@@ -513,9 +513,10 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("Minigame1");
         //  ミニゲーム１表示
+        MiniGameManager.Instance.TouchGenerator(value);
         yield break;
     }
-    IEnumerator Minigame2(int value, float delayTime, bool waitMovie)
+    IEnumerator Minigame2(int value, float delayTime, bool waitMovie, GameObject target)
     {        
         if (waitMovie)
         {
@@ -523,8 +524,9 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("Minigame2");
-        //PanelPuzzleControl.ins
+        //target.GetComponent<PanelPuzzleControl>().s 
         //  ミニゲーム２表示
+        
         yield break;
     }
     IEnumerator ChangeColor(int value, float delayTime, bool waitMovie)
