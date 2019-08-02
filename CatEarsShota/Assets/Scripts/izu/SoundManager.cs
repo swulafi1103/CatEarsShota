@@ -311,7 +311,7 @@ public class SoundManager : MonoBehaviour
     /// <summary>SEの再生(音量調整)</summary>
     /// <param name="_Name"></param>
     /// <param name="_Vol"></param>
-    public void PlaySE(SE_Name _Name, float _Vol)
+    public void PlaySE(SE_Name _Name, float _Vol = 1)
     {
         audioSource[2].PlayOneShot(SE[(int)_Name], _Vol);
     }
