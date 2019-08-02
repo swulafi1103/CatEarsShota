@@ -48,6 +48,7 @@ public class ItemUIController : MonoBehaviour
     bool IsActTab = false;
 
     bool IsEvent = false;
+    bool IsEvents = false;
 
     int pantsNum = -1;
     int waitAnim = 0;
@@ -60,6 +61,7 @@ public class ItemUIController : MonoBehaviour
 
         if (IsEvent) {
             PushCancel();
+            EventMoveUI();
             return;
         }
         
@@ -132,6 +134,7 @@ public class ItemUIController : MonoBehaviour
         if (IsEvent) {
             FlagManager.Instance.IsOpenUI = false;
             IsEvent = false;
+            IsEvents = false;
         }
     }
 
@@ -380,6 +383,90 @@ public class ItemUIController : MonoBehaviour
         }
     }
     
+    public void SetEvents(ItemData[] itemlist)
+    {
+        IsActUI = false;
+        StartCoroutine(StartEvents(itemlist));
+    }
+
+    IEnumerator StartEvents(ItemData[] itemlist)
+    {
+        yield return new WaitForSeconds(0.1f);
+        IsEvent = true;
+        IsEvents = true;
+        FlagManager.Instance.IsOpenUI = true;
+        IsFran = FlagManager.Instance.IsPast;
+        SetCamera();
+        ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        selectTab = (int)itemlist[0].GetItemType;
+        SetTabColor();
+        SetIamges();
+        for (int i = 0; i < NowHave.Count; i++)
+        {
+            bool selected = false;
+            for (int j = 0; j < itemlist.Length; j++)
+            {
+                if (items[i] == itemlist[j])
+                {
+                    items[i].SetShadow(false);
+                    FirstSelectIcon(i);
+                    selected = true;
+                }
+            }
+            if (!selected)
+            {
+                items[i].SetShadow(true);
+            }
+        }
+    }
+
+    void EventMoveUI()
+    {
+        if (!IsEvents) return;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MoveIconInEvent(true);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MoveIconInEvent(false);
+        }
+    }
+
+    void MoveIconInEvent(bool right)
+    {
+        if (NowHave.Count <= 0) return;
+
+        int moves = right ? 1 : -1;
+
+        List<int> list = GetShadows();
+
+        int beforenum = selectNum;
+        int movenum = list.IndexOf(beforenum);
+        movenum += moves;
+        if (movenum >= list.Count) movenum = 0;
+        if (movenum < 0) movenum = list.Count - 1;
+
+        selectNum = list[movenum];
+
+        items[beforenum].ThisSelected(false);
+        items[selectNum].ThisSelected(true);
+    }
+
+    List<int> GetShadows()
+    {
+        List<int> list = new List<int>();
+        for(int i = 0; i < NowHave.Count; i++)
+        {
+            if (!items[i].ShadowAct())
+            {
+                list.Add(i);
+            }
+        }
+
+        return list;
+    }
+
     /// <summary>
     /// イベント用アイテムUI_End
     /// </summary>
@@ -388,6 +475,7 @@ public class ItemUIController : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.A)) return false;
         if (NowHave[selectNum] != item) return false;
         IsEvent = false;
+        IsEvents = false;
         ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
         StopAllCoroutines();
         return true;
