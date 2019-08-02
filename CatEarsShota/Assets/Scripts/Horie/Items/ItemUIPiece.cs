@@ -54,4 +54,9 @@ public class ItemUIPiece : MonoBehaviour
     public void SetShadow(bool act) {
         ShadowImage.gameObject.SetActive(act);
     }
+
+    public bool ShadowAct()
+    {
+        return ShadowImage.gameObject.activeSelf;
+    }
 }
