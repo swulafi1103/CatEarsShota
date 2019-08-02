@@ -46,7 +46,7 @@ public class TouchGeneretor_after : GimmickEvent
     IEnumerator ChangeYellowColor(float delay)
     {
         yield return new WaitForSeconds(delay);
-        map.GetComponent<MapStatus>().ChangeColorObj();
+        //map.GetComponent<MapStatus>().ChangeColorObj();
         limitObj.SetActive(false);
         moyaObj.SetActive(false);
         CompleteGimmick();

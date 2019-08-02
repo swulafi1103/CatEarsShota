@@ -74,13 +74,17 @@ public class MainCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rangeToTarget = new Vector3(0,0,RangeToPlayer);
+        rangeToTarget = new Vector3(0, 0, RangeToPlayer);
         ColorVideo.GetComponent<VideoPlayer>().loopPointReached += MovieFinished;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SkipVideo();
+        }
         if (FlagManager.Instance.IsPast)
         {
             if (Player.transform.position.x < PastCameraLimit[1] && Player.transform.position.x > CameraLimit[0])
@@ -108,10 +112,10 @@ public class MainCamera : MonoBehaviour
         {
             ColorVideo.SetActive(true);
             VideoLength = ColorVideo.GetComponent<VideoPlayer>().length;
-            FlagManager.Instance.IsEventing = true;
+            FlagManager.Instance.IsMovie = true;
             if (ColorVideo.GetComponent<VideoPlayer>().isPrepared && !ColorVideo.GetComponent<VideoPlayer>().isPlaying)
             {
-                FlagManager.Instance.IsEventing = false;
+                FlagManager.Instance.IsMovie = false;
                 ColorVideo.SetActive(false);
                 PlayVideo = false;
             }
@@ -121,6 +125,18 @@ public class MainCamera : MonoBehaviour
     {
         Fade.Instance.SwitchCanvasCam(FlagManager.Instance.IsPast);
         PastCam.SetActive(FlagManager.Instance.IsPast);
+    }
+    public void SkipVideo() //スキップの機能追加
+    {
+        if (ColorVideo.GetComponent<VideoPlayer>().isPlaying)
+        {
+            ColorVideo.GetComponent<VideoPlayer>().Stop();
+            FlagManager.Instance.IsMovie = false;
+            Fade.Instance.StartFade(1f, Color.clear);
+            ColorVideo.SetActive(false);
+            PlayVideo = false;
+        }
+
     }
     public void TriggeredVideo(uint index)　//動画を放送
     {
@@ -132,15 +148,14 @@ public class MainCamera : MonoBehaviour
     //  動画終了時のフェード
     void MovieFinished(VideoPlayer sorce)
     {
-        //Fade.Instance.StartFade(1f, Color.clear);
+        Fade.Instance.StartFade(1f, Color.clear);
         //StartCoroutine(FadeOutMovie());
-        FlagManager.Instance.IsMovie = false;
     }
 
     public void T_ChangeFocus(GameObject newtarget)　//カメラを映るターゲット
     {
-        if(!Zooming)
-        StartCoroutine(changefocus(newtarget));
+        if (!Zooming)
+            StartCoroutine(changefocus(newtarget));
     }
     public void T_ChangeFocus(GameObject newtarget, float zoomdelay)　//遅延時間の追加
     {
@@ -187,7 +202,7 @@ public class MainCamera : MonoBehaviour
         ColorVideo.GetComponent<VideoPlayer>().targetCameraAlpha = 0;
         yield break;
     }
-    IEnumerator changefocus(GameObject newtarget,float zoomdelay = 0.5f,float zoomspeed = 1.0f,float zoomsize= 1.0f,float zoompause=1.0f )
+    IEnumerator changefocus(GameObject newtarget, float zoomdelay = 0.5f, float zoomspeed = 1.0f, float zoomsize = 1.0f, float zoompause = 1.0f)
     {
         GameObject tmp;
         GameObject currentcam;
@@ -203,12 +218,12 @@ public class MainCamera : MonoBehaviour
             Player = newtarget;
             currentcam = gameObject;
         }
-        
+
         yield return new WaitForSeconds(zoomdelay);
-        for(float i=0;i<1;i+=0.025f)
+        for (float i = 0; i < 1; i += 0.025f)
         {
             currentcam.GetComponent<Camera>().orthographicSize = Mathf.Lerp(DefaultScreenSize, DefaultScreenSize - zoomsize, i + 0.025f);
-            yield return new WaitForSeconds(zoomspeed/40);
+            yield return new WaitForSeconds(zoomspeed / 40);
         }
         yield return new WaitForSeconds(zoompause);
         for (float i = 0; i < 1; i += 0.025f)

@@ -26,7 +26,7 @@ public class AccesDoor : GimmickEvent, ICheckable
         if (FlagManager.Instance.CheckItemFlag(needItemFlag))
         {
             Debug.Log(needGimmickFlag + " : TRUE");
-            gameObject.transform.root.GetComponent<MapStatus>().MapObjectState[1] = true;
+            //gameObject.transform.root.GetComponent<MapStatus>().MapObjectState[1] = true;
             SceneLoadManager.LoadScene("main2");
         }
     }

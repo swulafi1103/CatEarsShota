@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class MapStatus : MonoBehaviour
 {
-    public bool[] MapObjectState = new bool[3];
-    public GameObject[] MapObject = new GameObject[3];
     public YelloObj[] yelloObjs = new YelloObj[10];
+    public ChangableObj[] gimmickObjs = new ChangableObj[5];
 
-    private bool turnyellow = false;
+    private int currentcolor =0;
+    /*  public enum mapColor
+      {
+          yellow,
+          red,
+          blue,
+          green
+      }*/
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,41 +25,40 @@ public class MapStatus : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            ChangeColorObj();
-        }
-    }
-    void FixedUpdate()
-    {
-        if (!turnyellow)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                if (MapObjectState[i] == true)
-                    MapObject[i].GetComponent<ObjectStatus>().index = 1;
-                else
-                    MapObject[i].GetComponent<ObjectStatus>().index = 0;
-            }
+            ChangeColorObj(0);
         }
     }
 
-    public void ChangeColorObj()
+    public void ChangeColorObj(int newColor)
     {
-        turnyellow = true;
-        for (int i = 0; i < 3; i++)
-        {
-            MapObject[i].GetComponent<ObjectStatus>().index = 3;
-        }
+        currentcolor = newColor;
         for (int i = 0; i < yelloObjs.Length; i++)
         {
             if (yelloObjs[i].ChangeObj != null)
             {
-                yelloObjs[i].ChangeObj.GetComponent<SpriteRenderer>().sprite = yelloObjs[i].yellowSprite;
+                yelloObjs[i].ChangeObj.GetComponent<SpriteRenderer>().sprite = yelloObjs[i].colorSprite[newColor];
             }
             if (yelloObjs[i].ChangeObj == null)
             {
-                Debug.Log("黄色でエラー");
+                Debug.Log("マップ色エラー");
             }
         }
+        for (int i = 0; i < gimmickObjs.Length; i++)
+        {
+            if (gimmickObjs[i].ChangeObj != null)
+                gimmickObjs[i].ChangeObj.GetComponent<SpriteRenderer>().sprite = gimmickObjs[i].colorSprite[newColor * 2 + (gimmickObjs[i].OnStatus ? 1 : 0)];
+            else
+                Debug.Log("gimmickObjs error");
+        }
+    }
+
+    public void UpdateGimmick(int index,bool newstatus)
+    {
+        gimmickObjs[index].OnStatus = newstatus;
+        if (gimmickObjs[index].ChangeObj != null)
+            gimmickObjs[index].ChangeObj.GetComponent<SpriteRenderer>().sprite = gimmickObjs[index].colorSprite[currentcolor * 2 + (gimmickObjs[index].OnStatus ? 1 : 0)];
+        else
+            Debug.Log("Update gimmickObjs error");
     }
 }
 
@@ -61,5 +66,12 @@ public class MapStatus : MonoBehaviour
 public struct YelloObj
 {
     public GameObject ChangeObj;
-    public Sprite yellowSprite;    
+    public Sprite[] colorSprite;
+}
+[System.Serializable]
+public struct ChangableObj
+{
+    public bool OnStatus;
+    public GameObject ChangeObj;
+    public Sprite[] colorSprite;
 }

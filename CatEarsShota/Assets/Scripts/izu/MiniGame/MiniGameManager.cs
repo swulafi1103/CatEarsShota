@@ -438,7 +438,7 @@ public class MiniGameManager : MonoBehaviour
         numOrder = 0;
         //mistakeCount = 0;
         //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
-        map.GetComponent<MapStatus>().MapObjectState[2] = true;
+        //map.GetComponent<MapStatus>().MapObjectState[2] = true;
         FlagManager.Instance.IsEventing = false;
         yield break;
     }

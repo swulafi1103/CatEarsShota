@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 245533293341414666}
   - component: {fileID: 8993437164201417444}
   - component: {fileID: 9178921146337039343}
-  - component: {fileID: 9178921146337039321}
   - component: {fileID: 469513031}
   m_Layer: 0
   m_Name: CultureDevice
@@ -302,22 +301,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.2451077, y: 0.86680317}
   m_EdgeRadius: 0
---- !u!114 &9178921146337039321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664567498500750786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1797136bce23c4c96e6eb509e02050, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 0
-  status:
-  - {fileID: 21300000, guid: 9467aa339801816468d76c8c8efcb8ec, type: 3}
-  - {fileID: 21300000, guid: 46505be19794e054aaf31a73e44d038f, type: 3}
 --- !u!114 &469513031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,7 +1091,6 @@ GameObject:
   - component: {fileID: 1669022574370050036}
   - component: {fileID: 9178921146337039342}
   - component: {fileID: 633593069467653300}
-  - component: {fileID: 9178921146337039334}
   - component: {fileID: 3419050577429831026}
   m_Layer: 0
   m_Name: Door
@@ -1232,22 +1214,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7, y: 5.9}
   m_EdgeRadius: 0
---- !u!114 &9178921146337039334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5162944064808593311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1797136bce23c4c96e6eb509e02050, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 0
-  status:
-  - {fileID: 21300000, guid: 9a917d7cd12a34c4cab3f80d35a50d6a, type: 3}
-  - {fileID: 21300000, guid: e56d6aec50918e348841e536e3c55ee9, type: 3}
 --- !u!114 &3419050577429831026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,32 +1489,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea09badd30de2c47a7f89333a024ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapObjectState: 000000
-  MapObject:
-  - {fileID: 1664567498500750786}
-  - {fileID: 5162944064808593311}
-  - {fileID: 9136577378096424601}
   yelloObjs:
   - ChangeObj: {fileID: 7511413817674363902}
-    yellowSprite: {fileID: 21300000, guid: c4ffa6f3392bcc1419cd2aee1a23eb68, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 4888254925205670690}
-    yellowSprite: {fileID: 21300000, guid: 5986d34dadb4c2f42bd93311430f3410, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 2836702609874233560}
-    yellowSprite: {fileID: 21300000, guid: 588e1074bd2a51a4d947f53536db79db, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 1122716875843305253}
-    yellowSprite: {fileID: 21300000, guid: 96c4e86b45e9e214cabc67141805a750, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 7028062107517103377}
-    yellowSprite: {fileID: 21300000, guid: eafb01a8ffba7b24787b3dfbe9e407fd, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 2293633566741172331}
-    yellowSprite: {fileID: 21300000, guid: 5ecdf738e23c76a4cbaedbb5167a121b, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 1664567498500750786}
-    yellowSprite: {fileID: 21300000, guid: 29bfaee7f965f1248914328d2ac3763f, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 5162944064808593311}
-    yellowSprite: {fileID: 21300000, guid: ccaf343df7f637e47806e188d4a87d14, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 9136577378096424601}
-    yellowSprite: {fileID: 21300000, guid: 0c583e82fd385f04791cbbdb93a1bfa7, type: 3}
+    colorSprite: []
   - ChangeObj: {fileID: 7308255269861545803}
-    yellowSprite: {fileID: 21300000, guid: c34584b8fbf88c34399ffbc97329108c, type: 3}
+    colorSprite: []
+  gimmickObjs:
+  - OnStatus: 0
+    ChangeObj: {fileID: 0}
+    colorSprite: []
+  - OnStatus: 0
+    ChangeObj: {fileID: 0}
+    colorSprite: []
+  - OnStatus: 0
+    ChangeObj: {fileID: 0}
+    colorSprite: []
+  - OnStatus: 0
+    ChangeObj: {fileID: 0}
+    colorSprite: []
+  - OnStatus: 0
+    ChangeObj: {fileID: 0}
+    colorSprite: []
 --- !u!1 &5995363943728227925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2787,6 @@ GameObject:
   - component: {fileID: 7845023811514490544}
   - component: {fileID: 4392079628582080430}
   - component: {fileID: 9178921146337039340}
-  - component: {fileID: 9178921146337039328}
   - component: {fileID: 200028143047134815}
   m_Layer: 0
   m_Name: Generator
@@ -2907,22 +2883,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.992357, y: 3.6611364}
   m_EdgeRadius: 0
---- !u!114 &9178921146337039328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9136577378096424601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1797136bce23c4c96e6eb509e02050, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 0
-  status:
-  - {fileID: 21300000, guid: d3fb1bb8fe1bb2a46b13e09849b68d88, type: 3}
-  - {fileID: 21300000, guid: a04b83c5b011d6649bbd8b4acb3f4ab0, type: 3}
 --- !u!70 &200028143047134815
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
