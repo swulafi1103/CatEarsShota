@@ -39,6 +39,7 @@ public class NowMushroom : MonoBehaviour
         IsBig = false;
         timeStart = false;
         Timer = 0;
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -69,5 +70,10 @@ public class NowMushroom : MonoBehaviour
         Timer = 0;
         Anim.SetTrigger("ToSmall");
         IsBig = false;
+    }
+
+    public void SetMush()
+    {
+        gameObject.SetActive(true);
     }
 }
