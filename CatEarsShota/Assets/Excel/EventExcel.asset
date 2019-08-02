@@ -17,61 +17,76 @@ MonoBehaviour:
     value: 0
     delayTime: 0
     waitMovie: 0
+    volume: 5
   - category: 0
     value: 1
     delayTime: 1
     waitMovie: 0
+    volume: 0
   - category: 2
     value: 0
-    delayTime: 5
+    delayTime: 2
     waitMovie: 0
+    volume: 0
   - category: 4
     value: 1
     delayTime: 0
     waitMovie: 0
+    volume: 0
   - category: 5
     value: 0
     delayTime: 2
     waitMovie: 0
+    volume: 0
   - category: 9
     value: 0
     delayTime: 2
     waitMovie: 0
+    volume: 0
   - category: 3
     value: 0
     delayTime: 2
     waitMovie: 0
+    volume: 0
   EventTest2:
   - category: 1
     value: 0
     delayTime: 0
     waitMovie: 0
+    volume: 0
   - category: 0
     value: 0
     delayTime: 0
     waitMovie: 0
+    volume: 0
   - category: 2
     value: 0
     delayTime: 0
     waitMovie: 1
+    volume: 0
   - category: 4
     value: 1
     delayTime: 0
     waitMovie: 1
+    volume: 0
   EventTest3:
   - category: 1
     value: 0
     delayTime: 1
     waitMovie: 0
+    volume: 0
   - category: 0
     value: 0
     delayTime: 2
     waitMovie: 0
+    volume: 0
   - category: 2
     value: 0
     delayTime: 5
     waitMovie: 1
+    volume: 0
   - category: 4
     value: 1
     delayTime: 0
     waitMovie: 1
+    volume: 0
