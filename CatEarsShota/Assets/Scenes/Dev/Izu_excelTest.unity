@@ -941,6 +941,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventExcel: {fileID: 11400000, guid: e87d4344685293f45b7e011e144d8fff, type: 2}
+  zoomObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &605330557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,6 +958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPast: 0
+  isMovie: 0
   isEventing: 0
   isOpenUI: 0
   isYellow: 0

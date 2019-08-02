@@ -58,7 +58,7 @@ public class EventManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            PlayEvent();
+            PlayEvent(EventName.Event1);
         }        
     }
 
@@ -109,7 +109,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    private IEnumerator CallCorutine(EventCategory eventCategory, int value, float delayTime, bool waitMovie)
+    private IEnumerator CallCorutine(EventCategory eventCategory, int value, float delayTime, bool waitMovie, GameObject target = null)
     {
         switch (eventCategory)
         {
@@ -130,7 +130,7 @@ public class EventManager : MonoBehaviour
             case EventCategory.DropItem:
                 return DropItem(value, delayTime, waitMovie);
             case EventCategory.PickupItem:
-                return PickupItem(value, delayTime, waitMovie);
+                return PickupItem(value, delayTime, waitMovie, target);
             case EventCategory.Tutorial:
                 return Tutorial(value, delayTime, waitMovie);
             case EventCategory.Minigame1:
@@ -139,6 +139,8 @@ public class EventManager : MonoBehaviour
                 return Minigame2(value, delayTime, waitMovie);
             case EventCategory.ChangeColor:
                 return ChangeColor(value, delayTime, waitMovie);
+            case EventCategory.TextWindow:
+                return TextWindow(value, delayTime, waitMovie);
             case EventCategory.BGM:
                 return PlayBGM(value, delayTime, waitMovie);
             case EventCategory.SE:
@@ -155,28 +157,50 @@ public class EventManager : MonoBehaviour
     public EventExcel eventExcel;
     public GameObject[] zoomObjects = new GameObject[3];
 
-    public void PlayEvent()
+    public void PlayEvent(EventName eventName, GameObject target = null)
     {
-        StartCoroutine(EventCorutine());
+        StartCoroutine(EventCorutine(eventName, target));
     }
 
-    IEnumerator EventCorutine()
+    IEnumerator EventCorutine(EventName eventName ,GameObject target)
     {
-        int count = eventExcel.EventTest1.Count;
-        Debug.Log("EventCount : " + count);
+        List<EventEntity> entity = null;
+        int count = 0;
+
+        switch (eventName)
+        {
+            case EventName.Event1:
+                entity = eventExcel.EventTest1;
+                count = entity.Count;
+                break;
+            case EventName.Event2:
+                entity = eventExcel.EventTest2;
+                count = entity.Count;
+                break;
+            case EventName.Event3:
+                entity = eventExcel.EventTest3;
+                count = entity.Count;
+                break;
+            default:
+                Debug.Log("実装してない値");
+                break;
+        }
+        Debug.Log("イベントのコマンドの数 : " + count);
         yield return null;
         for (int i = 0; i < count; i++)
         {
             FlagManager.Instance.IsEventing = true;
-            yield return StartCoroutine(CallCorutine(eventExcel.EventTest1[i].category, eventExcel.EventTest1[i].value, eventExcel.EventTest1[i].delayTime, eventExcel.EventTest1[i].waitMovie));
+            yield return StartCoroutine(CallCorutine(entity[i].category, entity[i].value, entity[i].delayTime, entity[i].waitMovie, target));
         }
-        Debug.Log("Event_END");
+        FlagManager.Instance.IsEventing = false;
+        Debug.Log("イベント終了");
         yield break;
     }
 
+
     #region イベントコルーチン
 
-    IEnumerator PlayMovie(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator PlayMovie(int value, float delayTime, bool waitMovie)
     {
         yield return new WaitForSeconds(delayTime);
         //  フェード中か
@@ -185,7 +209,7 @@ public class EventManager : MonoBehaviour
         MainCamera.Instance.TriggeredVideo((uint)value);
         yield break;
     }
-    IEnumerator FadeIn(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator FadeIn(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -193,9 +217,7 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         //  フェード中か
-        Debug.Log("111111" + Fade.Instance.Fading);
         yield return new WaitWhile(() => Fade.Instance.Fading == false);
-        Debug.Log("FadeIn");
         switch (value)
         {
             case 0:
@@ -210,7 +232,7 @@ public class EventManager : MonoBehaviour
         }        
         yield break;
     }
-    IEnumerator FadeOut(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator FadeOut(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -221,7 +243,7 @@ public class EventManager : MonoBehaviour
         Fade.Instance.ClearFade(0.5f, Color.clear);
         yield break;
     }
-    IEnumerator CameraZoom(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator CameraZoom(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -252,7 +274,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator Bubble(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator Bubble(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -287,7 +309,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator ChangeTime(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator ChangeTime(int value, float delayTime, bool waitMovie)
     {        
         if (waitMovie)
         {
@@ -301,8 +323,7 @@ public class EventManager : MonoBehaviour
             FlagManager.Instance.ChegeFranPero(false);
         yield break;
     }
-    // セーブの処理にも座標情報があるのでそこを流用予定
-    IEnumerator WarpPositionPero(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator WarpPositionPero(int value, float delayTime, bool waitMovie)    // セーブの処理にも座標情報があるのでそこを流用予定
     {
         if (waitMovie)
         {
@@ -330,7 +351,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator WarpPositionFran(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator WarpPositionFran(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -358,7 +379,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator DropItem(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator DropItem(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -368,7 +389,7 @@ public class EventManager : MonoBehaviour
         Debug.Log("DropItem");
         yield break;
     }
-    IEnumerator PickupItem(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator PickupItem(int value, float delayTime, bool waitMovie, GameObject target)
     {
         if (waitMovie)
         {
@@ -457,7 +478,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator Tutorial(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator Tutorial(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -481,7 +502,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator Minigame1(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator Minigame1(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -492,7 +513,7 @@ public class EventManager : MonoBehaviour
         //  ミニゲーム１表示
         yield break;
     }
-    IEnumerator Minigame2(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator Minigame2(int value, float delayTime, bool waitMovie)
     {        
         if (waitMovie)
         {
@@ -504,7 +525,7 @@ public class EventManager : MonoBehaviour
         //  ミニゲーム２表示
         yield break;
     }
-    IEnumerator ChangeColor(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator ChangeColor(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -513,9 +534,41 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("ChngeColor");
         //  mapの色変え
+        switch (value)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            default:
+                Debug.Log("マップの色替え未完成");
+                break;
+        }
         yield break;
     }
-    IEnumerator PlayBGM(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator TextWindow(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("TextWindow");
+        switch (value)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            default:
+                Debug.Log("テキストウィンドウの表示未実装");
+                break;
+        }
+        yield break;
+    }
+    IEnumerator PlayBGM(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -555,7 +608,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator PlaySE(int value = 0, float delayTime = 0, bool waitMovie = false)
+    IEnumerator PlaySE(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
@@ -581,6 +634,19 @@ public class EventManager : MonoBehaviour
         yield break;
     }
     #endregion
+}
+
+public enum EventName
+{
+    Event1,
+    Event2,
+    Event3,
+    Event4,
+    Event5,
+    Event6,
+    Event7,
+    Event8,
+    Event9,
 }
 
 

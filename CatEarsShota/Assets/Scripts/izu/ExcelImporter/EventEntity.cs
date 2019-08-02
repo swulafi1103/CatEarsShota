@@ -9,6 +9,7 @@ public class EventEntity
     public int value = 0;
     public float delayTime = 0f;
     public bool waitMovie = false;
+    public float volume = 0f;
 }
 
 public enum EventCategory
@@ -26,6 +27,7 @@ public enum EventCategory
     Minigame1,
     Minigame2,
     ChangeColor,
+    TextWindow,
     BGM,
     SE,
 }
