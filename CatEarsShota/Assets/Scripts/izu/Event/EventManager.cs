@@ -265,11 +265,8 @@ public class EventManager : MonoBehaviour
                 Debug.Log("研究所出口をズーム(過去)");
                 MainCamera.Instance.T_ChangeFocus(zoomObjects[2]);
                 break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
+            default:
+                Debug.Log("ズームの未実装のValue");
                 break;
         }
         yield break;
