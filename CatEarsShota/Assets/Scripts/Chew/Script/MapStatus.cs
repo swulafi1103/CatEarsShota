@@ -27,6 +27,20 @@ public class MapStatus : MonoBehaviour
         {
             ChangeColorObj(0);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangeColorObj(0);
+        }else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangeColorObj(1);
+        }else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ChangeColorObj(2);
+        }else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ChangeColorObj(3);
+        }
+
     }
 
     public void ChangeColorObj(int newColor)
