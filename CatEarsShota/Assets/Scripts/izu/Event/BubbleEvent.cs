@@ -43,11 +43,15 @@ public class BubbleEvent : MonoBehaviour
         Dark,
         Escape,
         Power,
+        Skull,
+        CardKey,
+        BookMark,
+        Pero,
     }
 
     //  説明用の吹き出し
     [SerializeField]
-    private GameObject baseBubble;
+    private GameObject baseBubble = default;
     private GameObject childBubble;
     [SerializeField]
     private List<BubbleImages> bubbleSprites = new List<BubbleImages>();
@@ -120,6 +124,7 @@ public class BubbleEvent : MonoBehaviour
     {
         yield return new WaitForSeconds(delaytime);
         baseBubble.SetActive(true);
+        yield return null;
         float time = 0;
         int now = 0;
         int count = 0;
