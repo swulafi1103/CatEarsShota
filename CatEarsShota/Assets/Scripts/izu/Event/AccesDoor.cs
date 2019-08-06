@@ -27,7 +27,7 @@ public class AccesDoor : GimmickEvent, ICheckable
         {
             Debug.Log(needGimmickFlag + " : TRUE");
             //gameObject.transform.root.GetComponent<MapStatus>().MapObjectState[1] = true;
-            SceneLoadManager.LoadScene("main2");
+            MainCamera.Instance.MovingMap(1);
         }
     }
 }
