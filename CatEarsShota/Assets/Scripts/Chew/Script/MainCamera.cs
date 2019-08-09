@@ -62,6 +62,7 @@ public class MainCamera : MonoBehaviour
     public float[] CameraLimit = new float[2];
     public float[] PastCameraLimit = new float[2];
 
+    public Vector3[] map_point = new Vector3[4];
     private bool fading = false;
 
     private Vector3 rangeToTarget;
@@ -81,6 +82,14 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            MovingMap(0);
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            MovingMap(1);
+        }
         if (Input.GetKeyDown(KeyCode.K))
         {
             SkipVideo();
@@ -125,6 +134,11 @@ public class MainCamera : MonoBehaviour
     {
         Fade.Instance.SwitchCanvasCam(FlagManager.Instance.IsPast);
         PastCam.SetActive(FlagManager.Instance.IsPast);
+    }
+    public void MovingMap(int mapNumber)
+    {
+        if (!FlagManager.Instance.IsEventing)
+            StartCoroutine(MovingBetweenMap(mapNumber));
     }
     public void SkipVideo() //スキップの機能追加
     {
@@ -235,5 +249,19 @@ public class MainCamera : MonoBehaviour
             Fran = tmp;
         else
             Player = tmp;
+    }
+    IEnumerator MovingBetweenMap(int mapnumber)
+    {
+        FlagManager.Instance.IsEventing = true;
+        Fade.Instance.StartFade(1.0f,Color.black);
+        yield return new WaitForSeconds(1.0f);
+        if (FlagManager.Instance.IsPast)
+            Fran.transform.position = map_point[mapnumber+2];
+        else
+            Player.transform.position = map_point[mapnumber];
+        yield return new WaitForSeconds(2f);
+        Fade.Instance.StartFade(1.0f, Color.clear);
+        yield return new WaitForSeconds(1.0f);
+        FlagManager.Instance.IsEventing = false;
     }
 }
