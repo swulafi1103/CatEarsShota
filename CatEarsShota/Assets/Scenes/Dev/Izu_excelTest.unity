@@ -907,6 +907,31 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7511413816682678008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &525970978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5162944064808593311, guid: c020ab05729747942b7b596b27b1f4f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7511413816682678008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &525970979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525970978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubblePos: {x: 0, y: 0}
+  flipBubble: 0
+  isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
+  eventName: 0
 --- !u!1 &605330555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,7 +1385,7 @@ PrefabInstance:
     - target: {fileID: 9092551833449176403, guid: 604352ce8687c7d42a6d73c4924e8d6a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9092551833449176404, guid: 604352ce8687c7d42a6d73c4924e8d6a,
         type: 3}
@@ -1529,6 +1554,11 @@ MonoBehaviour:
   PastCameraLimit:
   - 33
   - 73
+  map_point:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!1 &1700370550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2547405339827579850, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,

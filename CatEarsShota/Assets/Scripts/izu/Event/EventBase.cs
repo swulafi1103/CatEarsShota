@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class EventBase : MonoBehaviour
 {
-    [SerializeField, EnumFlags]
-    protected ItemFlag needItemFlag;
-    [SerializeField, EnumFlags]
-    protected GimmickFlag needGimmickFlag;
-
-    [SerializeField, Space(10)]
     private Sprite bubbleImage = default;
     [SerializeField]
     private Vector2 bubblePos = default;
@@ -17,6 +11,11 @@ public class EventBase : MonoBehaviour
     private bool flipBubble = default;
     [SerializeField]
     protected bool isDisplayBubble;
+
+    [SerializeField, EnumFlags, HeaderAttribute("↓↓プランナーが編集する、かもしれない箇所↓↓")]
+    protected ItemFlag needItemFlag;
+    [SerializeField, EnumFlags]
+    protected GimmickFlag needGimmickFlag;
 
 
 

@@ -17,7 +17,7 @@ MonoBehaviour:
     value: 0
     delayTime: 0
     waitMovie: 0
-    volume: 5
+    volume: 0
   - category: 0
     value: 1
     delayTime: 1
@@ -131,3 +131,6 @@ MonoBehaviour:
   E42_Time_capsule_bookmark: []
   E43_Green_event: []
   E44_Orb_fillin_clear: []
+  E45_Blueorb_pickup: []
+  E46_Greenorb_pickup: []
+  E47_Redorb_pickup: []
