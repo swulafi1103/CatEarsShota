@@ -70,17 +70,10 @@ public class BubbleEvent : MonoBehaviour
 
 
     void Update()
-    {
-        //  デバッグ
-        if (Input.GetKeyDown(KeyCode.F6))
-        {
-            Debug.Log("デバッグ用");
-            DisplayBubbles(BubbleType.Repair);
-        }
-        
+    {        
         if (baseBubble.activeSelf == true)
         {
-            baseBubble.transform.position = PlayerManager.Instance.GetPlayerPos() + new Vector2(2, 1);
+            baseBubble.transform.position = PlayerManager.Instance.GetPlayerPos() + new Vector2(1.5f, 1);
         }
     }
 

@@ -143,6 +143,8 @@ public class EventManager : MonoBehaviour
                 return PlayBGM(value, delayTime, waitMovie);
             case EventCategory.SE:
                 return PlaySE(value, delayTime, waitMovie, volume);
+            case EventCategory.ChangeSprite:
+                break;
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -160,31 +162,66 @@ public class EventManager : MonoBehaviour
         StartCoroutine(EventCorutine(eventName, target));
     }
 
-    IEnumerator EventCorutine(EventName eventName ,GameObject target)
+    List<EventEntity> GetEventEntity(EventName eventName)
     {
         List<EventEntity> entity = null;
-        int count = 0;
-
         switch (eventName)
         {
             case EventName.E01_Map1_to_map2:
                 entity = eventExcel.E01_Map1_to_map2;
-                count = entity.Count;
                 break;
             case EventName.E02_Map2_to_map1:
                 entity = eventExcel.E02_Map2_to_map1;
-                count = entity.Count;
                 break;
             case EventName.E03_Pant_pickup3:
                 entity = eventExcel.E03_Pant_pickup3;
-                count = entity.Count;
+                break;
+            case EventName.E04_MiniGame2_clear:
+                entity = eventExcel.E04_MiniGame2_clear;
+                break;
+            case EventName.E05_Map1_to_map2_past:
+                entity = eventExcel.E05_Map1_to_map2_past;
+                break;
+            case EventName.E06_Map2_to_map1_past:
+                entity = eventExcel.E06_Map2_to_map1_past;
+                break;
+            case EventName.E07_Report2_pickup_past:
+                entity = eventExcel.E07_Report2_pickup_past;
+                break;
+            case EventName.E08_Piece_pickup_past:
+                entity = eventExcel.E08_Piece_pickup_past;
+                break;
+            case EventName.E09_Gate1geme_past:
+                entity = eventExcel.E09_Gate1geme_past;
+                break;
+            case EventName.E10_Gate1geme_clear_past:
+                entity = eventExcel.E10_Gate1geme_clear_past;
+                break;
+            case EventName.E11_Gate1geme_error_past:
+                entity = eventExcel.E11_Gate1geme_error_past;
+                break;
+            case EventName.E12_Stairs1_up_past:
+                entity = eventExcel.E12_Stairs1_up_past;
+                break;
+            case EventName.E13_Stairs1_down_past:
+                entity = eventExcel.E13_Stairs1_down_past;
                 break;
             default:
                 Debug.Log("実装してない値");
                 break;
         }
+
+        return entity;
+    }
+
+    IEnumerator EventCorutine(EventName eventName ,GameObject target)
+    {
+        List<EventEntity> entity = null;
+        entity = GetEventEntity(eventName);
+        int count = entity.Count;
         Debug.Log("イベントのコマンドの数 : " + count);
         yield return null;
+        //  イベントの開始
         for (int i = 0; i < count; i++)
         {
             FlagManager.Instance.IsEventing = true;
@@ -283,7 +320,6 @@ public class EventManager : MonoBehaviour
                 BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Door);
                 break;
             case 1:
-                Debug.Log("BUbbleeeeeee");
                 BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Repair);
                 break;
             case 2:
@@ -297,6 +333,18 @@ public class EventManager : MonoBehaviour
                 break;
             case 5:
                 BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Power);
+                break;
+            case 6:
+                BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Skull);
+                break;
+            case 7:
+                BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.CardKey);
+                break;
+            case 8:
+                BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.BookMark);
+                break;
+            case 9:
+                BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Pero);
                 break;
             default:
                 Debug.Log("この吹き出しは未実装");
@@ -354,24 +402,7 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("WarpFran");
-        switch (value)
-        {
-            case 0:
-                Debug.Log("0番目にワープ(セーブの座標統合予定)");
-                break;
-            case 1:
-                Debug.Log("0番目にワープ(セーブの座標統合予定)");
-                break;
-            case 2:
-                Debug.Log("0番目にワープ(セーブの座標統合予定)");
-                break;
-            case 3:
-                Debug.Log("0番目にワープ(セーブの座標統合予定)");
-                break;
-            default:
-                Debug.Log("まだこの座標は未実装");
-                break;
-        }
+        GetComponent<WarpManager>().WarpFran(value);
         yield break;
     }
     IEnumerator DropItem(int value, float delayTime, bool waitMovie)
@@ -382,6 +413,8 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("DropItem");
+        //  アイテムの表示
+        UpdateEvent();
         yield break;
     }
     IEnumerator PickupItem(int value, float delayTime, bool waitMovie, GameObject target)
@@ -424,50 +457,45 @@ public class EventManager : MonoBehaviour
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.BookMark_Past);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_07_BookStop);
                 break;
-            //----------------------------------------------------------------
             case 7:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Report_88);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_08_ReportNo88);
                 break;
             case 8:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Diary_Fran);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_09_DiaryFran);
                 break;
             case 9:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Instructions);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_10_Instructions);
                 break;
             case 10:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_11_PlantBookPiece);
                 break;
             case 11:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_1);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_12_Pants_A);
                 break;
             case 12:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_2);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_13_Pants_B);
                 break;
             case 13:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_3);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_14_Pants_C);
                 break;
             case 14:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_4);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_15_Pants_D);
                 break;
             case 15:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_5);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_16_Pants_E);
                 break;
             case 16:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
-                break;
-            case 17:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Yerrow_Orb);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_01_YellowOrb);
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_6);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_17_Pants_F);
                 break;
             default:
                 Debug.LogWarning("アイテム取得で未実装の番号が選択されました。番号：" + value);
@@ -519,9 +547,8 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("Minigame2");
-        //target.GetComponent<PanelPuzzleControl>().s 
         //  ミニゲーム２表示
-        
+        PanelPuzzleControl.Instance.StartPanelPuzzle();
         yield break;
     }
     IEnumerator ChangeColor(int value, float delayTime, bool waitMovie)
@@ -625,6 +652,48 @@ public class EventManager : MonoBehaviour
                 break;
             case 2:
                 SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_02_Wator);
+                break;
+            case 3:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_03_MapChange);
+                break;
+            case 4:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_04_Capsule);
+                break;
+            case 5:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_05_Staircase);
+                break;
+            case 6:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_06_ItemPickUp);
+                break;
+            case 7:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_07_Mushroom_Up);
+                break;
+            case 8:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_08_Mushroom_Down);
+                break;
+            case 9:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_09_MovePiece);
+                break;
+            case 10:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_10_SetPiece);
+                break;
+            case 11:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_11_Report);
+                break;
+            case 12:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_12_CardKey);
+                break;
+            case 13:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_13_StartUp);
+                break;
+            case 14:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_14_Running);
+                break;
+            case 15:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_15_Band);
+                break;
+            case 16:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
                 break;
             default:
                 Debug.LogWarning(value + "番のSEは未実装");

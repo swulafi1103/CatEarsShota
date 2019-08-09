@@ -20,7 +20,7 @@ public class PanelPuzzleControl : MonoBehaviour
     }
 
     static PanelPuzzleControl instance;
-    public PanelPuzzleControl Instance {
+    public static PanelPuzzleControl Instance {
         get { return instance; }
     }
     private void Awake() {
