@@ -7,6 +7,8 @@ public class OrbSetter : MonoBehaviour
 {
     [SerializeField]
     Image[] OrbImages = new Image[4];
+    [SerializeField]
+    SpriteRenderer[] MapOrbImages = new SpriteRenderer[4];
 
     [SerializeField]
     GameObject OrbSetterImage;
@@ -62,6 +64,16 @@ public class OrbSetter : MonoBehaviour
             if (!ItemManager.Instance.SelectedEventItem(orblist[i])) continue;
             OrbSetterImage.SetActive(true);
             OrbImages[i].enabled = true;
+            MapOrbImages[i].enabled = true;
+            CheckFlag();
         }
+    }
+
+    /// <summary>
+    /// ここで何がはめられているかでflagmanager変更
+    /// </summary>
+    void CheckFlag()
+    {
+
     }
 }
