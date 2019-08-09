@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d414ab04e57438b468a9bf3e0ef378bd, type: 3}
   m_Name: EventExcel
   m_EditorClassIdentifier: 
-  EventTest1:
+  E01_Map1_to_map2:
   - category: 1
     value: 0
     delayTime: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
     delayTime: 2
     waitMovie: 0
     volume: 0
-  EventTest2:
+  E02_Map2_to_map1:
   - category: 1
     value: 0
     delayTime: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 1
     volume: 0
-  EventTest3:
+  E03_Pant_pickup3:
   - category: 1
     value: 0
     delayTime: 1
@@ -90,3 +90,44 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 1
     volume: 0
+  E04_MiniGame2_clear: []
+  E05_Map1_to_map2_past: []
+  E06_Map2_to_map1_past: []
+  E07_Report2_pickup_past: []
+  E08_Piece_pickup_past: []
+  E09_Gate1geme_past: []
+  E10_Gate1geme_clear_past: []
+  E11_Gate1geme_error_past: []
+  E12_Stairs1_up_past: []
+  E13_Stairs1_down_past: []
+  E14_Enemy_exit_past: []
+  E15_Timecapsule_piece_buried_past: []
+  E16_Mushroom_plant1_past: []
+  E17_Mushroom_noplant_past: []
+  E18_Cardkey_needed: []
+  E19_Pant_pickup4: []
+  E20_Timecapsule_piece: []
+  E21_Pant_pickup5: []
+  E22_Picture_book_piece_pickup: []
+  E23_MiniGame2_clear: []
+  E24_Alone_start_past: []
+  E25_Gate2game_past: []
+  E26_Gate2geme_clear_past: []
+  E27_Gate2geme_error_past: []
+  E28_Stairs2_up_past: []
+  E29_Stairs2_down_past: []
+  E30_Stairs3_up_past: []
+  E31_Stairs3_down_past: []
+  E32_Apparatus_on_past: []
+  E33_report3_pickup: []
+  E34_Timecapsule_bookmark_buried_past: []
+  E35_Mushroom_plant2_past: []
+  E36_End_past: []
+  E37_Pant_pickup: []
+  E38_No_answer: []
+  E39_Blue_event: []
+  E40_Orb_fillin: []
+  E41_Bad_end: []
+  E42_Time_capsule_bookmark: []
+  E43_Green_event: []
+  E44_Orb_fillin_clear: []

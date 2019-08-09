@@ -58,13 +58,11 @@ public class EventManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            PlayEvent(EventName.Event1);
+            PlayEvent(EventName.E01_Map1_to_map2);
         }        
     }
 
-    /// <summary>
-    /// フラグのチェックと更新
-    /// </summary>
+    /// <summary>フラグのチェックと更新</summary>
     public void UpdateEvent()
     {
         foreach(GameObject obj in gimmickList)
@@ -109,7 +107,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    private IEnumerator CallCorutine(EventCategory eventCategory, int value, float delayTime, bool waitMovie, GameObject target = null)
+    private IEnumerator CallCorutine(EventCategory eventCategory, int value, float delayTime, bool waitMovie, float volume, GameObject target = null)
     {
         switch (eventCategory)
         {
@@ -136,7 +134,7 @@ public class EventManager : MonoBehaviour
             case EventCategory.Minigame1:
                 return Minigame1(value, delayTime, waitMovie);
             case EventCategory.Minigame2:
-                return Minigame2(value, delayTime, waitMovie);
+                return Minigame2(value, delayTime, waitMovie, target);
             case EventCategory.ChangeColor:
                 return ChangeColor(value, delayTime, waitMovie);
             case EventCategory.TextWindow:
@@ -144,7 +142,7 @@ public class EventManager : MonoBehaviour
             case EventCategory.BGM:
                 return PlayBGM(value, delayTime, waitMovie);
             case EventCategory.SE:
-                return PlaySE(value, delayTime, waitMovie);
+                return PlaySE(value, delayTime, waitMovie, volume);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -169,16 +167,16 @@ public class EventManager : MonoBehaviour
 
         switch (eventName)
         {
-            case EventName.Event1:
-                entity = eventExcel.EventTest1;
+            case EventName.E01_Map1_to_map2:
+                entity = eventExcel.E01_Map1_to_map2;
                 count = entity.Count;
                 break;
-            case EventName.Event2:
-                entity = eventExcel.EventTest2;
+            case EventName.E02_Map2_to_map1:
+                entity = eventExcel.E02_Map2_to_map1;
                 count = entity.Count;
                 break;
-            case EventName.Event3:
-                entity = eventExcel.EventTest3;
+            case EventName.E03_Pant_pickup3:
+                entity = eventExcel.E03_Pant_pickup3;
                 count = entity.Count;
                 break;
             default:
@@ -190,7 +188,7 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             FlagManager.Instance.IsEventing = true;
-            yield return StartCoroutine(CallCorutine(entity[i].category, entity[i].value, entity[i].delayTime, entity[i].waitMovie, target));
+            yield return StartCoroutine(CallCorutine(entity[i].category, entity[i].value, entity[i].delayTime, entity[i].waitMovie, entity[i].volume, target));
         }
         FlagManager.Instance.IsEventing = false;
         Debug.Log("イベント終了");
@@ -265,11 +263,8 @@ public class EventManager : MonoBehaviour
                 Debug.Log("研究所出口をズーム(過去)");
                 MainCamera.Instance.T_ChangeFocus(zoomObjects[2]);
                 break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
+            default:
+                Debug.Log("ズームの未実装のValue");
                 break;
         }
         yield break;
@@ -397,6 +392,8 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("PickUpItem");
+        //  非表示
+        target.SetActive(false);
         switch (value)
         {
             case 0:
@@ -511,9 +508,10 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("Minigame1");
         //  ミニゲーム１表示
+        MiniGameManager.Instance.TouchGenerator(value);
         yield break;
     }
-    IEnumerator Minigame2(int value, float delayTime, bool waitMovie)
+    IEnumerator Minigame2(int value, float delayTime, bool waitMovie, GameObject target)
     {        
         if (waitMovie)
         {
@@ -521,8 +519,9 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("Minigame2");
-        //PanelPuzzleControl.ins
+        //target.GetComponent<PanelPuzzleControl>().s 
         //  ミニゲーム２表示
+        
         yield break;
     }
     IEnumerator ChangeColor(int value, float delayTime, bool waitMovie)
@@ -608,7 +607,7 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator PlaySE(int value, float delayTime, bool waitMovie)
+    IEnumerator PlaySE(int value, float delayTime, bool waitMovie, float vol)
     {
         if (waitMovie)
         {
@@ -638,17 +637,51 @@ public class EventManager : MonoBehaviour
 
 public enum EventName
 {
-    Event1,
-    Event2,
-    Event3,
-    Event4,
-    Event5,
-    Event6,
-    Event7,
-    Event8,
-    Event9,
+    E01_Map1_to_map2,                   //（マップ1出口接触）フェードイン→プレイヤー座標変更→フェードアウト
+    E02_Map2_to_map1,                   //（マップ2入口接触）フェードイン→プレイヤー座標変更→フェードアウト
+    E03_Pant_pickup3,                   //（パンツ3に触れる）パンツ3拾う
+    E04_MiniGame2_clear,                //（壁画Aボタン）ミニゲーム2入る
+    E05_Map1_to_map2_past,              //（マップ1出口接触）フェードイン→プレイヤー座標変更→フェードアウト
+    E06_Map2_to_map1_past,              //（マップ2入口接触）フェードイン→プレイヤー座標変更→フェードアウト
+    E07_Report2_pickup_past,            //フランの研究日誌をAで拾う→フェードイン→アイテムの表示
+    E08_Piece_pickup_past,              //壁画のピースを拾う→アイテム欄に入る
+    E09_Gate1geme_past,                 //調べると（A）フェードイン→ミニゲーム１の出現
+    E10_Gate1geme_clear_past,           //ゲームクリアフェードアウト→扉が開く
+    E11_Gate1geme_error_past,           //ゲーム失敗フェードアウト
+    E12_Stairs1_up_past,                //階段を調べる→フェードイン→フランの座標位置変更→フェードアウト
+    E13_Stairs1_down_past,              //階段を調べる→フェードイン→フランの座標位置変更→フェードアウト
+    E14_Enemy_exit_past,                //出口にＡボタン→フェードイン→ムービー開始→フランの位置変更→フェードアウト
+    E15_Timecapsule_piece_buried_past,  //埋め場にＡボタン→チュートリアル表示→壁画のピースを使用→ SE→埋め場画像差し替え→UI「キノコのもとを手に入れました」を表示→右側の腐木にビックリ吹き出し表示
+    E16_Mushroom_plant1_past,           //チュートリアルの表示→ビックリマークアウト→インベントリの表示→キノコのもとを使用→UI「腐木にキノコのもとを設置」
+    E17_Mushroom_noplant_past,          //（キノコを設置せずにはしご降りようとする場合）はしごにＡボタン→キノコのもとの吹き出し
+    E18_Cardkey_needed,                 //（カードキーなしで出口にAボタン）吹き出し
+    E19_Pant_pickup4,                   //（パンツ4に触れる）パンツ4拾う
+    E20_Timecapsule_piece,              //（埋め場Aボタン）フェードイン→SE→画像差し替え→フェードアウト→ピース入手→吹き出しウィンドウ
+    E21_Pant_pickup5,                   //（パンツ5に触れる）パンツ5拾う
+    E22_Picture_book_piece_pickup,      //（植物図鑑のページにAボタン）レポート拾う→フェードイン→レポート表示
+    E23_MiniGame2_clear,                //（ミニゲーム2クリア）フェードイン→ムービー→BGM→変色ムービー→赤オーブドロップ→ビックリマーク吹き出し
+    E24_Alone_start_past,               //階段を調べる→フェードイン→ムービー開始→→フランの位置変更→フランの立ち絵（ペローなし）差し替え→アイテム「しおり」入手→UI「しおりの入手した」→マップ1と2の行き来を止める（プログラマー？）→フェードアウト→UI「しおりを手に入れました」を表示
+    E25_Gate2game_past,                 //調べると（A）フェードイン→ミニゲーム１の出現
+    E26_Gate2geme_clear_past,           //ゲームクリアフェードアウト→扉が開く
+    E27_Gate2geme_error_past,           //ゲーム失敗フェードアウト
+    E28_Stairs2_up_past,                //階段を調べる→フェードイン→フランの座標位置変更→フェードアウト
+    E29_Stairs2_down_past,              //階段を調べる→フェードイン→フランの座標位置変更→フェードアウト
+    E30_Stairs3_up_past,                //階段を調べる→フェードイン→フランの座標位置変更→フェードアウト
+    E31_Stairs3_down_past,              //階段を調べる→フェードイン→フランの座標位置変更→フェードアウト
+    E32_Apparatus_on_past,              //調べるとヒントの吹き出しの表示→装置起動→埋め場にビックリマークの吹き出しの表示
+    E33_report3_pickup,                 //エネルギー循環装置の説明書を拾う→フェードイン→アイテム表示
+    E34_Timecapsule_bookmark_buried_past,   //調べるとイベントリの表示→しおり使用→ SE→埋め場画像差し替え→UI「キノコのもとを手に入れました」を表示→左側の腐木の上にビックリマークの吹き出しの表示
+    E35_Mushroom_plant2_past,           //左側の腐木を調べてインベントリの表示→キノコのもとを使用→UI「キノコのもとを設置した」→フェードイン→ムービー→背景（壊れた階段ver）差し替え→敵出現→装置にビックリマークの吹き出しの表示→フェードアウト
+    E36_End_past,                       //調べるとフェードイン→ムービー→過去モード終了
+    E37_Pant_pickup,                    //（パンツ6に触れる）パンツ6拾う
+    E38_No_answer,                      //（過去現在切り替えが止められている場合）Fボタン→吹き出しウィンドウ
+    E39_Blue_event,                     //（水槽にAボタン）フェードイン→回想ムービー→BGM→黒化ムービー→（キャラアニメーション差し替え）→変色ムービー→青オーブドロップ→ビックリマーク吹き出し→キーカード入手→カードキー入手吹き出しウィンドウ
+    E40_Orb_fillin,                     //（オーブパネルにAボタン）オーブパネル中央表示
+    E41_Bad_end,                        //（カードキー所持で出口Aボタン）インベントリ画面出現→カードキー使う→ビックリ吹き出し消える→フェードイン→ムービー
+    E42_Time_capsule_bookmark,          //（埋め場Aボタン）フェードイン→SE→画像差し替え→フェイドアウト→しおり入手→しおり入手吹き出しウィンドウ
+    E43_Green_event,                    //（しおり入手）フェードイン→BGM→ムービー→変色ムービー→緑オーブドロップ→ビックリマーク吹き出し
+    E44_Orb_fillin_clear,               //（四つのオーブを嵌めた）暗転→ムービー
 }
-
 
 /// <summary>
 /// キャラの調べる反応させる関数

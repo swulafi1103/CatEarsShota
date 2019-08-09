@@ -38,38 +38,30 @@ public class MiniGameManager : MonoBehaviour
     #endregion
 
     [SerializeField]
-    private GameObject map;                    //mapオブジェクト変更
-
+    private GameObject map;     //mapオブジェクト変更
     [SerializeField]
     private Sprite[] countdownImage = new Sprite[4];
+    [SerializeField]
+    private GameObject[] keyObjects = new GameObject[5];    //  コマンドの画像のPrefab
 
     private static readonly KeyCode[] USEKEYS = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftArrow, KeyCode.RightArrow };    //  ミニゲームに使うキー配列
     private KeyCode[]   questionCommand;        //  問題のキー配列
-
-    //private const int   MISTAKELIMIT = 4;     //  ミス上限値
-    //private int         mistakeCount = 0;     //  ミスのカウント
-    private int         numOrder;               //  解答中のコマンドの並び
+    private int         questionValue = -1;     //  問題の数
+    private int         numOrder;               //  解答中のコマンドの場所
     private bool        isMinigame = false;     //  ミニゲーム中か
     private bool        isCountdownEnd = false; //  ミニゲームのカウントダウンは終わったか
     private bool        isFadeing = false;      //  フェード中か
-    private float       defaultTimeLimit = 20f; //  ミニゲームの制限時間
+    private const float defaultTimeLimit = 20f; //  ミニゲームの制限時間
     private float       timeLimit;
     private float       fadeAlpha = 0;
-
     private GameObject  discriptionObj;         //  説明用のUI
     private GameObject  miniGameViewObj;        //  ミニゲームのコマンドなどが表示されるUI
-    private Text clearText;
+    private Text        clearText;
     private GameObject  timerObj;               //  タイマーを表示する用
     private Image       countdownObj;           //  カウントダウン用
-
-    //[SerializeField]
-    //private GameObject  mistakeCountObj;      //  失敗回数を表示する用
     private GameObject  commandParentObj;       //  コマンドの表示用
-
-    [SerializeField]
-    private GameObject[] keyObjects = new GameObject[5];    //  コマンドの画像のPrefab
-    private Color       fadeColor = Color.red;
     private GameObject[] commandTexts;
+    private Color       fadeColor = Color.red;
 
     [HideInInspector]
     public GameObject generetor;
@@ -83,13 +75,6 @@ public class MiniGameManager : MonoBehaviour
     void Update()
     {
         CheckTypingKey();
-        //if (isMinigame && !isCountdownEnd)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.A))
-        //    {
-        //        StartMiniGame();
-        //    }
-        //}
     }
 
     void OnGUI()
@@ -111,38 +96,33 @@ public class MiniGameManager : MonoBehaviour
         countdownObj = transform.Find("MinigameBackGround/CountDown").GetComponent<Image>();
         clearText= transform.Find("MinigameBackGround/ClearText").GetComponent<Text>();
         commandParentObj = transform.Find("MinigameBackGround/CommandParent").gameObject;
-        string log = "MiniGame Find Succes";
-        if (discriptionObj == null)
-        {
-            log = "MiniGame Find Faild" + ": MissingObj : " + discriptionObj.name;
-        }
-        if (miniGameViewObj == null)
-        {
-            log = "MiniGame Find Faild" + ": MissingObj : " + miniGameViewObj.name;
-        }
-        if (timerObj == null)
-        {
-            log = "MiniGame Find Faild" + ": MissingObj : " + timerObj.name;
-        }
-        if (countdownObj == null)
-        {
-            log = "MiniGame Find Faild" + ": MissingObj : " + countdownObj.name;
-        }
-        if (commandParentObj == null)
-        {
-            log = "MiniGame Find Faild" + ": MissingObj : " + commandParentObj.name;
-        }
-        Debug.Log(log);
     }
 
-    /// <summary>
-    /// 発電機を触れたら
-    /// </summary>
-    public void TouchGenerator()
+    /// <summary>発電機を触れたら</summary>
+    public void TouchGenerator(int value)
     {
+        SetQustionValue(value);
         StartCoroutine(SetTuto());
     }
 
+    private void SetQustionValue(int value)
+    {
+        switch (value)
+        {
+            case 0:
+                questionValue = 5;
+                break;
+            case 1:
+                questionValue = 7;
+                break;
+            case 2:
+                questionValue = 9;
+                break;
+        }
+    }
+
+
+    //  タイピングゲームの説明とUIのアニメーション
     IEnumerator SetTuto() {
         isMinigame = true;
         FlagManager.Instance.IsEventing = true;
@@ -174,15 +154,9 @@ public class MiniGameManager : MonoBehaviour
         yield break;
     }
 
-    /// <summary>
-    /// ミニゲームの開始
-    /// </summary>
+    /// <summary>ミニゲームの開始</summary>
     public void StartMiniGame()
     {
-        //  失敗数でゲームオーバーになるように(処理を変えたためコメントアウト)
-        //mistakeCount = 0;
-        countdownObj.color = Color.white;
-        clearText.color = Color.white;
         discriptionObj.SetActive(false);
         miniGameViewObj.SetActive(true);
         timeLimit = defaultTimeLimit;
@@ -190,10 +164,7 @@ public class MiniGameManager : MonoBehaviour
         StartCoroutine(CountDown());
     }
 
-
-    /// <summary>
-    /// 同じ数字が続かないランダムな配列の生成
-    /// </summary>
+    /// <summary>同じ数字が続かないランダムな配列の生成</summary>
     /// <param name="size"></param>
     void GenerateRandomNums(int size)
     {
@@ -220,9 +191,7 @@ public class MiniGameManager : MonoBehaviour
         CreateQuestionCommand(randomNums);
     }
 
-    /// <summary>
-    /// 問題となるのコマンドを生成
-    /// </summary>
+    /// <summary>問題となるのコマンドを生成</summary>
     /// <param name="randomNums"></param>
     void CreateQuestionCommand(int[] randomNums)
     {
@@ -260,9 +229,7 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// タイピングしたキーの判定
-    /// </summary>
+    /// <summary>タイピングしたキーの判定</summary>
     void CheckTypingKey()
     {
         if (isCountdownEnd && isMinigame)
@@ -305,10 +272,7 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// 正解時の処理
-    /// </summary>
+    /// <summary>正解時の処理</summary>
     void CorrectAnswer()
     {
         numOrder++;
@@ -320,9 +284,7 @@ public class MiniGameManager : MonoBehaviour
 
     bool isDameged = false;
 
-    /// <summary>
-    /// 不正解の時の処理
-    /// </summary>
+    /// <summary>不正解の時の処理</summary>
     void IncorrectAnswer()
     {
         if (isDameged)
@@ -333,24 +295,31 @@ public class MiniGameManager : MonoBehaviour
         StartCoroutine(DamegeEffect(0.25f));
         timeLimit -= 1;
         numOrder = 0;
-        GenerateRandomNums(5);
+        GenerateRandomNums(questionValue);
     }
 
-    /// <summary>
-    /// ハッキングに成功
-    /// </summary>
+    /// <summary>成功時</summary>
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
-        //  ミニゲーム１のクリアフラグSet
-        generetor.GetComponent<PlayMinigame>().CompleteGimmick();
-        FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);
-        generetor.GetComponent<PlayMinigame>().MiniGameClear();
+        //  マップ１のミニゲーム１のクリアフラグSet
+        switch (questionValue)
+        {
+            case 5:     //  Map1のときの処理
+                generetor.GetComponent<PlayMinigame>().CompleteGimmick();
+                FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);
+                generetor.GetComponent<PlayMinigame>().MiniGameClear();
+                break;
+            case 7:     //  Map2の扉１の処理
+                Debug.Log("タイピングゲーム2個目、フラグのセットが未完");
+                break;
+            case 9:     //  Map1の扉２の処理
+                Debug.Log("タイピングゲーム3個目、フラグのセットが未完");
+                break;
+        }
     }
 
-    /// <summary>
-    /// ハッキングに失敗
-    /// </summary>
+    /// <summary>ハッキングに失敗時</summary>
     void MinigameFaild()
     {
         FlagManager.Instance.IsEventing = false;
@@ -358,41 +327,13 @@ public class MiniGameManager : MonoBehaviour
         generetor.GetComponent<PlayMinigame>().isOpenMinigame = false;
     }
 
-    /// <summary>
-    /// KeyCodeを文字列に変換する
-    /// </summary>
-    /// <param name="keyCode"></param>
-    /// <returns></returns>
-    private string ChangeKeyCodeString(KeyCode keyCode)
-    {
-        switch (keyCode)
-        {
-            case KeyCode.A:
-                return "Ａ";
-            case KeyCode.S:
-                return "Ｓ";
-            case KeyCode.D:
-                return "Ｄ";
-            case KeyCode.RightArrow:
-                return "→";
-            case KeyCode.LeftArrow:
-                return "←";
-            default:
-                //  でてたらヤバイ
-                Debug.Log("?の文字:" + keyCode);
-                return "?";
-        }
-    }
-
-    IEnumerator ChengeFran()
+    IEnumerator ChangeFran()
     {
         Fade.Instance.StartFadeInOut(1, Color.white);
         yield break;
     }
 
-    /// <summary>
-    /// ミニゲームの開始時に表示
-    /// </summary>
+    /// <summary>ミニゲームの開始時に表示</summary>
     IEnumerator CountDown()
     {
         yield return new WaitForSeconds(1f);
@@ -409,14 +350,12 @@ public class MiniGameManager : MonoBehaviour
         isCountdownEnd = true;
         yield return new WaitForSeconds(0.5f);
         countdownObj.enabled = false;
-        GenerateRandomNums(5);
+        GenerateRandomNums(questionValue);
         yield break;
     }
 
-    /// <summary>
-    /// クリア時の表示
-    /// </summary>
-    /// <returns>The clear text.</returns>
+    /// <summary>クリア時の表示</summary>
+    /// <returns>The clear text</returns>
     IEnumerator DisplayClearText()
     {
         clearText.enabled = true;
@@ -436,9 +375,6 @@ public class MiniGameManager : MonoBehaviour
         clearText.enabled = false;
         miniGameViewObj.SetActive(false);
         numOrder = 0;
-        //mistakeCount = 0;
-        //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
-        //map.GetComponent<MapStatus>().MapObjectState[2] = true;
         FlagManager.Instance.IsEventing = false;
         yield break;
     }
@@ -477,8 +413,7 @@ public class MiniGameManager : MonoBehaviour
         clearText.text = "";
         clearText.enabled = false;
         miniGameViewObj.SetActive(false);
-        //mistakeCount = 0;
-        //mistakeCountObj.GetComponent<Text>().text = mistakeCount.ToString();
+        clearText.color = Color.white;
         yield break;
     }
 

@@ -25,7 +25,7 @@ public class FranMove : MonoBehaviour
     public bool isNotmoves = false;
     Vector3 scale;
     [SerializeField]
-    private ContactFilter2D filter2d;
+    private ContactFilter2D filter2d = default;
     private GameObject MinigameMgr;
     [SerializeField]
     private List<GameObject> examinableObjects = new List<GameObject>();
