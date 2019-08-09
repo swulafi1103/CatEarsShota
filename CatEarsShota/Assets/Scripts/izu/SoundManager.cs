@@ -52,9 +52,20 @@ public class SoundManager : MonoBehaviour
         SE_00_Alerm,
         SE_01_BreakWin,
         SE_02_Wator,
-        SE_03,
-        SE_04,
-        SE_05,
+        SE_03_MapChange,
+        SE_04_Capsule,
+        SE_05_Staircase,
+        SE_06_ItemPickUp,
+        SE_07_Mushroom_Up,
+        SE_08_Mushroom_Down,
+        SE_09_MovePiece,
+        SE_10_SetPiece,
+        SE_11_Report,
+        SE_12_CardKey,
+        SE_13_StartUp,
+        SE_14_Running,
+        SE_15_Band,
+        SE_16_Gate,
     };
 
     public enum BGM_Name {

@@ -30,5 +30,7 @@ public enum EventCategory
     TextWindow,
     BGM,
     SE,
+    ChangeSprite,
+    StandFlag,
 }
 

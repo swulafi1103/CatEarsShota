@@ -50,4 +50,7 @@ public class EventExcel : ScriptableObject
     public List<EventEntity> E42_Time_capsule_bookmark;
     public List<EventEntity> E43_Green_event;
     public List<EventEntity> E44_Orb_fillin_clear;
+    public List<EventEntity> E45_Blueorb_pickup;
+    public List<EventEntity> E46_Greenorb_pickup;
+    public List<EventEntity> E47_Redorb_pickup;
 }
