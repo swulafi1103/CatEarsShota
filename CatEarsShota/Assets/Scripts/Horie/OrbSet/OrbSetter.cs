@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OrbSetter : MonoBehaviour
 {
     [SerializeField]
-    SpriteRenderer[] OrbImages = new SpriteRenderer[4];
+    Image[] OrbImages = new Image[4];
+
+    [SerializeField]
+    GameObject OrbSetterImage;
 
     ItemManager.ItemNum[] orblist =
     {
@@ -25,10 +29,28 @@ public class OrbSetter : MonoBehaviour
     void Update()
     {
         OrbCheck();
+        CheckXKey();
+        SetitemUI();
     }
 
-    public void SetitemUI()
+    public void SetDetailOrb()
     {
+        OrbSetterImage.SetActive(true);
+        FlagManager.Instance.IsEventing = true;
+    }
+
+    void CheckXKey()
+    {
+        if (!OrbSetterImage.activeSelf) return;
+        if (!Input.GetKeyDown(KeyCode.X)) return;
+        FlagManager.Instance.IsEventing = false;
+        OrbSetterImage.SetActive(false);
+    }
+
+    void SetitemUI()
+    {
+        if (!Input.GetKeyDown(KeyCode.D)) return;
+        OrbSetterImage.SetActive(false);
         ItemManager.Instance.SetEvents(orblist);
     }
 
@@ -36,8 +58,9 @@ public class OrbSetter : MonoBehaviour
     {
         for(int i = 0; i < OrbImages.Length; i++)
         {
-            if (OrbImages[i].enabled == true) return;
-            if (!ItemManager.Instance.SelectedEventItem(orblist[i])) return;
+            if (OrbImages[i].enabled == true) continue;
+            if (!ItemManager.Instance.SelectedEventItem(orblist[i])) continue;
+            OrbSetterImage.SetActive(true);
             OrbImages[i].enabled = true;
         }
     }
