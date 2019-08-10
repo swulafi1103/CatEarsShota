@@ -8,9 +8,12 @@ using UnityEngine.Video;
 [DefaultExecutionOrder(-21)]
 public class MainCamera : MonoBehaviour
 {
+    private int atcurrentmap = 0;
     #region Singleton
     private static MainCamera instance;
     public static MainCamera Instance
+
+   
     {
         get
         {
@@ -107,12 +110,12 @@ public class MainCamera : MonoBehaviour
         }
         else
         {
-            if (Player.transform.position.x < CameraLimit[1] && Player.transform.position.x > CameraLimit[0])
+            if (Player.transform.position.x < CameraLimit[1 + (atcurrentmap * 2)] && Player.transform.position.x > CameraLimit[0 + (atcurrentmap * 2)])
                 transform.position = Vector3.Lerp(transform.position, Player.transform.position - rangeToTarget, Time.deltaTime);
             else
             {
-                int tmpindex = Player.transform.position.x > CameraLimit[1] ? 0 : 1;
-                Vector3 limitpos = new Vector3(CameraLimit[tmpindex], transform.position.y, transform.position.z);
+                int tmpindex = Player.transform.position.x > CameraLimit[1+(atcurrentmap*2)] ? 1 : 0;
+                Vector3 limitpos = new Vector3(CameraLimit[tmpindex + (atcurrentmap * 2)], transform.position.y, transform.position.z);
                 transform.position = Vector3.Lerp(transform.position, limitpos, Time.deltaTime);
 
             }
@@ -138,7 +141,10 @@ public class MainCamera : MonoBehaviour
     public void MovingMap(int mapNumber)
     {
         if (!FlagManager.Instance.IsEventing)
+        {
             StartCoroutine(MovingBetweenMap(mapNumber));
+            atcurrentmap=mapNumber;
+        }
     }
     public void SkipVideo() //スキップの機能追加
     {
