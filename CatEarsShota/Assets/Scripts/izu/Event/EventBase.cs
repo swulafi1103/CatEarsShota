@@ -4,27 +4,36 @@ using UnityEngine;
 
 public class EventBase : MonoBehaviour
 {
-    private Sprite bubbleImage = default;
-    [SerializeField]
+    [SerializeField, HeaderAttribute("↓↓プランナーが編集する箇所↓↓")]
     private Vector2 bubblePos = default;
     [SerializeField]
     private bool flipBubble = default;
-    [SerializeField]
     protected bool isDisplayBubble;
 
-    [SerializeField, EnumFlags, HeaderAttribute("↓↓プランナーが編集する、かもしれない箇所↓↓")]
+    [SerializeField, EnumFlags]
     protected ItemFlag needItemFlag;
     [SerializeField, EnumFlags]
     protected GimmickFlag needGimmickFlag;
 
+    protected bool isFinish = false;
 
+    void Update()
+    {
+        
+    }
+
+    public virtual void Finished()
+    {
+        isFinish = true;
+    }
 
     public virtual bool CheckFlag()
     {
         bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
-        if (flag)
+        isDisplayBubble = flag;
+        if (isFinish)
         {
-            isDisplayBubble = flag;
+            isDisplayBubble = false;
         }
         DisplayBubble();
         return flag;
@@ -37,22 +46,18 @@ public class EventBase : MonoBehaviour
         //  子の数が0だったらReturn
         if (transform.childCount == 0)
         {
-            //Debug.Log("吹き出し無し : " + gameObject.name);
             return;
         }
         childObj = transform.GetChild(0).gameObject;
+        //  子の名前がBubbleじゃなかったらReturn
         if (childObj.name != "Bubble")
         {
-            //Debug.Log("吹き出し無しの名前 : " + childObj.name);
             return;
         }
         //  表示
         if (isDisplayBubble)
         {
-            if (bubbleImage != null)
-            {
-                childObj.GetComponent<SpriteRenderer>().sprite = bubbleImage;
-            }
+            childObj.GetComponent<SpriteRenderer>().sprite = BubbleEvent.Instance.ExclamationSprite;
             childObj.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y) + bubblePos;
             childObj.GetComponent<SpriteRenderer>().flipX = flipBubble;
             childObj.GetComponent<SpriteRenderer>().enabled = true;

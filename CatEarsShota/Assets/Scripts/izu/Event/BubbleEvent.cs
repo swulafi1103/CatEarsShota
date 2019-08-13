@@ -55,6 +55,13 @@ public class BubbleEvent : MonoBehaviour
     private GameObject childBubble;
     [SerializeField]
     private List<BubbleImages> bubbleSprites = new List<BubbleImages>();
+    [SerializeField]
+    private Sprite exclamationSprite;
+
+    public Sprite ExclamationSprite
+    {
+        get { return exclamationSprite; }
+    }
 
     private const float chengeTime = 0.5f;
 
@@ -70,7 +77,7 @@ public class BubbleEvent : MonoBehaviour
 
 
     void Update()
-    {        
+    {
         if (baseBubble.activeSelf == true)
         {
             baseBubble.transform.position = PlayerManager.Instance.GetPlayerPos() + new Vector2(1.5f, 1);
@@ -132,7 +139,7 @@ public class BubbleEvent : MonoBehaviour
         }
         yield return null;
         baseBubble.SetActive(false);
-        yield break; 
+        yield break;
     }
 
     [System.Serializable]

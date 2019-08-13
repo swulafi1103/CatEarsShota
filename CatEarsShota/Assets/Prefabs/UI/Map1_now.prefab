@@ -313,12 +313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c27e0d5b10a8a24ab8e4f85e9e7d8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
-  isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
   standgimmickFlag: 1
   isComplete: 0
 --- !u!1 &1939236716441490009
@@ -678,12 +676,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303fd8c655f9c60499ddc12dd10addc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 1024
-  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
   bubblePos: {x: 2, y: 2}
   flipBubble: 0
-  isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 1024
   standgimmickFlag: 2048
   isComplete: 0
   limitObj: {fileID: 7511413817082153714}
@@ -1226,12 +1222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b579a11d260900d4c98a7701d0a86beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubblePos: {x: -2, y: 0}
+  flipBubble: 0
   needItemFlag: 2048
   needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
-  bubblePos: {x: 0, y: 0}
-  flipBubble: 0
-  isDisplayBubble: 0
   standgimmickFlag: 0
   isComplete: 0
 --- !u!1 &5418084379824723135
@@ -1433,12 +1427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347a18076e09d9f4eb6ec9ab851e7ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 8
-  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
   bubblePos: {x: 1, y: 0.5}
   flipBubble: 0
-  isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 8
   standItemFlag: 2048
   itemNum: 15
 --- !u!1 &5899590655937504289
@@ -1646,12 +1638,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658febfdf1d6dc04ca7148d93deeb5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 2048
-  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
   bubblePos: {x: -1, y: 0.5}
   flipBubble: 1
-  isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 2048
   standItemFlag: 1
   itemNum: 0
 --- !u!1 &7028062107517103377
@@ -1959,12 +1949,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51960c7514c84346af643639b2f5a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 2
-  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
   bubblePos: {x: 0.6, y: 0.6}
   flipBubble: 0
-  isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 2
   standgimmickFlag: 4
   isComplete: 0
   videoStrage: {fileID: 0}
@@ -2576,12 +2564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fb5da080c27684b9bdb31233173418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 4
-  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
   bubblePos: {x: 1, y: 1}
   flipBubble: 0
-  isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 4
   standgimmickFlag: 8
   isComplete: 0
   moyaObj: {fileID: 1939236716441490009}

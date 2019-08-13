@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -144,7 +145,9 @@ public class EventManager : MonoBehaviour
             case EventCategory.SE:
                 return PlaySE(value, delayTime, waitMovie, volume);
             case EventCategory.ChangeSprite:
-                break;
+                return ChangeSprite(value, delayTime, waitMovie);
+            case EventCategory.StandFlag:
+                return StandFlag(delayTime, waitMovie, target);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -152,7 +155,6 @@ public class EventManager : MonoBehaviour
         Debug.LogWarning("EventCategoryError");
         return null;
     }
-
 
     public EventExcel eventExcel;
     public GameObject[] zoomObjects = new GameObject[3];
@@ -366,34 +368,31 @@ public class EventManager : MonoBehaviour
             FlagManager.Instance.ChegeFranPero(false);
         yield break;
     }
-    IEnumerator WarpPositionPero(int value, float delayTime, bool waitMovie)    // セーブの処理にも座標情報があるのでそこを流用予定
-    {
-        if (waitMovie)
-        {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
-        }
-        yield return new WaitForSeconds(delayTime);
-        Debug.Log("WarpPero");
-        switch (value)
-        {
-            case 0:
-                Debug.Log("0番目にワープ(セーブの座標統合予定)");
-                break;
-            case 1:
-                Debug.Log("0番目にワープ(セーブの座標統合予定)");
-                break;
-            case 2:
-                Debug.Log("0番目にワープ(セーブの座標統合予定)");
-                break;
-            case 3:
-                Debug.Log("0番目にワープ(セーブの座標統合予定)");
-                break;
-            default:
-                Debug.Log("まだこの座標は未実装");
-                break;
-        }
-        yield break;
-    }
+    //IEnumerator WarpPositionPero(int value, float delayTime, bool waitMovie)    // セーブの処理にも座標情報があるのでそこを流用予定
+    //{
+    //    if (waitMovie)
+    //    {
+    //        yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+    //    }
+    //    yield return new WaitForSeconds(delayTime);
+    //    Debug.Log("WarpPero");
+    //    switch (value)
+    //    {
+    //        case 0:
+    //            Debug.Log("0番目にワープ(セーブの座標統合予定)");
+    //            break;
+    //        case 1:
+    //            Debug.Log("0番目にワープ(セーブの座標統合予定)");
+    //            break;
+    //        case 2:
+    //            Debug.Log("0番目にワープ(セーブの座標統合予定)");
+    //            break;
+    //        default:
+    //            Debug.Log("まだこの座標は未実装");
+    //            break;
+    //    }
+    //    yield break;
+    //}
     IEnumerator WarpPositionFran(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
@@ -425,8 +424,6 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("PickUpItem");
-        //  非表示
-        target.SetActive(false);
         switch (value)
         {
             case 0:
@@ -501,6 +498,8 @@ public class EventManager : MonoBehaviour
                 Debug.LogWarning("アイテム取得で未実装の番号が選択されました。番号：" + value);
                 break;
         }
+        //  非表示
+        target.SetActive(false);
         yield break;
     }
     IEnumerator Tutorial(int value, float delayTime, bool waitMovie)
@@ -701,6 +700,34 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
+
+    IEnumerator ChangeSprite(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("ChangeSprite");
+        switch (value)
+        {
+        }
+        yield break;
+    }
+
+    IEnumerator StandFlag(float delayTime, bool waitMovie, GameObject target)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("StandFlag");
+        FlagManager.Instance.SetGimmickFlag(target.GetComponent<EventLoader>().StandgimmickFlag);
+        yield break;
+    }
+
+
     #endregion
 }
 
