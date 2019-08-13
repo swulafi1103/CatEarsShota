@@ -488,12 +488,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!58 &115632605
 CircleCollider2D:
@@ -1792,12 +1792,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &376086819
 BoxCollider2D:
@@ -1869,12 +1869,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &419637559
 BoxCollider2D:
@@ -2077,12 +2077,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &547987465
 BoxCollider2D:
@@ -2725,12 +2725,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &619598100
 BoxCollider2D:
@@ -2882,12 +2882,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!58 &639668316
 CircleCollider2D:
@@ -2963,12 +2963,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &661938366
 BoxCollider2D:
@@ -3945,12 +3945,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &911477099
 BoxCollider2D:
@@ -4088,12 +4088,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &976553909
 BoxCollider2D:
@@ -5275,12 +5275,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1380452188
 BoxCollider2D:
@@ -5352,12 +5352,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1401037656
 BoxCollider2D:
@@ -5429,12 +5429,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1495448256
 BoxCollider2D:
@@ -5585,12 +5585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1535312999
 BoxCollider2D:
@@ -5662,12 +5662,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1539245086
 BoxCollider2D:
@@ -5800,8 +5800,8 @@ MonoBehaviour:
   CameraLimit:
   - -13
   - 13
-  - 25
-  - 60
+  - -15
+  - 15
   PastCameraLimit:
   - 33
   - 73
@@ -5886,12 +5886,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1635147857
 BoxCollider2D:
@@ -6046,12 +6046,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1665908168
 BoxCollider2D:
@@ -6242,12 +6242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1728394179
 BoxCollider2D:
@@ -6445,12 +6445,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1772504410
 BoxCollider2D:
@@ -7360,12 +7360,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &1987306028
 BoxCollider2D:
@@ -7740,12 +7740,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &2052012465
 BoxCollider2D:
@@ -7851,12 +7851,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemFlag: 0
-  needGimmickFlag: 0
-  bubbleImage: {fileID: 0}
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
   isDisplayBubble: 0
+  needItemFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
   eventName: 0
 --- !u!61 &2063813861
 BoxCollider2D:
@@ -8671,6 +8671,151 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 633593069467653300, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 633593069467653300, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 633593069467653300, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 633593069467653300, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993437164201417444, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993437164201417444, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993437164201417444, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039343, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 4.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039343, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039343, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039343, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793795524355481083, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 37.710003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793795524355481083, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 17.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793795524355481083, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669022574370050036, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669022574370050036, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669022574370050036, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039342, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039342, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039342, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039342, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026908883082028643, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026908883082028643, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026908883082028643, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039341, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 4.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178921146337039341, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 6.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392079628582080430, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392079628582080430, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392079628582080430, guid: c020ab05729747942b7b596b27b1f4f2,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7511413816759507824, guid: c020ab05729747942b7b596b27b1f4f2,
         type: 3}
       propertyPath: yelloObjs.Array.size
@@ -8822,151 +8967,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 633593069467653300, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 10.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 633593069467653300, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 7.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 633593069467653300, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 10.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 633593069467653300, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 7.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8993437164201417444, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 4.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8993437164201417444, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 8993437164201417444, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039343, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 4.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039343, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 2.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039343, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039343, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793795524355481083, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 37.710003
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793795524355481083, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 17.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793795524355481083, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669022574370050036, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 10.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669022574370050036, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 7.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669022574370050036, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039342, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 10.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039342, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 7.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039342, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 10.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039342, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 7.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6026908883082028643, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 4.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 6026908883082028643, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 6.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 6026908883082028643, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039341, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 4.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178921146337039341, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 6.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392079628582080430, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 3.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392079628582080430, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 4.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392079628582080430, guid: c020ab05729747942b7b596b27b1f4f2,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c020ab05729747942b7b596b27b1f4f2, type: 3}
