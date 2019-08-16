@@ -39,6 +39,11 @@ public class EventManager : MonoBehaviour
     private List<GameObject> gimmickList = new List<GameObject>();
     private List<GameObject> itemList = new List<GameObject>();
 
+    public System.Action TypeinGameMap1ClearedFunc;
+    public System.Action TypeinGameMap2FirstClearedFunc;
+    public System.Action TypeinGameMap2LetterClearedFunc;
+    public System.Action PieceGameClearedFunc;
+
     void Awake()
     {
         CheckInstance();

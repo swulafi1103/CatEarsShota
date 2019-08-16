@@ -238,6 +238,7 @@ public class PanelPuzzle : MonoBehaviour
             DKeyImage.enabled = false;
             _gameState = GameState.Conprete;
             //フラグ書き換え
+            EventManager.Instance.PieceGameClearedFunc.Invoke();
             return;
         }
     }
