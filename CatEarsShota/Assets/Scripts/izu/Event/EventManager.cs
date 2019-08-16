@@ -39,6 +39,11 @@ public class EventManager : MonoBehaviour
     private List<GameObject> gimmickList = new List<GameObject>();
     private List<GameObject> itemList = new List<GameObject>();
 
+    public System.Action TypeinGameMap1ClearedFunc;
+    public System.Action TypeinGameMap2FirstClearedFunc;
+    public System.Action TypeinGameMap2LetterClearedFunc;
+    public System.Action PieceGameClearedFunc;
+
     void Awake()
     {
         CheckInstance();
@@ -60,7 +65,7 @@ public class EventManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             PlayEvent(EventName.E01_Map1_to_map2);
-        }        
+        }
     }
 
     /// <summary>フラグのチェックと更新</summary>
@@ -221,11 +226,12 @@ public class EventManager : MonoBehaviour
         List<EventEntity> entity = null;
         entity = GetEventEntity(eventName);
         int count = entity.Count;
-        Debug.Log("イベントのコマンドの数 : " + count);
+        Debug.Log("イベント名 ： " + eventName + "イベントのコマンドの数 : " + count);
         yield return null;
         //  イベントの開始
         for (int i = 0; i < count; i++)
         {
+            Debug.Log("イベント" + i + "番");
             FlagManager.Instance.IsEventing = true;
             yield return StartCoroutine(CallCorutine(entity[i].category, entity[i].value, entity[i].delayTime, entity[i].waitMovie, entity[i].volume, target));
         }
@@ -241,7 +247,8 @@ public class EventManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime);
         //  フェード中か
-        yield return new WaitWhile(() => Fade.Instance.Fading == false);
+        while (!Fade.Instance.Fading == false)
+            yield return null;
         Debug.Log("Movie");
         MainCamera.Instance.TriggeredVideo((uint)value);
         yield break;
@@ -254,7 +261,8 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         //  フェード中か
-        yield return new WaitWhile(() => Fade.Instance.Fading == false);
+        while (!Fade.Instance.Fading == false)
+            yield return null;
         switch (value)
         {
             case 0:
@@ -266,7 +274,8 @@ public class EventManager : MonoBehaviour
             default:
                 Debug.LogWarning("FadeInError, Value is Over");
                 break;
-        }        
+        }
+        Debug.Log("ここ５");
         yield break;
     }
     IEnumerator FadeOut(int value, float delayTime, bool waitMovie)
@@ -276,6 +285,8 @@ public class EventManager : MonoBehaviour
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
         }
         yield return new WaitForSeconds(delayTime);
+        while (!Fade.Instance.Fading == false)
+            yield return null;
         Debug.Log("FadeOut");
         Fade.Instance.ClearFade(0.5f, Color.clear);
         yield break;

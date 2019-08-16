@@ -311,9 +311,11 @@ public class MiniGameManager : MonoBehaviour
                 generetor.GetComponent<PlayMinigame>().MiniGameClear();
                 break;
             case 7:     //  Map2の扉１の処理
+                EventManager.Instance.TypeinGameMap2FirstClearedFunc.Invoke();
                 Debug.Log("タイピングゲーム2個目、フラグのセットが未完");
                 break;
             case 9:     //  Map1の扉２の処理
+                EventManager.Instance.TypeinGameMap2LetterClearedFunc.Invoke();
                 Debug.Log("タイピングゲーム3個目、フラグのセットが未完");
                 break;
         }
