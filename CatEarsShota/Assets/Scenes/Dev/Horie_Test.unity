@@ -1070,6 +1070,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1930854992}
+    - target: {fileID: 9166539173790065081, guid: e4b2f36e7d442044992bd8829eb59402,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b2f36e7d442044992bd8829eb59402, type: 3}
 --- !u!1 &363830959
@@ -2165,6 +2170,7 @@ MonoBehaviour:
   - sprites:
     - {fileID: 21300000, guid: 73b745ecd24c2634097ad4ff711f95ec, type: 3}
     - {fileID: 21300000, guid: 8337f6f11de034c4282d315375ee990c, type: 3}
+  exclamationSprite: {fileID: 0}
 --- !u!114 &611412223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2177,6 +2183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec3db5bf4ba5b44b97bfa52f4000559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventExcel: {fileID: 0}
+  zoomObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &611412224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2190,6 +2201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPast: 0
+  isMovie: 0
   isEventing: 0
   isOpenUI: 0
   isYellow: 0
@@ -4935,6 +4947,11 @@ MonoBehaviour:
   PastCameraLimit:
   - 33
   - 73
+  map_point:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!81 &1930854994
 AudioListener:
   m_ObjectHideFlags: 0
