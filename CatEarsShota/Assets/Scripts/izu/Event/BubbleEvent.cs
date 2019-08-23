@@ -47,6 +47,8 @@ public class BubbleEvent : MonoBehaviour
         CardKey,
         BookMark,
         Pero,
+        Mashroom,
+        Orb,
     }
 
     //  説明用の吹き出し

@@ -3256,7 +3256,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 605330560}
-  - component: {fileID: 605330559}
   - component: {fileID: 605330558}
   - component: {fileID: 605330557}
   - component: {fileID: 605330556}
@@ -3317,18 +3316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747ff57054601194faa50a9bb9024cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &605330559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605330555}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 529d44e2e7ae6d5449cee19cebd0cc57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &605330560
 Transform:
   m_ObjectHideFlags: 0
@@ -3377,6 +3364,30 @@ MonoBehaviour:
   - sprites:
     - {fileID: 21300000, guid: 73b745ecd24c2634097ad4ff711f95ec, type: 3}
     - {fileID: 21300000, guid: 8337f6f11de034c4282d315375ee990c, type: 3}
+  - sprites:
+    - {fileID: 21300000, guid: e6e335b8013c94a36a42a5ce311d054c, type: 3}
+  - sprites:
+    - {fileID: 21300000, guid: 7c56f83e511324ecab70eaa0b90ea1e3, type: 3}
+  - sprites:
+    - {fileID: 21300000, guid: 6d607bf19a676498f865af8dc2fd55cd, type: 3}
+    - {fileID: 21300000, guid: da40d501bdea04090a3f031ad2317fd1, type: 3}
+    - {fileID: 21300000, guid: a0bd67146b76f4255ad578a0fb1b510e, type: 3}
+    - {fileID: 21300000, guid: fcd85170c809449dcb0f0362e9733446, type: 3}
+    - {fileID: 21300000, guid: ed0605c6ce5304c4abba09c8076bad57, type: 3}
+    - {fileID: 21300000, guid: 443cdd86e0c5d457b9c45c7d5b569ffc, type: 3}
+    - {fileID: 21300000, guid: d409b65b5e1c84e35b8d2662a855b87b, type: 3}
+  - sprites:
+    - {fileID: 21300000, guid: d672829b5db184045b952fb6fc9b869a, type: 3}
+  - sprites:
+    - {fileID: 21300000, guid: d838b3ae73dab49b1924efe0c402523d, type: 3}
+    - {fileID: 21300000, guid: c7dda42a661ac481692ecfaa15a29522, type: 3}
+    - {fileID: 21300000, guid: 42f2402bcc5094f2088d7df5327c7892, type: 3}
+    - {fileID: 21300000, guid: f435134741a6a4ca8b1557c4d67b06b0, type: 3}
+  - sprites:
+    - {fileID: 21300000, guid: 8cb6ff881019d8e48a6de25b9fe4fcde, type: 3}
+    - {fileID: 21300000, guid: 6c8c292a674a8784bad4b12da5c56707, type: 3}
+    - {fileID: 21300000, guid: b4c792050b634c2498b0037d74d1508c, type: 3}
+    - {fileID: 21300000, guid: 002ee726886a6864cbda707fc14263a5, type: 3}
   exclamationSprite: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
 --- !u!114 &605330562
 MonoBehaviour:
