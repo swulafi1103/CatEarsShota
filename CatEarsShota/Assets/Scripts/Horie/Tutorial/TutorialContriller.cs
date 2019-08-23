@@ -8,6 +8,7 @@ public class TutorialContriller : MonoBehaviour
     GameObject FranObj;
     IconTutorial iconTutorial;
     PanelTutorial panelTutorial;
+    TextWindow textWindow;
 
     static TutorialContriller instance = null;
 
@@ -57,6 +58,7 @@ public class TutorialContriller : MonoBehaviour
 
         iconTutorial = GetComponent<IconTutorial>();
         panelTutorial = GetComponent<PanelTutorial>();
+        textWindow = GetComponentInChildren<TextWindow>();
 
         TutoColliderObj = FindObjectOfType<TutoCollider>().gameObject;
         TutoColliderObj.SetActive(false);
@@ -184,5 +186,9 @@ public class TutorialContriller : MonoBehaviour
             case 3:
                 break;
         }
+    }
+
+    public void SetTextWindow(int num) {
+        textWindow.SetWindow(num);
     }
 }

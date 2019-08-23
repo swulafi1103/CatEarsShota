@@ -18,32 +18,12 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 0
-    value: 1
+  - category: 6
+    value: 0
     delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 2
-    value: 0
-    delayTime: 2
-    waitMovie: 0
-    volume: 0
-  - category: 4
-    value: 1
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 5
-    value: 0
-    delayTime: 2
-    waitMovie: 0
-    volume: 0
-  - category: 9
-    value: 0
-    delayTime: 2
-    waitMovie: 0
-    volume: 0
-  - category: 3
     value: 0
     delayTime: 2
     waitMovie: 0
@@ -54,7 +34,7 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 0
+  - category: 6
     value: 0
     delayTime: 0
     waitMovie: 0
@@ -62,16 +42,469 @@ MonoBehaviour:
   - category: 2
     value: 0
     delayTime: 0
-    waitMovie: 1
-    volume: 0
-  - category: 4
-    value: 1
-    delayTime: 0
-    waitMovie: 1
+    waitMovie: 0
     volume: 0
   E03_Pant_pickup3:
+  - category: 8
+    value: 14
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E04_MiniGame2_clear:
+  - category: 11
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E05_Map1_to_map2_past:
   - category: 1
     value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 0
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E06_Map2_to_map1_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E07_Report2_pickup_past:
+  - category: 8
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E08_Piece_pickup_past:
+  - category: 8
+    value: 9
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E09_Gate1geme_past:
+  - category: 10
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  E10_Gate1geme_clear_past: []
+  E11_Gate1geme_error_past:
+  - category: 2
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E12_Stairs1_up_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 1
+  - category: 2
+    value: 0
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  E13_Stairs1_down_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 1
+  - category: 2
+    value: 0
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  E14_Enemy_exit_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 0
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 1
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E15_Timecapsule_piece_buried_past: []
+  E16_Mushroom_plant1_past:
+  - category: 9
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E17_Mushroom_noplant_past:
+  - category: 4
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E18_Cardkey_needed:
+  - category: 4
+    value: 7
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E19_Pant_pickup4:
+  - category: 8
+    value: 15
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E20_Timecapsule_piece:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 4
+    delayTime: 1
+    waitMovie: 0
+    volume: 1
+  E21_Pant_pickup5:
+  - category: 8
+    value: 16
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E22_Picture_book_piece_pickup:
+  - category: 8
+    value: 10
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E23_MiniGame2_clear:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 14
+    value: 1
+    delayTime: 2
+    waitMovie: 0
+    volume: 1
+  - category: 12
+    value: 1
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 7
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E24_Alone_start_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 8
+    value: 11
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 13
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E25_Gate2game_past:
+  - category: 10
+    value: 2
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  E26_Gate2geme_clear_past: []
+  E27_Gate2geme_error_past:
+  - category: 2
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E28_Stairs2_up_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 1
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E29_Stairs2_down_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 1
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E30_Stairs3_up_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 1
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E31_Stairs3_down_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 1
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E32_Apparatus_on_past:
+  - category: 4
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 4
+    value: 0
+    delayTime: 4
+    waitMovie: 0
+    volume: 0
+  - category: 4
+    value: 0
+    delayTime: 4
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 3
+  - category: 15
+    value: 13
+    delayTime: 4
+    waitMovie: 0
+    volume: 1
+  E33_report3_pickup:
+  - category: 8
+    value: 6
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E34_Timecapsule_bookmark_buried_past: []
+  E35_Mushroom_plant2_past:
+  - category: 13
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 1
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 1
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E36_End_past:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 5
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E37_Pant_pickup:
+  - category: 8
+    value: 17
+    delayTime: 0
+    waitMovie: 0
+    volume: 5
+  E38_No_answer:
+  - category: 13
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 5
+  E39_Blue_event:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 14
+    value: 4
+    delayTime: 2
+    waitMovie: 0
+    volume: 1
+  - category: 12
+    value: 2
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 7
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 8
+    value: 7
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 13
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E40_Orb_fillin: []
+  E41_Bad_end:
+  - category: 1
+    value: 1
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -80,57 +513,84 @@ MonoBehaviour:
     delayTime: 2
     waitMovie: 0
     volume: 0
+  E42_Time_capsule_bookmark:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 1
   - category: 2
     value: 0
-    delayTime: 5
-    waitMovie: 1
+    delayTime: 2
+    waitMovie: 0
     volume: 0
-  - category: 4
+  - category: 8
+    value: 11
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 13
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E43_Green_event:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 14
+    value: 5
+    delayTime: 1
+    waitMovie: 0
+    volume: 1
+  - category: 0
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 12
+    value: 3
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 7
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E44_Orb_fillin_clear:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 5
+  - category: 0
+    value: 1
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  E45_Blueorb_pickup:
+  - category: 8
     value: 1
     delayTime: 0
-    waitMovie: 1
+    waitMovie: 0
     volume: 0
-  E04_MiniGame2_clear: []
-  E05_Map1_to_map2_past: []
-  E06_Map2_to_map1_past: []
-  E07_Report2_pickup_past: []
-  E08_Piece_pickup_past: []
-  E09_Gate1geme_past: []
-  E10_Gate1geme_clear_past: []
-  E11_Gate1geme_error_past: []
-  E12_Stairs1_up_past: []
-  E13_Stairs1_down_past: []
-  E14_Enemy_exit_past: []
-  E15_Timecapsule_piece_buried_past: []
-  E16_Mushroom_plant1_past: []
-  E17_Mushroom_noplant_past: []
-  E18_Cardkey_needed: []
-  E19_Pant_pickup4: []
-  E20_Timecapsule_piece: []
-  E21_Pant_pickup5: []
-  E22_Picture_book_piece_pickup: []
-  E23_MiniGame2_clear: []
-  E24_Alone_start_past: []
-  E25_Gate2game_past: []
-  E26_Gate2geme_clear_past: []
-  E27_Gate2geme_error_past: []
-  E28_Stairs2_up_past: []
-  E29_Stairs2_down_past: []
-  E30_Stairs3_up_past: []
-  E31_Stairs3_down_past: []
-  E32_Apparatus_on_past: []
-  E33_report3_pickup: []
-  E34_Timecapsule_bookmark_buried_past: []
-  E35_Mushroom_plant2_past: []
-  E36_End_past: []
-  E37_Pant_pickup: []
-  E38_No_answer: []
-  E39_Blue_event: []
-  E40_Orb_fillin: []
-  E41_Bad_end: []
-  E42_Time_capsule_bookmark: []
-  E43_Green_event: []
-  E44_Orb_fillin_clear: []
-  E45_Blueorb_pickup: []
-  E46_Greenorb_pickup: []
-  E47_Redorb_pickup: []
+  E46_Greenorb_pickup:
+  - category: 8
+    value: 2
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E47_Redorb_pickup:
+  - category: 8
+    value: 3
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
