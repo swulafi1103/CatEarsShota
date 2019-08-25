@@ -4158,10 +4158,10 @@ MonoBehaviour:
   bubblePos: {x: 0.5, y: 0.5}
   flipBubble: 0
   needItemFlag: 0
-  needGimmickFlag: 67108864
-  standgimmickFlag: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 8388608
   callType: 0
-  eventName: 0
+  eventName: 38
 --- !u!1 &728491467
 GameObject:
   m_ObjectHideFlags: 0
@@ -7756,9 +7756,9 @@ MonoBehaviour:
   bubblePos: {x: 0.5, y: 0.5}
   flipBubble: 0
   needItemFlag: 0
-  needGimmickFlag: 67108864
-  standgimmickFlag: 2097152
-  callType: 0
+  needGimmickFlag: 0
+  standgimmickFlag: 0
+  callType: 5
   eventName: 22
 --- !u!1 &1495448253
 GameObject:
