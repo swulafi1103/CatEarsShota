@@ -275,7 +275,6 @@ public class EventManager : MonoBehaviour
                 Debug.LogWarning("FadeInError, Value is Over");
                 break;
         }
-        Debug.Log("ここ５");
         yield break;
     }
     IEnumerator FadeOut(int value, float delayTime, bool waitMovie)
@@ -734,6 +733,7 @@ public class EventManager : MonoBehaviour
 
 public enum EventName
 {
+    //  流れ1
     E01_Map1_to_map2,                   //（マップ1出口接触）フェードイン→プレイヤー座標変更→フェードアウト
     E02_Map2_to_map1,                   //（マップ2入口接触）フェードイン→プレイヤー座標変更→フェードアウト
     E03_Pant_pickup3,                   //（パンツ3に触れる）パンツ3拾う
@@ -756,6 +756,7 @@ public enum EventName
     E20_Timecapsule_piece,              //（埋め場Aボタン）フェードイン→SE→画像差し替え→フェードアウト→ピース入手→吹き出しウィンドウ
     E21_Pant_pickup5,                   //（パンツ5に触れる）パンツ5拾う
     E22_Picture_book_piece_pickup,      //（植物図鑑のページにAボタン）レポート拾う→フェードイン→レポート表示
+    //  流れ2
     E23_MiniGame2_clear,                //（ミニゲーム2クリア）フェードイン→ムービー→BGM→変色ムービー→赤オーブドロップ→ビックリマーク吹き出し
     E24_Alone_start_past,               //階段を調べる→フェードイン→ムービー開始→→フランの位置変更→フランの立ち絵（ペローなし）差し替え→アイテム「しおり」入手→UI「しおりの入手した」→マップ1と2の行き来を止める（プログラマー？）→フェードアウト→UI「しおりを手に入れました」を表示
     E25_Gate2game_past,                 //調べると（A）フェードイン→ミニゲーム１の出現
@@ -770,6 +771,7 @@ public enum EventName
     E34_Timecapsule_bookmark_buried_past,   //調べるとイベントリの表示→しおり使用→ SE→埋め場画像差し替え→UI「キノコのもとを手に入れました」を表示→左側の腐木の上にビックリマークの吹き出しの表示
     E35_Mushroom_plant2_past,           //左側の腐木を調べてインベントリの表示→キノコのもとを使用→UI「キノコのもとを設置した」→フェードイン→ムービー→背景（壊れた階段ver）差し替え→敵出現→装置にビックリマークの吹き出しの表示→フェードアウト
     E36_End_past,                       //調べるとフェードイン→ムービー→過去モード終了
+    //  流れ3
     E37_Pant_pickup,                    //（パンツ6に触れる）パンツ6拾う
     E38_No_answer,                      //（過去現在切り替えが止められている場合）Fボタン→吹き出しウィンドウ
     E39_Blue_event,                     //（水槽にAボタン）フェードイン→回想ムービー→BGM→黒化ムービー→（キャラアニメーション差し替え）→変色ムービー→青オーブドロップ→ビックリマーク吹き出し→キーカード入手→カードキー入手吹き出しウィンドウ

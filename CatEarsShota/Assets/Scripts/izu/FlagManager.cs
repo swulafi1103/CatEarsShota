@@ -243,7 +243,8 @@ public enum GimmickFlag
     G_11_EnterDoor                  = 1 << 10,
     G_12_PerraultTouchGenerator     = 1 << 11,
     G_13_Tuto_PickUp                = 1 << 12,
-    G_14_Tuto_ItemInventory         = 1 << 13,      //  Map1まで
+    G_14_Tuto_ItemInventory         = 1 << 13,
+    //  Map1まで
     G_15_PickUpPiece                = 1 << 14,
     G_16_PickUpDiary                = 1 << 15,
     G_17_Minigame1_Clear_Map2up     = 1 << 16,
@@ -254,14 +255,19 @@ public enum GimmickFlag
     G_22_DigPiece                   = 1 << 21,
     G_23_SetPiece                   = 1 << 22,
     G_24_Minigame2_Clear            = 1 << 23,
-    G_25_RedOrbAnimation            = 1 << 24,      //  赤オーブまで
+    G_25_RedOrbAnimation            = 1 << 24,
+    //  赤オーブまで↑
     G_26_LevingMovie                = 1 << 25,
     G_27_Minigame1_Clear_Map2down   = 1 << 26,
-    G_28 = 1 << 27,
-    G_29 = 1 << 28,
-    G_30 = 1 << 29,
-    G_31 = 1 << 30,
-    G_32 = 1 << 31,
-    G_33 = 1 << 32,
-
+    G_28_ChackAquarium              = 1 << 27,
+    G_29_GetMushRoomNoMoto          = 1 << 28,
+    G_30_BlueAnimation              = 1 << 29,
+    //  青オーブまで↑
+    G_31_GetCardKey                 = 1 << 30,
+    G_32_EndPastMode                = 1 << 31,
+    G_33_DidUp0_BookMark            = 1 << 32,
+    G_34_GreenAnimation             = 1 << 33,
+    G_35_SetOrb                     = 1 << 34,
+    G_36_TrueAnimation              = 1 << 35,
+    //  トゥルーエンドまで↑
 }

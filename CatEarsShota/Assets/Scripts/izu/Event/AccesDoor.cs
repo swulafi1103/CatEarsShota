@@ -28,6 +28,8 @@ public class AccesDoor : GimmickEvent, ICheckable
             Debug.Log(needGimmickFlag + " : TRUE");
             //gameObject.transform.root.GetComponent<MapStatus>().MapObjectState[1] = true;
             MainCamera.Instance.MovingMap(1);
+            //  ペローがマップ2移動時にフランも一緒に移動
+            MainCamera.Instance.MovingMapnotEventing(3);
         }
     }
 }

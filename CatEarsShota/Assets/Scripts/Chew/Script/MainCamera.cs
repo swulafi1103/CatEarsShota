@@ -146,6 +146,27 @@ public class MainCamera : MonoBehaviour
             atcurrentmap=mapNumber;
         }
     }
+    public void MovingMapnotEventing(int mapNumber)
+    {
+        switch (mapNumber)
+        {
+            case 0:
+                PlayerManager.Instance.Pero.transform.position = map_point[mapNumber];
+                break;
+            case 1:
+                PlayerManager.Instance.Pero.transform.position = map_point[mapNumber];
+                break;
+            case 2:
+                PlayerManager.Instance.Fran.transform.position = map_point[mapNumber];
+                break;
+            case 3:
+                PlayerManager.Instance.Fran.transform.position = map_point[mapNumber];
+                break;
+            default:
+                Debug.LogWarning("キャラ移動でエラー");
+                break;
+        }
+    }
     public void SkipVideo() //スキップの機能追加
     {
         if (ColorVideo.GetComponent<VideoPlayer>().isPlaying)
