@@ -591,17 +591,7 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("TextWindow");
-        switch (value)
-        {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            default:
-                Debug.Log("テキストウィンドウの表示未実装");
-                break;
-        }
+        TutorialContriller.Instance.SetTextWindow(value);
         yield break;
     }
     IEnumerator PlayBGM(int value, float delayTime, bool waitMovie)

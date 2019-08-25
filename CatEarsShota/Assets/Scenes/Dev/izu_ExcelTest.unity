@@ -744,6 +744,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Perrault
       objectReference: {fileID: 0}
+    - target: {fileID: 2547405339827579850, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1157579955913065700, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1221,6 +1226,24 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1550975322}
+    - target: {fileID: 9166539173790065081, guid: e4b2f36e7d442044992bd8829eb59402,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150661173, guid: e4b2f36e7d442044992bd8829eb59402, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166539173997464618, guid: e4b2f36e7d442044992bd8829eb59402,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150661175, guid: e4b2f36e7d442044992bd8829eb59402, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b2f36e7d442044992bd8829eb59402, type: 3}
 --- !u!1 &164744601
@@ -1313,6 +1336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiniGameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708192462413375052, guid: 2ed0922fb7758452284fac7d7697ea6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4708192462413375024, guid: 2ed0922fb7758452284fac7d7697ea6c,
         type: 3}
