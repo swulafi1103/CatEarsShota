@@ -262,10 +262,10 @@ public enum GimmickFlag
     G_28_ChackAquarium              = 1 << 27,
     G_29_GetMushRoomNoMoto          = 1 << 28,
     G_30_BlueAnimation              = 1 << 29,
+    G_31_EndPastMode                = 1 << 30,
     //  青オーブまで↑
-    G_31_GetCardKey                 = 1 << 30,
-    G_32_EndPastMode                = 1 << 31,
-    G_33_DidUp0_BookMark            = 1 << 32,
+    G_32_DidUp0_BookMark            = 1 << 31,
+    G_33_GetCardKey                 = 1 << 32,
     G_34_GreenAnimation             = 1 << 33,
     G_35_SetOrb                     = 1 << 34,
     G_36_TrueAnimation              = 1 << 35,
