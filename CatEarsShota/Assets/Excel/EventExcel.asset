@@ -19,7 +19,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 6
-    value: 0
+    value: 6
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 6
-    value: 1
+    value: 4
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 6
-    value: 1
+    value: 5
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 6
-    value: 0
+    value: 1
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -183,9 +183,14 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
+  - category: 13
+    value: 4
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
   E17_Mushroom_noplant_past:
   - category: 4
-    value: 0
+    value: 10
     delayTime: 0
     waitMovie: 0
     volume: 0
@@ -212,6 +217,26 @@ MonoBehaviour:
     delayTime: 1
     waitMovie: 0
     volume: 1
+  - category: 16
+    value: 2
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 1
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 8
+    value: 9
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 13
+    value: 1
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
   E21_Pant_pickup5:
   - category: 8
     value: 16
@@ -277,7 +302,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 13
-    value: 0
+    value: 5
     delayTime: 0
     waitMovie: 0
     volume: 0
@@ -301,7 +326,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 6
-    value: 0
+    value: 2
     delayTime: 0
     waitMovie: 0
     volume: 0
@@ -322,7 +347,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 6
-    value: 1
+    value: 3
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -343,7 +368,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 6
-    value: 1
+    value: 0
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -380,18 +405,8 @@ MonoBehaviour:
     volume: 0
   E32_Apparatus_on_past:
   - category: 4
-    value: 0
+    value: 11
     delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 4
-    value: 0
-    delayTime: 4
-    waitMovie: 0
-    volume: 0
-  - category: 4
-    value: 0
-    delayTime: 4
     waitMovie: 0
     volume: 0
   - category: 15
@@ -413,8 +428,8 @@ MonoBehaviour:
   E34_Timecapsule_bookmark_buried_past: []
   E35_Mushroom_plant2_past:
   - category: 13
-    value: 1
-    delayTime: 1
+    value: 4
+    delayTime: 0
     waitMovie: 0
     volume: 0
   - category: 1
@@ -459,7 +474,7 @@ MonoBehaviour:
     value: 0
     delayTime: 0
     waitMovie: 0
-    volume: 5
+    volume: 0
   E39_Blue_event:
   - category: 1
     value: 0
@@ -497,7 +512,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 13
-    value: 0
+    value: 2
     delayTime: 0
     waitMovie: 0
     volume: 0
@@ -524,6 +539,11 @@ MonoBehaviour:
     delayTime: 1
     waitMovie: 0
     volume: 1
+  - category: 16
+    value: 2
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 2
     value: 0
     delayTime: 2
@@ -535,8 +555,8 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 13
-    value: 0
-    delayTime: 2
+    value: 5
+    delayTime: 1
     waitMovie: 0
     volume: 0
   E43_Green_event:
