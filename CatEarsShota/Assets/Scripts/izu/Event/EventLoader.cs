@@ -6,6 +6,9 @@ public class EventLoader : EventBase, ICheckable
 {
     [SerializeField, EnumFlags, Space(3)]
     protected GimmickFlag standgimmickFlag;
+    [SerializeField, EnumFlags]
+    protected GimmickFlag_Map2 standgimmickFlag_Map2;
+
     [SerializeField]
     private CallType callType;
     public EventName eventName;
@@ -36,19 +39,23 @@ public class EventLoader : EventBase, ICheckable
     {
         get { return standgimmickFlag; }
     }
+    public GimmickFlag_Map2 StandgimmickFlag_Map2
+    {
+        get { return standgimmickFlag_Map2; }
+    }
 
     public void Check()
     {
-        if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))
+        if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag) && FlagManager.Instance.CheckGimmickFlag(needGimmickFlag_Map2))
         {
             EventManager.Instance.PlayEvent(eventName, gameObject);
             switch (callType)
             {
                 case CallType.OnlyOnce:
-                    return;
-                case CallType.Always:
                     gameObject.SetActive(false);
                     Finished();
+                    return;
+                case CallType.Always:
                     break;
             }
         }

@@ -87,6 +87,8 @@ public class FlagManager : MonoBehaviour
     private ItemFlag itemFlag;
     [SerializeField, EnumFlags]
     private GimmickFlag gimmickFlag;
+    [SerializeField, EnumFlags]
+    private GimmickFlag_Map2 gimmickFlag_Map2;
 
 
     void Awake()
@@ -132,8 +134,8 @@ public class FlagManager : MonoBehaviour
     {
         itemFlag = 0;
         gimmickFlag = 0;
+        gimmickFlag_Map2 = 0;
     }
-
 
     /// <summary>アイテムフラグの追加</summary>
     /// <param name="item">追加するアイテムフラグ</param>
@@ -144,12 +146,22 @@ public class FlagManager : MonoBehaviour
     }
     /// <summary>ギミックフラグの追加</summary>
     /// <param name="gimmick">追加するギミックフラグ</param>
+    public void SetGimmickFlag(GimmickFlag gimmick, GimmickFlag_Map2 gimmick2)
+    {
+        gimmickFlag = gimmickFlag | gimmick;
+        gimmickFlag_Map2 = gimmickFlag_Map2 | gimmick2;
+        EventManager.Instance.UpdateEvent();
+    }
     public void SetGimmickFlag(GimmickFlag gimmick)
     {
         gimmickFlag = gimmickFlag | gimmick;
         EventManager.Instance.UpdateEvent();
     }
-
+    public void SetGimmickFlag(GimmickFlag_Map2 gimmick2)
+    {
+        gimmickFlag_Map2 = gimmickFlag_Map2 | gimmick2;
+        EventManager.Instance.UpdateEvent();
+    }
     /// <summary>アイテムフラグの削除</summary>
     /// <param name="item">削除する対象</param>    
     public void FoldItemFlag(ItemFlag item)
@@ -162,7 +174,10 @@ public class FlagManager : MonoBehaviour
     {
         gimmickFlag = gimmickFlag & ~gimmick;
     }
-
+    public void FoldGimmickFlag(GimmickFlag_Map2 gimmick)
+    {
+        gimmickFlag_Map2 = gimmickFlag_Map2 & ~gimmick;
+    }
 
     /// <summary>アイテムフラグのチェック</summary>
     /// <param name="item">チェックの対象</param>
@@ -171,18 +186,32 @@ public class FlagManager : MonoBehaviour
     {
         if (itemFlag.HasFlag(item))
         {
-            //Debug.Log("True");
             return true;
         }
-        //Debug.Log("False");
         return false;
     }
     /// <summary>ギミックフラグのチェック</summary>
     /// <param name="gimmick">チェックの対象</param>
     /// <returns></returns>
+    public bool CheckGimmickFlag(GimmickFlag gimmick, GimmickFlag_Map2 gimmick2)
+    {
+        if (gimmickFlag.HasFlag(gimmick) && gimmickFlag_Map2.HasFlag(gimmick2))
+        {
+            return true;
+        }
+        return false;
+    }
     public bool CheckGimmickFlag(GimmickFlag gimmick)
     {
         if (gimmickFlag.HasFlag(gimmick))
+        {
+            return true;
+        }
+        return false;
+    }
+    public bool CheckGimmickFlag(GimmickFlag_Map2 gimmick2)
+    {
+        if (gimmickFlag_Map2.HasFlag(gimmick2))
         {
             return true;
         }
@@ -214,7 +243,7 @@ public enum ItemFlag
     I_04_RedOrb              = 1 << 3,
     I_05_CardKey             = 1 << 4,
     I_06_WallPaintingPiece   = 1 << 5,
-    I_07_BookStop            = 1 << 6,
+    I_07_BookStopNow         = 1 << 6,
     I_08_ReportNo88          = 1 << 7,
     I_09_DiaryFran           = 1 << 8,
     I_10_Instructions        = 1 << 9,
@@ -225,6 +254,7 @@ public enum ItemFlag
     I_15_Pants_D             = 1 << 14,
     I_16_Pants_E             = 1 << 15,
     I_17_Pants_F             = 1 << 16,
+    I_18_BookStopPast        = 1 << 17,
 }
 
 [Flags]
@@ -245,29 +275,34 @@ public enum GimmickFlag
     G_13_Tuto_PickUp                = 1 << 12,
     G_14_Tuto_ItemInventory         = 1 << 13,
     //  Map1まで
-    G_15_PickUpPiece                = 1 << 14,
-    G_16_PickUpDiary                = 1 << 15,
-    G_17_Minigame1_Clear_Map2up     = 1 << 16,
-    G_18_FranCheckExitDoor          = 1 << 17,
-    G_19_EnterEnemy                 = 1 << 18,
-    G_20_FillPiece_Past             = 1 << 19,
-    G_21_SetMushroomNoMoto_Past     = 1 << 20,
-    G_22_DigPiece                   = 1 << 21,
-    G_23_SetPiece                   = 1 << 22,
-    G_24_Minigame2_Clear            = 1 << 23,
-    G_25_RedOrbAnimation            = 1 << 24,
+    
+}
+
+public enum GimmickFlag_Map2
+{
+    G_15_PickUpPiece                = 1 << 0,
+    G_16_PickUpDiary                = 1 << 1,
+    G_17_Minigame1_Clear_Map2up     = 1 << 2,
+    G_18_FranCheckExitDoor          = 1 << 3,
+    G_19_EnterEnemy                 = 1 << 4,
+    G_20_FillPiece_Past             = 1 << 5,
+    G_21_SetMushroomNoMoto_Past     = 1 << 6,
+    G_22_DigPiece                   = 1 << 7,
+    G_23_SetPiece                   = 1 << 8,
+    G_24_Minigame2_Clear            = 1 << 9,
+    G_25_RedOrbAnimation            = 1 << 10,
     //  赤オーブまで↑
-    G_26_LevingMovie                = 1 << 25,
-    G_27_Minigame1_Clear_Map2down   = 1 << 26,
-    G_28_ChackAquarium              = 1 << 27,
-    G_29_GetMushRoomNoMoto          = 1 << 28,
-    G_30_BlueAnimation              = 1 << 29,
-    G_31_EndPastMode                = 1 << 30,
+    G_26_LevingMovie                = 1 << 11,
+    G_27_Minigame1_Clear_Map2down   = 1 << 12,
+    G_28_ChackAquarium              = 1 << 13,
+    G_29_GetMushRoomNoMoto          = 1 << 14,
+    G_30_BlueAnimation              = 1 << 15,
+    G_31_EndPastMode                = 1 << 16,
     //  青オーブまで↑
-    G_32_DidUp0_BookMark            = 1 << 31,
-    G_33_GetCardKey                 = 1 << 32,
-    G_34_GreenAnimation             = 1 << 33,
-    G_35_SetOrb                     = 1 << 34,
-    G_36_TrueAnimation              = 1 << 35,
+    G_32_DidUp0_BookMark            = 1 << 17,
+    G_33_GetCardKey                 = 1 << 18,
+    G_34_GreenAnimation             = 1 << 19,
+    G_35_SetOrb                     = 1 << 20,
+    G_36_TrueAnimation              = 1 << 21,
     //  トゥルーエンドまで↑
 }

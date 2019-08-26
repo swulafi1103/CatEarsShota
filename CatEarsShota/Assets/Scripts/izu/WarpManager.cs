@@ -12,7 +12,7 @@ public class WarpManager : MonoBehaviour
     public void WarpFran(int value)
     {
         //  不正な値のチェック
-        if (value < 0 || value < warpPos.Length)
+        if (value < 0 || value > warpPos.Length)
         {
             Debug.LogWarning("ワープで予定外の値:" + value);
             return;

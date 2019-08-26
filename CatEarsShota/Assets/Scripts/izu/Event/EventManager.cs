@@ -457,53 +457,62 @@ public class EventManager : MonoBehaviour
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_05_CardKey);
                 break;
             case 5:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_06_WallPaintingPiece);
-                break;
-            case 6:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.BookMark_Past);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_07_BookStop);
-                break;
-            case 7:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Report_88);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_08_ReportNo88);
                 break;
-            case 8:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Diary_Fran);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_09_DiaryFran);
-                break;
-            case 9:
+            case 6:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Instructions);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_10_Instructions);
                 break;
-            case 10:
+            case 7:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.CardKey);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_05_CardKey);
+                break;
+            case 8:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
+                //FlagManager.Instance.SetItemFlag(ItemFlag.);  キノコだけItemFlagに存在しなかった
+                break;
+            case 9:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_06_WallPaintingPiece);
+                break;
+            case 10:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Picture_Book);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_11_PlantBookPiece);
                 break;
             case 11:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.BookMark_now);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_07_BookStopNow);
+                break;
+            case 12:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_1);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_12_Pants_A);
                 break;
-            case 12:
+            case 13:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_2);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_13_Pants_B);
                 break;
-            case 13:
+            case 14:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_3);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_14_Pants_C);
                 break;
-            case 14:
+            case 15:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_4);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_15_Pants_D);
                 break;
-            case 15:
+            case 16:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_5);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_16_Pants_E);
                 break;
-            case 16:
+            case 17:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Pants_6);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_17_Pants_F);
                 break;
+            case 18:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.BookMark_Past);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_18_BookStopPast);
+                break;
+
             default:
                 Debug.LogWarning("アイテム取得で未実装の番号が選択されました。番号：" + value);
                 break;
@@ -723,7 +732,7 @@ public class EventManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("StandFlag");
-        FlagManager.Instance.SetGimmickFlag(target.GetComponent<EventLoader>().StandgimmickFlag);
+        FlagManager.Instance.SetGimmickFlag(target.GetComponent<EventLoader>().StandgimmickFlag, target.GetComponent<EventLoader>().StandgimmickFlag_Map2);
         yield break;
     }
 

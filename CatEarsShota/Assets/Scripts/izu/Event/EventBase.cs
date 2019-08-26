@@ -14,6 +14,8 @@ public class EventBase : MonoBehaviour
     protected ItemFlag needItemFlag;
     [SerializeField, EnumFlags]
     protected GimmickFlag needGimmickFlag;
+    [SerializeField, EnumFlags]
+    protected GimmickFlag_Map2 needGimmickFlag_Map2;
 
     protected bool isFinish = false;
 
