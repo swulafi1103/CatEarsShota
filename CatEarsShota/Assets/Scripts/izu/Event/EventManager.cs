@@ -358,6 +358,12 @@ public class EventManager : MonoBehaviour
             case 9:
                 BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Pero);
                 break;
+            case 10:
+                BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Mashroom);
+                break;
+            case 11:
+                BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Orb);
+                break;
             default:
                 Debug.Log("この吹き出しは未実装");
                 break;

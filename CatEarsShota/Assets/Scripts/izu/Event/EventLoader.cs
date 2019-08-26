@@ -34,15 +34,11 @@ public class EventLoader : EventBase, ICheckable
         }
     }
 
+    public GimmickFlag NeedGimmickFlag { get { return needGimmickFlag; } }
+    public GimmickFlag_Map2 NeedGimmickFlag_Map2 { get { return needGimmickFlag_Map2; } }
 
-    public GimmickFlag StandgimmickFlag
-    {
-        get { return standgimmickFlag; }
-    }
-    public GimmickFlag_Map2 StandgimmickFlag_Map2
-    {
-        get { return standgimmickFlag_Map2; }
-    }
+    public GimmickFlag StandgimmickFlag { get { return standgimmickFlag; } }
+    public GimmickFlag_Map2 StandgimmickFlag_Map2 { get { return standgimmickFlag_Map2; } }
 
     public void Check()
     {
