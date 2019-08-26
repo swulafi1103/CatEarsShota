@@ -22,6 +22,7 @@ public class FranMove : MonoBehaviour
     private int JumpNum = 0;
     private bool isGround = false;
     private bool isJump = false;
+    private bool onladder=false;
     public bool isNotmoves = false;
     Vector3 scale;
     [SerializeField]
@@ -223,6 +224,42 @@ public class FranMove : MonoBehaviour
     {
         //  要素の破棄
         examinableObjects.Remove(collision.gameObject);
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "LadderTop")
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (onladder)
+                {
+
+                }
+            }else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (!onladder)
+                {
+
+                }
+            }
+        }
+        else if(collision.tag=="LadderBottom")
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (!onladder)
+                {
+
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (onladder)
+                {
+
+                }
+            }
+        }
     }
 
 
