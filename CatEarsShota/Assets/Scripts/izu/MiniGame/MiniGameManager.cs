@@ -40,6 +40,8 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField]
     private GameObject map;     //mapオブジェクト変更
     [SerializeField]
+    private GameObject gateObserver;
+    [SerializeField]
     private Sprite[] countdownImage = new Sprite[4];
     [SerializeField]
     private GameObject[] keyObjects = new GameObject[5];    //  コマンドの画像のPrefab
@@ -90,17 +92,23 @@ public class MiniGameManager : MonoBehaviour
 
     void FindNeedObject()
     {
+        //  タイピングゲームの表示をしているオブジェクトの検索
         discriptionObj = transform.GetChild(0).gameObject;
         miniGameViewObj = transform.GetChild(1).gameObject;
         timerObj = transform.Find("MinigameBackGround/TimerBackGround/SecondText").gameObject;
         countdownObj = transform.Find("MinigameBackGround/CountDown").GetComponent<Image>();
         clearText= transform.Find("MinigameBackGround/ClearText").GetComponent<Text>();
         commandParentObj = transform.Find("MinigameBackGround/CommandParent").gameObject;
+        //  ゲートオブジェクトの検索
+        if (gateObserver == null)
+            gateObserver = FindObjectOfType<GateOpener>().gameObject;
     }
 
     /// <summary>発電機を触れたら</summary>
     public void TouchGenerator(int value)
     {
+        Debug.Log("koko");
+        FlagManager.Instance.IsEventing = true;　//  UIがミニゲーム中に開かないように
         SetQustionValue(value);
         StartCoroutine(SetTuto());
     }
@@ -306,17 +314,25 @@ public class MiniGameManager : MonoBehaviour
         switch (questionValue)
         {
             case 5:     //  Map1のときの処理
+                if (generetor == null)
+                    generetor = FindObjectOfType<PlayMinigame>().gameObject;
                 generetor.GetComponent<PlayMinigame>().CompleteGimmick();
                 FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);
                 generetor.GetComponent<PlayMinigame>().MiniGameClear();
                 break;
             case 7:     //  Map2の扉１の処理
-                EventManager.Instance.TypeinGameMap2FirstClearedFunc.Invoke();
+                if (EventManager.Instance.TypeinGameMap2FirstClearedFunc != null)
+                    EventManager.Instance.TypeinGameMap2FirstClearedFunc.Invoke();
                 Debug.Log("タイピングゲーム2個目、フラグのセットが未完");
+                gateObserver.GetComponent<GateOpener>().OpenGate(0);
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
                 break;
             case 9:     //  Map1の扉２の処理
-                EventManager.Instance.TypeinGameMap2LetterClearedFunc.Invoke();
+                if (EventManager.Instance.TypeinGameMap2LetterClearedFunc != null)
+                    EventManager.Instance.TypeinGameMap2LetterClearedFunc.Invoke();
                 Debug.Log("タイピングゲーム3個目、フラグのセットが未完");
+                gateObserver.GetComponent<GateOpener>().OpenGate(1);
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
                 break;
         }
     }

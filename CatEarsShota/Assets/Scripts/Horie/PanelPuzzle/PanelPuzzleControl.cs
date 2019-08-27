@@ -4,6 +4,38 @@ using UnityEngine;
 
 public class PanelPuzzleControl : MonoBehaviour
 {
+    #region Singleton
+    private static PanelPuzzleControl instance;
+    public static PanelPuzzleControl Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                Debug.LogWarning("PanelPuzzleControl is Null");
+            }
+            return instance;
+        }
+    }
+
+    private bool CheckInstance()
+    {
+        if (instance == null)
+        {
+            instance = (PanelPuzzleControl)this;
+            return true;
+        }
+        else if (Instance == this)
+        {
+            return true;
+        }
+
+        Destroy(this);
+        return false;
+    }
+    #endregion
+
+
     PanelPuzzle panelPuzzle;
     GameObject tutoPanel;
 
@@ -19,13 +51,8 @@ public class PanelPuzzleControl : MonoBehaviour
         isOnce = true;
     }
 
-    static PanelPuzzleControl instance;
-    public static PanelPuzzleControl Instance {
-        get { return instance; }
-    }
     private void Awake() {
-        if (instance == null) instance = this;
-
+        CheckInstance();
     }
 
     // Update is called once per frame

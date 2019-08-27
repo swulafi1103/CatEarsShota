@@ -60,6 +60,8 @@ public class EventManager : MonoBehaviour
         //
         if (Input.GetKeyDown(KeyCode.F5))
         {
+            //  Debug用
+            PanelPuzzleControl.Instance.StartPanelPuzzle();
             UpdateEvent();
         }
         if (Input.GetKeyDown(KeyCode.O))
@@ -235,7 +237,7 @@ public class EventManager : MonoBehaviour
             FlagManager.Instance.IsEventing = true;
             yield return StartCoroutine(CallCorutine(entity[i].category, entity[i].value, entity[i].delayTime, entity[i].waitMovie, entity[i].volume, target));
         }
-        FlagManager.Instance.IsEventing = false;
+        //FlagManager.Instance.IsEventing = false;
         Debug.Log("イベント終了");
         yield break;
     }
@@ -459,12 +461,12 @@ public class EventManager : MonoBehaviour
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_04_RedOrb);
                 break;
             case 4:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.CardKey);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_05_CardKey);
-                break;
-            case 5:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Report_88);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_08_ReportNo88);
+                break;
+            case 5:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Diary_Fran);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_09_DiaryFran);
                 break;
             case 6:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Instructions);
@@ -476,7 +478,7 @@ public class EventManager : MonoBehaviour
                 break;
             case 8:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
-                //FlagManager.Instance.SetItemFlag(ItemFlag.);  キノコだけItemFlagに存在しなかった
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_19_MushRoom);
                 break;
             case 9:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
@@ -518,11 +520,11 @@ public class EventManager : MonoBehaviour
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.BookMark_Past);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_18_BookStopPast);
                 break;
-
             default:
                 Debug.LogWarning("アイテム取得で未実装の番号が選択されました。番号：" + value);
-                break;
+                yield break;
         }
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_06_ItemPickUp);
         //  非表示
         target.SetActive(false);
         yield break;

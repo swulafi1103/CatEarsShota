@@ -63,7 +63,11 @@ public class FlagManager : MonoBehaviour
     public bool IsEventing
     {
         get { return isEventing; }
-        set { isEventing = value; }
+        set
+        {
+            isEventing = value;
+            Debug.Log("IsEventing : " + isEventing);
+        }
     }
     //  UI開いているか
     [SerializeField]
@@ -255,6 +259,7 @@ public enum ItemFlag
     I_16_Pants_E             = 1 << 15,
     I_17_Pants_F             = 1 << 16,
     I_18_BookStopPast        = 1 << 17,
+    I_19_MushRoom            = 1 << 18,
 }
 
 [Flags]
