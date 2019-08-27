@@ -31,6 +31,8 @@ public class PerraultMove : MonoBehaviour
     private List<GameObject> examinableObjects = new List<GameObject>();
 
     public GameObject Pants;
+    public GameObject FrontShadow;
+    public GameObject BackShadow;
     private Animator animpants;
 
     private void Awake()
@@ -244,4 +246,10 @@ public class PerraultMove : MonoBehaviour
 
     }
 
+
+    public void SetShadowForm(bool OnOff)
+    {
+        FrontShadow.SetActive(OnOff);
+        BackShadow.SetActive(OnOff);
+    }
 }
