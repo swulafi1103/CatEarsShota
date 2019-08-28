@@ -451,7 +451,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &41545957
@@ -699,7 +701,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!58 &115632605
@@ -1433,6 +1437,11 @@ PrefabInstance:
       propertyPath: map
       value: 
       objectReference: {fileID: 517277450}
+    - target: {fileID: 8748181472790546824, guid: 2ed0922fb7758452284fac7d7697ea6c,
+        type: 3}
+      propertyPath: gateObserver
+      value: 
+      objectReference: {fileID: 1088696737}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
 --- !u!1 &174007862
@@ -2414,7 +2423,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &376086819
@@ -2427,10 +2438,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2492,7 +2503,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &419637559
@@ -2780,7 +2793,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &547987465
@@ -3309,6 +3324,7 @@ MonoBehaviour:
   isYellow: 0
   itemFlag: 0
   gimmickFlag: 0
+  gimmickFlag_Map2: 0
 --- !u!114 &605330558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3360,7 +3376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b5947c17861a34b92b59493efc30ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseBubble: {fileID: 0}
+  baseBubble: {fileID: 2132212524}
   bubbleSprites:
   - sprites:
     - {fileID: 21300000, guid: 52437bef559ef934e80bf2f68d7b2c97, type: 3}
@@ -3554,7 +3570,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &619598100
@@ -3567,10 +3585,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3712,7 +3730,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!58 &639668316
@@ -3869,7 +3889,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 67108864
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!1 &661938363
@@ -3921,7 +3943,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &661938366
@@ -4187,7 +4211,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 8388608
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 42
 --- !u!1 &728491467
@@ -5688,7 +5714,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &911477099
@@ -5911,7 +5939,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &976553909
@@ -6360,6 +6390,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087885026}
   m_CullTransparentMesh: 0
+--- !u!1001 &1088696736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6014329679182885943, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_Name
+      value: Gates
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3b160a04fe1ffa44384d8b4163ff4cda, type: 3}
+--- !u!1 &1088696737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6014329679182885943, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
+    type: 3}
+  m_PrefabInstance: {fileID: 1088696736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1095548333
 GameObject:
   m_ObjectHideFlags: 0
@@ -7554,7 +7659,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 1
   eventName: 0
 --- !u!61 &1380452188
@@ -7632,7 +7739,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1401037656
@@ -7785,7 +7894,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 5
   eventName: 22
 --- !u!1 &1495448253
@@ -7797,7 +7908,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1495448254}
-  - component: {fileID: 1495448256}
   - component: {fileID: 1495448257}
   - component: {fileID: 1495448255}
   m_Layer: 0
@@ -7838,35 +7948,11 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
---- !u!61 &1495448256
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495448253}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!61 &1495448257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7981,7 +8067,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1535312997}
-  - component: {fileID: 1535312999}
   - component: {fileID: 1535313000}
   - component: {fileID: 1535312998}
   m_Layer: 0
@@ -8022,35 +8107,11 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
---- !u!61 &1535312999
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535312996}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!61 &1535313000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8061,7 +8122,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1, y: 0}
@@ -8156,7 +8217,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1539245086
@@ -8461,7 +8524,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1574976786
@@ -8666,7 +8731,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1635147857
@@ -8827,7 +8894,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1665908168
@@ -8991,7 +9060,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1709803195
@@ -9200,7 +9271,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1728394179
@@ -9404,7 +9477,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1772504410
@@ -10478,7 +10553,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1987306028
@@ -10859,7 +10936,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &2052012465
@@ -11050,7 +11129,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &2063813861
@@ -11889,7 +11970,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 1
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 38
 --- !u!1001 &4074538694380041632
