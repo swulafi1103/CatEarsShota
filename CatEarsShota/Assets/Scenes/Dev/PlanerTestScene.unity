@@ -451,7 +451,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &41545957
@@ -699,7 +701,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!58 &115632605
@@ -865,9 +869,46 @@ PrefabInstance:
       propertyPath: filter2d.maxNormalAngle
       value: 160
       objectReference: {fileID: 0}
+    - target: {fileID: 550507260459011157, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: FrontShadow
+      value: 
+      objectReference: {fileID: 121514237}
+    - target: {fileID: 550507260459011157, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: BackShadow
+      value: 
+      objectReference: {fileID: 121514236}
+    - target: {fileID: 7717720141417006846, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: m_Name
+      value: shadowback
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717720141417006846, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558843108013903563, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1467140829, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
+--- !u!1 &121514236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7717720141417006846, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+    type: 3}
+  m_PrefabInstance: {fileID: 121514235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &121514237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4558843108013903563, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+    type: 3}
+  m_PrefabInstance: {fileID: 121514235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &123045779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,7 +2455,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &376086819
@@ -2492,7 +2535,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &419637559
@@ -2780,7 +2825,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &547987465
@@ -3309,6 +3356,7 @@ MonoBehaviour:
   isYellow: 0
   itemFlag: 0
   gimmickFlag: 0
+  gimmickFlag_Map2: 0
 --- !u!114 &605330558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3554,7 +3602,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &619598100
@@ -3712,7 +3762,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!58 &639668316
@@ -3869,7 +3921,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 67108864
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!1 &661938363
@@ -3921,7 +3975,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &661938366
@@ -4187,7 +4243,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 8388608
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 42
 --- !u!1 &728491467
@@ -4507,7 +4565,7 @@ GameObject:
   - component: {fileID: 777499830}
   m_Layer: 0
   m_Name: Map2
-  m_TagString: Untagged
+  m_TagString: Map2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4546,7 +4604,7 @@ MonoBehaviour:
   yelloObjs:
   - ChangeObj: {fileID: 294098133}
     colorSprite:
-    - {fileID: 21300000, guid: b808b31fe3a89c44ab5ae159fa8eab36, type: 3}
+    - {fileID: 21300000, guid: 77052b25e54a44149b60f751510f41e8, type: 3}
     - {fileID: 21300000, guid: 075736b1fbbd904448c9d37488b324a5, type: 3}
     - {fileID: 21300000, guid: f0b645e9163bd6847bff9e6b79693d36, type: 3}
     - {fileID: 21300000, guid: db7da8634437d5b45a0a3e81b186949f, type: 3}
@@ -5688,7 +5746,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &911477099
@@ -5911,7 +5971,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &976553909
@@ -7554,7 +7616,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 1
   eventName: 0
 --- !u!61 &1380452188
@@ -7632,7 +7696,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1401037656
@@ -7785,7 +7851,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 5
   eventName: 22
 --- !u!1 &1495448253
@@ -7838,7 +7906,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1495448256
@@ -8022,7 +8092,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1535312999
@@ -8156,7 +8228,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1539245086
@@ -8461,7 +8535,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1574976786
@@ -8666,7 +8742,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1635147857
@@ -8827,7 +8905,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1665908168
@@ -8991,7 +9071,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1709803195
@@ -9200,7 +9282,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1728394179
@@ -9404,7 +9488,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1772504410
@@ -10478,7 +10564,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1987306028
@@ -10859,7 +10947,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &2052012465
@@ -11050,7 +11140,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &2063813861
@@ -11889,7 +11981,9 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
   standgimmickFlag: 1
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 38
 --- !u!1001 &4074538694380041632
