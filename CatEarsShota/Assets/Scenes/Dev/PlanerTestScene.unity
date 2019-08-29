@@ -455,7 +455,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 32
 --- !u!61 &41545957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 34
 --- !u!58 &115632605
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2427,7 +2427,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 24
 --- !u!61 &376086819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2506,8 +2506,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 14
 --- !u!61 &419637559
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2796,8 +2796,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 27
 --- !u!61 &547987465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2831,11 +2831,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 777499829}
     m_Modifications:
-    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
-        type: 3}
-      propertyPath: m_Name
-      value: Collider_now
-      objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950124, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2890,6 +2885,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
+        type: 3}
+      propertyPath: m_Name
+      value: Collider_now
       objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950125, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
@@ -3574,7 +3574,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 8
 --- !u!61 &619598100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3734,7 +3734,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 15
 --- !u!58 &639668316
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3893,7 +3893,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 21
 --- !u!1 &661938363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3947,7 +3947,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 40
 --- !u!61 &661938366
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4212,8 +4212,8 @@ MonoBehaviour:
   needItemFlag: 0
   needGimmickFlag: 0
   needGimmickFlag_Map2: 0
-  standgimmickFlag: 8388608
-  standgimmickFlag_Map2: 0
+  standgimmickFlag: 0
+  standgimmickFlag_Map2: 524288
   callType: 0
   eventName: 42
 --- !u!1 &728491467
@@ -5942,8 +5942,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 30
 --- !u!61 &976553909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7223,11 +7223,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2140296746}
     m_Modifications:
-    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
-        type: 3}
-      propertyPath: m_Name
-      value: Collider_past
-      objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950124, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7282,6 +7277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
+        type: 3}
+      propertyPath: m_Name
+      value: Collider_past
       objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950125, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
@@ -7663,7 +7663,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 1
-  eventName: 0
+  eventName: 3
 --- !u!61 &1380452188
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7743,7 +7743,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 34
 --- !u!61 &1401037656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7896,8 +7896,8 @@ MonoBehaviour:
   needGimmickFlag: 0
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
-  standgimmickFlag_Map2: 0
-  callType: 5
+  standgimmickFlag_Map2: 1024
+  callType: 0
   eventName: 22
 --- !u!1 &1495448253
 GameObject:
@@ -7952,7 +7952,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 9
 --- !u!61 &1495448257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8111,7 +8111,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 25
 --- !u!61 &1535313000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8220,8 +8220,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 12
 --- !u!61 &1539245086
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8528,7 +8528,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 6
 --- !u!61 &1574976786
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8897,8 +8897,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 34
 --- !u!61 &1665908168
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9064,7 +9064,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
-  eventName: 0
+  eventName: 7
 --- !u!61 &1709803195
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9274,8 +9274,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 15
 --- !u!61 &1728394179
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9480,8 +9480,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 19
 --- !u!61 &1772504410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10556,8 +10556,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 28
 --- !u!61 &1987306028
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10939,8 +10939,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 11
 --- !u!61 &2052012465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11132,8 +11132,8 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
-  callType: 0
-  eventName: 0
+  callType: 1
+  eventName: 29
 --- !u!61 &2063813861
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11971,8 +11971,8 @@ MonoBehaviour:
   needItemFlag: 0
   needGimmickFlag: 0
   needGimmickFlag_Map2: 0
-  standgimmickFlag: 1
-  standgimmickFlag_Map2: 0
+  standgimmickFlag: 0
+  standgimmickFlag_Map2: 32768
   callType: 0
   eventName: 38
 --- !u!1001 &4074538694380041632
