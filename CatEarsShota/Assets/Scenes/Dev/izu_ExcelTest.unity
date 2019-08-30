@@ -3740,7 +3740,7 @@ MonoBehaviour:
   bubblePos: {x: 0.5, y: 0.5}
   flipBubble: 0
   needItemFlag: 0
-  needGimmickFlag: 67108864
+  needGimmickFlag: 0
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
@@ -4028,7 +4028,7 @@ MonoBehaviour:
   bubblePos: {x: 0.5, y: 0.5}
   flipBubble: 0
   needItemFlag: 0
-  needGimmickFlag: 67108864
+  needGimmickFlag: 0
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
@@ -7604,7 +7604,7 @@ MonoBehaviour:
   bubblePos: {x: 0.5, y: 0.5}
   flipBubble: 0
   needItemFlag: 0
-  needGimmickFlag: 67108864
+  needGimmickFlag: 0
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
@@ -8378,6 +8378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1595349525}
   - component: {fileID: 1595349526}
+  - component: {fileID: 1595349527}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -8394,7 +8395,7 @@ Transform:
   m_GameObject: {fileID: 1595349524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1380452186}
   m_RootOrder: 0
@@ -8435,7 +8436,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -540889189
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8447,6 +8448,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1595349527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595349524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00311481ef44b342aaa8208bad8163e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultScale: {x: 1, y: 1, z: 1}
 --- !u!1 &1635147854
 GameObject:
   m_ObjectHideFlags: 0
@@ -11278,7 +11292,14 @@ MonoBehaviour:
   VideoStore:
   - {fileID: 32900000, guid: 8a9213c3718a0f1488030f7bb8190199, type: 3}
   - {fileID: 32900000, guid: da54f01ab196c1e4bba1635f3030cbda, type: 3}
-  - {fileID: 32900000, guid: 4b983e5fb289a93428c85d78be7301fc, type: 3}
+  - {fileID: 32900000, guid: 1bba49fd6ba4b174ca4a7aa56359fb62, type: 3}
+  - {fileID: 32900000, guid: 5af593b13e8ed7a44b2a6b1696ca2941, type: 3}
+  - {fileID: 32900000, guid: 20f0e0a9a5bd1434aa3b88ed16a6cae0, type: 3}
+  - {fileID: 32900000, guid: 484f4b56572c00d429e7730b34ee47f4, type: 3}
+  - {fileID: 32900000, guid: bc1eaa283051101439d7467b350cbd3f, type: 3}
+  - {fileID: 32900000, guid: f818c041a30b2dc49a791a7b3e1535fe, type: 3}
+  - {fileID: 32900000, guid: 5d87dfedb7d570e4f96f384e56f20639, type: 3}
+  - {fileID: 32900000, guid: a9bdd20c571e14a4091dcb969466d504, type: 3}
 --- !u!1 &2128844325
 GameObject:
   m_ObjectHideFlags: 0
@@ -11622,7 +11643,7 @@ MonoBehaviour:
   bubblePos: {x: 0.5, y: 0.5}
   flipBubble: 0
   needItemFlag: 0
-  needGimmickFlag: 67108864
+  needGimmickFlag: 0
   needGimmickFlag_Map2: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
