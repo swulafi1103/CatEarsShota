@@ -731,7 +731,10 @@ public class EventManager : MonoBehaviour
         switch (value)
         {
             case 0:
-                map2.GetComponent<MapStatus>().UpdateGimmick(value, true);
+                map2.GetComponent<MapStatus>().UpdateGimmick(0, false);
+                break;
+            case 1:
+                map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
                 break;
         }
         yield break;
