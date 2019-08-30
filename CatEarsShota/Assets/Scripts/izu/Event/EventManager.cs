@@ -61,7 +61,7 @@ public class EventManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F5))
         {
             //  Debug用
-            PanelPuzzleControl.Instance.StartPanelPuzzle();
+            //PanelPuzzleControl.Instance.StartPanelPuzzle();
             UpdateEvent();
         }
         if (Input.GetKeyDown(KeyCode.O))
@@ -620,6 +620,7 @@ public class EventManager : MonoBehaviour
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_06_ItemPickUp);
         //  非表示
         target.SetActive(false);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator Tutorial(int value, float delayTime, bool waitMovie)
