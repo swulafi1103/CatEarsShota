@@ -35,8 +35,9 @@ public class PanelPuzzleControl : MonoBehaviour
     }
     #endregion
 
-
+    [SerializeField]
     PanelPuzzle panelPuzzle;
+    [SerializeField]
     GameObject tutoPanel;
 
     bool isOnce = true;
@@ -44,9 +45,9 @@ public class PanelPuzzleControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panelPuzzle = GetComponentInChildren<PanelPuzzle>();
+        //panelPuzzle = GetComponentInChildren<PanelPuzzle>();
         panelPuzzle.gameObject.SetActive(false);
-        tutoPanel = transform.GetChild(1).gameObject;
+        //tutoPanel = transform.Find("tuto").gameObject;
         tutoPanel.SetActive(false);
         isOnce = true;
     }
@@ -58,6 +59,8 @@ public class PanelPuzzleControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Y))
+            StartPanelPuzzle();
         TutoEnd();
     }
     
@@ -81,7 +84,7 @@ public class PanelPuzzleControl : MonoBehaviour
     void TutoEnd()
     {
         if (!tutoPanel.activeSelf) return;
-        if (!Input.GetKeyDown(KeyCode.Return)) return;
+        if (!Input.GetKeyDown(KeyCode.A)) return;
         tutoPanel.SetActive(false);
         isOnce = false;
 

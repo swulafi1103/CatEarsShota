@@ -24,7 +24,7 @@ public class ItemUIController : MonoBehaviour
 
     [SerializeField]
     GameObject DetailPanel;
-    
+
 
     [SerializeField]
     Animator PlayerPanel;
@@ -37,7 +37,7 @@ public class ItemUIController : MonoBehaviour
     float AnimFrame = 8;
 
     List<ItemData> NowHave = new List<ItemData>();
-    
+
 
     bool IsFran = false;
 
@@ -64,12 +64,12 @@ public class ItemUIController : MonoBehaviour
             EventMoveUI();
             return;
         }
-        
+
 
         if (!IsActUI) return;
         PushGangeTab();
         PushCancel();
-        
+
 
         PushShowDetail();
 
@@ -104,7 +104,7 @@ public class ItemUIController : MonoBehaviour
         SetIamges();
         FirstSelectIcon(0);
     }
-    
+
 
     /// <summary>
     /// 詳細ウィンドウ切り替え
@@ -115,7 +115,7 @@ public class ItemUIController : MonoBehaviour
 
         if (NowHave.Count <= 0) return;
         StartCoroutine(SetDetailUI(true));
-        
+
     }
 
     /// <summary>
@@ -169,7 +169,7 @@ public class ItemUIController : MonoBehaviour
         if (selectTab < 0) {
             selectTab = IsFran ? selectMaxs[0] - 1 : selectMaxs[1] - 1;
         }
-        
+
     }
 
     /// <summary>
@@ -190,7 +190,7 @@ public class ItemUIController : MonoBehaviour
 
         items[beforenum].ThisSelected(false);
         items[selectNum].ThisSelected(true);
-        
+
     }
 
     /// <summary>
@@ -233,7 +233,7 @@ public class ItemUIController : MonoBehaviour
         }
         ItemPanel.GetComponent<RectTransform>().localPosition = startPos;
 
-        for(int i = 0; i <= AnimFrame; i++) {
+        for (int i = 0; i <= AnimFrame; i++) {
             float time = (float)i / AnimFrame;
             Vector3 pos = Vector3.Lerp(startPos, endPos, time);
             ItemPanel.GetComponent<RectTransform>().localPosition = pos;
@@ -267,7 +267,7 @@ public class ItemUIController : MonoBehaviour
         IsActDetail = act;
         if (act) {
             ItemData.ItemType types = (ItemData.ItemType)Enum.ToObject(typeof(ItemData.ItemType), selectTab);
-            
+
             switch (types) {
                 case ItemData.ItemType.Nomal:
                     DetailPanel.GetComponent<DetailPanel>().SetDetail(NowHave[selectNum]);
@@ -285,7 +285,7 @@ public class ItemUIController : MonoBehaviour
         DetailPanel.SetActive(act);
         yield break;
     }
-    
+
     /// <summary>
     /// アニメーション切り替え
     /// </summary>
@@ -301,7 +301,7 @@ public class ItemUIController : MonoBehaviour
         else {
             PlayerPanel.Play("UI_Perrault_" + pantsNum);
         }
-        
+
     }
 
     void PantsChangeAnim()
@@ -333,7 +333,7 @@ public class ItemUIController : MonoBehaviour
         NowHave.Clear();
 
         NowHave = ItemManager.Instance.GetNowData(selectTab);
-        
+
         for (int i = 0; i < items.Length; i++) {
             bool act = i < NowHave.Count;
             items[i].gameObject.SetActive(act);
@@ -368,6 +368,7 @@ public class ItemUIController : MonoBehaviour
         FlagManager.Instance.IsOpenUI = true;
         IsFran = FlagManager.Instance.IsPast;
         SetCamera();
+        SetAnim();
         ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
         selectTab = (int)item.GetItemType;
         SetTabColor();
@@ -382,7 +383,7 @@ public class ItemUIController : MonoBehaviour
             }
         }
     }
-    
+
     public void SetEvents(ItemData[] itemlist)
     {
         IsActUI = false;
@@ -397,6 +398,7 @@ public class ItemUIController : MonoBehaviour
         FlagManager.Instance.IsOpenUI = true;
         IsFran = FlagManager.Instance.IsPast;
         SetCamera();
+        SetAnim();
         ItemPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
         selectTab = (int)itemlist[0].GetItemType;
         SetTabColor();
@@ -456,7 +458,7 @@ public class ItemUIController : MonoBehaviour
     List<int> GetShadows()
     {
         List<int> list = new List<int>();
-        for(int i = 0; i < NowHave.Count; i++)
+        for (int i = 0; i < NowHave.Count; i++)
         {
             if (!items[i].ShadowAct())
             {
@@ -478,6 +480,24 @@ public class ItemUIController : MonoBehaviour
         IsEvents = false;
         ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
         StopAllCoroutines();
+        PlayerPanel.Play("wait");
         return true;
     }
+    bool isChecking = true;
+
+    IEnumerator test() {
+        //  アイテム欄を開く処理
+
+        while (isChecking)
+        {
+            //  対応したアイテムが選択されているか
+            if (true)
+            {
+                yield break;
+            }
+            yield return null;
+        }
+        yield break;
+    }
+
 }

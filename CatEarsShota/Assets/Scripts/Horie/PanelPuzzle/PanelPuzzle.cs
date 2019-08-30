@@ -198,6 +198,7 @@ public class PanelPuzzle : MonoBehaviour
     /// </summary>
     void PushSKey()
     {
+        if (!panelAct) return;
         if (!Input.GetKeyDown(KeyCode.S)) return;
         SetStartPanel();
     }
@@ -207,6 +208,7 @@ public class PanelPuzzle : MonoBehaviour
     /// </summary>
     void PushXkey()
     {
+        if (!panelAct) return;
         if (!Input.GetKeyDown(KeyCode.X)) return;
         panelAct = false;
         this.gameObject.SetActive(false);
@@ -218,6 +220,7 @@ public class PanelPuzzle : MonoBehaviour
     /// </summary>
     void PushDkey()
     {
+        if (!panelAct) return;
         if (!DKeyImage.enabled) return;
         if (!Input.GetKeyDown(KeyCode.D)) return;
         ItemManager.Instance.SetEventUI(ItemManager.ItemNum.Ilust_Piece);
@@ -238,7 +241,8 @@ public class PanelPuzzle : MonoBehaviour
             DKeyImage.enabled = false;
             _gameState = GameState.Conprete;
             //フラグ書き換え
-            EventManager.Instance.PieceGameClearedFunc.Invoke();
+            if (EventManager.Instance.PieceGameClearedFunc != null)
+                EventManager.Instance.PieceGameClearedFunc.Invoke();
             return;
         }
     }

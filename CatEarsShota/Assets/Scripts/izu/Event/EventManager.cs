@@ -156,6 +156,10 @@ public class EventManager : MonoBehaviour
                 return ChangeSprite(value, delayTime, waitMovie);
             case EventCategory.StandFlag:
                 return StandFlag(delayTime, waitMovie, target);
+            case EventCategory.SetMushRoomNoMoto:
+                return SetMushRoomNoMoto(value, delayTime, waitMovie);
+            case EventCategory.SetOrb:
+                return SetOrb(value, delayTime, waitMovie);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -821,7 +825,6 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-
     IEnumerator ChangeSprite(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
@@ -841,7 +844,6 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-
     IEnumerator StandFlag(float delayTime, bool waitMovie, GameObject target)
     {
         if (waitMovie)
@@ -853,7 +855,28 @@ public class EventManager : MonoBehaviour
         FlagManager.Instance.SetGimmickFlag(target.GetComponent<EventLoader>().StandgimmickFlag, target.GetComponent<EventLoader>().StandgimmickFlag_Map2);
         yield break;
     }
-
+    IEnumerator SetMushRoomNoMoto(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("SetMushRoomNoMoto");
+        //  ここに関数追加予定
+        yield break;
+    }
+    IEnumerator SetOrb(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("SetOrb");
+        //  ここに関数追加予定
+        yield break;
+    }
 
     #endregion
 }

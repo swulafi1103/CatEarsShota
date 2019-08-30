@@ -17,7 +17,8 @@ public class EventBase : MonoBehaviour
     [SerializeField, EnumFlags]
     protected GimmickFlag_Map2 needGimmickFlag_Map2;
 
-    protected bool isFinish = false;
+    [HideInInspector]
+    public bool isFinish = false;
 
     void Update()
     {
