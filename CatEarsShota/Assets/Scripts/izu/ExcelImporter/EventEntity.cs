@@ -32,7 +32,9 @@ public enum EventCategory
     SE,
     ChangeSprite,
     StandFlag,
+    SetPiece,
     SetOrb,
     SetMushRoomNoMoto,
+    GlowMushroom,
 }
 

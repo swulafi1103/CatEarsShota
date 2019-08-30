@@ -156,10 +156,14 @@ public class EventManager : MonoBehaviour
                 return ChangeSprite(value, delayTime, waitMovie);
             case EventCategory.StandFlag:
                 return StandFlag(delayTime, waitMovie, target);
+            case EventCategory.SetPiece:
+                return SetPiece(value, delayTime, waitMovie);
             case EventCategory.SetMushRoomNoMoto:
                 return SetMushRoomNoMoto(value, delayTime, waitMovie);
             case EventCategory.SetOrb:
                 return SetOrb(value, delayTime, waitMovie);
+            case EventCategory.GlowMushroom:
+                return GlowMushroom(value, delayTime, waitMovie, target);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -866,6 +870,19 @@ public class EventManager : MonoBehaviour
         //  ここに関数追加予定
         yield break;
     }
+
+
+    IEnumerator SetPiece(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("SetPiece");
+        //  ここに関数追加予定
+        yield break;
+    }
     IEnumerator SetOrb(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
@@ -875,6 +892,17 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SetOrb");
         //  ここに関数追加予定
+        yield break;
+    }
+    IEnumerator GlowMushroom(int value, float delayTime, bool waitMovie, GameObject target)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("GlowMushroom");
+        target.GetComponent<NowMushroom>().SetMush();
         yield break;
     }
 

@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 41545956}
   m_Layer: 0
   m_Name: EnergyDiscription
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 115632606}
   m_Layer: 0
   m_Name: Mushroom_Left
-  m_TagString: Untagged
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2449,7 +2449,7 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   isFinish: 0
   standgimmickFlag: 0
-  standgimmickFlag_Map2: 2048
+  standgimmickFlag_Map2: 16384
   callType: 0
   eventName: 24
 --- !u!61 &376086819
@@ -2491,7 +2491,7 @@ GameObject:
   - component: {fileID: 419637558}
   m_Layer: 0
   m_Name: TimeCapsule
-  m_TagString: Untagged
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2505,7 +2505,7 @@ Transform:
   m_GameObject: {fileID: 419637556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.31, y: -2.57, z: 0}
-  m_LocalScale: {x: 3.3821447, y: 1.8019624, z: 2.2178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1225316969}
   m_Father: {fileID: 1095548334}
@@ -2530,7 +2530,7 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   isFinish: 0
   standgimmickFlag: 0
-  standgimmickFlag_Map2: 1
+  standgimmickFlag_Map2: 16384
   callType: 0
   eventName: 14
 --- !u!61 &419637559
@@ -3268,7 +3268,7 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   isFinish: 0
   standgimmickFlag: 0
-  standgimmickFlag_Map2: 2048
+  standgimmickFlag_Map2: 16384
   callType: 0
   eventName: 8
 --- !u!61 &619598100
@@ -3390,7 +3390,7 @@ GameObject:
   - component: {fileID: 639668317}
   m_Layer: 0
   m_Name: Mushroom_Right
-  m_TagString: Untagged
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5101,7 +5101,7 @@ GameObject:
   - component: {fileID: 856179472}
   - component: {fileID: 856179473}
   m_Layer: 0
-  m_Name: Bubble (1)
+  m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7717,7 +7717,7 @@ GameObject:
   - component: {fileID: 1401037655}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7731,7 +7731,7 @@ Transform:
   m_GameObject: {fileID: 1401037653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.61, y: -7.95, z: 0}
-  m_LocalScale: {x: 2.5, y: 4.125, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 754341830}
   m_Father: {fileID: 1095548334}
@@ -7756,7 +7756,7 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   isFinish: 0
   standgimmickFlag: 0
-  standgimmickFlag_Map2: 0
+  standgimmickFlag_Map2: 16384
   callType: 0
   eventName: 40
 --- !u!61 &1401037656
@@ -8770,7 +8770,7 @@ GameObject:
   - component: {fileID: 1574976785}
   m_Layer: 0
   m_Name: FranDiary
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8978,7 +8978,7 @@ GameObject:
   - component: {fileID: 1635147856}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8992,7 +8992,7 @@ Transform:
   m_GameObject: {fileID: 1635147854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.31, y: 4.12, z: 0}
-  m_LocalScale: {x: 2.3804, y: 3.2730498, z: 2.3804}
+  m_LocalScale: {x: 1, y: 1, z: 2.3804}
   m_Children:
   - {fileID: 882537840}
   m_Father: {fileID: 1095548334}
@@ -9017,7 +9017,7 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   isFinish: 0
   standgimmickFlag: 0
-  standgimmickFlag_Map2: 0
+  standgimmickFlag_Map2: 16384
   callType: 0
   eventName: 0
 --- !u!61 &1635147857
@@ -9383,7 +9383,7 @@ GameObject:
   - component: {fileID: 1696746644}
   m_Layer: 0
   m_Name: TimeCapsule_after
-  m_TagString: Untagged
+  m_TagString: Gimmick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9397,7 +9397,7 @@ Transform:
   m_GameObject: {fileID: 1696746642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.31, y: -2.57, z: 0}
-  m_LocalScale: {x: 3.3821447, y: 1.8019624, z: 2.2178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2124905055}
   m_Father: {fileID: 1095548334}
@@ -9422,7 +9422,7 @@ MonoBehaviour:
   needGimmickFlag_Map2: 0
   isFinish: 0
   standgimmickFlag: 0
-  standgimmickFlag_Map2: 2048
+  standgimmickFlag_Map2: 16384
   callType: 0
   eventName: 33
 --- !u!61 &1696746645
@@ -11624,7 +11624,7 @@ GameObject:
   - component: {fileID: 2073532379}
   - component: {fileID: 2073532380}
   m_Layer: 0
-  m_Name: Bubble (2)
+  m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
