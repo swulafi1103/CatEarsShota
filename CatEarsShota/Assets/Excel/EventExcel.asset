@@ -100,6 +100,11 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   E09_Gate1geme_past:
   - category: 10
     value: 1
@@ -636,11 +641,6 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 5
-  - category: 0
-    value: 9
-    delayTime: 1
-    waitMovie: 0
-    volume: 0
   E45_Blueorb_pickup:
   - category: 8
     value: 1

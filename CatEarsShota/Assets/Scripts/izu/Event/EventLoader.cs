@@ -57,6 +57,18 @@ public class EventLoader : EventBase, ICheckable
         }
     }
 
+    //public override bool CheckFlag()
+    //{
+    //    bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
+    //    isDisplayBubble = flag;
+    //    if (isFinish)
+    //    {
+    //        isDisplayBubble = false;
+    //    }
+    //    DisplayBubble();
+    //    return flag;
+    //}
+
     public override void DisplayBubble()
     {
         GameObject childObj;
@@ -91,7 +103,7 @@ public class EventLoader : EventBase, ICheckable
     {
         Vector2 lossScale = childObj.transform.lossyScale;
         Vector2 localScale = childObj.transform.localScale;
-        childObj.transform.localScale = new Vector3(localScale.x / lossScale.x * 2, localScale.x / lossScale.x * 2, 1);        
+        childObj.transform.localScale = new Vector3(localScale.x / lossScale.x * 0.5f, localScale.x / lossScale.x * 0.5f, 1);        
     }
 
     private enum CallType
