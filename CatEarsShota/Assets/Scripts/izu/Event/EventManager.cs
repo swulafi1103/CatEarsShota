@@ -38,6 +38,7 @@ public class EventManager : MonoBehaviour
 
     private List<GameObject> gimmickList = new List<GameObject>();
     private List<GameObject> itemList = new List<GameObject>();
+    private GameObject map2;
 
     public System.Action TypeinGameMap1ClearedFunc;
     public System.Action TypeinGameMap2FirstClearedFunc;
@@ -52,7 +53,7 @@ public class EventManager : MonoBehaviour
 
     void Start()
     {
-
+        map2 = GameObject.FindGameObjectWithTag("Map2");
     }
 
     void Update()
@@ -686,7 +687,8 @@ public class EventManager : MonoBehaviour
             case 1:
             case 2:
             case 3:
-            case 4:
+                map2.GetComponent<MapStatus>().ChangeColorObj(value);
+                break;
             default:
                 Debug.Log("マップの色替え未完成");
                 break;
@@ -822,6 +824,12 @@ public class EventManager : MonoBehaviour
         Debug.Log("ChangeSprite");
         switch (value)
         {
+            case 0:
+                map2.GetComponent<MapStatus>().UpdateGimmick(0, false);
+                break;
+            case 1:
+                map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
+                break;
         }
         yield break;
     }

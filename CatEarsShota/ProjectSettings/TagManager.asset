@@ -12,6 +12,7 @@ TagManager:
   - Gimmick
   - LadderTop
   - LadderBottom
+  - Map2
   layers:
   - Default
   - TransparentFX

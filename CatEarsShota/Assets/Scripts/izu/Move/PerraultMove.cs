@@ -37,6 +37,8 @@ public class PerraultMove : MonoBehaviour
 
     private void Awake()
     {
+        FrontShadow.SetActive(false);
+        BackShadow.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         animpants = Pants.GetComponent<Animator>();
