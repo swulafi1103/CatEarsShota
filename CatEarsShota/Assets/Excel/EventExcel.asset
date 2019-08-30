@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: EventExcel
   m_EditorClassIdentifier: 
   E01_Map1_to_map2:
-  - category: 16
+  - category: 1
     value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 6
+    value: 6
     delayTime: 1
     waitMovie: 0
     volume: 0
-  - category: 16
-    value: 1
-    delayTime: 1
-    waitMovie: 0
-    volume: 0
-  - category: 16
+  - category: 2
     value: 0
-    delayTime: 1
+    delayTime: 2
     waitMovie: 0
     volume: 0
   E02_Map2_to_map1:
@@ -106,7 +106,12 @@ MonoBehaviour:
     delayTime: 1
     waitMovie: 0
     volume: 0
-  E10_Gate1geme_clear_past: []
+  E10_Gate1geme_clear_past:
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   E11_Gate1geme_error_past:
   - category: 2
     value: 0
@@ -178,6 +183,11 @@ MonoBehaviour:
     volume: 0
   E15_Timecapsule_piece_buried_past: []
   E16_Mushroom_plant1_past:
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 9
     value: 0
     delayTime: 0
@@ -195,6 +205,11 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   E18_Cardkey_needed:
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 4
     value: 7
     delayTime: 0
@@ -212,16 +227,16 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 15
     value: 4
     delayTime: 1
     waitMovie: 0
     volume: 1
-  - category: 16
-    value: 2
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
   - category: 2
     value: 1
     delayTime: 0
@@ -256,15 +271,15 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 1
+    value: 3
     delayTime: 1
     waitMovie: 0
     volume: 0
-  - category: 14
-    value: 1
-    delayTime: 2
+  - category: 17
+    value: 0
+    delayTime: 0
     waitMovie: 0
-    volume: 1
+    volume: 0
   - category: 12
     value: 1
     delayTime: 0
@@ -287,7 +302,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 1
+    value: 6
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -301,18 +316,33 @@ MonoBehaviour:
     delayTime: 2
     waitMovie: 0
     volume: 0
+  - category: 2
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 13
     value: 5
     delayTime: 0
     waitMovie: 0
     volume: 0
   E25_Gate2game_past:
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 10
     value: 2
     delayTime: 1
     waitMovie: 0
     volume: 0
-  E26_Gate2geme_clear_past: []
+  E26_Gate2geme_clear_past:
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   E27_Gate2geme_error_past:
   - category: 2
     value: 0
@@ -437,6 +467,11 @@ MonoBehaviour:
     delayTime: 2
     waitMovie: 0
     volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 0
     value: 1
     delayTime: 0
@@ -481,16 +516,21 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 0
-    value: 1
+    value: 7
     delayTime: 1
     waitMovie: 0
     volume: 0
-  - category: 14
+  - category: 0
     value: 4
-    delayTime: 2
+    delayTime: 1
     waitMovie: 0
-    volume: 1
+    volume: 0
   - category: 12
     value: 2
     delayTime: 0
@@ -518,6 +558,11 @@ MonoBehaviour:
     volume: 0
   E40_Orb_fillin: []
   E41_Bad_end:
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 1
     value: 1
     delayTime: 1
@@ -539,11 +584,6 @@ MonoBehaviour:
     delayTime: 1
     waitMovie: 0
     volume: 1
-  - category: 16
-    value: 2
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
   - category: 2
     value: 0
     delayTime: 2
@@ -565,13 +605,13 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 14
-    value: 5
-    delayTime: 1
-    waitMovie: 0
-    volume: 1
-  - category: 0
+  - category: 17
     value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 8
     delayTime: 2
     waitMovie: 0
     volume: 0
@@ -585,6 +625,11 @@ MonoBehaviour:
     delayTime: 2
     waitMovie: 0
     volume: 0
+  - category: 2
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   E44_Orb_fillin_clear:
   - category: 1
     value: 0
@@ -592,7 +637,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 5
   - category: 0
-    value: 1
+    value: 9
     delayTime: 1
     waitMovie: 0
     volume: 0
