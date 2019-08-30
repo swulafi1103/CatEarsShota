@@ -347,6 +347,7 @@ public class EventManager : MonoBehaviour
             yield return null;
         Debug.Log("Movie");
         MainCamera.Instance.TriggeredVideo((uint)value);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator FadeIn(int value, float delayTime, bool waitMovie)
@@ -371,6 +372,7 @@ public class EventManager : MonoBehaviour
                 Debug.LogWarning("FadeInError, Value is Over");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator FadeOut(int value, float delayTime, bool waitMovie)
@@ -384,6 +386,7 @@ public class EventManager : MonoBehaviour
             yield return null;
         Debug.Log("FadeOut");
         Fade.Instance.ClearFade(0.5f, Color.clear);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator CameraZoom(int value, float delayTime, bool waitMovie)
@@ -412,6 +415,7 @@ public class EventManager : MonoBehaviour
                 Debug.Log("ズームの未実装のValue");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator Bubble(int value, float delayTime, bool waitMovie)
@@ -464,6 +468,7 @@ public class EventManager : MonoBehaviour
                 Debug.Log("この吹き出しは未実装");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator ChangeTime(int value, float delayTime, bool waitMovie)
@@ -478,6 +483,7 @@ public class EventManager : MonoBehaviour
             FlagManager.Instance.ChegeFranPero(true);
         else
             FlagManager.Instance.ChegeFranPero(false);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     //IEnumerator WarpPositionPero(int value, float delayTime, bool waitMovie)    // セーブの処理にも座標情報があるのでそこを流用予定
@@ -646,6 +652,7 @@ public class EventManager : MonoBehaviour
                 Debug.Log("未実装の番号です。番号：" + value);
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator Minigame1(int value, float delayTime, bool waitMovie)
@@ -693,6 +700,7 @@ public class EventManager : MonoBehaviour
                 Debug.Log("マップの色替え未完成");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator TextWindow(int value, float delayTime, bool waitMovie)
