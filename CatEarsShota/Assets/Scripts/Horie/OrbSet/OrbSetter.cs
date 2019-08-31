@@ -21,6 +21,15 @@ public class OrbSetter : MonoBehaviour
         ItemManager.ItemNum.Yerrow_Orb
     };
 
+    private static OrbSetter instance;
+    public static OrbSetter Instance {
+        get { return instance; }
+    }
+
+    private void Awake() {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +39,7 @@ public class OrbSetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OrbCheck();
+        //OrbCheck();
         CheckXKey();
         SetitemUI();
     }
@@ -53,8 +62,28 @@ public class OrbSetter : MonoBehaviour
     {
         if (!OrbSetterImage.activeSelf) return;
         if (!Input.GetKeyDown(KeyCode.D)) return;
+        OpenItemUI();
+    }
+
+    public void OpenItemUI() {
         OrbSetterImage.SetActive(false);
-        ItemManager.Instance.SetEvents(orblist);
+        //ItemManager.Instance.SetEvents(orblist);
+        for(int i = 0; i < orblist.Length; i++) {
+            switch (i) {
+                case 0:
+                    ItemManager.Instance.SelectEvent(orblist[i], OrbSet0);
+                    break;
+                case 1:
+                    ItemManager.Instance.SelectEvent(orblist[i], OrbSet1);
+                    break;
+                case 2:
+                    ItemManager.Instance.SelectEvent(orblist[i], OrbSet2);
+                    break;
+                case 3:
+                    ItemManager.Instance.SelectEvent(orblist[i], OrbSet3);
+                    break;
+            }
+        }
     }
 
     void OrbCheck()
@@ -68,6 +97,35 @@ public class OrbSetter : MonoBehaviour
             MapOrbImages[i].enabled = true;
             CheckFlag();
         }
+    }
+    
+
+    void OrbSet0() {
+        OrbSetterImage.SetActive(true);
+        OrbImages[0].enabled = true;
+        MapOrbImages[0].enabled = true;
+        CheckFlag();
+    }
+
+    void OrbSet1() {
+        OrbSetterImage.SetActive(true);
+        OrbImages[1].enabled = true;
+        MapOrbImages[1].enabled = true;
+        CheckFlag();
+    }
+
+    void OrbSet2() {
+        OrbSetterImage.SetActive(true);
+        OrbImages[2].enabled = true;
+        MapOrbImages[2].enabled = true;
+        CheckFlag();
+    }
+
+    void OrbSet3() {
+        OrbSetterImage.SetActive(true);
+        OrbImages[3].enabled = true;
+        MapOrbImages[3].enabled = true;
+        CheckFlag();
     }
 
     /// <summary>

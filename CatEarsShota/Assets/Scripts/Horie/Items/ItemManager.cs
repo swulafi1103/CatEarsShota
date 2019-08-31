@@ -219,4 +219,10 @@ public class ItemManager : MonoBehaviour
     public void SetItemUI() {
         UIContriller.StartItemUI();
     }
+
+    public void SelectEvent(ItemNum item,Action callvoid) {
+        int num = (int)item;
+        ItemData data = itemList[num];
+        UIContriller.SelectItemUI(data, callvoid);
+    }
 }
