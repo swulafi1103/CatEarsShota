@@ -38,6 +38,7 @@ public class EventManager : MonoBehaviour
 
     private List<GameObject> gimmickList = new List<GameObject>();
     private List<GameObject> itemList = new List<GameObject>();
+    private GameObject map2;
 
     public System.Action TypeinGameMap1ClearedFunc;
     public System.Action TypeinGameMap2FirstClearedFunc;
@@ -52,7 +53,7 @@ public class EventManager : MonoBehaviour
 
     void Start()
     {
-        
+        map2 = GameObject.FindGameObjectWithTag("Map2");
     }
 
     void Update()
@@ -60,6 +61,8 @@ public class EventManager : MonoBehaviour
         //
         if (Input.GetKeyDown(KeyCode.F5))
         {
+            //  Debug用
+            //PanelPuzzleControl.Instance.StartPanelPuzzle();
             UpdateEvent();
         }
         if (Input.GetKeyDown(KeyCode.O))
@@ -71,7 +74,7 @@ public class EventManager : MonoBehaviour
     /// <summary>フラグのチェックと更新</summary>
     public void UpdateEvent()
     {
-        foreach(GameObject obj in gimmickList)
+        foreach (GameObject obj in gimmickList)
         {
             if (obj != null)
             {
@@ -153,6 +156,14 @@ public class EventManager : MonoBehaviour
                 return ChangeSprite(value, delayTime, waitMovie);
             case EventCategory.StandFlag:
                 return StandFlag(delayTime, waitMovie, target);
+            case EventCategory.SetPiece:
+                return SetPiece(value, delayTime, waitMovie);
+            case EventCategory.SetMushRoomNoMoto:
+                return SetMushRoomNoMoto(value, delayTime, waitMovie);
+            case EventCategory.SetOrb:
+                return SetOrb(value, delayTime, waitMovie);
+            case EventCategory.GlowMushroom:
+                return GlowMushroom(value, delayTime, waitMovie, target);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -213,6 +224,99 @@ public class EventManager : MonoBehaviour
             case EventName.E13_Stairs1_down_past:
                 entity = eventExcel.E13_Stairs1_down_past;
                 break;
+            case EventName.E14_Enemy_exit_past:
+                entity = eventExcel.E14_Enemy_exit_past;
+                break;
+            case EventName.E15_Timecapsule_piece_buried_past:
+                entity = eventExcel.E15_Timecapsule_piece_buried_past;
+                break;
+            case EventName.E16_Mushroom_plant1_past:
+                entity = eventExcel.E16_Mushroom_plant1_past;
+                break;
+            case EventName.E17_Mushroom_noplant_past:
+                entity = eventExcel.E17_Mushroom_noplant_past;
+                break;
+            case EventName.E18_Cardkey_needed:
+                entity = eventExcel.E18_Cardkey_needed;
+                break;
+            case EventName.E19_Pant_pickup4:
+                entity = eventExcel.E19_Pant_pickup4;
+                break;
+            case EventName.E20_Timecapsule_piece:
+                entity = eventExcel.E20_Timecapsule_piece;
+                break;
+            case EventName.E21_Pant_pickup5:
+                entity = eventExcel.E21_Pant_pickup5;
+                break;
+            case EventName.E22_Picture_book_piece_pickup:
+                entity = eventExcel.E22_Picture_book_piece_pickup;
+                break;
+            case EventName.E23_MiniGame2_clear:
+                entity = eventExcel.E23_MiniGame2_clear;
+                break;
+            case EventName.E24_Alone_start_past:
+                entity = eventExcel.E24_Alone_start_past;
+                break;
+            case EventName.E25_Gate2game_past:
+                entity = eventExcel.E25_Gate2game_past;
+                break;
+            case EventName.E26_Gate2geme_clear_past:
+                entity = eventExcel.E26_Gate2geme_clear_past;
+                break;
+            case EventName.E27_Gate2geme_error_past:
+                entity = eventExcel.E27_Gate2geme_error_past;
+                break;
+            case EventName.E28_Stairs2_up_past:
+                entity = eventExcel.E28_Stairs2_up_past;
+                break;
+            case EventName.E29_Stairs2_down_past:
+                entity = eventExcel.E29_Stairs2_down_past;
+                break;
+            case EventName.E30_Stairs3_up_past:
+                entity = eventExcel.E30_Stairs3_up_past;
+                break;
+            case EventName.E31_Stairs3_down_past:
+                entity = eventExcel.E31_Stairs3_down_past;
+                break;
+            case EventName.E32_Apparatus_on_past:
+                entity = eventExcel.E32_Apparatus_on_past;
+                break;
+            case EventName.E33_report3_pickup:
+                entity = eventExcel.E33_report3_pickup;
+                break;
+            case EventName.E34_Timecapsule_bookmark_buried_past:
+                entity = eventExcel.E34_Timecapsule_bookmark_buried_past;
+                break;
+            case EventName.E35_Mushroom_plant2_past:
+                entity = eventExcel.E35_Mushroom_plant2_past;
+                break;
+            case EventName.E36_End_past:
+                entity = eventExcel.E36_End_past;
+                break;
+            case EventName.E37_Pant_pickup:
+                entity = eventExcel.E37_Pant_pickup;
+                break;
+            case EventName.E38_No_answer:
+                entity = eventExcel.E38_No_answer;
+                break;
+            case EventName.E39_Blue_event:
+                entity = eventExcel.E39_Blue_event;
+                break;
+            case EventName.E40_Orb_fillin:
+                entity = eventExcel.E40_Orb_fillin;
+                break;
+            case EventName.E41_Bad_end:
+                entity = eventExcel.E41_Bad_end;
+                break;
+            case EventName.E42_Time_capsule_bookmark:
+                entity = eventExcel.E42_Time_capsule_bookmark;
+                break;
+            case EventName.E43_Green_event:
+                entity = eventExcel.E43_Green_event;
+                break;
+            case EventName.E44_Orb_fillin_clear:
+                entity = eventExcel.E44_Orb_fillin_clear;
+                break;
             default:
                 Debug.Log("実装してない値");
                 break;
@@ -221,7 +325,7 @@ public class EventManager : MonoBehaviour
         return entity;
     }
 
-    IEnumerator EventCorutine(EventName eventName ,GameObject target)
+    IEnumerator EventCorutine(EventName eventName, GameObject target)
     {
         List<EventEntity> entity = null;
         entity = GetEventEntity(eventName);
@@ -235,7 +339,7 @@ public class EventManager : MonoBehaviour
             FlagManager.Instance.IsEventing = true;
             yield return StartCoroutine(CallCorutine(entity[i].category, entity[i].value, entity[i].delayTime, entity[i].waitMovie, entity[i].volume, target));
         }
-        FlagManager.Instance.IsEventing = false;
+        //FlagManager.Instance.IsEventing = false;
         Debug.Log("イベント終了");
         yield break;
     }
@@ -251,6 +355,7 @@ public class EventManager : MonoBehaviour
             yield return null;
         Debug.Log("Movie");
         MainCamera.Instance.TriggeredVideo((uint)value);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator FadeIn(int value, float delayTime, bool waitMovie)
@@ -275,6 +380,7 @@ public class EventManager : MonoBehaviour
                 Debug.LogWarning("FadeInError, Value is Over");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator FadeOut(int value, float delayTime, bool waitMovie)
@@ -288,6 +394,7 @@ public class EventManager : MonoBehaviour
             yield return null;
         Debug.Log("FadeOut");
         Fade.Instance.ClearFade(0.5f, Color.clear);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator CameraZoom(int value, float delayTime, bool waitMovie)
@@ -316,6 +423,7 @@ public class EventManager : MonoBehaviour
                 Debug.Log("ズームの未実装のValue");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator Bubble(int value, float delayTime, bool waitMovie)
@@ -358,14 +466,21 @@ public class EventManager : MonoBehaviour
             case 9:
                 BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Pero);
                 break;
+            case 10:
+                BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Mashroom);
+                break;
+            case 11:
+                BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Orb);
+                break;
             default:
                 Debug.Log("この吹き出しは未実装");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator ChangeTime(int value, float delayTime, bool waitMovie)
-    {        
+    {
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
@@ -376,6 +491,7 @@ public class EventManager : MonoBehaviour
             FlagManager.Instance.ChegeFranPero(true);
         else
             FlagManager.Instance.ChegeFranPero(false);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     //IEnumerator WarpPositionPero(int value, float delayTime, bool waitMovie)    // セーブの処理にも座標情報があるのでそこを流用予定
@@ -453,12 +569,12 @@ public class EventManager : MonoBehaviour
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_04_RedOrb);
                 break;
             case 4:
-                ItemManager.Instance.SetItemData(ItemManager.ItemNum.CardKey);
-                FlagManager.Instance.SetItemFlag(ItemFlag.I_05_CardKey);
-                break;
-            case 5:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Report_88);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_08_ReportNo88);
+                break;
+            case 5:
+                ItemManager.Instance.SetItemData(ItemManager.ItemNum.Diary_Fran);
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_09_DiaryFran);
                 break;
             case 6:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Instructions);
@@ -470,7 +586,7 @@ public class EventManager : MonoBehaviour
                 break;
             case 8:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
-                //FlagManager.Instance.SetItemFlag(ItemFlag.);  キノコだけItemFlagに存在しなかった
+                FlagManager.Instance.SetItemFlag(ItemFlag.I_19_MushRoom);
                 break;
             case 9:
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
@@ -512,13 +628,14 @@ public class EventManager : MonoBehaviour
                 ItemManager.Instance.SetItemData(ItemManager.ItemNum.BookMark_Past);
                 FlagManager.Instance.SetItemFlag(ItemFlag.I_18_BookStopPast);
                 break;
-
             default:
                 Debug.LogWarning("アイテム取得で未実装の番号が選択されました。番号：" + value);
-                break;
+                yield break;
         }
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_06_ItemPickUp);
         //  非表示
         target.SetActive(false);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator Tutorial(int value, float delayTime, bool waitMovie)
@@ -543,6 +660,7 @@ public class EventManager : MonoBehaviour
                 Debug.Log("未実装の番号です。番号：" + value);
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator Minigame1(int value, float delayTime, bool waitMovie)
@@ -558,7 +676,7 @@ public class EventManager : MonoBehaviour
         yield break;
     }
     IEnumerator Minigame2(int value, float delayTime, bool waitMovie, GameObject target)
-    {        
+    {
         if (waitMovie)
         {
             yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
@@ -584,11 +702,13 @@ public class EventManager : MonoBehaviour
             case 1:
             case 2:
             case 3:
-            case 4:
+                map2.GetComponent<MapStatus>().ChangeColorObj(value);
+                break;
             default:
                 Debug.Log("マップの色替え未完成");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator TextWindow(int value, float delayTime, bool waitMovie)
@@ -637,7 +757,7 @@ public class EventManager : MonoBehaviour
                 SoundManager.Instance.PlayBGM(SoundManager.BGM_Name.BGM_07_Past2);
                 break;
             default:
-                Debug.LogWarning(value +"番のBGMは未実装");
+                Debug.LogWarning(value + "番のBGMは未実装");
                 break;
         }
         yield break;
@@ -709,7 +829,6 @@ public class EventManager : MonoBehaviour
         }
         yield break;
     }
-
     IEnumerator ChangeSprite(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
@@ -720,10 +839,15 @@ public class EventManager : MonoBehaviour
         Debug.Log("ChangeSprite");
         switch (value)
         {
+            case 0:
+                map2.GetComponent<MapStatus>().UpdateGimmick(0, false);
+                break;
+            case 1:
+                map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
+                break;
         }
         yield break;
     }
-
     IEnumerator StandFlag(float delayTime, bool waitMovie, GameObject target)
     {
         if (waitMovie)
@@ -735,7 +859,52 @@ public class EventManager : MonoBehaviour
         FlagManager.Instance.SetGimmickFlag(target.GetComponent<EventLoader>().StandgimmickFlag, target.GetComponent<EventLoader>().StandgimmickFlag_Map2);
         yield break;
     }
+    IEnumerator SetMushRoomNoMoto(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("SetMushRoomNoMoto");
+        //  ここに関数追加予定
+        yield break;
+    }
 
+
+    IEnumerator SetPiece(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("SetPiece");
+        //  ここに関数追加予定
+        yield break;
+    }
+    IEnumerator SetOrb(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("SetOrb");
+        //  ここに関数追加予定
+        yield break;
+    }
+    IEnumerator GlowMushroom(int value, float delayTime, bool waitMovie, GameObject target)
+    {
+        if (waitMovie)
+        {
+            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("GlowMushroom");
+        target.GetComponent<NowMushroom>().SetMush();
+        yield break;
+    }
 
     #endregion
 }

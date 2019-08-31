@@ -51,6 +51,7 @@ public class OrbSetter : MonoBehaviour
 
     void SetitemUI()
     {
+        if (!OrbSetterImage.activeSelf) return;
         if (!Input.GetKeyDown(KeyCode.D)) return;
         OrbSetterImage.SetActive(false);
         ItemManager.Instance.SetEvents(orblist);
@@ -74,6 +75,14 @@ public class OrbSetter : MonoBehaviour
     /// </summary>
     void CheckFlag()
     {
+        foreach(SpriteRenderer orb in MapOrbImages)
+        {
+            if (orb.enabled == false)
+            {
+                return;
+            }
+        }
 
+        //トゥルーエンド呼び出し
     }
 }

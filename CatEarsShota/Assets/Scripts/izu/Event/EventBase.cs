@@ -5,9 +5,9 @@ using UnityEngine;
 public class EventBase : MonoBehaviour
 {
     [SerializeField, HeaderAttribute("↓↓プランナーが編集する箇所↓↓")]
-    private Vector2 bubblePos = default;
+    protected Vector2 bubblePos = default;
     [SerializeField]
-    private bool flipBubble = default;
+    protected bool flipBubble = default;
     protected bool isDisplayBubble;
 
     [SerializeField, EnumFlags]
@@ -17,7 +17,8 @@ public class EventBase : MonoBehaviour
     [SerializeField, EnumFlags]
     protected GimmickFlag_Map2 needGimmickFlag_Map2;
 
-    protected bool isFinish = false;
+    [HideInInspector]
+    public bool isFinish = false;
 
     void Update()
     {

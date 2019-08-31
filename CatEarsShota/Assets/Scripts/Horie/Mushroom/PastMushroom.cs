@@ -49,4 +49,10 @@ public class PastMushroom : MonoBehaviour
             //flag変え
         }
     }
+
+    public IEnumerable test()
+    {
+
+        yield break;
+    }
 }
