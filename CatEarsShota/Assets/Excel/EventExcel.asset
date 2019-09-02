@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   E01_Map1_to_map2:
   - category: 16
-    value: 0
+    value: 2
     delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 16
-    value: 1
+    value: 3
     delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 16
-    value: 0
+    value: 5
     delayTime: 1
     waitMovie: 0
     volume: 0
