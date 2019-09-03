@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EventExcel
   m_EditorClassIdentifier: 
   E01_Map1_to_map2:
+<<<<<<< HEAD
   - category: 1
     value: 0
     delayTime: 0
@@ -26,6 +27,21 @@ MonoBehaviour:
   - category: 2
     value: 0
     delayTime: 2
+=======
+  - category: 16
+    value: 2
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 16
+    value: 3
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 16
+    value: 5
+    delayTime: 1
+>>>>>>> master
     waitMovie: 0
     volume: 0
   E02_Map2_to_map1:

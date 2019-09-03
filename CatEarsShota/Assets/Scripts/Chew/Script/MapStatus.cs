@@ -46,6 +46,7 @@ public class MapStatus : MonoBehaviour
     public void ChangeColorObj(int newColor)
     {
         currentcolor = newColor;
+        Debug.Log(gameObject.name);
         for (int i = 0; i < yelloObjs.Length; i++)
         {
             if (yelloObjs[i].ChangeObj != null)
@@ -62,7 +63,7 @@ public class MapStatus : MonoBehaviour
             if (gimmickObjs[i].ChangeObj != null)
                 gimmickObjs[i].ChangeObj.GetComponent<SpriteRenderer>().sprite = gimmickObjs[i].colorSprite[newColor * 2 + (gimmickObjs[i].OnStatus ? 1 : 0)];
             else
-                Debug.Log("gimmickObjs error");
+                Debug.Log("gimmickObjs error"+" "+gameObject.name );
         }
     }
 

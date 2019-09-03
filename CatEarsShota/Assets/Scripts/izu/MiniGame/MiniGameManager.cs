@@ -100,8 +100,8 @@ public class MiniGameManager : MonoBehaviour
         clearText= transform.Find("MinigameBackGround/ClearText").GetComponent<Text>();
         commandParentObj = transform.Find("MinigameBackGround/CommandParent").gameObject;
         //  ゲートオブジェクトの検索
-        if (gateObserver == null)
-            gateObserver = FindObjectOfType<GateOpener>().gameObject;
+       // if (gateObserver == null)
+            //gateObserver = FindObjectOfType<GateOpener>().gameObject;
     }
 
     /// <summary>発電機を触れたら</summary>
