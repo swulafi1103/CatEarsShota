@@ -859,6 +859,13 @@ public class EventManager : MonoBehaviour
             case 5:
                 map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
                 break;
+            case 6:
+                map2.GetComponent<MapStatus>().UpdateGimmick(1, false);
+                break;
+            case 7:
+                map2.GetComponent<MapStatus>().UpdateGimmick(1, true);
+                break;
+
         }
         yield break;
     }
