@@ -39,7 +39,6 @@ public class EventManager : MonoBehaviour
     private List<GameObject> gimmickList = new List<GameObject>();
     private List<GameObject> itemList = new List<GameObject>();
     private GameObject map2;
-    private GameObject map1;
 
     public System.Action TypeinGameMap1ClearedFunc;
     public System.Action TypeinGameMap2FirstClearedFunc;
@@ -55,7 +54,6 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         map2 = GameObject.FindGameObjectWithTag("Map2");
-        map1 = GameObject.FindGameObjectWithTag("Map1");
     }
 
     void Update()
@@ -701,7 +699,7 @@ public class EventManager : MonoBehaviour
         switch (value)
         {
             case 0:
-            case 1://pero black command
+            case 1:
             case 2:
             case 3:
                 map2.GetComponent<MapStatus>().ChangeColorObj(value);
@@ -842,21 +840,9 @@ public class EventManager : MonoBehaviour
         switch (value)
         {
             case 0:
-                map1.GetComponent<MapStatus>().UpdateGimmick(0, false);
-                break;
-            case 1:
-                map1.GetComponent<MapStatus>().UpdateGimmick(0, true);
-                break;
-            case 2:
-                map1.GetComponent<MapStatus>().UpdateGimmick(1, false);
-                break;
-            case 3:
-                map1.GetComponent<MapStatus>().UpdateGimmick(1, true);
-                break;
-            case 4:
                 map2.GetComponent<MapStatus>().UpdateGimmick(0, false);
                 break;
-            case 5:
+            case 1:
                 map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
                 break;
         }

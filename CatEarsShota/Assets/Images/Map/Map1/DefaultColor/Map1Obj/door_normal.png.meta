@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 9a917d7cd12a34c4cab3f80d35a50d6a
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: door_normal_0
-    21300002: door_normal_1
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -42,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,47 +115,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: door_normal_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 247
-        height: 740
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dde4a7ac3b8a1944a864abb34aae2ec
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_normal_1
-      rect:
-        serializedVersion: 2
-        x: 247
-        y: 0
-        width: 777
-        height: 740
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e32dcb5838e95924cab4a9ce3f3780fc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

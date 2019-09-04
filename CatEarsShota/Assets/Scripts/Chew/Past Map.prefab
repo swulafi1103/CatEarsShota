@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5024913723012926680}
+  - component: {fileID: 256986727461289083}
   m_Layer: 0
   m_Name: Past Map
   m_TagString: Untagged
@@ -35,6 +36,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &256986727461289083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256986727461289082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea09badd30de2c47a7f89333a024ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapObjectState: 010000
+  MapObject:
+  - {fileID: 4996520802766792089}
+  - {fileID: 1578784508787769284}
+  - {fileID: 3208017413035605698}
+  yelloObjs: []
 --- !u!1 &868445267644136290
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,11 +173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8973eceddcaf48d4e8c4f4f532c6a74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: -1, y: 2}
-  flipBubble: 1
   needItemFlag: 0
   needGimmickFlag: 32
-  needGimmickFlag_Map2: 0
+  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
+  bubblePos: {x: -1, y: 2}
+  flipBubble: 1
+  isDisplayBubble: 0
   standgimmickFlag: 128
   isComplete: 0
 --- !u!1 &1267798015779771257
@@ -500,11 +520,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e22cf420cf548f4b8dc8771942b2164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 1, y: 1}
-  flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 16
-  needGimmickFlag_Map2: 0
+  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
+  bubblePos: {x: 1, y: 1}
+  flipBubble: 0
+  isDisplayBubble: 0
   standgimmickFlag: 256
   isComplete: 0
   isOpenMinigame: 0
@@ -1085,11 +1106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347a18076e09d9f4eb6ec9ab851e7ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 1, y: 1}
-  flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 32
-  needGimmickFlag_Map2: 0
+  bubbleImage: {fileID: 21300000, guid: 55b37bf73e2504141b7cbd2bacbc4898, type: 3}
+  bubblePos: {x: 1, y: 1}
+  flipBubble: 0
+  isDisplayBubble: 0
   standItemFlag: 128
   itemNum: 4
 --- !u!1 &5639729437231331595
@@ -1758,10 +1780,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e8c9adb2dbd9345aadb1b85608bfa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: -1, y: 1}
-  flipBubble: 1
   needItemFlag: 0
   needGimmickFlag: 256
-  needGimmickFlag_Map2: 0
+  bubbleImage: {fileID: 0}
+  bubblePos: {x: -1, y: 1}
+  flipBubble: 1
+  isDisplayBubble: 0
   standgimmickFlag: 1024
   isComplete: 0

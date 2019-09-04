@@ -43,7 +43,6 @@ public class PerraultMove : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         animpants = Pants.GetComponent<Animator>();
         scale = transform.localScale;
-        anim.SetBool("FaceLeft", true);
     }
     void Start()
     {

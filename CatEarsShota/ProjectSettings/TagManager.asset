@@ -13,7 +13,6 @@ TagManager:
   - LadderTop
   - LadderBottom
   - Map2
-  - Map1
   layers:
   - Default
   - TransparentFX
