@@ -230,7 +230,7 @@ public class EventManager : MonoBehaviour
                 entity = eventExcel.E14_Enemy_exit_past;
                 break;
             case EventName.E15_Timecapsule_piece_buried_past:
-                entity = eventExcel.E15_Timecapsule_piece_buried_past;
+                entity = eventExcel.E15_Timecapsule_piece_buried_pa;
                 break;
             case EventName.E16_Mushroom_plant1_past:
                 entity = eventExcel.E16_Mushroom_plant1_past;
@@ -287,7 +287,7 @@ public class EventManager : MonoBehaviour
                 entity = eventExcel.E33_report3_pickup;
                 break;
             case EventName.E34_Timecapsule_bookmark_buried_past:
-                entity = eventExcel.E34_Timecapsule_bookmark_buried_past;
+                entity = eventExcel.E34_Timecapsule_bookmark_buried;
                 break;
             case EventName.E35_Mushroom_plant2_past:
                 entity = eventExcel.E35_Mushroom_plant2_past;
