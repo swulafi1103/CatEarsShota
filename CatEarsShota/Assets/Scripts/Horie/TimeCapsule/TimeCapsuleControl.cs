@@ -14,7 +14,7 @@ public class TimeCapsuleControl : MonoBehaviour
     }
 
     ItemManager.ItemNum[] list = new ItemManager.ItemNum[2] {
-        ItemManager.ItemNum.CardKey,
+        ItemManager.ItemNum.Ilust_Piece,
         ItemManager.ItemNum.BookMark_Past
     };
 
@@ -39,7 +39,8 @@ public class TimeCapsuleControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //    SetUI(1);
     }
 
     /// <summary>
@@ -73,5 +74,6 @@ public class TimeCapsuleControl : MonoBehaviour
         nowTimeCapsule.sprite = nowOnItemSprite;
 
         //フラグ処理
+        ItemManager.Instance.SetItemData(list[num]);
     }
 }

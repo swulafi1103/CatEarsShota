@@ -250,6 +250,7 @@ public class PanelPuzzle : MonoBehaviour
             DKeyImage.enabled = false;
             _gameState = GameState.Conprete;
             //フラグ書き換え
+            ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
             if (EventManager.Instance.PieceGameClearedFunc != null)
                 EventManager.Instance.PieceGameClearedFunc.Invoke();
             return;

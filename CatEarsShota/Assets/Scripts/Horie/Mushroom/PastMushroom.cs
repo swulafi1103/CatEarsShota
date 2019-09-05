@@ -41,6 +41,7 @@ public class PastMushroom : MonoBehaviour
     void OnMushroom() {
         Debug.Log("Mushroom Set");
         nowMushroom.SetMush();
+        ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
     }
     
 }
