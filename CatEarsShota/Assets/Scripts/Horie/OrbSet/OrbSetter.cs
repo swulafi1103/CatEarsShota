@@ -41,8 +41,8 @@ public class OrbSetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-            SetDetailOrb();
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //    SetDetailOrb();
 
         //OrbCheck();
         CheckXKey();
@@ -72,6 +72,7 @@ public class OrbSetter : MonoBehaviour
 
     public void OpenItemUI() {
         OrbSetterImage.SetActive(false);
+        FlagManager.Instance.IsEventing = false;
 
         System.Action[] eventList = new System.Action[4] {
         OrbSet0,
@@ -114,7 +115,7 @@ public class OrbSetter : MonoBehaviour
     }
 
     void OrbSet(int num) {
-        OrbSetterImage.SetActive(true);
+        SetDetailOrb();
         OrbImages[num].enabled = true;
         MapOrbImages[num].enabled = true;
         ItemManager.Instance.SetItemData(orblist[num]);

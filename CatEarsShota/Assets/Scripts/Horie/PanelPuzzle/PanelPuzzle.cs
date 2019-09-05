@@ -53,7 +53,7 @@ public class PanelPuzzle : MonoBehaviour
                 break;
             case GameState.PanelSeted:
                 PushXkey();
-                //PushDkey();
+                PushDkey();
                 //SelectPiece();
                 break;
             case GameState.Conprete:

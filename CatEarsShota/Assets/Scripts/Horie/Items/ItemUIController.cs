@@ -229,7 +229,6 @@ public class ItemUIController : MonoBehaviour
         else {
             startPos = Vector3.zero;
             endPos = new Vector3(0, -1080, 0);
-            PlayerPanel.Play("wait");
         }
         ItemPanel.GetComponent<RectTransform>().localPosition = startPos;
 
@@ -240,6 +239,12 @@ public class ItemUIController : MonoBehaviour
 
             yield return null;
         }
+
+        if (!act) {
+            PlayerPanel.Play("wait");
+        }
+
+        yield break;
 
     }
 
@@ -426,6 +431,7 @@ public class ItemUIController : MonoBehaviour
                 items[i].SetShadow(true);
             }
         }
+        yield break;
     }
 
     void EventMoveUI()
@@ -541,10 +547,12 @@ public class ItemUIController : MonoBehaviour
             if (OnClick) {
                 for (int i = 0; i < item.Length; i++) {
                     if (NowHave[selectNum] == item[i]) {
+                        col = StartCoroutine(SetItemUI(false));
+                        yield return col;
                         IsEvent = false;
                         IsEvents = false;
-                        ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
-                        PlayerPanel.Play("wait");
+                        //ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
+                        //PlayerPanel.Play("wait");
                         FlagManager.Instance.IsOpenUI = false;
                         actions[i]();
                         yield break;
