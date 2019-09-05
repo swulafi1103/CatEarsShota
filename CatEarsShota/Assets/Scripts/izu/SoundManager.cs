@@ -326,6 +326,10 @@ public class SoundManager : MonoBehaviour
     {
         audioSource[2].PlayOneShot(SE[(int)_Name], _Vol);
     }
+    public void PlaySE(int num, float _Vol = 1)
+    {
+        audioSource[2].PlayOneShot(SE[num], _Vol);
+    }
 
 
 }

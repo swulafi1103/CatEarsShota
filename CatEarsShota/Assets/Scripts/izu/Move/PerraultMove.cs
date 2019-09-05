@@ -61,6 +61,7 @@ public class PerraultMove : MonoBehaviour
             Move();
             Action();
         }
+        ChangeTime();
     }
 
     /// <summary>
@@ -187,6 +188,10 @@ public class PerraultMove : MonoBehaviour
         {
             return false;
         }
+        if (FlagManager.Instance.IsMovie)
+        {
+            return false;
+        }
         return true;
     }
 
@@ -207,14 +212,30 @@ public class PerraultMove : MonoBehaviour
                 //  ギミックの発動
                 Debug.Log("ギミック作動");
                 checkObjects[0].GetComponent<ICheckable>().Check();
-                if (checkObjects[0].GetComponent<EventBase>().isFinish == true)
-                    checkObjects.Remove(checkObjects[0]);
+                checkObjects.Remove(checkObjects[0]);
             }
         }
         if (Input.GetKeyDown(KeyCode.D))//アイテム欄を開く
         {
             ItemManager.Instance.SetItemUI();
         }
+    }
+
+    void ChangeTime()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Debug.Log("ChangeTime");
+            if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag_Map2.G_31_EndPastMode))
+            {
+                FlagManager.Instance.ChegeFranPero();
+            }
+            else
+            {
+                TutorialContriller.Instance.SetTextWindow(0);
+            }
+        }
+        
     }
 
     //  地面に触れているか
@@ -234,7 +255,7 @@ public class PerraultMove : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //  要素の追加
-        if (collision.gameObject.GetComponent<ICheckable>() != null)
+        if (collision.gameObject.GetComponent<ICheckable>() != null && collision.gameObject.GetComponent<EventBase>().isFinish != true)
         {
             if (!checkObjects.Contains(collision.gameObject))
             {
@@ -242,12 +263,28 @@ public class PerraultMove : MonoBehaviour
             }
         }
     }
-
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    //  要素の追加
+    //    if (collision.gameObject.GetComponent<ICheckable>() != null && collision.gameObject.GetComponent<EventBase>().isFinish != true)
+    //    {
+    //        if (!checkObjects.Contains(collision.gameObject))
+    //        {
+    //            checkObjects.Add(collision.gameObject);
+    //        }
+    //    }
+    //    if (collision.gameObject.GetComponent<ICheckable>() != null && collision.gameObject.GetComponent<EventBase>().isFinish)
+    //    {
+    //        if (checkObjects.Contains(collision.gameObject))
+    //        {
+    //            checkObjects.Remove(collision.gameObject);
+    //        }
+    //    }
+    //}
     private void OnTriggerExit2D(Collider2D collision)
     {
         //  要素の破棄
         checkObjects.Remove(collision.gameObject);
-
     }
 
 

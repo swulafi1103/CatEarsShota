@@ -177,7 +177,6 @@ public class FranMove : MonoBehaviour
                 //  ギミックの発動
                 Debug.Log("ギミック作動");
                 checkObjects[0].GetComponent<ICheckable>().Check();
-                if (checkObjects[0].GetComponent<EventBase>().isFinish == true)
                 checkObjects.Remove(checkObjects[0]);
             }
         }
@@ -196,6 +195,10 @@ public class FranMove : MonoBehaviour
             return false;
         }
         if (FlagManager.Instance.IsEventing)
+        {
+            return false;
+        }
+        if (FlagManager.Instance.IsMovie)
         {
             return false;
         }

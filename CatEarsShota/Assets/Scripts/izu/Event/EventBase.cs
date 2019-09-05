@@ -30,6 +30,11 @@ public class EventBase : MonoBehaviour
         isFinish = true;
     }
 
+    public virtual void Missed()
+    {
+        isFinish = false;
+    }
+
     public virtual bool CheckFlag()
     {
         bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
