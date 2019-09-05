@@ -404,16 +404,21 @@ public class ItemUIController : MonoBehaviour
         selectTab = (int)itemlist[0].GetItemType;
         SetTabColor();
         SetIamges();
+        int select = -1;
+
         for (int i = 0; i < NowHave.Count; i++)
         {
             bool selected = false;
             for (int j = 0; j < itemlist.Length; j++)
             {
-                if (items[i] == itemlist[j])
+                if (NowHave[i] == itemlist[j])
                 {
                     items[i].SetShadow(false);
-                    FirstSelectIcon(i);
                     selected = true;
+                    if (select == -1) {
+                        FirstSelectIcon(i);
+                        select = i;
+                    }
                 }
             }
             if (!selected)
@@ -425,7 +430,7 @@ public class ItemUIController : MonoBehaviour
 
     void EventMoveUI()
     {
-        if (!IsEvents) return;
+        //if (!IsEvents) return;
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             MoveIconInEvent(true);
@@ -443,6 +448,7 @@ public class ItemUIController : MonoBehaviour
         int moves = right ? 1 : -1;
 
         List<int> list = GetShadows();
+        if (list.Count == 0) return;
 
         int beforenum = selectNum;
         int movenum = list.IndexOf(beforenum);
@@ -518,4 +524,36 @@ public class ItemUIController : MonoBehaviour
         yield break;
     }
 
+
+    public void OrbEvent(ItemData[] item ,System.Action[] actions) {
+        IsActUI = false;
+        StartCoroutine(OrbEventWait(item, actions));
+    }
+
+    IEnumerator OrbEventWait(ItemData[] item, System.Action[] actions) {
+        //  アイテム欄を開く処理
+        var col = StartCoroutine(StartEvents(item));
+        yield return col;
+        while (IsEvent) {
+            //  対応したアイテムが選択されているか
+            bool OnClick = Input.GetKeyDown(KeyCode.A);
+
+            if (OnClick) {
+                for (int i = 0; i < item.Length; i++) {
+                    if (NowHave[selectNum] == item[i]) {
+                        IsEvent = false;
+                        IsEvents = false;
+                        ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
+                        PlayerPanel.Play("wait");
+                        FlagManager.Instance.IsOpenUI = false;
+                        actions[i]();
+                        yield break;
+                    }
+                }
+            }
+            
+            yield return null;
+        }
+        yield break;
+    }
 }

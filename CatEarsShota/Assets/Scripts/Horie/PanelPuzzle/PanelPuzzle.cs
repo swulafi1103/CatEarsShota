@@ -138,6 +138,7 @@ public class PanelPuzzle : MonoBehaviour
     /// 矢印入力
     /// </summary>
     void MoveCarsor() {
+        if (!panelAct) return;
         if (Input.GetKeyDown(KeyCode.UpArrow)) {
             SelectMove(-3);
         }

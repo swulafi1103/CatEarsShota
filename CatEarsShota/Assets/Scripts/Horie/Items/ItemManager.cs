@@ -225,4 +225,14 @@ public class ItemManager : MonoBehaviour
         ItemData data = itemList[num];
         UIContriller.SelectItemUI(data, callvoid);
     }
+
+    public void SetOrbUI(ItemNum[] list,Action[] actions) {
+        ItemData[] datas = new ItemData[list.Length];
+        for (int i = 0; i < list.Length; i++) {
+            int num = (int)list[i];
+            datas[i] = itemList[num];
+        }
+
+        UIContriller.OrbEvent(datas, actions);
+    }
 }

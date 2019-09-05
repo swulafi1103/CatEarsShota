@@ -245,11 +245,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panels:
-  - {fileID: 21300000, guid: ff6c74dd29b3e4743ac729b044ae2233, type: 3}
+  - {fileID: 21300000, guid: 8bb1f1eab4c571442973ecc6b8111026, type: 3}
+  - {fileID: 21300000, guid: 61d951576edbebf46bd7037183744691, type: 3}
   - {fileID: 21300000, guid: 668cdbcf7e596fa47967bd24b6383c00, type: 3}
-  - {fileID: 21300000, guid: 668cdbcf7e596fa47967bd24b6383c00, type: 3}
-  - {fileID: 21300000, guid: 668cdbcf7e596fa47967bd24b6383c00, type: 3}
-  - {fileID: 21300000, guid: 668cdbcf7e596fa47967bd24b6383c00, type: 3}
+  - {fileID: 21300000, guid: 25a0db2a85419bb4dbe44026ebd2602d, type: 3}
+  - {fileID: 21300000, guid: 6d5e2d5117104024da48e1814b3e466a, type: 3}
   - {fileID: 21300000, guid: 668cdbcf7e596fa47967bd24b6383c00, type: 3}
   Panel: {fileID: 9166539173790065081}
 --- !u!1 &9166539173790065081

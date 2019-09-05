@@ -13,6 +13,12 @@ public class MushroomControll : MonoBehaviour
         instance = this;
     }
 
+    private void Update() {
+
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //    SetPastMush(0);
+    }
+
     [SerializeField]
     PastMushroom[] pastMushs;
 
