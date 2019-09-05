@@ -91,4 +91,8 @@ public class PanelPuzzleControl : MonoBehaviour
         panelPuzzle.gameObject.SetActive(true);
         panelPuzzle.PushStart();
     }
+
+    public void SetLastPiece() {
+        panelPuzzle.SetPieceUI();
+    }
 }

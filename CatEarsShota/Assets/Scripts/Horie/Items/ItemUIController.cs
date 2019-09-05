@@ -382,6 +382,7 @@ public class ItemUIController : MonoBehaviour
                 items[i].SetShadow(true);
             }
         }
+        yield break;
     }
 
     public void SetEvents(ItemData[] itemlist)
@@ -483,16 +484,33 @@ public class ItemUIController : MonoBehaviour
         PlayerPanel.Play("wait");
         return true;
     }
-    bool isChecking = true;
 
-    IEnumerator test() {
+    public void SelectItemUI(ItemData item,System.Action callVoid)
+    {
+        IsActUI = false;
+        StartCoroutine(SelectItemWait(item, callVoid));
+    }
+
+    IEnumerator SelectItemWait(ItemData item, System.Action callVoid) {
+        
         //  アイテム欄を開く処理
+        var col = StartCoroutine(StartEventUI(item));
+        yield return col;
 
-        while (isChecking)
+        while (IsEvent)
         {
             //  対応したアイテムが選択されているか
-            if (true)
+            bool OnClick = Input.GetKeyDown(KeyCode.A);
+            bool IsSelected = NowHave[selectNum] == item;
+
+            if (OnClick && IsSelected)
             {
+                IsEvent = false;
+                IsEvents = false;
+                ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
+                PlayerPanel.Play("wait");
+                FlagManager.Instance.IsOpenUI = false;
+                callVoid();
                 yield break;
             }
             yield return null;

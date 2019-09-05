@@ -1049,7 +1049,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &147766435
@@ -1295,7 +1298,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &205353575
@@ -1483,7 +1489,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &235591706
@@ -2264,7 +2273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefb250101961f14c9f83d3ac0ee93f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MushNum: 0
   nowMushroom: {fileID: 1346028423}
 --- !u!114 &416356963
 MonoBehaviour:
@@ -2282,7 +2290,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!58 &416356964
@@ -2660,7 +2671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefb250101961f14c9f83d3ac0ee93f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MushNum: 1
   nowMushroom: {fileID: 1192622898}
 --- !u!114 &457715788
 MonoBehaviour:
@@ -2678,7 +2688,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!58 &457715789
@@ -3115,6 +3128,7 @@ MonoBehaviour:
   isYellow: 0
   itemFlag: 0
   gimmickFlag: 0
+  gimmickFlag_Map2: 0
 --- !u!114 &573811682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3281,7 +3295,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &640521124
@@ -3685,7 +3702,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &843917348
@@ -4460,7 +4480,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &942056136
@@ -4537,7 +4560,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1018427066
@@ -5035,7 +5061,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1192622901
@@ -5383,7 +5412,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1243345955
@@ -5539,7 +5571,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1247205087
@@ -5616,7 +5651,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1254473340
@@ -6015,7 +6053,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1346028426
@@ -6214,7 +6255,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1399574066
@@ -7178,7 +7222,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &1597961853
@@ -8961,7 +9008,10 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
+  needGimmickFlag_Map2: 0
+  isFinish: 0
   standgimmickFlag: 0
+  standgimmickFlag_Map2: 0
   callType: 0
   eventName: 0
 --- !u!61 &2076606576
@@ -9110,6 +9160,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a77ec7a77d23664ca47173bb8f96a03, type: 3}
+--- !u!1001 &3757193849945402098
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3757193849700233415, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_Name
+      value: MushControll
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233413, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757193849700233412, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: pastMushs.Array.data[0]
+      value: 
+      objectReference: {fileID: 416356962}
+    - target: {fileID: 3757193849700233412, guid: 5ce4027391923944cb488a6b45e61951,
+        type: 3}
+      propertyPath: pastMushs.Array.data[1]
+      value: 
+      objectReference: {fileID: 457715787}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ce4027391923944cb488a6b45e61951, type: 3}
 --- !u!1001 &6014329678991758630
 PrefabInstance:
   m_ObjectHideFlags: 0

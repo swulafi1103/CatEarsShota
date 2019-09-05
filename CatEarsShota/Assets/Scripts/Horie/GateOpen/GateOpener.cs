@@ -7,11 +7,11 @@ public class GateOpener : MonoBehaviour
     [SerializeField]
     Animator[] gateAnim;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Numlock)) OpenGate(0);
-        if (Input.GetKeyDown(KeyCode.End)) OpenGate(1);
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Numlock)) OpenGate(0);
+    //    if (Input.GetKeyDown(KeyCode.End)) OpenGate(1);
+    //}
 
     public void OpenGate(int num)
     {

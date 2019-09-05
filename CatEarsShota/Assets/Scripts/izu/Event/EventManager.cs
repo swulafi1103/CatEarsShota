@@ -889,6 +889,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SetMushRoomNoMoto");
         //  ここに関数追加予定
+        MushroomControll.Instance.SetPastMush(value);
         yield break;
     }
 
@@ -902,6 +903,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SetPiece");
         //  ここに関数追加予定
+        PanelPuzzleControl.Instance.SetLastPiece();
         yield break;
     }
     IEnumerator SetOrb(int value, float delayTime, bool waitMovie)
@@ -913,6 +915,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SetOrb");
         //  ここに関数追加予定
+        OrbSetter.Instance.OpenItemUI();
         yield break;
     }
     IEnumerator GlowMushroom(int value, float delayTime, bool waitMovie, GameObject target)
