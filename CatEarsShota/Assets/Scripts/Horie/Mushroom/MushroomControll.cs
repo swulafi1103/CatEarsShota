@@ -15,8 +15,8 @@ public class MushroomControll : MonoBehaviour
 
     private void Update() {
 
-        if (Input.GetKeyDown(KeyCode.Y))
-            SetPastMush(0);
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //    SetPastMush(0);
     }
 
     [SerializeField]

@@ -18,22 +18,25 @@ public class TimeCapsuleControl : MonoBehaviour
         ItemManager.ItemNum.BookMark_Past
     };
 
-    [SerializeField]
-    SpriteRenderer pastTimeCapsule;
+    //[SerializeField]
+    //SpriteRenderer pastTimeCapsule;
 
-    [SerializeField]
-    SpriteRenderer nowTimeCapsule;
+    //[SerializeField]
+    //SpriteRenderer nowTimeCapsule;
 
-    [SerializeField]
-    Sprite nowOnItemSprite;
+    //[SerializeField]
+    //Sprite nowOnItemSprite;
 
-    [SerializeField]
-    Sprite pastOnItemSprite;
+    //[SerializeField]
+    //Sprite pastOnItemSprite;
+
+
+    GameObject map2;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        map2 = GameObject.FindGameObjectWithTag("Map2");
     }
 
     // Update is called once per frame
@@ -70,8 +73,8 @@ public class TimeCapsuleControl : MonoBehaviour
     /// <param name="num"></param>
     void setItem(int num) {
         //画像変更処理
-        pastTimeCapsule.sprite = pastOnItemSprite;
-        nowTimeCapsule.sprite = nowOnItemSprite;
+        map2.GetComponent<MapStatus>().UpdateGimmick(1, true);
+        map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
 
         //フラグ処理
         ItemManager.Instance.SetItemData(list[num]);
