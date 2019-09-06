@@ -73,6 +73,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: db851277bbc18174782d804115942e2c, type: 3}
   - {fileID: 8300000, guid: 0d4aec6fb05bc824398ee6c97e0f0477, type: 3}
   - {fileID: 8300000, guid: 4f7653e07c7c76d409cb545cfdb4d2df, type: 3}
+  - {fileID: 8300000, guid: 33491091f738f6e4abc73d14347a76bc, type: 3}
+  - {fileID: 8300000, guid: a01ba3571228ddb43b7952228efb2816, type: 3}
+  - {fileID: 8300000, guid: d818172517821504ca06bd445082bcd8, type: 3}
   fadeTime: 3
 --- !u!82 &9092551833449176406
 AudioSource:
