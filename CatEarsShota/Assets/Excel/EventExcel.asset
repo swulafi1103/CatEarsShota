@@ -207,6 +207,11 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 1
+  - category: 20
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 16
     value: 5
     delayTime: 0
@@ -238,7 +243,7 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 20
+  - category: 19
     value: 1
     delayTime: 0
     waitMovie: 0
@@ -552,7 +557,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   E35_Mushroom_plant2_past:
-  - category: 20
+  - category: 19
     value: 1
     delayTime: 0
     waitMovie: 0

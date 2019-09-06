@@ -68,7 +68,6 @@ public class MiniGameManager : MonoBehaviour
     private Image ClearImage;
     private Image ErrorImage;
 
-    [HideInInspector]
     public GameObject generetor1, generetor2, generetor3;
 
     void Awake()
@@ -328,7 +327,7 @@ public class MiniGameManager : MonoBehaviour
             case 7:     //  Map2の扉１の処理
                 if (EventManager.Instance.TypeinGameMap2FirstClearedFunc != null)
                     EventManager.Instance.TypeinGameMap2FirstClearedFunc.Invoke();
-                //generetor2.GetComponent<EventLoader>().Finished();
+                generetor2.GetComponent<EventLoader>().Finished();
                 //generetor2.SetActive(false);
                 gateObserver.GetComponent<GateOpener>().OpenGate(0);
                 FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_17_Minigame1_Clear_Map2up);
@@ -337,7 +336,7 @@ public class MiniGameManager : MonoBehaviour
             case 9:     //  Map1の扉２の処理
                 if (EventManager.Instance.TypeinGameMap2LetterClearedFunc != null)
                     EventManager.Instance.TypeinGameMap2LetterClearedFunc.Invoke();
-                //generetor3.GetComponent<EventLoader>().Finished();
+                generetor3.GetComponent<EventLoader>().Finished();
                 //generetor3.SetActive(false);
                 gateObserver.GetComponent<GateOpener>().OpenGate(1);
                 FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_27_Minigame1_Clear_Map2down);

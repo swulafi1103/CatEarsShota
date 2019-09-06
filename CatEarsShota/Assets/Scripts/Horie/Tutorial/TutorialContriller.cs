@@ -18,6 +18,12 @@ public class TutorialContriller : MonoBehaviour
 
     int NowColliderNum = 0;
 
+
+    [SerializeField]
+    Camera PerraultCamera;
+    [SerializeField]
+    Camera FranCamera;
+
     public static TutorialContriller Instance {
         get { return instance; }
     }
@@ -90,12 +96,14 @@ public class TutorialContriller : MonoBehaviour
     {
         if (FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_02_Tuto_MoveAndJump) && !tutoFlag[1])
         {
+            CheckCamera();
             iconTutorial.IconTuto(IconTutorial.IconNum.Checking);
             tutoFlag[1] = true;
             SetCollider(1);
         }
         if (FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_03_EquipBand) && !tutoFlag[2])
         {
+            CheckCamera();
             iconTutorial.IconTuto(IconTutorial.IconNum.Checking2);
             tutoFlag[2] = true;
             SetCollider(2);
@@ -110,6 +118,7 @@ public class TutorialContriller : MonoBehaviour
     {
         if (tutoFlag[3]) return;
         if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_09_Minigame1_0)) return;
+        CheckCamera();
         iconTutorial.IconTuto(IconTutorial.IconNum.Item);
         tutoFlag[3] = true;
         TutoColliderObj.SetActive(false);
@@ -122,6 +131,7 @@ public class TutorialContriller : MonoBehaviour
     /// </summary>
     public void ChangeModeTuto() {
         if (tutoFlag[4]) return;
+        CheckCamera();
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.ChangeMode);
         tutoFlag[4] = true;
     }
@@ -134,6 +144,7 @@ public class TutorialContriller : MonoBehaviour
     {
         if (tutoFlag[5]) return;
         if (!FlagManager.Instance.CheckItemFlag(ItemFlag.I_12_Pants_A)) return;
+        CheckCamera();
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.Pants);
         tutoFlag[5] = true;
     }
@@ -143,7 +154,9 @@ public class TutorialContriller : MonoBehaviour
     /// タイムカプセル説明
     /// 6
     /// </summary>
-    void TimeCapsuleTuto() {
+    public void TimeCapsuleTuto()
+    {
+        CheckCamera();
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.TimeCapsule);
     }
 
@@ -151,7 +164,9 @@ public class TutorialContriller : MonoBehaviour
     /// キノコ説明
     /// 7
     /// </summary>
-    void MushroomTuto() {
+    public void MushroomTuto()
+    {
+        CheckCamera();
         panelTutorial.PanelTuto(PanelTutorial.PanelNum.Mushroom);
     }
 
@@ -189,6 +204,20 @@ public class TutorialContriller : MonoBehaviour
     }
 
     public void SetTextWindow(int num) {
+        CheckCamera();
         textWindow.SetWindow(num);
+    }
+
+    void CheckCamera()
+    {
+        //transform.GetComponent<Canvas>().worldCamera = Camera.current;
+        if (FlagManager.Instance.IsPast)
+        {
+            transform.GetComponent<Canvas>().worldCamera = FranCamera;
+        }
+        else
+        {
+            transform.GetComponent<Canvas>().worldCamera = PerraultCamera;
+        }
     }
 }
