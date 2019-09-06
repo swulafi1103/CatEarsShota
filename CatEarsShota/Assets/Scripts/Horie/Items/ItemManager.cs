@@ -147,7 +147,7 @@ public class ItemManager : MonoBehaviour
     /// </summary>
     /// <param name="num"></param>
     public void ChangePants(int num) {
-        PlayerManager.Instance.Pero.transform.GetChild(1).GetComponent<Animator>().SetInteger("pants_number", num - 12);
+        PlayerManager.Instance.Pero.transform.GetChild(2).GetComponent<Animator>().SetInteger("pants_number", num - 12);    
         Debug.Log(num - 12);
     }
 
