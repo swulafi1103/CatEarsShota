@@ -879,7 +879,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SetOrb");
         //  ここに関数追加予定
-        OrbSetter.Instance.OpenItemUI();
+        OrbSetter.Instance.SetDetailOrb();
         yield break;
     }
     IEnumerator GlowMushroom(int value, float delayTime, bool waitMovie, GameObject target)
