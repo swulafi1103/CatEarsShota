@@ -66,6 +66,10 @@ public class SoundManager : MonoBehaviour
         SE_14_Running,
         SE_15_Band,
         SE_16_Gate,
+        SE_17_PeroWalk,
+        SE_18_PeroJump,
+        SE_19_PeroJump2,
+        SE_20_FranWalk
     };
 
     public enum BGM_Name {

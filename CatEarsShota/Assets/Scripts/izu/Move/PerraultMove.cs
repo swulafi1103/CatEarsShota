@@ -33,6 +33,7 @@ public class PerraultMove : MonoBehaviour
     public GameObject Pants;
     public GameObject FrontShadow;
     public GameObject BackShadow;
+    public AudioSource[] SE;
     private Animator animpants;
 
     private void Awake()
@@ -249,7 +250,22 @@ public class PerraultMove : MonoBehaviour
         checkObjects.Remove(collision.gameObject);
 
     }
+    public void PeroSe(int index)
+    {
+        switch (index){
+             case 0:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_17_PeroWalk, 1f);
+                break;
+            case 1:
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_18_PeroJump, 1f);
+                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_19_PeroJump2, 1f);
+                break;
+            default:
+                break;
+        }
+       
 
+    }
 
     public void SetShadowForm(bool OnOff)
     {
