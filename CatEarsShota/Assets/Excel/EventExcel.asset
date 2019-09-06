@@ -244,7 +244,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 19
-    value: 1
+    value: 0
     delayTime: 0
     waitMovie: 0
     volume: 0
