@@ -144,7 +144,7 @@ public class EventManager : MonoBehaviour
             case EventCategory.Tutorial:
                 return Tutorial(value, delayTime, waitMovie);
             case EventCategory.Minigame1:
-                return Minigame1(value, delayTime, waitMovie);
+                return Minigame1(value, delayTime, waitMovie, target);
             case EventCategory.Minigame2:
                 return Minigame2(value, delayTime, waitMovie, target);
             case EventCategory.ChangeColor:
@@ -159,14 +159,12 @@ public class EventManager : MonoBehaviour
                 return ChangeSprite(value, delayTime, waitMovie);
             case EventCategory.StandFlag:
                 return StandFlag(delayTime, waitMovie, target);
-            //case EventCategory.SetPiece:
-            //    return SetPiece(value, delayTime, waitMovie);
             case EventCategory.SetMushRoomNoMoto:
                 return SetMushRoomNoMoto(value, delayTime, waitMovie);
             case EventCategory.SetOrb:
                 return SetOrb(value, delayTime, waitMovie);
-            //case EventCategory.GlowMushroom:
-            //    return GlowMushroom(value, delayTime, waitMovie, target);
+            case EventCategory.TimeCapsule:
+                return TimeCapsule(value, delayTime, waitMovie, target);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -673,10 +671,15 @@ public class EventManager : MonoBehaviour
             case 0:
                 //  過去・現在切り替えのチュートリアル
                 TutorialContriller.Instance.ChangeModeTuto();
-                yield return new WaitWhile(() => FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_05_Tuto_TimeChenge) == true);
+                while (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_05_Tuto_TimeChenge) == true)
+                    yield return null;
+                //yield return new WaitWhile(() => FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_05_Tuto_TimeChenge) == true);
                 break;
             case 1:
-                Debug.Log("未実装：ミニゲーム１の２番");
+                TutorialContriller.Instance.TimeCapsuleTuto();
+                break;
+            case 2:
+                TutorialContriller.Instance.MushroomTuto();
                 break;
             default:
                 Debug.Log("未実装の番号です。番号：" + value);
@@ -685,7 +688,7 @@ public class EventManager : MonoBehaviour
         FlagManager.Instance.IsEventing = false;
         yield break;
     }
-    IEnumerator Minigame1(int value, float delayTime, bool waitMovie)
+    IEnumerator Minigame1(int value, float delayTime, bool waitMovie, GameObject target)
     {
         if (waitMovie)
         {
@@ -696,6 +699,14 @@ public class EventManager : MonoBehaviour
         Debug.Log("Minigame1");
         //  ミニゲーム１表示
         MiniGameManager.Instance.TouchGenerator(value);
+        if (value == 1)
+        {
+            MiniGameManager.Instance.generetor2 = target;
+        }
+        else if (value == 2)
+        {
+            MiniGameManager.Instance.generetor2 = target;
+        }
         yield break;
     }
     IEnumerator Minigame2(int value, float delayTime, bool waitMovie, GameObject target)
@@ -746,6 +757,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("TextWindow");
         TutorialContriller.Instance.SetTextWindow(value);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator PlayBGM(int value, float delayTime, bool waitMovie)
@@ -787,6 +799,7 @@ public class EventManager : MonoBehaviour
                 Debug.LogWarning(value + "番のBGMは未実装");
                 break;
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator PlaySE(int value, float delayTime, bool waitMovie, float vol)
@@ -799,6 +812,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SE");
         SoundManager.Instance.PlaySE(value, vol);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator ChangeSprite(int value, float delayTime, bool waitMovie)
@@ -848,8 +862,8 @@ public class EventManager : MonoBehaviour
             case 11:
                 map2.GetComponent<MapStatus>().UpdateGimmick(2, true);
                 break;
-
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator StandFlag(float delayTime, bool waitMovie, GameObject target)
@@ -876,6 +890,7 @@ public class EventManager : MonoBehaviour
         Debug.Log("SetMushRoomNoMoto");
         //  ここに関数追加予定
         MushroomControll.Instance.SetPastMush(value);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
 
@@ -891,6 +906,7 @@ public class EventManager : MonoBehaviour
         Debug.Log("SetPiece");
         //  ここに関数追加予定
         PanelPuzzleControl.Instance.SetLastPiece();
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator SetOrb(int value, float delayTime, bool waitMovie)
@@ -904,9 +920,10 @@ public class EventManager : MonoBehaviour
         Debug.Log("SetOrb");
         //  ここに関数追加予定
         OrbSetter.Instance.SetDetailOrb();
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
-    IEnumerator GlowMushroom(int value, float delayTime, bool waitMovie, GameObject target)
+    IEnumerator TimeCapsule(int value, float delayTime, bool waitMovie, GameObject target)
     {
         if (waitMovie)
         {
@@ -914,8 +931,9 @@ public class EventManager : MonoBehaviour
                 yield return null;
         }
         yield return new WaitForSeconds(delayTime);
-        Debug.Log("GlowMushroom");
-        target.GetComponent<NowMushroom>().SetMush();
+        Debug.Log("TimeCapsule");
+        TimeCapsuleControl.Instance.SetUI(value);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
 

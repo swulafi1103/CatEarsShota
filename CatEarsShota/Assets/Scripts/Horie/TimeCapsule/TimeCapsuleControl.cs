@@ -13,9 +13,15 @@ public class TimeCapsuleControl : MonoBehaviour
         instance = this;
     }
 
-    ItemManager.ItemNum[] list = new ItemManager.ItemNum[2] {
+    ItemManager.ItemNum[] pastlist = new ItemManager.ItemNum[2] {
         ItemManager.ItemNum.Ilust_Piece,
         ItemManager.ItemNum.BookMark_Past
+    };
+
+    ItemManager.ItemNum[] nowlist =
+    {
+        ItemManager.ItemNum.Ilust_Piece,
+        ItemManager.ItemNum.BookMark_now
     };
 
     //[SerializeField]
@@ -52,10 +58,10 @@ public class TimeCapsuleControl : MonoBehaviour
     /// <param name="num"></param>
     public void SetUI(int num) {
         if (num == 0) {
-            ItemManager.Instance.SelectEvent(list[num], SetKey);
+            ItemManager.Instance.SelectEvent(pastlist[num], SetKey);
         }
         else {
-            ItemManager.Instance.SelectEvent(list[num], SetBookmark);
+            ItemManager.Instance.SelectEvent(pastlist[num], SetBookmark);
         }
     }
     
@@ -73,10 +79,29 @@ public class TimeCapsuleControl : MonoBehaviour
     /// <param name="num"></param>
     void setItem(int num) {
         //画像変更処理
-        map2.GetComponent<MapStatus>().UpdateGimmick(1, true);
-        map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
+        //map2.GetComponent<MapStatus>().UpdateGimmick(1, true);
+        //map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
 
-        //フラグ処理
-        ItemManager.Instance.SetItemData(list[num]);
+        //アイテムなくす
+        ItemManager.Instance.SetItemData(pastlist[num]);
+
+
+        //キノコ取得
+        ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
+        TutorialContriller.Instance.SetTextWindow(3);
     }
+
+    /// <summary>
+    /// ペローが掘り起こす
+    /// </summary>
+    /// <param name="num"></param>
+    //public void GetCapsuleItem(int num)
+    //{
+    //    //画像変更処理
+    //    map2.GetComponent<MapStatus>().UpdateGimmick(1, false);
+    //    map2.GetComponent<MapStatus>().UpdateGimmick(0, false);
+
+    //    //アイテム取得
+    //    ItemManager.Instance.SetItemData(nowlist[num]);
+    //}
 }
