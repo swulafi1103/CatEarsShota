@@ -808,9 +808,11 @@ public class EventManager : MonoBehaviour
                 break;
             case 2:
                 map1.GetComponent<MapStatus>().UpdateGimmick(1, false);
+                map1.GetComponent<MapStatus>().UpdateGimmick(2, false);
                 break;
             case 3:
                 map1.GetComponent<MapStatus>().UpdateGimmick(1, true);
+                map1.GetComponent<MapStatus>().UpdateGimmick(2, true);
                 break;
             case 4:
                 map2.GetComponent<MapStatus>().UpdateGimmick(0, false);
