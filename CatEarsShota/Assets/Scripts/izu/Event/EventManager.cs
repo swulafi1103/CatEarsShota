@@ -157,14 +157,14 @@ public class EventManager : MonoBehaviour
                 return ChangeSprite(value, delayTime, waitMovie);
             case EventCategory.StandFlag:
                 return StandFlag(delayTime, waitMovie, target);
-            case EventCategory.SetPiece:
-                return SetPiece(value, delayTime, waitMovie);
+            //case EventCategory.SetPiece:
+            //    return SetPiece(value, delayTime, waitMovie);
             case EventCategory.SetMushRoomNoMoto:
                 return SetMushRoomNoMoto(value, delayTime, waitMovie);
             case EventCategory.SetOrb:
                 return SetOrb(value, delayTime, waitMovie);
-            case EventCategory.GlowMushroom:
-                return GlowMushroom(value, delayTime, waitMovie, target);
+            //case EventCategory.GlowMushroom:
+            //    return GlowMushroom(value, delayTime, waitMovie, target);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
