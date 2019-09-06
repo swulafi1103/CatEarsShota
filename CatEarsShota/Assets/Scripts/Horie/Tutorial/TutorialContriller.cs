@@ -109,7 +109,7 @@ public class TutorialContriller : MonoBehaviour
     void ItemTuto()
     {
         if (tutoFlag[3]) return;
-        if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_08_PowerShortageDoor)) return;
+        if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_09_Minigame1_0)) return;
         iconTutorial.IconTuto(IconTutorial.IconNum.Item);
         tutoFlag[3] = true;
         TutoColliderObj.SetActive(false);

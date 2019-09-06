@@ -1490,14 +1490,27 @@ PrefabInstance:
       objectReference: {fileID: 2022203478}
     - target: {fileID: 8748181472790546824, guid: 2ed0922fb7758452284fac7d7697ea6c,
         type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8748181472790546824, guid: 2ed0922fb7758452284fac7d7697ea6c,
-        type: 3}
       propertyPath: gateObserver
       value: 
       objectReference: {fileID: 1145716170}
+    - target: {fileID: 4708192461682228895, guid: 2ed0922fb7758452284fac7d7697ea6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709785481921742878, guid: 2ed0922fb7758452284fac7d7697ea6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392243831, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430992533, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
 --- !u!1 &174007862

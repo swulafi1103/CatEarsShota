@@ -65,6 +65,9 @@ public class MiniGameManager : MonoBehaviour
     private GameObject[] commandTexts;
     private Color       fadeColor = Color.red;
 
+    private Image ClearImage;
+    private Image ErrorImage;
+
     [HideInInspector]
     public GameObject generetor1, generetor2, generetor3;
 
@@ -97,11 +100,14 @@ public class MiniGameManager : MonoBehaviour
         miniGameViewObj = transform.GetChild(1).gameObject;
         timerObj = transform.Find("MinigameBackGround/TimerBackGround/SecondText").gameObject;
         countdownObj = transform.Find("MinigameBackGround/CountDown").GetComponent<Image>();
-        clearText= transform.Find("MinigameBackGround/ClearText").GetComponent<Text>();
+        //clearText= transform.Find("MinigameBackGround/ClearText").GetComponent<Text>();
         commandParentObj = transform.Find("MinigameBackGround/CommandParent").gameObject;
+
+        ClearImage = transform.Find("MinigameBackGround/ClearImage").GetComponent<Image>();
+        ErrorImage = transform.Find("MinigameBackGround/ErrorImage").GetComponent<Image>();
         //  ゲートオブジェクトの検索
-       // if (gateObserver == null)
-            //gateObserver = FindObjectOfType<GateOpener>().gameObject;
+        // if (gateObserver == null)
+        //gateObserver = FindObjectOfType<GateOpener>().gameObject;
     }
 
     /// <summary>発電機を触れたら</summary>
@@ -381,7 +387,7 @@ public class MiniGameManager : MonoBehaviour
     /// <returns>The clear text</returns>
     IEnumerator DisplayClearText()
     {
-        clearText.enabled = true;
+        //clearText.enabled = true;
         if (commandTexts != null)
         {
             foreach (var obj in commandTexts)
@@ -390,12 +396,14 @@ public class MiniGameManager : MonoBehaviour
                 yield return null;
             }
         }
-        clearText.text = "CLEAR!!";
+        //clearText.text = "CLEAR!!";
+        ClearImage.enabled = true;
         isMinigame = false;
         isCountdownEnd = false;
         yield return new WaitForSeconds(2);
-        clearText.text = "";
-        clearText.enabled = false;
+        //clearText.text = "";
+        //clearText.enabled = false;
+        ClearImage.enabled = false;
         miniGameViewObj.SetActive(false);
         numOrder = 0;
         FlagManager.Instance.IsEventing = false;
@@ -404,7 +412,7 @@ public class MiniGameManager : MonoBehaviour
 
     IEnumerator DisplayFaildText()
     {
-        clearText.enabled = true;
+        //clearText.enabled = true;
         if (commandTexts != null)
         {
             foreach (var obj in commandTexts)
@@ -413,8 +421,9 @@ public class MiniGameManager : MonoBehaviour
                 yield return null;
             }
         }
-        clearText.text = "ERROR";
-        clearText.color = Color.red;
+        //clearText.text = "ERROR";
+        //clearText.color = Color.red;
+        ErrorImage.enabled = true;
         isMinigame = false;
         isCountdownEnd = false;
         isFadeing = true;
@@ -433,10 +442,11 @@ public class MiniGameManager : MonoBehaviour
             yield return 0;
         }
         isFadeing = false;
-        clearText.text = "";
-        clearText.enabled = false;
+        ErrorImage.enabled = false;
+        //clearText.text = "";
+        //clearText.enabled = false;
         miniGameViewObj.SetActive(false);
-        clearText.color = Color.white;
+        //clearText.color = Color.white;
         yield break;
     }
 
