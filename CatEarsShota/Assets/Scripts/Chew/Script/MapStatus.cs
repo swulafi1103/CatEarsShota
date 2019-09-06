@@ -6,7 +6,7 @@ public class MapStatus : MonoBehaviour
 {
     public YelloObj[] yelloObjs = new YelloObj[10];
     public ChangableObj[] gimmickObjs = new ChangableObj[5];
-
+    public ChangableObj[] Map2Objs = new ChangableObj[2];
     private int currentcolor =0;
     /*  public enum mapColor
       {
@@ -74,6 +74,14 @@ public class MapStatus : MonoBehaviour
             gimmickObjs[index].ChangeObj.GetComponent<SpriteRenderer>().sprite = gimmickObjs[index].colorSprite[currentcolor * 2 + (gimmickObjs[index].OnStatus ? 1 : 0)];
         else
             Debug.Log("Update gimmickObjs error");
+    }
+    public void UpdateMapPast(int index, bool newstatus)
+    {
+        Map2Objs[index].OnStatus = newstatus;
+        if (Map2Objs[index].ChangeObj != null)
+            Map2Objs[index].ChangeObj.GetComponent<SpriteRenderer>().sprite = Map2Objs[index].colorSprite[index];
+        else
+            Debug.Log("Update Map2Objs error");
     }
 }
 

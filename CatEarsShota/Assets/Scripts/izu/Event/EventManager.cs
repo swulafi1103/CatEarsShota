@@ -845,22 +845,22 @@ public class EventManager : MonoBehaviour
                 map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
                 break;
             case 6:
-                map2.GetComponent<MapStatus>().UpdateGimmick(1, false);
+                map2.GetComponent<MapStatus>().UpdateMapPast(0, false);
                 break;
             case 7:
-                map2.GetComponent<MapStatus>().UpdateGimmick(1, true);
+                map2.GetComponent<MapStatus>().UpdateMapPast(0, true);
                 break;
             case 8:
-                map1.GetComponent<MapStatus>().UpdateGimmick(2, false);
+                map1.GetComponent<MapStatus>().UpdateMapPast(0, false);
                 break;
             case 9:
-                map1.GetComponent<MapStatus>().UpdateGimmick(2, true);
+                map1.GetComponent<MapStatus>().UpdateMapPast(0, true);
                 break;
             case 10:
-                map2.GetComponent<MapStatus>().UpdateGimmick(2, false);
+                map2.GetComponent<MapStatus>().UpdateMapPast(1, false);
                 break;
             case 11:
-                map2.GetComponent<MapStatus>().UpdateGimmick(2, true);
+                map2.GetComponent<MapStatus>().UpdateMapPast(2, true);
                 break;
         }
         FlagManager.Instance.IsEventing = false;
