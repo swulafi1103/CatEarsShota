@@ -147,7 +147,7 @@ public class ItemManager : MonoBehaviour
     /// </summary>
     /// <param name="num"></param>
     public void ChangePants(int num) {
-        PlayerManager.Instance.Pero.transform.GetChild(1).GetComponent<Animator>().SetInteger("pants_number", num - 12);
+        PlayerManager.Instance.Pero.transform.GetChild(2).GetComponent<Animator>().SetInteger("pants_number", num - 12);    
         Debug.Log(num - 12);
     }
 
@@ -218,5 +218,21 @@ public class ItemManager : MonoBehaviour
     
     public void SetItemUI() {
         UIContriller.StartItemUI();
+    }
+
+    public void SelectEvent(ItemNum item,Action callvoid) {
+        int num = (int)item;
+        ItemData data = itemList[num];
+        UIContriller.SelectItemUI(data, callvoid);
+    }
+
+    public void SetOrbUI(ItemNum[] list,Action[] actions) {
+        ItemData[] datas = new ItemData[list.Length];
+        for (int i = 0; i < list.Length; i++) {
+            int num = (int)list[i];
+            datas[i] = itemList[num];
+        }
+
+        UIContriller.OrbEvent(datas, actions);
     }
 }

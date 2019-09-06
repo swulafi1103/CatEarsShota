@@ -21,6 +21,17 @@ public class OrbSetter : MonoBehaviour
         ItemManager.ItemNum.Yerrow_Orb
     };
 
+    
+
+    private static OrbSetter instance;
+    public static OrbSetter Instance {
+        get { return instance; }
+    }
+
+    private void Awake() {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +41,10 @@ public class OrbSetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OrbCheck();
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //    SetDetailOrb();
+
+        //OrbCheck();
         CheckXKey();
         SetitemUI();
     }
@@ -53,8 +67,21 @@ public class OrbSetter : MonoBehaviour
     {
         if (!OrbSetterImage.activeSelf) return;
         if (!Input.GetKeyDown(KeyCode.D)) return;
+        OpenItemUI();
+    }
+
+    public void OpenItemUI() {
         OrbSetterImage.SetActive(false);
-        ItemManager.Instance.SetEvents(orblist);
+        FlagManager.Instance.IsEventing = false;
+
+        System.Action[] eventList = new System.Action[4] {
+        OrbSet0,
+        OrbSet1,
+        OrbSet2,
+        OrbSet3,
+        };
+
+        ItemManager.Instance.SetOrbUI(orblist, eventList);
     }
 
     void OrbCheck()
@@ -68,6 +95,31 @@ public class OrbSetter : MonoBehaviour
             MapOrbImages[i].enabled = true;
             CheckFlag();
         }
+    }
+    
+
+    private void OrbSet0() {
+        OrbSet(0);
+    }
+
+    void OrbSet1() {
+        OrbSet(1);
+    }
+
+    void OrbSet2() {
+        OrbSet(2);
+    }
+
+    void OrbSet3() {
+        OrbSet(3);
+    }
+
+    void OrbSet(int num) {
+        SetDetailOrb();
+        OrbImages[num].enabled = true;
+        MapOrbImages[num].enabled = true;
+        ItemManager.Instance.SetItemData(orblist[num]);
+        CheckFlag();
     }
 
     /// <summary>
@@ -84,5 +136,6 @@ public class OrbSetter : MonoBehaviour
         }
 
         //トゥルーエンド呼び出し
+        Debug.Log("ALL ORB SETED");
     }
 }

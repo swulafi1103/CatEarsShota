@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PastMushroom : MonoBehaviour
 {
-    bool NotSet = true;
-
-    [SerializeField,Range(0,1)]
-    int MushNum = 0;
+    
 
     [SerializeField]
     NowMushroom nowMushroom;
@@ -20,39 +17,31 @@ public class PastMushroom : MonoBehaviour
     // Update is called once per frame
     void Update() {
         //if(Input.GetKeyDown(KeyCode.U)) SetMushroom();  //debug
-        if (!NotSet) return;
-        if (MushNum == 0)
-        {
-            //if(FlagManager.Instance.CheckGimmickFlag(GimmickFlag))return;
-            //いっこめ用のフラグが立ってたらreturn
-        }
-        else
-        {
-            //if(FlagManager.Instance.CheckGimmickFlag(GimmickFlag))return;
-            //いっこめ用のフラグが立ってなかったらreturn
-        }
-        if (ItemManager.Instance.SelectedEventItem(ItemManager.ItemNum.Mushroom)) {
-            OnMushroom();
-        }
+        //if (!NotSet) return;
+        //if (MushNum == 0)
+        //{
+        //    //if(FlagManager.Instance.CheckGimmickFlag(GimmickFlag))return;
+        //    //いっこめ用のフラグが立ってたらreturn
+        //}
+        //else
+        //{
+        //    //if(FlagManager.Instance.CheckGimmickFlag(GimmickFlag))return;
+        //    //いっこめ用のフラグが立ってなかったらreturn
+        //}
+        //if (ItemManager.Instance.SelectedEventItem(ItemManager.ItemNum.Mushroom)) {
+        //    OnMushroom();
+        //}
     }
 
     public void SetMushroom() {
-        ItemManager.Instance.SetEventUI(ItemManager.ItemNum.Mushroom);
+        //ItemManager.Instance.SetEventUI(ItemManager.ItemNum.Mushroom);
+        ItemManager.Instance.SelectEvent(ItemManager.ItemNum.Mushroom, OnMushroom);
     }
 
     void OnMushroom() {
         Debug.Log("Mushroom Set");
-        NotSet = false;
         nowMushroom.SetMush();
-        if (MushNum == 0)
-        {
-            //flag変え
-        }
+        ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
     }
-
-    public IEnumerable test()
-    {
-
-        yield break;
-    }
+    
 }

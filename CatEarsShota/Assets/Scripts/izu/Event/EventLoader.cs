@@ -9,6 +9,12 @@ public class EventLoader : EventBase, ICheckable
     [SerializeField, EnumFlags]
     protected GimmickFlag_Map2 standgimmickFlag_Map2;
 
+    public GimmickFlag NeedGimmickFlag { get { return needGimmickFlag; } }
+    public GimmickFlag_Map2 NeedGimmickFlag_Map2 { get { return needGimmickFlag_Map2; } }
+
+    public GimmickFlag StandgimmickFlag { get { return standgimmickFlag; } }
+    public GimmickFlag_Map2 StandgimmickFlag_Map2 { get { return standgimmickFlag_Map2; } }
+
     [SerializeField]
     private CallType callType;
     public EventName eventName;
@@ -23,9 +29,11 @@ public class EventLoader : EventBase, ICheckable
                 EventManager.Instance.TypeinGameMap1ClearedFunc += () => EventManager.Instance.PlayEvent(eventName, gameObject);
                 break;
             case CallType.MiniGame1Clear_Map2_FirstHalf:
+                MiniGameManager.Instance.generetor2 = gameObject;
                 EventManager.Instance.TypeinGameMap2FirstClearedFunc += () => EventManager.Instance.PlayEvent(eventName, gameObject);
                 break;
             case CallType.MiniGame1Clear_Map2_LatterHalf:
+                MiniGameManager.Instance.generetor3 = gameObject;
                 EventManager.Instance.TypeinGameMap2LetterClearedFunc += () => EventManager.Instance.PlayEvent(eventName, gameObject);
                 break;
             case CallType.MiniGame2Clear:
@@ -34,11 +42,6 @@ public class EventLoader : EventBase, ICheckable
         }
     }
 
-    public GimmickFlag NeedGimmickFlag { get { return needGimmickFlag; } }
-    public GimmickFlag_Map2 NeedGimmickFlag_Map2 { get { return needGimmickFlag_Map2; } }
-
-    public GimmickFlag StandgimmickFlag { get { return standgimmickFlag; } }
-    public GimmickFlag_Map2 StandgimmickFlag_Map2 { get { return standgimmickFlag_Map2; } }
 
     public void Check()
     {
@@ -48,8 +51,8 @@ public class EventLoader : EventBase, ICheckable
             switch (callType)
             {
                 case CallType.OnlyOnce:
-                    gameObject.SetActive(false);
                     Finished();
+                    gameObject.SetActive(false);
                     return;
                 case CallType.Always:
                     break;
@@ -57,17 +60,18 @@ public class EventLoader : EventBase, ICheckable
         }
     }
 
-    //public override bool CheckFlag()
-    //{
-    //    bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
-    //    isDisplayBubble = flag;
-    //    if (isFinish)
-    //    {
-    //        isDisplayBubble = false;
-    //    }
-    //    DisplayBubble();
-    //    return flag;
-    //}
+    public override bool CheckFlag()
+    {
+        bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag) && FlagManager.Instance.CheckGimmickFlag(needGimmickFlag_Map2);
+        isDisplayBubble = flag;
+        if (isFinish)
+        {
+            isDisplayBubble = false;
+        }
+        DisplayBubble();
+        CheckVisible(flag);
+        return flag;
+    }
 
     public override void DisplayBubble()
     {
@@ -99,11 +103,23 @@ public class EventLoader : EventBase, ICheckable
         }
     }
 
+    private void CheckVisible(bool visible)
+    {
+        if (!visible || isFinish)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
+    }
+
     private void BubbleResize(GameObject childObj)
     {
         Vector2 lossScale = childObj.transform.lossyScale;
         Vector2 localScale = childObj.transform.localScale;
-        childObj.transform.localScale = new Vector3(localScale.x / lossScale.x * 0.5f, localScale.x / lossScale.x * 0.5f, 1);        
+        childObj.transform.localScale = new Vector3(localScale.x / lossScale.x * 0.5f, localScale.x / lossScale.x * 0.5f, 1);
     }
 
     private enum CallType

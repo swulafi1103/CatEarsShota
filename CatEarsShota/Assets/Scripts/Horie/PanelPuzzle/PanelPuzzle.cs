@@ -19,7 +19,7 @@ public class PanelPuzzle : MonoBehaviour
     RectTransform selectCarsor;
     
     bool panelAct = false;
-    bool ItemUIAct = false;
+    //bool ItemUIAct = false;
     
     Image DKeyImage;
 
@@ -54,7 +54,7 @@ public class PanelPuzzle : MonoBehaviour
             case GameState.PanelSeted:
                 PushXkey();
                 PushDkey();
-                SelectPiece();
+                //SelectPiece();
                 break;
             case GameState.Conprete:
                 PushXkey();
@@ -69,7 +69,7 @@ public class PanelPuzzle : MonoBehaviour
     void SetData()
     {
         panelAct = false;
-        ItemUIAct = false;
+        //ItemUIAct = false;
         for (int i = 0; i < 6; i++)
         {
             panels[i] = transform.GetChild(i + 1).GetComponent<Image>();
@@ -138,6 +138,7 @@ public class PanelPuzzle : MonoBehaviour
     /// 矢印入力
     /// </summary>
     void MoveCarsor() {
+        if (!panelAct) return;
         if (Input.GetKeyDown(KeyCode.UpArrow)) {
             SelectMove(-3);
         }
@@ -223,16 +224,24 @@ public class PanelPuzzle : MonoBehaviour
         if (!panelAct) return;
         if (!DKeyImage.enabled) return;
         if (!Input.GetKeyDown(KeyCode.D)) return;
-        ItemManager.Instance.SetEventUI(ItemManager.ItemNum.Ilust_Piece);
-        ItemUIAct = true;
+        SetPieceUI();
+    }
+
+    public void SetPieceUI() {
+        //ItemManager.Instance.SetEventUI(ItemManager.ItemNum.Ilust_Piece);
+        panelAct = false;
+        this.gameObject.SetActive(false);
+        FlagManager.Instance.IsEventing = false;
+        ItemManager.Instance.SelectEvent(ItemManager.ItemNum.Ilust_Piece, SelectPiece);
+        //ItemUIAct = true;
     }
 
     void SelectPiece()
     {
-        if (!ItemUIAct) return;
-        bool select = ItemManager.Instance.SelectedEventItem(ItemManager.ItemNum.Ilust_Piece);
-        if (!select) return;
-        ItemUIAct = false;
+        //if (!ItemUIAct) return;
+        //bool select = ItemManager.Instance.SelectedEventItem(ItemManager.ItemNum.Ilust_Piece);
+        //if (!select) return;
+        //ItemUIAct = false;
         for(int i = 0; i < panelNum.Length; i++)
         {
             if (panelNum[i] != 0) continue;
@@ -241,6 +250,7 @@ public class PanelPuzzle : MonoBehaviour
             DKeyImage.enabled = false;
             _gameState = GameState.Conprete;
             //フラグ書き換え
+            ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
             if (EventManager.Instance.PieceGameClearedFunc != null)
                 EventManager.Instance.PieceGameClearedFunc.Invoke();
             return;

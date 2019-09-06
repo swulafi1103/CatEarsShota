@@ -20,6 +20,7 @@ public class ItemEvent : EventBase, ICheckable
     {
         ItemManager.Instance.SetItemData(itemNum);
         FlagManager.Instance.SetItemFlag(standItemFlag);
+        Finished();
         gameObject.SetActive(false);
     }
 }

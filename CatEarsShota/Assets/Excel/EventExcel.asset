@@ -191,7 +191,47 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  E15_Timecapsule_piece_buried_past: []
+  E15_Timecapsule_piece_buried_pa:
+  - category: 9
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 1
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 4
+    delayTime: 0
+    waitMovie: 0
+    volume: 1
+  - category: 16
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 16
+    value: 7
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 13
+    value: 3
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
   E16_Mushroom_plant1_past:
   - category: 9
     value: 0
@@ -242,6 +282,16 @@ MonoBehaviour:
     delayTime: 1
     waitMovie: 0
     volume: 1
+  - category: 16
+    value: 4
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 16
+    value: 6
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 17
     value: 0
     delayTime: 0
@@ -460,7 +510,47 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  E34_Timecapsule_bookmark_buried_past: []
+  E34_Timecapsule_bookmark_buried:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 4
+    delayTime: 1
+    waitMovie: 0
+    volume: 1
+  - category: 16
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 16
+    value: 7
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 13
+    value: 3
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
   E35_Mushroom_plant2_past:
   - category: 20
     value: 1
@@ -594,6 +684,16 @@ MonoBehaviour:
     delayTime: 1
     waitMovie: 0
     volume: 1
+  - category: 16
+    value: 4
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 16
+    value: 6
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 17
     value: 0
     delayTime: 0

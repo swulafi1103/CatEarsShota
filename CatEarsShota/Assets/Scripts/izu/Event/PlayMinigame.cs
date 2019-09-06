@@ -23,7 +23,7 @@ public class PlayMinigame : GimmickEvent, ICheckable
                 //  ミニゲームの説明表示
                 isOpenMinigame = true;
                 MiniGameManager.Instance.TouchGenerator(0);
-                MiniGameManager.Instance.generetor = gameObject;
+                MiniGameManager.Instance.generetor1 = gameObject;
             }            
         }
         if (!FlagManager.Instance.CheckGimmickFlag(needGimmickFlag))

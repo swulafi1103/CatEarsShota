@@ -20,7 +20,7 @@ public class EventExcel : ScriptableObject
     public List<EventEntity> E12_Stairs1_up_past;
     public List<EventEntity> E13_Stairs1_down_past;
     public List<EventEntity> E14_Enemy_exit_past;
-    public List<EventEntity> E15_Timecapsule_piece_buried_past;
+    public List<EventEntity> E15_Timecapsule_piece_buried_pa;
     public List<EventEntity> E16_Mushroom_plant1_past;
     public List<EventEntity> E17_Mushroom_noplant_past;
     public List<EventEntity> E18_Cardkey_needed;
@@ -39,7 +39,7 @@ public class EventExcel : ScriptableObject
     public List<EventEntity> E31_Stairs3_down_past;
     public List<EventEntity> E32_Apparatus_on_past;
     public List<EventEntity> E33_report3_pickup;
-    public List<EventEntity> E34_Timecapsule_bookmark_buried_past;
+    public List<EventEntity> E34_Timecapsule_bookmark_buried;
     public List<EventEntity> E35_Mushroom_plant2_past;
     public List<EventEntity> E36_End_past;
     public List<EventEntity> E37_Pant_pickup;

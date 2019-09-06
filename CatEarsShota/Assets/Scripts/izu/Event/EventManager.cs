@@ -64,7 +64,6 @@ public class EventManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F5))
         {
             //  Debug用
-            //PanelPuzzleControl.Instance.StartPanelPuzzle();
             UpdateEvent();
         }
         if (Input.GetKeyDown(KeyCode.O))
@@ -158,14 +157,14 @@ public class EventManager : MonoBehaviour
                 return ChangeSprite(value, delayTime, waitMovie);
             case EventCategory.StandFlag:
                 return StandFlag(delayTime, waitMovie, target);
-            case EventCategory.SetPiece:
-                return SetPiece(value, delayTime, waitMovie);
+            //case EventCategory.SetPiece:
+            //    return SetPiece(value, delayTime, waitMovie);
             case EventCategory.SetMushRoomNoMoto:
                 return SetMushRoomNoMoto(value, delayTime, waitMovie);
             case EventCategory.SetOrb:
                 return SetOrb(value, delayTime, waitMovie);
-            case EventCategory.GlowMushroom:
-                return GlowMushroom(value, delayTime, waitMovie, target);
+            //case EventCategory.GlowMushroom:
+            //    return GlowMushroom(value, delayTime, waitMovie, target);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -230,7 +229,7 @@ public class EventManager : MonoBehaviour
                 entity = eventExcel.E14_Enemy_exit_past;
                 break;
             case EventName.E15_Timecapsule_piece_buried_past:
-                entity = eventExcel.E15_Timecapsule_piece_buried_past;
+                entity = eventExcel.E15_Timecapsule_piece_buried_pa;
                 break;
             case EventName.E16_Mushroom_plant1_past:
                 entity = eventExcel.E16_Mushroom_plant1_past;
@@ -287,7 +286,7 @@ public class EventManager : MonoBehaviour
                 entity = eventExcel.E33_report3_pickup;
                 break;
             case EventName.E34_Timecapsule_bookmark_buried_past:
-                entity = eventExcel.E34_Timecapsule_bookmark_buried_past;
+                entity = eventExcel.E34_Timecapsule_bookmark_buried;
                 break;
             case EventName.E35_Mushroom_plant2_past:
                 entity = eventExcel.E35_Mushroom_plant2_past;
@@ -364,7 +363,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         //  フェード中か
@@ -389,7 +389,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         while (!Fade.Instance.Fading == false)
@@ -403,7 +404,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("CameraZoom");
@@ -432,7 +434,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("BubbleValue:" + value);
@@ -485,7 +488,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         Debug.Log("ChangeTime");
         yield return new WaitForSeconds(delayTime);
@@ -525,7 +529,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("WarpFran");
@@ -536,7 +541,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("DropItem");
@@ -548,7 +554,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("PickUpItem");
@@ -644,7 +651,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("Tutorial");
@@ -669,7 +677,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("Minigame1");
@@ -681,7 +690,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("Minigame2");
@@ -693,7 +703,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("ChngeColor");
@@ -717,7 +728,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("TextWindow");
@@ -728,7 +740,8 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("BGM");
@@ -768,74 +781,20 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SE");
-        switch (value)
-        {
-            case 0:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm);
-                break;
-            case 1:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_01_BreakWin);
-                break;
-            case 2:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_02_Wator);
-                break;
-            case 3:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_03_MapChange);
-                break;
-            case 4:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_04_Capsule);
-                break;
-            case 5:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_05_Staircase);
-                break;
-            case 6:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_06_ItemPickUp);
-                break;
-            case 7:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_07_Mushroom_Up);
-                break;
-            case 8:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_08_Mushroom_Down);
-                break;
-            case 9:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_09_MovePiece);
-                break;
-            case 10:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_10_SetPiece);
-                break;
-            case 11:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_11_Report);
-                break;
-            case 12:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_12_CardKey);
-                break;
-            case 13:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_13_StartUp);
-                break;
-            case 14:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_14_Running);
-                break;
-            case 15:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_15_Band);
-                break;
-            case 16:
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
-                break;
-            default:
-                Debug.LogWarning(value + "番のSEは未実装");
-                break;
-        }
+        SoundManager.Instance.PlaySE(value, vol);
         yield break;
     }
     IEnumerator ChangeSprite(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("ChangeSprite");
@@ -875,22 +834,26 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("StandFlag");
         FlagManager.Instance.SetGimmickFlag(target.GetComponent<EventLoader>().StandgimmickFlag, target.GetComponent<EventLoader>().StandgimmickFlag_Map2);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
     IEnumerator SetMushRoomNoMoto(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SetMushRoomNoMoto");
         //  ここに関数追加予定
+        MushroomControll.Instance.SetPastMush(value);
         yield break;
     }
 
@@ -899,29 +862,34 @@ public class EventManager : MonoBehaviour
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SetPiece");
         //  ここに関数追加予定
+        PanelPuzzleControl.Instance.SetLastPiece();
         yield break;
     }
     IEnumerator SetOrb(int value, float delayTime, bool waitMovie)
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("SetOrb");
         //  ここに関数追加予定
+        OrbSetter.Instance.SetDetailOrb();
         yield break;
     }
     IEnumerator GlowMushroom(int value, float delayTime, bool waitMovie, GameObject target)
     {
         if (waitMovie)
         {
-            yield return new WaitWhile(() => !FlagManager.Instance.IsMovie);
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
         }
         yield return new WaitForSeconds(delayTime);
         Debug.Log("GlowMushroom");
