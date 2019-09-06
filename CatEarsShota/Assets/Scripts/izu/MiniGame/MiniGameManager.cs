@@ -66,7 +66,7 @@ public class MiniGameManager : MonoBehaviour
     private Color       fadeColor = Color.red;
 
     [HideInInspector]
-    public GameObject generetor;
+    public GameObject generetor1, generetor2, generetor3;
 
     void Awake()
     {
@@ -107,7 +107,6 @@ public class MiniGameManager : MonoBehaviour
     /// <summary>発電機を触れたら</summary>
     public void TouchGenerator(int value)
     {
-        Debug.Log("koko");
         FlagManager.Instance.IsEventing = true;　//  UIがミニゲーム中に開かないように
         SetQustionValue(value);
         StartCoroutine(SetTuto());
@@ -314,24 +313,28 @@ public class MiniGameManager : MonoBehaviour
         switch (questionValue)
         {
             case 5:     //  Map1のときの処理
-                if (generetor == null)
-                    generetor = FindObjectOfType<PlayMinigame>().gameObject;
-                generetor.GetComponent<PlayMinigame>().CompleteGimmick();
+                if (generetor1 == null)
+                    generetor1 = FindObjectOfType<PlayMinigame>().gameObject;
+                generetor1.GetComponent<PlayMinigame>().CompleteGimmick();
                 FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_09_Minigame1_0);
-                generetor.GetComponent<PlayMinigame>().MiniGameClear();
+                generetor1.GetComponent<PlayMinigame>().MiniGameClear();
                 break;
             case 7:     //  Map2の扉１の処理
                 if (EventManager.Instance.TypeinGameMap2FirstClearedFunc != null)
                     EventManager.Instance.TypeinGameMap2FirstClearedFunc.Invoke();
-                Debug.Log("タイピングゲーム2個目、フラグのセットが未完");
+                //generetor2.GetComponent<EventLoader>().Finished();
+                //generetor2.SetActive(false);
                 gateObserver.GetComponent<GateOpener>().OpenGate(0);
+                FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_17_Minigame1_Clear_Map2up);
                 SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
                 break;
             case 9:     //  Map1の扉２の処理
                 if (EventManager.Instance.TypeinGameMap2LetterClearedFunc != null)
                     EventManager.Instance.TypeinGameMap2LetterClearedFunc.Invoke();
-                Debug.Log("タイピングゲーム3個目、フラグのセットが未完");
+                //generetor3.GetComponent<EventLoader>().Finished();
+                //generetor3.SetActive(false);
                 gateObserver.GetComponent<GateOpener>().OpenGate(1);
+                FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_27_Minigame1_Clear_Map2down);
                 SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
                 break;
         }
@@ -342,14 +345,16 @@ public class MiniGameManager : MonoBehaviour
     {
         FlagManager.Instance.IsEventing = false;
         StartCoroutine(DisplayFaildText());
-        generetor.GetComponent<PlayMinigame>().isOpenMinigame = false;
+        if (generetor1 != null)
+            generetor1.GetComponent<PlayMinigame>().isOpenMinigame = false;
+        //  フランの調べるオブジェクトに再挑戦用にオブジェクトを再登録
     }
 
-    IEnumerator ChangeFran()
-    {
-        Fade.Instance.StartFadeInOut(1, Color.white);
-        yield break;
-    }
+    //IEnumerator ChangeFran()
+    //{
+    //    Fade.Instance.StartFadeInOut(1, Color.white);
+    //    yield break;
+    //}
 
     /// <summary>ミニゲームの開始時に表示</summary>
     IEnumerator CountDown()

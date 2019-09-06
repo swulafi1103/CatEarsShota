@@ -9,9 +9,4 @@ public class OpenCultureDevice : GimmickEvent
         FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
         //gameObject.transform.root.GetComponent<MapStatus>().MapObjectState[0] = true;
     }
-
-    void Update()
-    {
-        
-    }
 }

@@ -60,6 +60,8 @@ public class BubbleEvent : MonoBehaviour
     [SerializeField]
     private Sprite exclamationSprite;
 
+    private Sprite defaultFukidashi;
+
     public Sprite ExclamationSprite
     {
         get { return exclamationSprite; }
@@ -125,6 +127,8 @@ public class BubbleEvent : MonoBehaviour
     IEnumerator BubbleAnimation(Sprite[] bubbles, int length, float delaytime = 0)
     {
         yield return new WaitForSeconds(delaytime);
+        baseBubble.transform.position = PlayerManager.Instance.GetPlayerPos() + new Vector2(1.5f, 1);
+        childBubble.GetComponent<SpriteRenderer>().sprite = null;
         baseBubble.SetActive(true);
         yield return null;
         float time = 0;
