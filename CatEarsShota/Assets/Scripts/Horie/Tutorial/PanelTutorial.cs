@@ -46,23 +46,32 @@ public class PanelTutorial : MonoBehaviour
     {
         if (TutorialContriller.Instance.ActAnim()) return;
         CheckBackKey();
+        CheckAKey();
     }
 
     void CheckBackKey() {
         if (nowNum == PanelNum.None) return;
+        if (nowNum == PanelNum.Pants) return;
         if (!Input.GetKeyDown(KeyCode.X)) return;
         switch (nowNum) {
             case PanelNum.ChangeMode:
                 FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_05_Tuto_TimeChenge);
                 StartCoroutine(EndAnim());
                 break;
-            case PanelNum.Pants:
-                StartCoroutine(AnimSet(PanelNum.ChangePants));
-                break;
+            //case PanelNum.Pants:
+            //    StartCoroutine(AnimSet(PanelNum.ChangePants));
+            //    break;
             default:
                 StartCoroutine(EndAnim());
                 break;
         }
+    }
+
+    void CheckAKey()
+    {
+        if (nowNum != PanelNum.Pants) return;
+        if (!Input.GetKeyDown(KeyCode.A)) return;
+        StartCoroutine(EndAnim());
     }
 
     public void PanelTuto(PanelNum num) {

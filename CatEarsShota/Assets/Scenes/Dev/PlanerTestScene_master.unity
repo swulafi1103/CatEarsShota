@@ -1271,6 +1271,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1550975322}
+    - target: {fileID: 9166539173687898024, guid: e4b2f36e7d442044992bd8829eb59402,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1320765417
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166539173687898024, guid: e4b2f36e7d442044992bd8829eb59402,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1150661175, guid: e4b2f36e7d442044992bd8829eb59402, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2185,6 +2195,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162481610499119450, guid: 838efe4ea7045e4478ebba08821cf7fa,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162481610499119450, guid: 838efe4ea7045e4478ebba08821cf7fa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162481610499119450, guid: 838efe4ea7045e4478ebba08821cf7fa,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 466
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162481610499119450, guid: 838efe4ea7045e4478ebba08821cf7fa,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 838efe4ea7045e4478ebba08821cf7fa, type: 3}
@@ -4083,6 +4113,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212163822563657480, guid: 5018f4d9c304e2b47907468b7f242404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965296634790402955, guid: 5018f4d9c304e2b47907468b7f242404,
+        type: 3}
+      propertyPath: itemNum
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5018f4d9c304e2b47907468b7f242404, type: 3}
@@ -8922,7 +8962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1549569557
 Transform:
   m_ObjectHideFlags: 0
@@ -9513,10 +9553,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1665908163}
   - component: {fileID: 1665908164}
-  - component: {fileID: 1665908168}
   - component: {fileID: 1665908167}
   - component: {fileID: 1665908166}
   - component: {fileID: 1665908165}
+  - component: {fileID: 1665908168}
   m_Layer: 0
   m_Name: Mushroom_L
   m_TagString: Gimmick
@@ -9635,14 +9675,14 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
-  needGimmickFlag_Map2: 64
+  needGimmickFlag_Map2: 0
   isFinish: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
   eventName: 34
---- !u!61 &1665908168
-BoxCollider2D:
+--- !u!68 &1665908168
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9655,18 +9695,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.94, y: 4.63}
-    newSize: {x: 4.94, y: 4.63}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.94, y: 4.63}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -2.47, y: 0}
+  - {x: -2.295658, y: 0.9116211}
+  - {x: -1.4288063, y: 1.8934479}
+  - {x: 0.5723381, y: 1.9613037}
+  - {x: 1.9720116, y: 0.9223633}
+  - {x: 2.3991814, y: 0.41235352}
+  - {x: 2.256855, y: -0.30255127}
+  - {x: 0.101200104, y: -2.226181}
+  - {x: -0.39186096, y: -2.3530579}
+  - {x: -2.4141083, y: 0.021240234}
 --- !u!1 &1692930275
 GameObject:
   m_ObjectHideFlags: 0
@@ -10052,10 +10092,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1728394174}
   - component: {fileID: 1728394175}
-  - component: {fileID: 1728394179}
   - component: {fileID: 1728394178}
   - component: {fileID: 1728394177}
   - component: {fileID: 1728394176}
+  - component: {fileID: 1728394179}
   m_Layer: 0
   m_Name: Mushroom_R
   m_TagString: Gimmick
@@ -10174,14 +10214,14 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
-  needGimmickFlag_Map2: 64
+  needGimmickFlag_Map2: 0
   isFinish: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
   callType: 0
   eventName: 15
---- !u!61 &1728394179
-BoxCollider2D:
+--- !u!68 &1728394179
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10194,18 +10234,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.94, y: 4.63}
-    newSize: {x: 4.94, y: 4.63}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.94, y: 4.63}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -2.47, y: 0}
+  - {x: -2.295658, y: 0.9116211}
+  - {x: -1.4288063, y: 1.8934479}
+  - {x: 0.5723381, y: 1.9613037}
+  - {x: 1.9720116, y: 0.9223633}
+  - {x: 2.3991814, y: 0.41235352}
+  - {x: 2.256855, y: -0.30255127}
+  - {x: 0.101200104, y: -2.226181}
+  - {x: -0.39186096, y: -2.3530579}
+  - {x: -2.4141083, y: 0.021240234}
 --- !u!1 &1750353454
 GameObject:
   m_ObjectHideFlags: 0
@@ -12289,7 +12329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2128844326
 Transform:
   m_ObjectHideFlags: 0
