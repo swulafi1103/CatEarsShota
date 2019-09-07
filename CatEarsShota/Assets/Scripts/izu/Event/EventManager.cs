@@ -181,6 +181,8 @@ public class EventManager : MonoBehaviour
         StartCoroutine(EventCorutine(eventName, target));
     }
 
+    public System.Action _callBack_useHashigo;
+
     List<EventEntity> GetEventEntity(EventName eventName)
     {
         List<EventEntity> entity = null;
@@ -271,6 +273,8 @@ public class EventManager : MonoBehaviour
                 entity = eventExcel.E28_Stairs2_up_past;
                 break;
             case EventName.E29_Stairs2_down_past:
+                if (_callBack_useHashigo != null)
+                    _callBack_useHashigo.Invoke();
                 entity = eventExcel.E29_Stairs2_down_past;
                 break;
             case EventName.E30_Stairs3_up_past:
@@ -504,9 +508,9 @@ public class EventManager : MonoBehaviour
         Debug.Log("ChangeTime");
         yield return new WaitForSeconds(delayTime);
         if (value == 0)
-            FlagManager.Instance.ChegeFranPero(true);
+            FlagManager.Instance.ChageFranPero(true);
         else
-            FlagManager.Instance.ChegeFranPero(false);
+            FlagManager.Instance.ChageFranPero(false);
         FlagManager.Instance.IsEventing = false;
         yield break;
     }

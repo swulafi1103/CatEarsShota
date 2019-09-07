@@ -85,6 +85,13 @@ public class FlagManager : MonoBehaviour
         get { return isYellow; }
         set { isYellow = value; }
     }
+    [SerializeField]
+    private bool isLockPast = false;
+    public bool IsLockPast
+    {
+        get { return isLockPast; }
+        set { isLockPast = value; }
+    }
 
 
     [SerializeField, EnumFlags]
@@ -122,6 +129,7 @@ public class FlagManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
+
             ChegeFranPero();
         }
         if (Input.GetKeyDown(KeyCode.F10))
@@ -229,7 +237,7 @@ public class FlagManager : MonoBehaviour
     {
         IsPast = !IsPast;
     }
-    public void ChegeFranPero(bool isPero)
+    public void ChageFranPero(bool isPero)
     {
         if (isPero)
             IsPast = false;
