@@ -369,6 +369,11 @@ public class EventManager : MonoBehaviour
 
     IEnumerator PlayMovie(int value, float delayTime, bool waitMovie)
     {
+        if (waitMovie)
+        {
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
+        }
         yield return new WaitForSeconds(delayTime);
         //  フェード中か
         while (!Fade.Instance.Fading == false)
