@@ -199,23 +199,8 @@ MonoBehaviour:
     volume: 0
   E16_Mushroom_plant1_past:
   - category: 9
-    value: 0
+    value: 2
     delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 19
-    value: 0
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 17
-    value: 0
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 13
-    value: 4
-    delayTime: 2
     waitMovie: 0
     volume: 0
   E17_Mushroom_noplant_past:
@@ -252,6 +237,11 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
+  - category: 8
+    value: 9
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 16
     value: 6
     delayTime: 0
@@ -264,17 +254,12 @@ MonoBehaviour:
     volume: 0
   - category: 2
     value: 1
-    delayTime: 5
-    waitMovie: 0
-    volume: 0
-  - category: 8
-    value: 9
-    delayTime: 2
+    delayTime: 3
     waitMovie: 0
     volume: 0
   - category: 13
     value: 1
-    delayTime: 2
+    delayTime: 0.5
     waitMovie: 0
     volume: 0
   E21_Pant_pickup5:
@@ -783,7 +768,7 @@ MonoBehaviour:
     volume: 0
   - category: 2
     value: 0
-    delayTime: 6
+    delayTime: 3
     waitMovie: 0
     volume: 0
   - category: 13

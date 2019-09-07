@@ -43,6 +43,7 @@ public class PastMushroom : MonoBehaviour
         nowMushroom.SetMush();
         ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
         TutorialContriller.Instance.SetTextWindow(4);
+        gameObject.SetActive(false);
     }
     
 }

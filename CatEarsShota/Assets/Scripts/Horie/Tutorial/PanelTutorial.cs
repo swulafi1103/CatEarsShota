@@ -53,6 +53,7 @@ public class PanelTutorial : MonoBehaviour
         if (nowNum == PanelNum.None) return;
         if (nowNum == PanelNum.Pants) return;
         if (nowNum == PanelNum.TimeCapsule) return;
+        if (nowNum == PanelNum.Mushroom) return;
         if (!Input.GetKeyDown(KeyCode.X)) return;
         switch (nowNum) {
             case PanelNum.ChangeMode:
@@ -70,12 +71,19 @@ public class PanelTutorial : MonoBehaviour
 
     void CheckAKey()
     {
-        if (nowNum != PanelNum.Pants && nowNum != PanelNum.TimeCapsule) return;
+        if (nowNum != PanelNum.Pants && nowNum != PanelNum.TimeCapsule && nowNum != PanelNum.Mushroom) return;
         if (!Input.GetKeyDown(KeyCode.A)) return;
-        if (nowNum == PanelNum.Pants)
-            StartCoroutine(EndAnim());
-        else
-            StartCoroutine(TitmeCapsuleEnd());
+        switch (nowNum) {
+            case PanelNum.TimeCapsule:
+                StartCoroutine(TitmeCapsuleEnd());
+                break;
+            case PanelNum.Mushroom:
+                StartCoroutine(MushroomEnd());
+                break;
+            default:
+                StartCoroutine(EndAnim());
+                break;
+        }
     }
 
     public void PanelTuto(PanelNum num) {
@@ -148,5 +156,14 @@ public class PanelTutorial : MonoBehaviour
         yield return col;
 
         EventManager.Instance.PlayEvent(EventName.E48_After_TimeCapsule_Tuto);
+        yield break;
+    }
+
+    IEnumerator MushroomEnd() {
+        Coroutine col = StartCoroutine(EndAnim());
+        yield return col;
+
+        MushroomControll.Instance.SetPastMush(0);
+        yield break;
     }
 }

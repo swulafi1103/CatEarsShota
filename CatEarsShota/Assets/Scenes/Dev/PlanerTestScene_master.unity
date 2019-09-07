@@ -704,7 +704,7 @@ MonoBehaviour:
   isFinish: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 64
-  callType: 0
+  callType: 1
   eventName: 34
 --- !u!61 &115632605
 BoxCollider2D:
@@ -3648,7 +3648,7 @@ MonoBehaviour:
   isFinish: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 64
-  callType: 0
+  callType: 1
   eventName: 15
 --- !u!61 &639668316
 BoxCollider2D:
