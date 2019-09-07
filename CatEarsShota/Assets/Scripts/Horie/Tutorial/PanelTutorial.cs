@@ -52,6 +52,7 @@ public class PanelTutorial : MonoBehaviour
     void CheckBackKey() {
         if (nowNum == PanelNum.None) return;
         if (nowNum == PanelNum.Pants) return;
+        if (nowNum == PanelNum.TimeCapsule) return;
         if (!Input.GetKeyDown(KeyCode.X)) return;
         switch (nowNum) {
             case PanelNum.ChangeMode:
@@ -69,9 +70,12 @@ public class PanelTutorial : MonoBehaviour
 
     void CheckAKey()
     {
-        if (nowNum != PanelNum.Pants) return;
+        if (nowNum != PanelNum.Pants && nowNum != PanelNum.TimeCapsule) return;
         if (!Input.GetKeyDown(KeyCode.A)) return;
-        StartCoroutine(EndAnim());
+        if (nowNum == PanelNum.Pants)
+            StartCoroutine(EndAnim());
+        else
+            StartCoroutine(TitmeCapsuleEnd());
     }
 
     public void PanelTuto(PanelNum num) {
@@ -136,5 +140,13 @@ public class PanelTutorial : MonoBehaviour
         yield return col;
 
         yield break;
+    }
+
+    IEnumerator TitmeCapsuleEnd()
+    {
+        Coroutine col = StartCoroutine(EndAnim());
+        yield return col;
+
+        EventManager.Instance.PlayEvent(EventName.E48_After_TimeCapsule_Tuto);
     }
 }

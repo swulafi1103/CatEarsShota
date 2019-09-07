@@ -193,48 +193,8 @@ MonoBehaviour:
     volume: 0
   E15_Timecapsule_piece_buried_pa:
   - category: 9
-    value: 0
+    value: 1
     delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 1
-    value: 0
-    delayTime: 2
-    waitMovie: 0
-    volume: 0
-  - category: 15
-    value: 4
-    delayTime: 0
-    waitMovie: 0
-    volume: 1
-  - category: 20
-    value: 0
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 16
-    value: 5
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 16
-    value: 7
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 17
-    value: 0
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 2
-    value: 0
-    delayTime: 2
-    waitMovie: 0
-    volume: 0
-  - category: 13
-    value: 3
-    delayTime: 2
     waitMovie: 0
     volume: 0
   E16_Mushroom_plant1_past:
@@ -336,8 +296,18 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 3
+    value: 10
     delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 3
+    delayTime: 0.5
+    waitMovie: 1
+    volume: 0
+  - category: 14
+    value: 3
+    delayTime: 0
     waitMovie: 0
     volume: 0
   - category: 12
@@ -771,6 +741,59 @@ MonoBehaviour:
   E47_Redorb_pickup:
   - category: 8
     value: 3
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E48_After_TimeCapsule_Tuto:
+  - category: 20
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  E49_After_TimeCapsule_Set_Piece:
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 15
+    value: 4
+    delayTime: 0
+    waitMovie: 0
+    volume: 1
+  - category: 16
+    value: 5
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 16
+    value: 7
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 8
+    value: 8
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  - category: 13
+    value: 3
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
+  E50_TimeCapsule_Bookmark:
+  - category: 20
+    value: 1
     delayTime: 0
     waitMovie: 0
     volume: 0
