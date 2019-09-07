@@ -322,6 +322,21 @@ public class EventManager : MonoBehaviour
             case EventName.E44_Orb_fillin_clear:
                 entity = eventExcel.E44_Orb_fillin_clear;
                 break;
+            case EventName.E45_Blueorb_pickup:
+                entity = eventExcel.E45_Blueorb_pickup;
+                break;
+            case EventName.E46_Greenorb_pickup:
+                entity = eventExcel.E46_Greenorb_pickup;
+                break;
+            case EventName.E47_Redorb_pickup:
+                entity = eventExcel.E47_Redorb_pickup;
+                break;
+            case EventName.E48_After_TimeCapsule_Tuto:
+                entity = eventExcel.E48_After_TimeCapsule_Tuto;
+                break;
+            case EventName.E49_After_TimeCapsule_Set_Piece:
+                entity = eventExcel.E49_After_TimeCapsule_Set_Piece;
+                break;
             default:
                 Debug.Log("実装してない値");
                 break;
@@ -993,6 +1008,11 @@ public enum EventName
     E42_Time_capsule_bookmark,          //（埋め場Aボタン）フェードイン→SE→画像差し替え→フェイドアウト→しおり入手→しおり入手吹き出しウィンドウ
     E43_Green_event,                    //（しおり入手）フェードイン→BGM→ムービー→変色ムービー→緑オーブドロップ→ビックリマーク吹き出し
     E44_Orb_fillin_clear,               //（四つのオーブを嵌めた）暗転→ムービー
+    E45_Blueorb_pickup,
+    E46_Greenorb_pickup,
+    E47_Redorb_pickup,
+    E48_After_TimeCapsule_Tuto,
+    E49_After_TimeCapsule_Set_Piece
 }
 
 /// <summary>

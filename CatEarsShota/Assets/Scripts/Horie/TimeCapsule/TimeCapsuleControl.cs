@@ -13,6 +13,9 @@ public class TimeCapsuleControl : MonoBehaviour
         instance = this;
     }
 
+    [SerializeField]
+    GameObject[] TimeCapsele;
+
     ItemManager.ItemNum[] pastlist = new ItemManager.ItemNum[2] {
         ItemManager.ItemNum.Ilust_Piece,
         ItemManager.ItemNum.BookMark_Past
@@ -87,8 +90,10 @@ public class TimeCapsuleControl : MonoBehaviour
 
 
         //キノコ取得
-        ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
-        TutorialContriller.Instance.SetTextWindow(3);
+        //ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
+        //TutorialContriller.Instance.SetTextWindow(3);
+        EventManager.Instance.PlayEvent(EventName.E49_After_TimeCapsule_Set_Piece, TimeCapsele[num]);
+        TimeCapsele[num].GetComponent<EventBase>().Finished();
     }
 
     /// <summary>

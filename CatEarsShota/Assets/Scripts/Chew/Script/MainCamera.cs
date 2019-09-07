@@ -99,12 +99,13 @@ public class MainCamera : MonoBehaviour
         }
         if (FlagManager.Instance.IsPast)
         {
-            if (Player.transform.position.x < PastCameraLimit[1] && Player.transform.position.x > CameraLimit[0])
+            if (Fran.transform.position.x < PastCameraLimit[1] && Fran.transform.position.x > PastCameraLimit[0])
                 PastCam.transform.position = Vector3.Lerp(PastCam.transform.position, Fran.transform.position - rangeToTarget, Time.deltaTime);
             else
             {
-                int tmpindex = Fran.transform.position.x > PastCameraLimit[1] ? 0 : 1;
-                Vector3 limitpos = new Vector3(PastCameraLimit[tmpindex], PastCam.transform.position.y, PastCam.transform.position.z);
+                Debug.Log("limited");
+                int tmpindex = Fran.transform.position.x > PastCameraLimit[1] ? 1 : 0;
+                Vector3 limitpos = new Vector3(PastCameraLimit[tmpindex], Fran.transform.position.y, Fran.transform.position.z) - rangeToTarget;
                 PastCam.transform.position = Vector3.Lerp(PastCam.transform.position, limitpos, Time.deltaTime);
             }
         }
@@ -115,7 +116,7 @@ public class MainCamera : MonoBehaviour
             else
             {
                 int tmpindex = Player.transform.position.x > CameraLimit[1+(atcurrentmap*2)] ? 1 : 0;
-                Vector3 limitpos = new Vector3(CameraLimit[tmpindex + (atcurrentmap * 2)], transform.position.y, transform.position.z);
+                Vector3 limitpos = new Vector3(CameraLimit[tmpindex + (atcurrentmap * 2)], Player.transform.position.y, Player.transform.position.z) - rangeToTarget;
                 transform.position = Vector3.Lerp(transform.position, limitpos, Time.deltaTime);
 
             }
