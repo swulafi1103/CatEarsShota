@@ -513,17 +513,20 @@ public class ItemUIController : MonoBehaviour
         {
             //  対応したアイテムが選択されているか
             bool OnClick = Input.GetKeyDown(KeyCode.A);
-            bool IsSelected = NowHave[selectNum] == item;
 
-            if (OnClick && IsSelected)
+            if (OnClick)
             {
-                IsEvent = false;
-                IsEvents = false;
-                ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
-                PlayerPanel.Play("wait");
-                FlagManager.Instance.IsOpenUI = false;
-                callVoid();
-                yield break;
+                bool IsSelected = NowHave[selectNum] == item;
+                if (IsSelected)
+                {
+                    IsEvent = false;
+                    IsEvents = false;
+                    ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
+                    PlayerPanel.Play("wait");
+                    FlagManager.Instance.IsOpenUI = false;
+                    callVoid();
+                    yield break;
+                }
             }
             yield return null;
         }
