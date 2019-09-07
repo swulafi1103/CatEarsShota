@@ -51,6 +51,7 @@ public class TouchGeneretor_after : GimmickEvent
         moyaObj.SetActive(false);
         CompleteGimmick();
         FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
+        map.GetComponent<MapStatus>().UpdateGimmick(1, true);
         yield break;
     }
 

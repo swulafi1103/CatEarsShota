@@ -4146,6 +4146,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e56d6aec50918e348841e536e3c55ee9,
         type: 3}
+    - target: {fileID: 1212163824513275530, guid: 5018f4d9c304e2b47907468b7f242404,
+        type: 3}
+      propertyPath: Map2Objs.Array.data[0].ChangeObj
+      value: 
+      objectReference: {fileID: 1021513743}
     - target: {fileID: 1212163822563657480, guid: 5018f4d9c304e2b47907468b7f242404,
         type: 3}
       propertyPath: m_IsActive
@@ -6604,6 +6609,12 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &1021513743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5247223706120923571, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4074538694380041632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1026607369
 GameObject:
   m_ObjectHideFlags: 0

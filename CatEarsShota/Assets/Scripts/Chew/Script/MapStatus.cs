@@ -79,7 +79,7 @@ public class MapStatus : MonoBehaviour
     {
         Map2Objs[index].OnStatus = newstatus;
         if (Map2Objs[index].ChangeObj != null)
-            Map2Objs[index].ChangeObj.GetComponent<SpriteRenderer>().sprite = Map2Objs[index].colorSprite[index];
+            Map2Objs[index].ChangeObj.GetComponent<SpriteRenderer>().sprite = Map2Objs[index].colorSprite[Map2Objs[index].OnStatus ? 1:0];
         else
             Debug.Log("Update Map2Objs error");
     }
