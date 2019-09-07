@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92a573cfea7451a408b90fcf40ecab04, type: 3}
-  m_Name: 16_Pants_pink
+  m_Name: 14_Pants_Line
   m_EditorClassIdentifier: 
   type: 2
-  itemNum: 16
-  itemName: "\u304B\u307C\u3061\u3083\u30D1\u30F3\u30C4(\u3074\u3093\u304F)"
-  itemSprite: {fileID: 21300000, guid: 93aa698a9ca25014792256ebf9e2764b, type: 3}
+  itemNum: 14
+  itemName: "\u3057\u307E\u3057\u307E\u30D1\u30F3\u30C4"
+  itemSprite: {fileID: 21300000, guid: e2b56dc72346d7c4ca3531a73ddd68b4, type: 3}
   detailText: {fileID: 21300000, guid: 37984c38a98deef49858ef9376a52106, type: 3}
-  selectIcon: {fileID: 21300000, guid: 4c8b723ff4f41fa4ea29f273f07d0a6b, type: 3}
+  selectIcon: {fileID: 21300000, guid: 6e272bf968ad20240b0abc4628683822, type: 3}

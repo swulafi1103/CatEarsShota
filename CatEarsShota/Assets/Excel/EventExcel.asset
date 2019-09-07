@@ -264,7 +264,7 @@ MonoBehaviour:
     volume: 0
   - category: 2
     value: 1
-    delayTime: 0
+    delayTime: 5
     waitMovie: 0
     volume: 0
   - category: 8
@@ -758,7 +758,7 @@ MonoBehaviour:
     volume: 0
   - category: 15
     value: 4
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 1
   - category: 16
@@ -783,12 +783,12 @@ MonoBehaviour:
     volume: 0
   - category: 2
     value: 0
-    delayTime: 2
+    delayTime: 6
     waitMovie: 0
     volume: 0
   - category: 13
     value: 3
-    delayTime: 2
+    delayTime: 0.5
     waitMovie: 0
     volume: 0
   E50_TimeCapsule_Bookmark:

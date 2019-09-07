@@ -9955,7 +9955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e3d895c5177694dac5e7002aa7d928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 5
+  MaxTime: 2
 --- !u!95 &1665908166
 Animator:
   serializedVersion: 3
@@ -10471,7 +10471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e3d895c5177694dac5e7002aa7d928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 5
+  MaxTime: 2
 --- !u!95 &1728394177
 Animator:
   serializedVersion: 3
