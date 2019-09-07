@@ -27,8 +27,8 @@ public class WaitRedOrbEvent : MonoBehaviour
         while (!Fade.Instance.Fading == false)
             yield return null;
         Fade.Instance.StartFade(0.5f, Color.black);
-        FlagManager.Instance.IsLockPast = true;
         FlagManager.Instance.ChageFranPero(true);
+        FlagManager.Instance.IsLockPast = true;
         yield break;
     }
 }

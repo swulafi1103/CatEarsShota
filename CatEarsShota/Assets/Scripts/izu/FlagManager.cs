@@ -318,4 +318,6 @@ public enum GimmickFlag_Map2
     G_35_SetOrb                     = 1 << 20,
     G_36_TrueAnimation              = 1 << 21,
     //  トゥルーエンドまで↑
+    G_36_ChackAquarium_past         = 1 << 22,
+    G_37_FillinBookMark             = 1 << 23,
 }
