@@ -302,13 +302,13 @@ MonoBehaviour:
     volume: 0
   - category: 0
     value: 3
-    delayTime: 0.5
+    delayTime: 1
     waitMovie: 1
     volume: 0
   - category: 14
     value: 3
     delayTime: 0
-    waitMovie: 0
+    waitMovie: 1
     volume: 0
   - category: 12
     value: 1
@@ -771,13 +771,13 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 17
-    value: 0
+  - category: 8
+    value: 8
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 8
-    value: 8
+  - category: 17
+    value: 0
     delayTime: 0
     waitMovie: 0
     volume: 0
