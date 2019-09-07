@@ -42,8 +42,8 @@ public class LandEnemy : Enemy
 
     EnemyShield shield;
 
-    protected override void Start() {
-        base.Start();
+    protected override void Awake() {
+        base.Awake();
         Hp = 1;
         nowHp = Hp;
         bulletBase = FindObjectOfType<EnemyBulletPool>();
@@ -71,12 +71,12 @@ public class LandEnemy : Enemy
     }
 
     protected override void EnemyMove() {
-        if (inPlayer) {
-            GoToPlayer();
-        }
-        else {
-            DefaltMove();
-        }
+        //if (inPlayer) {
+        //    GoToPlayer();
+        //}
+        //else {
+        //}
+        DefaltMove();
     }
 
     /// <summary>

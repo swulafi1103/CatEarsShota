@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     Vector3 FirstPos;
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         gameObject.SetActive(true);
         Timer = 0;
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     {
         Attack();
         EnemyMove();
-        if (Input.GetKeyDown(KeyCode.S)) { PlayerAttack(); }    //debug
+        //if (Input.GetKeyDown(KeyCode.S)) { PlayerAttack(); }    //debug
     }
 
     protected virtual void Attack() {
@@ -39,13 +39,13 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public void PlayerAttack() {
-        nowHp--;
-        //Debug.Log(this.gameObject.name + " : " + nowHp);
-        if (nowHp == 0) {
-            gameObject.SetActive(false);
-        }
-    }
+    //public void PlayerAttack() {
+    //    nowHp--;
+    //    //Debug.Log(this.gameObject.name + " : " + nowHp);
+    //    if (nowHp == 0) {
+    //        gameObject.SetActive(false);
+    //    }
+    //}
 
     public void SetStartPos() {
         ResetData();
