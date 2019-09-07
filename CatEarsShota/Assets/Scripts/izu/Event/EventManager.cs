@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class EventManager : MonoBehaviour
     private List<GameObject> itemList = new List<GameObject>();
     private GameObject map2;
     private GameObject map1;
+    private bool triggerEnd = false;
 
     public System.Action TypeinGameMap1ClearedFunc;
     public System.Action TypeinGameMap2FirstClearedFunc;
@@ -353,6 +355,10 @@ public class EventManager : MonoBehaviour
         while (!Fade.Instance.Fading == false)
             yield return null;
         Debug.Log("Movie");
+        if (value == 9 || value == 14)
+            triggerEnd = true;
+        else
+            triggerEnd = false;
         MainCamera.Instance.TriggeredVideo((uint)value);
         FlagManager.Instance.IsEventing = false;
         yield break;
@@ -380,7 +386,13 @@ public class EventManager : MonoBehaviour
                 Debug.LogWarning("FadeInError, Value is Over");
                 break;
         }
+        
         FlagManager.Instance.IsEventing = false;
+        if (triggerEnd)
+        {
+            SceneManager.LoadScene(0);
+            Destroy(gameObject);
+        }
         yield break;
     }
     IEnumerator FadeOut(int value, float delayTime, bool waitMovie)
@@ -822,11 +834,9 @@ public class EventManager : MonoBehaviour
                 break;
             case 2:
                 map1.GetComponent<MapStatus>().UpdateGimmick(1, false);
-                map1.GetComponent<MapStatus>().UpdateGimmick(2, false);
                 break;
             case 3:
                 map1.GetComponent<MapStatus>().UpdateGimmick(1, true);
-                map1.GetComponent<MapStatus>().UpdateGimmick(2, true);
                 break;
             case 4:
                 map2.GetComponent<MapStatus>().UpdateGimmick(0, false);
@@ -835,10 +845,22 @@ public class EventManager : MonoBehaviour
                 map2.GetComponent<MapStatus>().UpdateGimmick(0, true);
                 break;
             case 6:
-                map2.GetComponent<MapStatus>().UpdateGimmick(1, false);
+                map2.GetComponent<MapStatus>().UpdateMapPast(0, false);
                 break;
             case 7:
-                map2.GetComponent<MapStatus>().UpdateGimmick(1, true);
+                map2.GetComponent<MapStatus>().UpdateMapPast(0, true);
+                break;
+            case 8:
+                map1.GetComponent<MapStatus>().UpdateMapPast(0, false);
+                break;
+            case 9:
+                map1.GetComponent<MapStatus>().UpdateMapPast(0, true);
+                break;
+            case 10:
+                map2.GetComponent<MapStatus>().UpdateMapPast(1, false);
+                break;
+            case 11:
+                map2.GetComponent<MapStatus>().UpdateMapPast(2, true);
                 break;
         }
         FlagManager.Instance.IsEventing = false;
