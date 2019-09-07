@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class OrbSetter : MonoBehaviour
 {
@@ -137,5 +139,22 @@ public class OrbSetter : MonoBehaviour
 
         //トゥルーエンド呼び出し
         Debug.Log("ALL ORB SETED");
+        StartCoroutine(TrueEnding());
+    }
+
+    IEnumerator TrueEnding()
+    {
+        yield return new WaitForSeconds(0.5f);
+        OrbSetterImage.SetActive(false);
+
+        MainCamera.Instance.TriggeredVideo((uint)9);
+        while (FlagManager.Instance.IsMovie)
+            yield return null;
+        AsyncOperation async = SceneManager.LoadSceneAsync(1);
+        while (!async.isDone)
+        {
+            yield return null;
+        }
+        yield break;
     }
 }
