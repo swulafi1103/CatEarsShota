@@ -113,7 +113,7 @@ MonoBehaviour:
   E09_Gate1geme_past:
   - category: 10
     value: 1
-    delayTime: 1
+    delayTime: 0
     waitMovie: 0
     volume: 0
   E10_Gate1geme_clear_past:
@@ -317,7 +317,7 @@ MonoBehaviour:
     volume: 0
   - category: 7
     value: 0
-    delayTime: 2
+    delayTime: 0
     waitMovie: 0
     volume: 0
   - category: 17

@@ -92,7 +92,12 @@ public class TimeCapsuleControl : MonoBehaviour
         //キノコ取得
         //ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
         //TutorialContriller.Instance.SetTextWindow(3);
-        EventManager.Instance.PlayEvent(EventName.E49_After_TimeCapsule_Set_Piece, TimeCapsele[num]);
+        if (num == 0) {
+            EventManager.Instance.PlayEvent(EventName.E49_After_TimeCapsule_Set_Piece, TimeCapsele[num]);
+        }
+        else {
+            EventManager.Instance.PlayEvent(EventName.E34_Timecapsule_bookmark_buried_past, TimeCapsele[num]);
+        }
         TimeCapsele[num].GetComponent<EventBase>().Finished();
     }
 

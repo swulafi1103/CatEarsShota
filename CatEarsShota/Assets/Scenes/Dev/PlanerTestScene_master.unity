@@ -3246,6 +3246,7 @@ MonoBehaviour:
   isEventing: 0
   isOpenUI: 0
   isYellow: 0
+  isLockPast: 0
   itemFlag: 0
   gimmickFlag: 0
   gimmickFlag_Map2: 0
@@ -7682,6 +7683,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2140296746}
     m_Modifications:
+    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
+        type: 3}
+      propertyPath: m_Name
+      value: Collider_past
+      objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950124, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7736,11 +7742,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
-        type: 3}
-      propertyPath: m_Name
-      value: Collider_past
       objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950125, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
@@ -10133,7 +10134,7 @@ MonoBehaviour:
   standgimmickFlag: 0
   standgimmickFlag_Map2: 16384
   callType: 1
-  eventName: 33
+  eventName: 49
 --- !u!61 &1696746645
 BoxCollider2D:
   m_ObjectHideFlags: 0

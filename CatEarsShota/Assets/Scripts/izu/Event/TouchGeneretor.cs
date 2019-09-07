@@ -67,11 +67,11 @@ public class TouchGeneretor : GimmickEvent
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
         //  赤い演出(3回)
         Fade.Instance.CallFadeIO(3);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1);
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         //  ガラスが割れる音再生
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_01_BreakWin, 0.25f);
         yield return new WaitForSeconds(0.25f);

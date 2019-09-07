@@ -337,6 +337,9 @@ public class EventManager : MonoBehaviour
             case EventName.E49_After_TimeCapsule_Set_Piece:
                 entity = eventExcel.E49_After_TimeCapsule_Set_Piece;
                 break;
+            case EventName.E50_TimeCapsule_Bookmark:
+                entity = eventExcel.E50_TimeCapsule_Bookmark;
+                break;
             default:
                 Debug.Log("実装してない値");
                 break;
@@ -1017,7 +1020,8 @@ public enum EventName
     E46_Greenorb_pickup,
     E47_Redorb_pickup,
     E48_After_TimeCapsule_Tuto,
-    E49_After_TimeCapsule_Set_Piece
+    E49_After_TimeCapsule_Set_Piece,
+    E50_TimeCapsule_Bookmark
 }
 
 /// <summary>
