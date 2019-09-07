@@ -8,9 +8,11 @@ public class PlayMinigame : GimmickEvent, ICheckable
     public bool isOpenMinigame = false;
     [SerializeField]
     private GameObject FocusDoor;
+    private GameObject map1;
 
     void Start()
     {
+        map1 = GameObject.FindGameObjectWithTag("Map1");
         CheckFlag();
     }
 
@@ -44,7 +46,7 @@ public class PlayMinigame : GimmickEvent, ICheckable
         //  ドアのほうにカメラを移動する
         MainCamera.Instance.T_ChangeFocus(FocusDoor);
         //  ドアを開ける
-        //transform.root.gameObject.GetComponent<MapStatus>().MapObjectState[1] = true;
+        map1.GetComponent<MapStatus>().UpdateMapPast(0,true);
         //  ドアのコライダーの無効化
         FocusDoor.GetComponent<BoxCollider2D>().enabled = false;
         FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_10_OpenDoor);

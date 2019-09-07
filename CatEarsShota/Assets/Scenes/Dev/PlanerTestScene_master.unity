@@ -757,21 +757,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Perrault
       objectReference: {fileID: 0}
-    - target: {fileID: 4558843108013903563, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7717720141417006846, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
-        type: 3}
-      propertyPath: m_Name
-      value: shadowback
-      objectReference: {fileID: 0}
-    - target: {fileID: 7717720141417006846, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1157579955913065700, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -903,6 +888,21 @@ PrefabInstance:
       propertyPath: BackShadow
       value: 
       objectReference: {fileID: 121514236}
+    - target: {fileID: 7717720141417006846, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: m_Name
+      value: shadowback
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717720141417006846, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558843108013903563, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1467140829, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2ee1609e6f7bb2c4ebdb9c564a77dd37, type: 3}
@@ -1513,11 +1513,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1392243831, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
+    - target: {fileID: 430992533, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 430992533, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
+    - target: {fileID: 1392243831, guid: 2ed0922fb7758452284fac7d7697ea6c, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -4146,6 +4146,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e56d6aec50918e348841e536e3c55ee9,
         type: 3}
+    - target: {fileID: 1212163824513275530, guid: 5018f4d9c304e2b47907468b7f242404,
+        type: 3}
+      propertyPath: Map2Objs.Array.data[0].ChangeObj
+      value: 
+      objectReference: {fileID: 1021513743}
     - target: {fileID: 1212163822563657480, guid: 5018f4d9c304e2b47907468b7f242404,
         type: 3}
       propertyPath: m_IsActive
@@ -6604,6 +6609,12 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &1021513743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5247223706120923571, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4074538694380041632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1026607369
 GameObject:
   m_ObjectHideFlags: 0
@@ -7671,11 +7682,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2140296746}
     m_Modifications:
-    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
-        type: 3}
-      propertyPath: m_Name
-      value: Collider_past
-      objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950124, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7730,6 +7736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
+        type: 3}
+      propertyPath: m_Name
+      value: Collider_past
       objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950125, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
@@ -9444,7 +9455,7 @@ MonoBehaviour:
   - {x: 12, y: -6, z: 0}
   - {x: -12, y: -30, z: 0}
   - {x: 52, y: -5.5, z: 0}
-  - {x: 33, y: -29, z: 0}
+  - {x: 29, y: -28, z: 0}
 --- !u!1 &1557716453
 GameObject:
   m_ObjectHideFlags: 0
