@@ -26,6 +26,9 @@ public class IconTutorial : MonoBehaviour
 
     bool FirstJump = false;
 
+    [SerializeField]
+    Sprite[] hasigoTutoImage = new Sprite[2];
+
     public enum IconNum {
         Move = 0,
         Jump,
@@ -236,5 +239,45 @@ public class IconTutorial : MonoBehaviour
         }
         NowNum = IconNum.None;
         actAnim = false;
+        yield break;
+    }
+
+    public void StartHasigoTuto(int num) {
+        StartCoroutine(HasigoTuto(num));
+    }
+
+    IEnumerator HasigoTuto(int num) {
+        Color color = Color.white;
+        color.a = 0;
+        IconImage.color = color;
+        IconImage.sprite = hasigoTutoImage[num];
+        IconImage.SetNativeSize();
+        IconImage.enabled = true;
+        for (int i = 0; i <= AnimFrame; i++) {
+            float a = (float)i / AnimFrame;
+            color.a = a;
+            IconImage.color = color;
+            yield return null;
+        }
+        yield break;
+    }
+
+    public void EndHasigoTuto() {
+        StartCoroutine(EndHasigo());
+    }
+
+    IEnumerator EndHasigo() {
+        Color color = Color.white;
+        color.a = 1;
+        IconImage.color = color;
+
+        for (int i = AnimFrame; i >= 0; i--) {
+            float a = (float)i / AnimFrame;
+            color.a = a;
+            IconImage.color = color;
+            yield return null;
+        }
+
+        yield break;
     }
 }

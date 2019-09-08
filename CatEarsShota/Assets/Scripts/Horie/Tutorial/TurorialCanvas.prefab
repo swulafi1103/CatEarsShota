@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cd3161c97a5cb4abc79e09d633dbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PerraultCamera: {fileID: 0}
+  FranCamera: {fileID: 0}
 --- !u!114 &9166539173687898006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +235,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fb4404e546ae0c4fa381a7087b714bb, type: 3}
   IconImage: {fileID: 9166539173997464616}
   moveRange: 100
+  hasigoTutoImage:
+  - {fileID: 21300000, guid: 4195ae8b2f949ef478100472e87e681d, type: 3}
+  - {fileID: 21300000, guid: 0d7901be401382b4998480e224d87230, type: 3}
 --- !u!114 &9166539173687898004
 MonoBehaviour:
   m_ObjectHideFlags: 0

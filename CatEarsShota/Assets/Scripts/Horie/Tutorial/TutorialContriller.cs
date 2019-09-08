@@ -220,4 +220,14 @@ public class TutorialContriller : MonoBehaviour
             transform.GetComponent<Canvas>().worldCamera = PerraultCamera;
         }
     }
+
+
+    public void Hasigo(bool act,int num = 0) {
+        if (act) {
+            iconTutorial.StartHasigoTuto(num);
+        }
+        else {
+            iconTutorial.EndHasigoTuto();
+        }
+    }
 }
