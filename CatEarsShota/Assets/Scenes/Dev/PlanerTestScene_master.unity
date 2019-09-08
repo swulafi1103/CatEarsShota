@@ -4997,6 +4997,16 @@ MonoBehaviour:
     colorSprite:
     - {fileID: 21300000, guid: 5da0becf621105f48b05322d43ac4550, type: 3}
     - {fileID: 21300000, guid: a8760af081c306442957f0097e7da4c0, type: 3}
+  - OnStatus: 0
+    ChangeObj: {fileID: 1912626865}
+    colorSprite:
+    - {fileID: 21300000, guid: 5a7944578ded5ee459040836edabc00e, type: 3}
+    - {fileID: 21300000, guid: 325a75b79f3c3824cb26a969c57c23b1, type: 3}
+  - OnStatus: 0
+    ChangeObj: {fileID: 2013377591}
+    colorSprite:
+    - {fileID: 21300000, guid: 6a7282b6e54f5224aab89dd3923eb7d3, type: 3}
+    - {fileID: 21300000, guid: 78951754446de3e4cbf1ccac6ef4bdf8, type: 3}
 --- !u!1 &782314925
 GameObject:
   m_ObjectHideFlags: 0

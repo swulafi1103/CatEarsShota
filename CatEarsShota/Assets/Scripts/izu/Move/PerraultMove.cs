@@ -62,6 +62,8 @@ public class PerraultMove : MonoBehaviour
             Move();
             Action();
         }
+        else
+            Breaking();
         ChangeTime();
     }
 
@@ -106,9 +108,13 @@ public class PerraultMove : MonoBehaviour
             animpants.SetBool("SetWaitAnimator", false);
             animpants.SetBool("SetWalkAnimator", true);
         }
-
         if (Mathf.Abs(rb.velocity.x) > 0 && (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)))
         {
+            Breaking();
+        }
+    }
+    void Breaking()
+    {
             if (Mathf.Abs(rb.velocity.x) >= 0.1f)
             {
                 rb.velocity = new Vector2(rb.velocity.x * (1 - brakePower), rb.velocity.y);
@@ -123,7 +129,7 @@ public class PerraultMove : MonoBehaviour
                 animpants.SetBool("SetWaitAnimator", true);
                 animpants.SetBool("SetWalkAnimator", false);
             }
-        }
+        
     }
 
     /// <summary>

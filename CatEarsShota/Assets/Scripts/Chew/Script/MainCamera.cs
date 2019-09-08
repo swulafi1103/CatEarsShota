@@ -182,6 +182,14 @@ public class MainCamera : MonoBehaviour
     }
     public void TriggeredVideo(uint index)　//動画を放送
     {
+        if (FlagManager.Instance.IsPast)
+        {
+            ColorVideo.GetComponent<VideoPlayer>().targetCamera = PastCam.GetComponent<Camera>();
+        }
+        else
+        {
+            ColorVideo.GetComponent<VideoPlayer>().targetCamera = gameObject.GetComponent<Camera>();
+        }
         FlagManager.Instance.IsMovie = true;
         //StartCoroutine(FadeInMovie());
         ColorVideo.GetComponent<VideoStorage>().index = index;
