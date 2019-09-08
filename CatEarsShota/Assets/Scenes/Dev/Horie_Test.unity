@@ -2451,6 +2451,7 @@ GameObject:
   - component: {fileID: 372339690}
   - component: {fileID: 372339692}
   - component: {fileID: 372339691}
+  - component: {fileID: 372339693}
   m_Layer: 0
   m_Name: Hasigo_M_top
   m_TagString: Untagged
@@ -2521,6 +2522,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &372339693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372339689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa5fc0ebacfc4b43884927b096faf87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasigo: 0
 --- !u!1 &384379105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3464,6 +3478,7 @@ GameObject:
   - component: {fileID: 509687347}
   - component: {fileID: 509687349}
   - component: {fileID: 509687348}
+  - component: {fileID: 509687350}
   m_Layer: 0
   m_Name: Hasigo_L_bottom
   m_TagString: Untagged
@@ -3534,6 +3549,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &509687350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509687346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa5fc0ebacfc4b43884927b096faf87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasigo: 1
 --- !u!1 &549061292
 GameObject:
   m_ObjectHideFlags: 0
@@ -8454,6 +8482,7 @@ GameObject:
   - component: {fileID: 1229449404}
   - component: {fileID: 1229449406}
   - component: {fileID: 1229449405}
+  - component: {fileID: 1229449407}
   m_Layer: 0
   m_Name: Hasigo_M_bottom
   m_TagString: Untagged
@@ -8524,6 +8553,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1229449407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229449403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa5fc0ebacfc4b43884927b096faf87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasigo: 1
 --- !u!1 &1245897683
 GameObject:
   m_ObjectHideFlags: 0
@@ -9403,122 +9445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7ed5f065b3685499b83edc296d0789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp: 0
-  nowHp: 0
-  attackInterval: 2
-  Timer: 0
-  FirstPos: {x: 0, y: 0, z: 0}
-  lasers: []
-  laserCount: 0
-  MoveSpeed: 1
-  maxMove:
-  - -1
-  - 1
-  moves: 1
 --- !u!1 &1440844057
 GameObject:
   m_ObjectHideFlags: 0
@@ -10148,123 +10074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31465f29774c90f49911386b607e8b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp: 0
-  nowHp: 0
-  attackInterval: 0.5
-  Timer: 0
-  FirstPos: {x: 0, y: 0, z: 0}
-  Houdai: {fileID: 0}
-  maxRotate:
-  - 0
-  - 90
-  RotateSpeed: 20
-  moves: -1
-  bulletBase: {fileID: 0}
-  bulletHosei: 1.5
 --- !u!1 &1514443423
 GameObject:
   m_ObjectHideFlags: 0
@@ -10726,6 +10535,7 @@ GameObject:
   - component: {fileID: 1580424074}
   - component: {fileID: 1580424076}
   - component: {fileID: 1580424075}
+  - component: {fileID: 1580424077}
   m_Layer: 0
   m_Name: Hasigo_L_top
   m_TagString: Untagged
@@ -10796,6 +10606,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1580424077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580424073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa5fc0ebacfc4b43884927b096faf87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasigo: 0
 --- !u!1 &1605141183
 GameObject:
   m_ObjectHideFlags: 0
@@ -11840,6 +11663,7 @@ GameObject:
   - component: {fileID: 1795011334}
   - component: {fileID: 1795011336}
   - component: {fileID: 1795011335}
+  - component: {fileID: 1795011337}
   m_Layer: 0
   m_Name: Hasigo_R_top
   m_TagString: Untagged
@@ -11910,6 +11734,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1795011337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795011333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa5fc0ebacfc4b43884927b096faf87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasigo: 0
 --- !u!1 &1801810317
 GameObject:
   m_ObjectHideFlags: 0
@@ -15016,6 +14853,7 @@ GameObject:
   - component: {fileID: 2146100283}
   - component: {fileID: 2146100285}
   - component: {fileID: 2146100284}
+  - component: {fileID: 2146100286}
   m_Layer: 0
   m_Name: Hasigo_R_bottom
   m_TagString: Untagged
@@ -15086,6 +14924,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2146100286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146100282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa5fc0ebacfc4b43884927b096faf87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasigo: 1
 --- !u!1001 &8117955834216965266
 PrefabInstance:
   m_ObjectHideFlags: 0

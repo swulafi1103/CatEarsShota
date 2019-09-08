@@ -236,8 +236,8 @@ MonoBehaviour:
   IconImage: {fileID: 9166539173997464616}
   moveRange: 100
   hasigoTutoImage:
-  - {fileID: 21300000, guid: 4195ae8b2f949ef478100472e87e681d, type: 3}
   - {fileID: 21300000, guid: 0d7901be401382b4998480e224d87230, type: 3}
+  - {fileID: 21300000, guid: 4195ae8b2f949ef478100472e87e681d, type: 3}
 --- !u!114 &9166539173687898004
 MonoBehaviour:
   m_ObjectHideFlags: 0

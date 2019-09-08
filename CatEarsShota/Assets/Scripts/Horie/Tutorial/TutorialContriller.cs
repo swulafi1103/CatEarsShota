@@ -223,6 +223,8 @@ public class TutorialContriller : MonoBehaviour
 
 
     public void Hasigo(bool act,int num = 0) {
+        CheckCamera();
+        Debug.Log("HAsigo");
         if (act) {
             iconTutorial.StartHasigoTuto(num);
         }

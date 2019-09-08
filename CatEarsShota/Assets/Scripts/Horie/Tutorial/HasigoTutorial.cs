@@ -13,13 +13,11 @@ public class HasigoTutorial : MonoBehaviour
     Hasiho_Case hasigo;
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag != "Player") return;
 
         TutorialContriller.Instance.Hasigo(true, (int)hasigo);
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.tag != "Player") return;
 
         TutorialContriller.Instance.Hasigo(false, (int)hasigo);
     }
