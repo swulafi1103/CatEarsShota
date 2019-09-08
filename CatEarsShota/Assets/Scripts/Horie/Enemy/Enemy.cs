@@ -2,38 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
+
 public class Enemy : MonoBehaviour
 {
-    protected int Hp;
-    protected int nowHp = 0;
+    //protected int Hp;
+    //protected int nowHp = 0;
 
-    [SerializeField]
-    protected float attackInterval = 2;
+    //[SerializeField]
+    //protected float attackInterval = 2;
 
-    protected float Timer;
+    //protected float Timer;
     
 
-    Vector3 FirstPos;
+    protected Vector3 FirstPos;
 
     // Start is called before the first frame update
     protected virtual void Awake()
     {
-        gameObject.SetActive(true);
-        Timer = 0;
+        //gameObject.SetActive(true);
+        //Timer = 0;
         FirstPos = transform.position;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        Attack();
+        //Attack();
         EnemyMove();
         //if (Input.GetKeyDown(KeyCode.S)) { PlayerAttack(); }    //debug
     }
 
-    protected virtual void Attack() {
-    }
+    //protected virtual void Attack() {
+    //}
 
     protected virtual void EnemyMove() {
         
@@ -52,7 +52,8 @@ public class Enemy : MonoBehaviour
     }
 
     protected virtual void ResetData() {
+        this.gameObject.SetActive(true);
         transform.position = FirstPos;
-        nowHp = Hp;
+        //nowHp = Hp;
     }
 }
