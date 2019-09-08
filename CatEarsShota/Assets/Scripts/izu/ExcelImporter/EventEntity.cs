@@ -35,5 +35,6 @@ public enum EventCategory
     SetOrb,
     SetMushRoomNoMoto,
     TimeCapsule,
+    SpawnEnemy
 }
 
