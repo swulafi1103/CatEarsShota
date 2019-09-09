@@ -301,7 +301,12 @@ public class ItemUIController : MonoBehaviour
         //アニメーション切り替え
         if (IsFran)
         {
-            PlayerPanel.Play("UI_Fran");
+            if (FlagManager.Instance.CheckGimmickFlag(GimmickFlag_Map2.G_26_LevingMovie)) {
+                PlayerPanel.Play("UI_Fran_Arone");
+            }
+            else {
+                PlayerPanel.Play("UI_Fran");
+            }
         }
         else {
             PlayerPanel.Play("UI_Perrault_" + pantsNum);
