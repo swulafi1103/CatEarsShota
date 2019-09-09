@@ -101,24 +101,24 @@ public class SoundManager : MonoBehaviour
     /// debug
     /// </summary>
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Alpha0)) {
-            PlayBGM(BGM_Name.BGM_00_Opening);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            PlayBGM(BGM_Name.BGM_01_Gray);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            PlayBGM(BGM_Name.BGM_02_Yellow);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            PlayBGM(BGM_Name.BGM_03_Red);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9)) {
-            ChangeTimesBGM();
-        }
-        if (Input.GetKeyDown(KeyCode.M)) {
-            PlaySE(SE_Name.SE_00_Alerm,0.5f);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha0)) {
+        //    PlayBGM(BGM_Name.BGM_00_Opening);
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        //    PlayBGM(BGM_Name.BGM_01_Gray);
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2)) {
+        //    PlayBGM(BGM_Name.BGM_02_Yellow);
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) {
+        //    PlayBGM(BGM_Name.BGM_03_Red);
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha9)) {
+        //    ChangeTimesBGM();
+        //}
+        //if (Input.GetKeyDown(KeyCode.M)) {
+        //    PlaySE(SE_Name.SE_00_Alerm,0.5f);
+        //}
     }
 
     /// <summary>

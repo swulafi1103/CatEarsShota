@@ -64,7 +64,6 @@ public class PerraultMove : MonoBehaviour
         }
         else
             Breaking();
-        ChangeTime();
     }
 
     /// <summary>
@@ -226,14 +225,10 @@ public class PerraultMove : MonoBehaviour
         {
             ItemManager.Instance.SetItemUI();
         }
-    }
-
-    void ChangeTime()
-    {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("ChangeTime");
-            if (!FlagManager.Instance.CheckGimmickFlag(GimmickFlag_Map2.G_31_EndPastMode))
+            if (FlagManager.Instance.IsLockPast != true)
             {
                 FlagManager.Instance.ChegeFranPero();
             }
@@ -242,7 +237,6 @@ public class PerraultMove : MonoBehaviour
                 TutorialContriller.Instance.SetTextWindow(0);
             }
         }
-        
     }
 
     //  地面に触れているか
