@@ -12,6 +12,9 @@ public class PanelTutorial : MonoBehaviour
     RectTransform PanelTrans;
     Image PanelImage;
 
+    [SerializeField]
+    Image timeTuto;
+
     float AnimFrame = 10;
     bool actAnim = false;
     public bool ActAnim
@@ -58,7 +61,7 @@ public class PanelTutorial : MonoBehaviour
         switch (nowNum) {
             case PanelNum.ChangeMode:
                 FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_05_Tuto_TimeChenge);
-                StartCoroutine(EndAnim());
+                StartCoroutine(TimeTutoEnd());
                 break;
             //case PanelNum.Pants:
             //    StartCoroutine(AnimSet(PanelNum.ChangePants));
@@ -89,7 +92,12 @@ public class PanelTutorial : MonoBehaviour
     public void PanelTuto(PanelNum num) {
         nowNum = num;
         StartCoroutine(StartAnim());
+    }
 
+    public void StartTimeTuto()
+    {
+        nowNum = PanelNum.ChangeMode;
+        StartCoroutine(TimeTutoStart());
     }
 
     /// <summary>
@@ -164,6 +172,55 @@ public class PanelTutorial : MonoBehaviour
         yield return col;
 
         MushroomControll.Instance.SetPastMush(0);
+        yield break;
+    }
+
+    IEnumerator TimeTutoStart()
+    {
+        if (actAnim) yield break;
+
+        actAnim = true;
+        Debug.Log("A");
+        RectTransform rect = timeTuto.GetComponent<RectTransform>();
+
+        rect.localScale = new Vector2(1, 0);
+        int num = (int)nowNum;
+        if (num >= panels.Count)
+        {
+            Debug.Log("NULL NUM:" + num);
+            yield break;
+        }
+        timeTuto.sprite = panels[num];
+        timeTuto.SetNativeSize();
+
+        for (float f = 0; f <= AnimFrame; f++)
+        {
+            float sizeY = f / AnimFrame;
+            rect.localScale = new Vector2(1, sizeY);
+            yield return null;
+        }
+        //PanelImage.SetNativeSize();
+        actAnim = false;
+        yield break;
+    }
+
+    IEnumerator TimeTutoEnd()
+    {
+        if (actAnim) yield break;
+
+        actAnim = true;
+        RectTransform rect = timeTuto.GetComponent<RectTransform>();
+
+        rect.localScale = Vector2.one;
+        for (float f = AnimFrame; f >= 0; f--)
+        {
+            float sizeY = f / AnimFrame;
+            rect.localScale = new Vector2(1, sizeY);
+            yield return null;
+        }
+        nowNum = PanelNum.None;
+        actAnim = false;
+
         yield break;
     }
 }

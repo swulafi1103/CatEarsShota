@@ -129,7 +129,6 @@ public class FlagManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-
             ChegeFranPero();
         }
         if (Input.GetKeyDown(KeyCode.F10))
@@ -244,6 +243,31 @@ public class FlagManager : MonoBehaviour
         else
             IsPast = true;
     }
+
+    public void ChangeTimeFade()
+    {
+        StartCoroutine(ChangeTimeCorutine());
+    }
+
+    IEnumerator ChangeTimeCorutine()
+    {
+        FlagManager.Instance.IsEventing = true;
+        Fade.Instance.StartFade(1.0f, Color.black);
+        yield return new WaitForSeconds(1.0f);
+        if (FlagManager.Instance.IsPast == false)
+        {
+            FlagManager.Instance.IsPast = true;
+        }
+        else if (FlagManager.Instance.IsPast == true)
+        {
+            FlagManager.Instance.IsPast = false;
+        }
+        yield return new WaitForSeconds(1f);
+        Fade.Instance.StartFade(1.0f, Color.clear);
+        yield return new WaitForSeconds(1.0f);
+        FlagManager.Instance.IsEventing = false;
+    }
+
 }
 
 [Flags]
