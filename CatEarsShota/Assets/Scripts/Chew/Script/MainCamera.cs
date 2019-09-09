@@ -103,7 +103,7 @@ public class MainCamera : MonoBehaviour
                 PastCam.transform.position = Vector3.Lerp(PastCam.transform.position, Fran.transform.position - rangeToTarget, Time.deltaTime);
             else
             {
-                Debug.Log("limited");
+                //Debug.Log("limited");
                 int tmpindex = Fran.transform.position.x > PastCameraLimit[1] ? 1 : 0;
                 Vector3 limitpos = new Vector3(PastCameraLimit[tmpindex], Fran.transform.position.y, Fran.transform.position.z) - rangeToTarget;
                 PastCam.transform.position = Vector3.Lerp(PastCam.transform.position, limitpos, Time.deltaTime);

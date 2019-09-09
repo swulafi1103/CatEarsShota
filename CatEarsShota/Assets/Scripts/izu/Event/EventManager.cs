@@ -743,7 +743,7 @@ public class EventManager : MonoBehaviour
         }
         else if (value == 2)
         {
-            MiniGameManager.Instance.generetor2 = target;
+            MiniGameManager.Instance.generetor3 = target;
         }
         yield break;
     }

@@ -23,6 +23,7 @@ public class EventLoader : EventBase, ICheckable
 
     private void Start()
     {
+        isFinish = false;
         switch (callType)
         {
             case CallType.MiniGame1Clear_Map1:
@@ -40,6 +41,12 @@ public class EventLoader : EventBase, ICheckable
                 EventManager.Instance.PieceGameClearedFunc += () => EventManager.Instance.PlayEvent(eventName, gameObject);
                 break;
         }
+    }
+
+    [ContextMenu("DisplayIsFinish")]
+    public void DisplayIsFinish()
+    {
+        Debug.Log("IsFinish = " + isFinish);
     }
 
 

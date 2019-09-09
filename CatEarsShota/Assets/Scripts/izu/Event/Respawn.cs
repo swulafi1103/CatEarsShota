@@ -25,9 +25,7 @@ public class Respawn : MonoBehaviour
             yield return null;
         PlayerManager.Instance.Pero.transform.position = respawnPos.position;
         Fade.Instance.ClearFade(0.5f, Color.clear);
-        TutorialContriller.Instance.SetTextWindow(0);
+        TutorialContriller.Instance.SetTextWindow(6);
         yield break;
     }
-
-
 }
