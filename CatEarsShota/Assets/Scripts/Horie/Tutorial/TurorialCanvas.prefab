@@ -158,7 +158,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: -1320765417
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &9166539173687898027
 MonoBehaviour:
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cd3161c97a5cb4abc79e09d633dbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeTutoCanvas: {fileID: 0}
   PerraultCamera: {fileID: 0}
   FranCamera: {fileID: 0}
 --- !u!114 &9166539173687898006
@@ -258,6 +259,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6d5e2d5117104024da48e1814b3e466a, type: 3}
   - {fileID: 21300000, guid: 668cdbcf7e596fa47967bd24b6383c00, type: 3}
   Panel: {fileID: 9166539173790065081}
+  timeTuto: {fileID: 0}
 --- !u!1 &9166539173790065081
 GameObject:
   m_ObjectHideFlags: 0
