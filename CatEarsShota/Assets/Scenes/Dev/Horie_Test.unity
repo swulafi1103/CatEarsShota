@@ -4715,6 +4715,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940518093}
     m_Modifications:
+    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
+        type: 3}
+      propertyPath: m_Name
+      value: Collider_past
+      objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950124, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4769,11 +4774,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6298264696925950127, guid: ecd5d71a28e604744b7415a3f34a5dd5,
-        type: 3}
-      propertyPath: m_Name
-      value: Collider_past
       objectReference: {fileID: 0}
     - target: {fileID: 6298264696925950125, guid: ecd5d71a28e604744b7415a3f34a5dd5,
         type: 3}
@@ -8968,11 +8968,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PanelPuzzleCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1083109548495139358, guid: 66712aa501ae57b4fb11b5728fd46f50,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1083109548495139346, guid: 66712aa501ae57b4fb11b5728fd46f50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9083,16 +9078,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 407011993}
-    - target: {fileID: 1083109547740603236, guid: 66712aa501ae57b4fb11b5728fd46f50,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1536
-      objectReference: {fileID: 0}
-    - target: {fileID: 1083109547740603237, guid: 66712aa501ae57b4fb11b5728fd46f50,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66712aa501ae57b4fb11b5728fd46f50, type: 3}
 --- !u!1 &1423284988
