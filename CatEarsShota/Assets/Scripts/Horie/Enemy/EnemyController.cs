@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     //float Fly_E_RespawnTime = 30;
 
     [SerializeField]
-    Transform respawnPos;
+    Transform[] respawnPos = new Transform[2];
 
     static EnemyController instance;
     public static EnemyController Instance {
@@ -101,9 +101,25 @@ public class EnemyController : MonoBehaviour
         Fade.Instance.StartFade(0.5f, Color.black);
         while (!Fade.Instance.Fading == false)
             yield return null;
-        PlayerManager.Instance.Fran.transform.position = respawnPos.position;
+        PlayerManager.Instance.Fran.transform.position = checkPos();
         Fade.Instance.ClearFade(0.5f, Color.clear);
 
         yield break;
+    }
+
+    Vector3 checkPos()
+    {
+        Vector3 pos = respawnPos[0].position;
+        Vector3 fran = PlayerManager.Instance.Fran.transform.position;
+
+        float dev1 = Mathf.Abs(respawnPos[0].position.x - fran.x);
+        float dev2 = Mathf.Abs(respawnPos[1].position.x - fran.x);
+
+        if (dev1 > dev2)
+        {
+            pos = respawnPos[1].position;
+        }
+
+        return pos;
     }
 }
