@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialContriller : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class TutorialContriller : MonoBehaviour
     GameObject TutoColliderObj;
 
     int NowColliderNum = 0;
-
+    [SerializeField]
+    Canvas timeTutoCanvas;
 
     [SerializeField]
     Camera PerraultCamera;
@@ -131,8 +133,17 @@ public class TutorialContriller : MonoBehaviour
     /// </summary>
     public void ChangeModeTuto() {
         if (tutoFlag[4]) return;
-        CheckCamera();
-        panelTutorial.PanelTuto(PanelTutorial.PanelNum.ChangeMode);
+        //CheckCamera();
+        if (FlagManager.Instance.IsPast)
+        {
+            timeTutoCanvas.worldCamera = FranCamera;
+        }
+        else
+        {
+            timeTutoCanvas.worldCamera = PerraultCamera;
+        }
+        
+        panelTutorial.StartTimeTuto();
         tutoFlag[4] = true;
     }
 
