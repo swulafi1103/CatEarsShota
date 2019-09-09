@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
     {
         //RespawnTimer();
         //Debug.Log(FalseTime[0]);
-        if(Input.GetKeyDown(KeyCode.Z)) SetEnemys();    //debug
+        //if(Input.GetKeyDown(KeyCode.Z)) SetEnemys();    //debug
     }
     
 
