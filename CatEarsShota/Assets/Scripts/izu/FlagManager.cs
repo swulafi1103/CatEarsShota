@@ -299,7 +299,7 @@ public enum GimmickFlag_Map2
     G_18_FranCheckExitDoor          = 1 << 3,
     G_19_EnterEnemy                 = 1 << 4,
     G_20_FillPiece_Past             = 1 << 5,
-    G_21_SetMushroomNoMoto_Past     = 1 << 6,
+    G_21_SetMushroomNoMoto_1        = 1 << 6,
     G_22_DigPiece                   = 1 << 7,
     G_23_SetPiece                   = 1 << 8,
     G_24_Minigame2_Clear            = 1 << 9,
@@ -320,4 +320,5 @@ public enum GimmickFlag_Map2
     //  トゥルーエンドまで↑
     G_36_ChackAquarium_past         = 1 << 22,
     G_37_FillinBookMark             = 1 << 23,
+    G_38_SetMoshroomNoMoto_2        = 1 << 24,
 }

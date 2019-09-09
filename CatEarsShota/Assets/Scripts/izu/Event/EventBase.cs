@@ -16,13 +16,11 @@ public class EventBase : MonoBehaviour
     protected GimmickFlag needGimmickFlag;
     [SerializeField, EnumFlags]
     protected GimmickFlag_Map2 needGimmickFlag_Map2;
-
-    [HideInInspector]
     public bool isFinish = false;
 
-    void Update()
+    private void Start()
     {
-        
+        isFinish = false;
     }
 
     public virtual void Finished()
