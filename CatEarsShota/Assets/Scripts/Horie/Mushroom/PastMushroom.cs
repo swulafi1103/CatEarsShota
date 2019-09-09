@@ -44,6 +44,7 @@ public class PastMushroom : MonoBehaviour
         ItemManager.Instance.SetItemData(ItemManager.ItemNum.Mushroom);
         FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_38_SetMoshroomNoMoto_2);
         TutorialContriller.Instance.SetTextWindow(4);
+        gameObject.GetComponent<EventLoader>().Finished();
         gameObject.SetActive(false);
     }
     

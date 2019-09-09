@@ -169,6 +169,8 @@ public class EventManager : MonoBehaviour
                 return SetOrb(value, delayTime, waitMovie);
             case EventCategory.TimeCapsule:
                 return TimeCapsule(value, delayTime, waitMovie, target);
+            case EventCategory.SpawnEnemy:
+                return SpawnEnemy(value, delayTime, waitMovie);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -983,6 +985,20 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Debug.Log("TimeCapsule");
         TimeCapsuleControl.Instance.SetUI(value);
+        FlagManager.Instance.IsEventing = false;
+        yield break;
+    }
+
+    IEnumerator SpawnEnemy(int value, float delayTime, bool waitMovie) {
+
+        if (waitMovie) {
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("SpawnEnemy");
+        //  ここに関数追加予定
+        EnemyController.Instance.SetEnemys();
         FlagManager.Instance.IsEventing = false;
         yield break;
     }

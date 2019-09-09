@@ -177,12 +177,17 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 1
+    value: 12
     delayTime: 1
     waitMovie: 0
     volume: 0
+  - category: 21
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   - category: 6
-    value: 1
+    value: 5
     delayTime: 1
     waitMovie: 0
     volume: 0

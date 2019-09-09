@@ -14,6 +14,9 @@ public class EnemyController : MonoBehaviour
     //[SerializeField]
     //float Fly_E_RespawnTime = 30;
 
+    [SerializeField]
+    Transform[] respawnPos = new Transform[2];
+
     static EnemyController instance;
     public static EnemyController Instance {
         get { return instance; }
@@ -83,4 +86,40 @@ public class EnemyController : MonoBehaviour
     //    RespawnEnemys[num].GetComponent<Enemy>().SetStartPos();
     //    FalseTime[num] = 0;
     //}
+
+
+    /// <summary>
+    /// フランが戻る
+    /// </summary>
+    public void RespawnFran()
+    {
+        StartCoroutine(ResetFranPos());
+    }
+
+    IEnumerator ResetFranPos()
+    {
+        Fade.Instance.StartFade(0.5f, Color.black);
+        while (!Fade.Instance.Fading == false)
+            yield return null;
+        PlayerManager.Instance.Fran.transform.position = checkPos();
+        Fade.Instance.ClearFade(0.5f, Color.clear);
+
+        yield break;
+    }
+
+    Vector3 checkPos()
+    {
+        Vector3 pos = respawnPos[0].position;
+        Vector3 fran = PlayerManager.Instance.Fran.transform.position;
+
+        float dev1 = Mathf.Abs(respawnPos[0].position.x - fran.x);
+        float dev2 = Mathf.Abs(respawnPos[1].position.x - fran.x);
+
+        if (dev1 > dev2)
+        {
+            pos = respawnPos[1].position;
+        }
+
+        return pos;
+    }
 }

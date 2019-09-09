@@ -20,7 +20,8 @@ public class PanelPuzzle : MonoBehaviour
     
     bool panelAct = false;
     //bool ItemUIAct = false;
-    
+
+    Image SKeyImage;
     Image DKeyImage;
 
     enum GameState
@@ -80,6 +81,7 @@ public class PanelPuzzle : MonoBehaviour
         _gameState = GameState.Start;
         selectCarsor = transform.GetChild(7).GetComponent<RectTransform>();
 
+        SKeyImage = transform.GetChild(9).GetComponent<Image>();
         DKeyImage = transform.GetChild(10).GetComponent<Image>();
 
         SetStartPanel();
@@ -181,6 +183,7 @@ public class PanelPuzzle : MonoBehaviour
 
         _gameState = GameState.PanelSeted;
         selectCarsor.gameObject.SetActive(false);
+        SKeyImage.enabled = false;
         SetDIcon();
     }
 
