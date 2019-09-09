@@ -147,7 +147,13 @@ public class ItemManager : MonoBehaviour
     /// </summary>
     /// <param name="num"></param>
     public void ChangePants(int num) {
-        PlayerManager.Instance.Pero.transform.GetChild(2).GetComponent<Animator>().SetInteger("pants_number", num - 12);    
+        Color temppink;
+        if (ColorUtility.TryParseHtmlString("#FF8FC6", out temppink))
+            if (num - 12 != 4)
+                PlayerManager.Instance.Pero.transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.white;
+            else
+                PlayerManager.Instance.Pero.transform.GetChild(2).GetComponent<SpriteRenderer>().color = temppink;
+        PlayerManager.Instance.Pero.transform.GetChild(2).GetComponent<Animator>().SetInteger("pants_number", num - 12);
         Debug.Log(num - 12);
     }
 
