@@ -6,9 +6,11 @@ public class PickUpBand : GimmickEvent, ICheckable
 {
     //[SerializeField]
     //private GameObject videoStrage;
+    private GameObject pero;
 
     void Start()
     {
+        pero = GameObject.FindGameObjectWithTag("Player");
         CheckFlag();
     }
 
@@ -21,6 +23,7 @@ public class PickUpBand : GimmickEvent, ICheckable
             //  バンドをつける動画の再生
             Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(1));
             StartCoroutine(WaitMovieFinish());
+            pero.GetComponent<Animator>().SetBool("tookband", true);
             //  動画の長さを計算
             //float Duration = (float)videoStrage.GetComponent<VideoStorage>().VideoStore[1].frameCount / (float)videoStrage.GetComponent<VideoStorage>().VideoStore[1].frameRate;
             //  吹き出し表示(ドア)
