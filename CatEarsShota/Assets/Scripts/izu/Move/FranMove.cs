@@ -57,6 +57,10 @@ public class FranMove : MonoBehaviour
             Move();
             Action();
         }
+        else
+        {
+            Breaking();
+        }
         if (Input.GetKeyDown(KeyCode.F10))
         {
             temp = !temp;
@@ -104,18 +108,23 @@ public class FranMove : MonoBehaviour
 
         if (Mathf.Abs(rb.velocity.x) > 0 && (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)))
         {
-            if (Mathf.Abs(rb.velocity.x) >= 0.1f)
-            {
-                rb.velocity = new Vector2(rb.velocity.x * (1 - brakePower), rb.velocity.y);
-            }
-            else if (Mathf.Abs(rb.velocity.x) < 0.1f)
-            {
-                //  完全に停止
-                rb.velocity = new Vector2(0, rb.velocity.y);
-                // Idle状態に
-                anim.SetBool("SetWaitAnimator", true);
-                anim.SetBool("SetWalkAnimator", false);
-            }
+            Breaking();
+        }
+    }
+
+    void Breaking()
+    {
+        if (Mathf.Abs(rb.velocity.x) >= 0.1f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x * (1 - brakePower), rb.velocity.y);
+        }
+        else if (Mathf.Abs(rb.velocity.x) < 0.1f)
+        {
+            //  完全に停止
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            // Idle状態に
+            anim.SetBool("SetWaitAnimator", true);
+            anim.SetBool("SetWalkAnimator", false);
         }
     }
 
@@ -212,6 +221,10 @@ public class FranMove : MonoBehaviour
         //anim.SetBool("SetFloatAnimator", !isGround);
     }
 
+    public void OffPero(bool OnOff)
+    {
+        anim.SetBool("NoPero",OnOff);
+    }
     
     private void OnTriggerEnter2D(Collider2D collision)
     {

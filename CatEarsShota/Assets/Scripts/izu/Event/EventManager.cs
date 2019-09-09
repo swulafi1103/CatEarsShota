@@ -41,6 +41,8 @@ public class EventManager : MonoBehaviour
     private List<GameObject> itemList = new List<GameObject>();
     private GameObject map2;
     private GameObject map1;
+    private GameObject pero;
+    private GameObject fran;
     private bool triggerEnd = false;
 
     public System.Action TypeinGameMap1ClearedFunc;
@@ -56,8 +58,10 @@ public class EventManager : MonoBehaviour
 
     void Start()
     {
+        fran = GameObject.Find("Fran");
         map2 = GameObject.FindGameObjectWithTag("Map2");
         map1 = GameObject.FindGameObjectWithTag("Map1");
+        pero = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -384,11 +388,18 @@ public class EventManager : MonoBehaviour
         while (!Fade.Instance.Fading == false)
             yield return null;
         Debug.Log("Movie");
+        MainCamera.Instance.TriggeredVideo((uint)value);
         if (value == 9 || value == 14)
             triggerEnd = true;
         else
             triggerEnd = false;
-        MainCamera.Instance.TriggeredVideo((uint)value);
+        if (value == 4)
+            pero.GetComponent<PerraultMove>().SetShadowForm(true);
+        else if (value == 5)
+            pero.GetComponent<PerraultMove>().SetShadowForm(false);
+        else if (value == 6)
+            fran.GetComponent<FranMove>().OffPero(true);
+            
         FlagManager.Instance.IsEventing = false;
         yield break;
     }
@@ -889,7 +900,19 @@ public class EventManager : MonoBehaviour
                 map2.GetComponent<MapStatus>().UpdateMapPast(1, false);
                 break;
             case 11:
+                map2.GetComponent<MapStatus>().UpdateMapPast(1, true);
+                break;
+            case 12:
+                map2.GetComponent<MapStatus>().UpdateMapPast(2, false);
+                break;
+            case 13:
                 map2.GetComponent<MapStatus>().UpdateMapPast(2, true);
+                break;
+            case 14:
+                map2.GetComponent<MapStatus>().UpdateMapPast(3, false);
+                break;
+            case 15:
+                map2.GetComponent<MapStatus>().UpdateMapPast(3, true);
                 break;
         }
         FlagManager.Instance.IsEventing = false;
