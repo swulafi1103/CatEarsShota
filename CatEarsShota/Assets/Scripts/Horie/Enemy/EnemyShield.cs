@@ -27,10 +27,11 @@ public class EnemyShield : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (!collision.enabled) return;
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject == PlayerManager.Instance.Fran)
+        {
             //parentEnemy.NearPlayer = true;
             //当たったらワープ
-            parentEnemy.FranWarp();
+            EnemyController.Instance.RespawnFran();
         }
         else if (collision.gameObject.tag == "Gimmick") {
             parentEnemy.CheckMove();
