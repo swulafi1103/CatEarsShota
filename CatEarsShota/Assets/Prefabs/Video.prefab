@@ -80,8 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   VideoStore:
-  - {fileID: 32900000, guid: 8a9213c3718a0f1488030f7bb8190199, type: 3}
-  - {fileID: 32900000, guid: da54f01ab196c1e4bba1635f3030cbda, type: 3}
+  - {fileID: 32900000, guid: 77921d31ad8ea02408e230745787aa23, type: 3}
+  - {fileID: 32900000, guid: 46a9695b4d5e6fb4481fd109ddc946d5, type: 3}
   - {fileID: 32900000, guid: 1bba49fd6ba4b174ca4a7aa56359fb62, type: 3}
   - {fileID: 32900000, guid: 5af593b13e8ed7a44b2a6b1696ca2941, type: 3}
   - {fileID: 32900000, guid: 20f0e0a9a5bd1434aa3b88ed16a6cae0, type: 3}
