@@ -292,7 +292,7 @@ MonoBehaviour:
     volume: 0
   - category: 0
     value: 3
-    delayTime: 1
+    delayTime: 0
     waitMovie: 1
     volume: 0
   - category: 14
@@ -359,7 +359,7 @@ MonoBehaviour:
     volume: 0
   - category: 10
     value: 2
-    delayTime: 1
+    delayTime: 0
     waitMovie: 0
     volume: 0
   E26_Gate2geme_clear_past: []
@@ -544,14 +544,19 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 1
+    value: 13
     delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
     waitMovie: 0
     volume: 0
   - category: 5
     value: 0
-    delayTime: 2
-    waitMovie: 0
+    delayTime: 0
+    waitMovie: 1
     volume: 0
   E37_Pant_pickup:
   - category: 8
@@ -571,6 +576,11 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
+  - category: 14
+    value: 4
+    delayTime: 2
+    waitMovie: 0
+    volume: 1
   - category: 0
     value: 7
     delayTime: 1
@@ -579,39 +589,44 @@ MonoBehaviour:
   - category: 0
     value: 4
     delayTime: 1
-    waitMovie: 0
+    waitMovie: 1
+    volume: 0
+  - category: 0
+    value: 11
+    delayTime: 1
+    waitMovie: 1
     volume: 0
   - category: 12
     value: 2
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 7
-    value: 0
-    delayTime: 2
-    waitMovie: 0
-    volume: 0
   - category: 17
     value: 0
+    delayTime: 0
+    waitMovie: 1
+    volume: 0
+  - category: 8
+    value: 7
     delayTime: 0
     waitMovie: 0
     volume: 0
   - category: 2
     value: 0
     delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 8
-    value: 7
-    delayTime: 2
-    waitMovie: 0
+    waitMovie: 1
     volume: 0
   - category: 13
     value: 2
+    delayTime: 1
+    waitMovie: 1
+    volume: 0
+  E40_Orb_fillin:
+  - category: 18
+    value: 0
     delayTime: 0
     waitMovie: 0
     volume: 0
-  E40_Orb_fillin: []
   E41_Bad_end:
   - category: 1
     value: 1
@@ -624,9 +639,14 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 0
-    delayTime: 2
+    value: 14
+    delayTime: 1
     waitMovie: 0
+    volume: 0
+  - category: 1
+    value: 0
+    delayTime: 0
+    waitMovie: 1
     volume: 0
   E42_Time_capsule_bookmark:
   - category: 1
@@ -636,7 +656,7 @@ MonoBehaviour:
     volume: 0
   - category: 15
     value: 1
-    delayTime: 1
+    delayTime: 0
     waitMovie: 0
     volume: 1
   - category: 16
@@ -654,14 +674,14 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 2
-    value: 0
-    delayTime: 2
-    waitMovie: 0
-    volume: 0
   - category: 8
     value: 11
     delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 13

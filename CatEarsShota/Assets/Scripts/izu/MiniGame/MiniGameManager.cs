@@ -328,22 +328,37 @@ public class MiniGameManager : MonoBehaviour
                 if (EventManager.Instance.TypeinGameMap2FirstClearedFunc != null)
                     EventManager.Instance.TypeinGameMap2FirstClearedFunc.Invoke();
                 generetor2.GetComponent<EventLoader>().Finished();
+                StartCoroutine(GateOpen_UpperGate());
                 //generetor2.SetActive(false);
-                gateObserver.GetComponent<GateOpener>().OpenGate(0);
-                FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_17_Minigame1_Clear_Map2up);
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
                 break;
             case 9:     //  Map1の扉２の処理
                 if (EventManager.Instance.TypeinGameMap2LetterClearedFunc != null)
                     EventManager.Instance.TypeinGameMap2LetterClearedFunc.Invoke();
                 generetor3.GetComponent<EventLoader>().Finished();
+                StartCoroutine(GateOpen_BottmGate());
                 //generetor3.SetActive(false);
-                gateObserver.GetComponent<GateOpener>().OpenGate(1);
-                FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_27_Minigame1_Clear_Map2down);
-                SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
                 break;
         }
     }
+
+    IEnumerator GateOpen_UpperGate()
+    {
+        yield return new WaitForSeconds(2.5f);
+        gateObserver.GetComponent<GateOpener>().OpenGate(0);
+        FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_17_Minigame1_Clear_Map2up);
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
+        yield break;
+    }
+    IEnumerator GateOpen_BottmGate()
+    {
+        yield return new WaitForSeconds(2.5f);
+        gateObserver.GetComponent<GateOpener>().OpenGate(1);
+        FlagManager.Instance.SetGimmickFlag(GimmickFlag_Map2.G_27_Minigame1_Clear_Map2down);
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_16_Gate);
+        yield break;
+    }
+
+
 
     /// <summary>ハッキングに失敗時</summary>
     void MinigameFaild()
@@ -386,7 +401,6 @@ public class MiniGameManager : MonoBehaviour
     /// <returns>The clear text</returns>
     IEnumerator DisplayClearText()
     {
-        //clearText.enabled = true;
         if (commandTexts != null)
         {
             foreach (var obj in commandTexts)
@@ -400,8 +414,6 @@ public class MiniGameManager : MonoBehaviour
         isMinigame = false;
         isCountdownEnd = false;
         yield return new WaitForSeconds(2);
-        //clearText.text = "";
-        //clearText.enabled = false;
         ClearImage.enabled = false;
         miniGameViewObj.SetActive(false);
         numOrder = 0;
@@ -420,8 +432,6 @@ public class MiniGameManager : MonoBehaviour
                 yield return null;
             }
         }
-        //clearText.text = "ERROR";
-        //clearText.color = Color.red;
         ErrorImage.enabled = true;
         isMinigame = false;
         isCountdownEnd = false;

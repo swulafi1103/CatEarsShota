@@ -150,7 +150,7 @@ public class OrbSetter : MonoBehaviour
         MainCamera.Instance.TriggeredVideo((uint)9);
         while (FlagManager.Instance.IsMovie)
             yield return null;
-        AsyncOperation async = SceneManager.LoadSceneAsync(1);
+        AsyncOperation async = SceneManager.LoadSceneAsync(0);
         while (!async.isDone)
         {
             yield return null;
