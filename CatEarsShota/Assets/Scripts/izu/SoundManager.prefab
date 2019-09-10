@@ -50,9 +50,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d98df09c6f7723942a35cc2cad8e87ee, type: 3}
   - {fileID: 8300000, guid: 5220a9b47ffb000449c44dfa2a5c9abe, type: 3}
   - {fileID: 8300000, guid: ea93d8689dc161844a25aadd3b90aadf, type: 3}
-  - {fileID: 8300000, guid: 76f88eac4d0cdc442829e01dc8ef6d48, type: 3}
+  - {fileID: 8300000, guid: dc7d4ce51439fac4985416198f5e818f, type: 3}
   - {fileID: 8300000, guid: e16e6e9bcfba601408d0f8201b6cc88b, type: 3}
-  - {fileID: 8300000, guid: 5220a9b47ffb000449c44dfa2a5c9abe, type: 3}
+  - {fileID: 8300000, guid: e284d499557fe5a4ca15e6a77d0b6b80, type: 3}
   - {fileID: 8300000, guid: 26855b1c30dea0f4cacbbe8ad6f27fad, type: 3}
   - {fileID: 8300000, guid: 4d908cbb5b4867b42985328dc825c663, type: 3}
   SE:
@@ -80,7 +80,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08bafb0efbcbb72498dfcb16f5b669f9, type: 3}
   - {fileID: 8300000, guid: c2307614fc788cb408b59e416601e475, type: 3}
   - {fileID: 8300000, guid: c72e2abb67e9a194cbf2019389abdbe0, type: 3}
-  fadeTime: 3
+  fadeTime: 1.5
 --- !u!82 &9092551833449176406
 AudioSource:
   m_ObjectHideFlags: 0
