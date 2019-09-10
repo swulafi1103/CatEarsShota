@@ -28,7 +28,6 @@ public class TouchPastDoor_after : GimmickEvent, ICheckable
     {
         if (collision.name == "Fran" && !FlagManager.Instance.IsEventing)
         {
-            Debug.Log("DOOR");
             Check();
         }
     }

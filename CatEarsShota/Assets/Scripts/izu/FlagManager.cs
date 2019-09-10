@@ -66,7 +66,7 @@ public class FlagManager : MonoBehaviour
         set
         {
             isEventing = value;
-            Debug.Log("IsEventing : " + isEventing);
+            //Debug.Log("IsEventing : " + isEventing);
         }
     }
     //  UI開いているか

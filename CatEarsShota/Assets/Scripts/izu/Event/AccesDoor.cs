@@ -32,4 +32,10 @@ public class AccesDoor : GimmickEvent, ICheckable
             MainCamera.Instance.MovingMapnotEventing(3);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.name == "Pero" && !FlagManager.Instance.IsEventing) {
+            Check();
+        }
+    }
 }
