@@ -41141,14 +41141,14 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 2022203478}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 102
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -1320765417
+  m_SortingLayerID: -1932134195
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &2049037768
