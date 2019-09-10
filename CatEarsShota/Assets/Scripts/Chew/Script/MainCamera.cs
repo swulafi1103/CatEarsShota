@@ -202,8 +202,27 @@ public class MainCamera : MonoBehaviour
     void MovieFinished(VideoPlayer sorce)
     {
         videoCanvas.SetActive(false);
-        Fade.Instance.StartFade(1f, Color.clear);
-        //StartCoroutine(FadeOutMovie());
+        //Fade.Instance.StartFade(1f, Color.clear);
+        StartCoroutine(DisableFade());
+    }
+
+    IEnumerator DisableFade()
+    {
+        yield return new WaitForSeconds(0.15f);
+        if (FlagManager.Instance.IsMovie) yield break;
+        //float time = 0;
+        //while (time < 2f)
+        //{
+        //    time += Time.deltaTime;
+        //    yield return null;
+        //}
+        ColorVideo.GetComponent<VideoPlayer>().Stop();
+        videoCanvas.SetActive(false);
+        FlagManager.Instance.IsMovie = false;
+        Fade.Instance.StartFade(0.25f, Color.clear);
+        ColorVideo.SetActive(false);
+        PlayVideo = false;
+        yield break;
     }
 
     public void T_ChangeFocus(GameObject newtarget)　//カメラを映るターゲット
