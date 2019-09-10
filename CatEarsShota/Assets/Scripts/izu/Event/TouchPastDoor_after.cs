@@ -38,6 +38,7 @@ public class TouchPastDoor_after : GimmickEvent, ICheckable
         //  暗転
         bool flag = false;
         System.Action callback = () => flag = true;
+        SoundManager.Instance.StopBGM();
         Fade.Instance.StartFade(1, Color.black, callback);
         yield return new WaitUntil(() => flag == true);
         FlagManager.Instance.IsEventing = true;
@@ -49,7 +50,7 @@ public class TouchPastDoor_after : GimmickEvent, ICheckable
         Fade.Instance.StartFade(1, Color.clear, callback);
         yield return new WaitUntil(() => flag == true);
         FlagManager.Instance.IsEventing = false;
-        SoundManager.Instance.ChangeTimesBGM();
+        SoundManager.Instance.TimeChangeStartBGM();
         yield break;
     }
 
