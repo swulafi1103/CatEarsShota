@@ -33,6 +33,9 @@ public class ItemUIController : MonoBehaviour
     [SerializeField]
     Camera FranCamera;
 
+    [SerializeField]
+    Animator[] moyas = new Animator[2];
+
 
     float AnimFrame = 8;
 
@@ -242,6 +245,8 @@ public class ItemUIController : MonoBehaviour
 
         if (!act) {
             PlayerPanel.Play("wait");
+            moyas[0].Play("Stop");
+            moyas[1].Play("Stop");
         }
 
         yield break;
@@ -301,10 +306,20 @@ public class ItemUIController : MonoBehaviour
         //アニメーション切り替え
         if (IsFran)
         {
-            PlayerPanel.Play("UI_Fran");
+            if (FlagManager.Instance.CheckGimmickFlag(GimmickFlag_Map2.G_26_LevingMovie)) {
+                PlayerPanel.Play("UI_Fran_Arone");
+            }
+            else {
+                PlayerPanel.Play("UI_Fran");
+            }
         }
         else {
             PlayerPanel.Play("UI_Perrault_" + pantsNum);
+            if (FlagManager.Instance.CheckGimmickFlag(GimmickFlag_Map2.G_30_BlueAnimation))
+            {
+                moyas[0].Play("Play");
+                moyas[1].Play("Play");
+            }
         }
 
     }
@@ -494,6 +509,8 @@ public class ItemUIController : MonoBehaviour
         ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
         StopAllCoroutines();
         PlayerPanel.Play("wait");
+        moyas[0].Play("Stop");
+        moyas[1].Play("Stop");
         return true;
     }
 
@@ -523,6 +540,8 @@ public class ItemUIController : MonoBehaviour
                     IsEvents = false;
                     ItemPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -1080, 0);
                     PlayerPanel.Play("wait");
+                    moyas[0].Play("Stop");
+                    moyas[1].Play("Stop");
                     FlagManager.Instance.IsOpenUI = false;
                     callVoid();
                     yield break;

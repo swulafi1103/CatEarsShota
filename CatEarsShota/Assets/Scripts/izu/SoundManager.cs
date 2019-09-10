@@ -69,7 +69,10 @@ public class SoundManager : MonoBehaviour
         SE_17_PeroWalk,
         SE_18_PeroJump,
         SE_19_PeroJump2,
-        SE_20_FranWalk
+        SE_20_FranWalk,
+        SE_21_Operetor,
+        SE_22_Fran_1,
+        SE_23_Fran_2
     };
 
     public enum BGM_Name {
@@ -93,8 +96,8 @@ public class SoundManager : MonoBehaviour
     }
 
     private void Start() {
-        audioSource[0].clip = BGM[(int)BGM_Name.BGM_05_Green];
-        audioSource[0].Play();
+        //audioSource[0].clip = BGM[(int)BGM_Name.BGM_05_Green];
+        //audioSource[0].Play();
     }
 
     /// <summary>
@@ -164,9 +167,10 @@ public class SoundManager : MonoBehaviour
     /// <summary>
     /// 過去未来切り替え時の切り替え
     /// </summary>
-    public void ChangeTimesBGM() {
+    public void TimeChangeStartBGM() {
         StartCoroutine(ChangeTimeBGM());
     }
+    
 
     /// <summary>
     /// gray時の特殊再生
@@ -249,8 +253,8 @@ public class SoundManager : MonoBehaviour
     /// <returns></returns>
     IEnumerator ChangeTimeBGM() {
         bool isFran = FlagManager.Instance.IsPast;
-        var col = StartCoroutine(FadeOut());
-        yield return col;
+        //var col = StartCoroutine(FadeOut());
+        //yield return col;
         if (isFran)
         {
             audioSource[0].clip = BGM[(int)_franBGM];
@@ -264,7 +268,7 @@ public class SoundManager : MonoBehaviour
             }
             audioSource[0].clip = BGM[(int)_perraultBGM];
         }
-        col = StartCoroutine(FadeIn());
+        var col = StartCoroutine(FadeIn());
         yield return col;
         yield break;
     }
