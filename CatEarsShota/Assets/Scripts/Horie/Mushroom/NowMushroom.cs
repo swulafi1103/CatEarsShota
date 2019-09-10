@@ -55,6 +55,7 @@ public class NowMushroom : MonoBehaviour
     void ToBig(Collision2D collision) {
         if (collision.transform.position.y < miniSize) return;
         if (IsBig) return;
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_07_Mushroom_Up);
         Anim.SetTrigger("ToBig");
         IsBig = true;
     }
@@ -69,6 +70,7 @@ public class NowMushroom : MonoBehaviour
     void ToSmall() {
         timeStart = false;
         Timer = 0;
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_08_Mushroom_Down);
         Anim.SetTrigger("ToSmall");
         IsBig = false;
     }

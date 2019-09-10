@@ -21,9 +21,7 @@ public class TouchGeneretor_after : GimmickEvent
     {
         if (FlagManager.Instance.CheckGimmickFlag(needGimmickFlag) && !isComplete)
         {
-            SoundManager.Instance.PlayBGM(SoundManager.BGM_Name.BGM_02_Yellow);
-            Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
-            StartCoroutine(ChangeYellowColor(2));
+            StartCoroutine(ChangeYellowColor(0));
         }
     }
 
@@ -45,7 +43,12 @@ public class TouchGeneretor_after : GimmickEvent
 
     IEnumerator ChangeYellowColor(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        //  フェード後、回想シーン動画の再生
+        Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(15));
+        yield return new WaitForSeconds(0.1f);
+        while (FlagManager.Instance.IsMovie == true)
+            yield return null;
+        Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
         map.GetComponent<MapStatus>().ChangeColorObj(0);
         limitObj.SetActive(false);
         moyaObj.SetActive(false);

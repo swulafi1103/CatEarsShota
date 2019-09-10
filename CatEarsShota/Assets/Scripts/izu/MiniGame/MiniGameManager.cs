@@ -38,8 +38,6 @@ public class MiniGameManager : MonoBehaviour
     #endregion
 
     [SerializeField]
-    private GameObject map;     //mapオブジェクト変更
-    [SerializeField]
     private GameObject gateObserver;
     [SerializeField]
     private Sprite[] countdownImage = new Sprite[4];
