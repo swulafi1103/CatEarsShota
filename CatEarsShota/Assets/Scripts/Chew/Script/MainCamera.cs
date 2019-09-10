@@ -53,6 +53,7 @@ public class MainCamera : MonoBehaviour
     public bool PlayVideo = false;
     [Tooltip("過去のカメラ")]
     public GameObject PastCam;
+    public GameObject videoCanvas;
     public GameObject Player;
     public GameObject Fran;
     [Tooltip("ビデオの保存場所")]
@@ -173,6 +174,7 @@ public class MainCamera : MonoBehaviour
         if (ColorVideo.GetComponent<VideoPlayer>().isPlaying)
         {
             ColorVideo.GetComponent<VideoPlayer>().Stop();
+            videoCanvas.SetActive(false);
             FlagManager.Instance.IsMovie = false;
             Fade.Instance.StartFade(1f, Color.clear);
             ColorVideo.SetActive(false);
@@ -182,13 +184,14 @@ public class MainCamera : MonoBehaviour
     }
     public void TriggeredVideo(uint index)　//動画を放送
     {
+        videoCanvas.SetActive(true);
         if (FlagManager.Instance.IsPast)
         {
-            ColorVideo.GetComponent<VideoPlayer>().targetCamera = PastCam.GetComponent<Camera>();
+            videoCanvas.GetComponent<Canvas>().worldCamera = PastCam.GetComponent<Camera>();
         }
         else
         {
-            ColorVideo.GetComponent<VideoPlayer>().targetCamera = gameObject.GetComponent<Camera>();
+            videoCanvas.GetComponent<Canvas>().worldCamera = gameObject.GetComponent<Camera>();
         }
         FlagManager.Instance.IsMovie = true;
         //StartCoroutine(FadeInMovie());
@@ -198,6 +201,7 @@ public class MainCamera : MonoBehaviour
     //  動画終了時のフェード
     void MovieFinished(VideoPlayer sorce)
     {
+        videoCanvas.SetActive(false);
         Fade.Instance.StartFade(1f, Color.clear);
         //StartCoroutine(FadeOutMovie());
     }
