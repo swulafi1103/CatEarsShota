@@ -196,14 +196,7 @@ public class FranMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("ChangeTime");
-            if (FlagManager.Instance.IsLockPast != true)
-            {
-                FlagManager.Instance.ChangeTimeFade();
-            }
-            else
-            {
-                TutorialContriller.Instance.SetTextWindow(0);
-            }
+            FlagManager.Instance.ChangeTimeFade();
         }
     }
 

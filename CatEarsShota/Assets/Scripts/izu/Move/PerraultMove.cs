@@ -230,7 +230,7 @@ public class PerraultMove : MonoBehaviour
             Debug.Log("ChangeTime");
             if (FlagManager.Instance.IsLockPast != true)
             {
-                FlagManager.Instance.ChegeFranPero();
+                FlagManager.Instance.ChangeTimeFade();
             }
             else
             {
@@ -300,8 +300,6 @@ public class PerraultMove : MonoBehaviour
             default:
                 break;
         }
-       
-
     }
 
     public void SetShadowForm(bool OnOff)
