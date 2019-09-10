@@ -65,6 +65,8 @@ public class TouchGeneretor : GimmickEvent
         yield return new WaitForSeconds(2f);
         //  アラーム音再生(3回)
         SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.25f);
+        //  オペレーターのボイス再生
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_21_Operetor);
         //  赤い演出(3回)
         Fade.Instance.CallFadeIO(3);
         yield return new WaitForSeconds(1);
@@ -89,6 +91,8 @@ public class TouchGeneretor : GimmickEvent
         FlagManager.Instance.IsEventing = true;
         //  フランの左右キョロキョロ
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = true;
+        //  フランのボイス再生
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_22_Fran_1);
         yield return new WaitForSeconds(0.5f);
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = false;
         yield return new WaitForSeconds(0.5f);
