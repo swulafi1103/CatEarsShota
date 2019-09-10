@@ -10,7 +10,7 @@ public class TextWindow : MonoBehaviour
 
     Image Window;
 
-    float hiddenTime = 2;
+    float hiddenTime = 1;
 
     // Start is called before the first frame update
     void Start()

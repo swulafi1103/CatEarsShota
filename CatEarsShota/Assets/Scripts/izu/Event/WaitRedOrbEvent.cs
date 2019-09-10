@@ -56,14 +56,17 @@ public class WaitRedOrbEvent : MonoBehaviour
     }
     IEnumerator ChangePero()
     {
+        FlagManager.Instance.IsEventing = true;
+        Fade.Instance.StartFade(1f, Color.black);
         while (!Fade.Instance.Fading == false)
             yield return null;
-        Fade.Instance.StartFade(1f, Color.black);
         yield return new WaitForSeconds(0.5f);
         FlagManager.Instance.IsLockPast = true;
+        yield return null;
         FlagManager.Instance.ChageFranPero(true);
-        Fade.Instance.StartFade(0.5f, Color.clear);
+        Fade.Instance.ClearFade(0.5f, Color.clear);
         EventManager.Instance._callBack_useHashigo = null;
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
 }
