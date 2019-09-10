@@ -86,7 +86,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 4
+    m_EventTreshold: 3
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -510,7 +510,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 3
+    m_EventTreshold: 2
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -741,7 +741,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 2
+    m_EventTreshold: 4
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -828,7 +828,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 3
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102339838275106570}
   m_Solo: 0
@@ -853,7 +853,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 2
+    m_EventTreshold: 4
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -990,7 +990,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 3
+    m_EventTreshold: 2
   - m_ConditionMode: 1
     m_ConditionEvent: SetWaitAnimator
     m_EventTreshold: 0
@@ -1146,7 +1146,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 2
+    m_EventTreshold: 4
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -1364,7 +1364,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 4
+    m_EventTreshold: 3
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -1420,7 +1420,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 2
+    m_EventTreshold: 4
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -1868,7 +1868,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 3
+    m_EventTreshold: 2
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -1897,9 +1897,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: pants_number
-    m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -2034,9 +2031,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: pants_number
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -2226,7 +2220,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 4
+    m_EventTreshold: 3
   - m_ConditionMode: 2
     m_ConditionEvent: SetWalkAnimator
     m_EventTreshold: 0
@@ -2391,7 +2385,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: pants_number
-    m_EventTreshold: 4
+    m_EventTreshold: 3
   - m_ConditionMode: 1
     m_ConditionEvent: SetWaitAnimator
     m_EventTreshold: 0
@@ -3850,7 +3844,7 @@ AnimatorStateMachine:
     m_Position: {x: -1056, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102487347158487128}
-    m_Position: {x: -1068, y: 396, z: 0}
+    m_Position: {x: -1056, y: 444, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102122489871896898}
     m_Position: {x: -492, y: 480, z: 0}

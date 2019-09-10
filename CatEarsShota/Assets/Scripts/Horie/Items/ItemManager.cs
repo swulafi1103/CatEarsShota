@@ -149,7 +149,7 @@ public class ItemManager : MonoBehaviour
     public void ChangePants(int num) {
         Color temppink;
         if (ColorUtility.TryParseHtmlString("#FF8FC6", out temppink))
-            if (num - 12 != 4)
+            if (num - 12 != 3)
                 PlayerManager.Instance.Pero.transform.GetChild(2).GetComponent<SpriteRenderer>().color = Color.white;
             else
                 PlayerManager.Instance.Pero.transform.GetChild(2).GetComponent<SpriteRenderer>().color = temppink;
