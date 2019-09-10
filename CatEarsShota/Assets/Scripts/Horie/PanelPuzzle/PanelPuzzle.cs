@@ -274,6 +274,8 @@ public class PanelPuzzle : MonoBehaviour
             if (next < 0 || 6 <= next) continue;
             if (panelNum[next] != 0) continue;
 
+            SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_09_MovePiece);
+
             panels[next].sprite = panels[carsorSelectNum].sprite;
             panels[next].enabled = true;
             panels[carsorSelectNum].enabled = false;
