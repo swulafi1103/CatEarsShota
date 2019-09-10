@@ -6590,11 +6590,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gates
       objectReference: {fileID: 0}
-    - target: {fileID: 6014329679182885943, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6014329679182885940, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6649,26 +6644,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6014329677724341124, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 6014329677724341124, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6014329678256966398, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 6014329678256966398, guid: 3b160a04fe1ffa44384d8b4163ff4cda,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b160a04fe1ffa44384d8b4163ff4cda, type: 3}

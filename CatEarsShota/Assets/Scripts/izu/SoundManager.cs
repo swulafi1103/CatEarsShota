@@ -96,8 +96,8 @@ public class SoundManager : MonoBehaviour
     }
 
     private void Start() {
-        //audioSource[0].clip = BGM[(int)BGM_Name.BGM_05_Green];
-        //audioSource[0].Play();
+        audioSource[0].clip = BGM[(int)BGM_Name.BGM_05_Green];
+        audioSource[0].Play();
     }
 
     /// <summary>
