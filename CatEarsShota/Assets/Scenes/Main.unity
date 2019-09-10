@@ -41440,6 +41440,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasigo: 1
+--- !u!1 &2064198383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1499528244989199030, guid: 5018f4d9c304e2b47907468b7f242404,
+    type: 3}
+  m_PrefabInstance: {fileID: 705747057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2073532378
 GameObject:
   m_ObjectHideFlags: 0
@@ -42437,6 +42443,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 461ff2675da72064f96a593029361a54,
         type: 3}
+    - target: {fileID: 4987470507573805293, guid: 4d04df1a9d4f83944a611a09a0b2a6f5,
+        type: 3}
+      propertyPath: nowDoor
+      value: 
+      objectReference: {fileID: 2064198383}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d04df1a9d4f83944a611a09a0b2a6f5, type: 3}
 --- !u!1001 &4181743680314660677

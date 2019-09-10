@@ -8,6 +8,8 @@ public class PlayMinigame : GimmickEvent, ICheckable
     public bool isOpenMinigame = false;
     [SerializeField]
     private GameObject FocusDoor;
+    [SerializeField]
+    private GameObject nowDoor;
     private GameObject map1;
 
     void Start()
@@ -49,6 +51,7 @@ public class PlayMinigame : GimmickEvent, ICheckable
         map1.GetComponent<MapStatus>().UpdateMapPast(0,true);
         //  ドアのコライダーの無効化
         FocusDoor.GetComponent<BoxCollider2D>().enabled = false;
+        nowDoor.GetComponent<BoxCollider2D>().enabled = false;
         FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_10_OpenDoor);
         yield break;
     }

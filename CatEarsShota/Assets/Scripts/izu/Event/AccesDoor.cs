@@ -34,7 +34,7 @@ public class AccesDoor : GimmickEvent, ICheckable
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.name == "Pero" && !FlagManager.Instance.IsEventing) {
+        if (collision.name == "Perrault" && !FlagManager.Instance.IsEventing) {
             Check();
         }
     }
