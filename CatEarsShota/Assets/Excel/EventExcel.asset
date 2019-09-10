@@ -327,9 +327,14 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 6
+    value: 16
     delayTime: 1
     waitMovie: 0
+    volume: 0
+  - category: 0
+    value: 6
+    delayTime: 1
+    waitMovie: 1
     volume: 0
   - category: 6
     value: 0
@@ -349,7 +354,7 @@ MonoBehaviour:
   - category: 13
     value: 5
     delayTime: 0
-    waitMovie: 0
+    waitMovie: 1
     volume: 0
   E25_Gate2game_past:
   - category: 17
