@@ -18,8 +18,8 @@ public class cinematicBar : MonoBehaviour
         Debug.Log("started");
         for(float i = 0; i < 1; i+=0.01f)
         {
-            Topbar.transform.localPosition = Vector3.Lerp(new Vector3(0, 5.5f, 90f),new Vector3(0, 4.5f, 90f),i);
-            Btmbar.transform.localPosition = Vector3.Lerp(new Vector3(0, -5.5f, 90f), new Vector3(0, -4.5f, 90f), i);
+            Topbar.transform.localPosition = Vector3.Lerp(new Vector3(0, 5.5f, 90f),new Vector3(0, 5f, 90f),i);
+            Btmbar.transform.localPosition = Vector3.Lerp(new Vector3(0, -5.5f, 90f), new Vector3(0, -5f, 90f), i);
             yield return new WaitForSeconds(0.01f);
         }
     }
