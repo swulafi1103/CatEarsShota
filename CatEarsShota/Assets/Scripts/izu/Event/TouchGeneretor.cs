@@ -83,6 +83,7 @@ public class TouchGeneretor : GimmickEvent
         flag = false;
         //  明転
         Fade.Instance.StartFade(1, Color.clear, callback);
+        SoundManager.Instance.PlayBGM(SoundManager.BGM_Name.BGM_06_Past1);
         yield return new WaitUntil(() => flag == true);
         Debug.Log("明転終了");
         FlagManager.Instance.IsEventing = true;
