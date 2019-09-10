@@ -252,6 +252,7 @@ public class FlagManager : MonoBehaviour
     IEnumerator ChangeTimeCorutine()
     {
         FlagManager.Instance.IsEventing = true;
+        SoundManager.Instance.StopBGM();
         Fade.Instance.StartFade(1.0f, Color.black);
         yield return new WaitForSeconds(1.0f);
         if (FlagManager.Instance.IsPast == false)
@@ -264,6 +265,7 @@ public class FlagManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         Fade.Instance.StartFade(1.0f, Color.clear);
+        SoundManager.Instance.TimeChangeStartBGM();
         yield return new WaitForSeconds(1.0f);
         FlagManager.Instance.IsEventing = false;
     }

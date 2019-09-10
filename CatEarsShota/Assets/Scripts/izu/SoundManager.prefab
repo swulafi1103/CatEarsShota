@@ -80,7 +80,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08bafb0efbcbb72498dfcb16f5b669f9, type: 3}
   - {fileID: 8300000, guid: c2307614fc788cb408b59e416601e475, type: 3}
   - {fileID: 8300000, guid: c72e2abb67e9a194cbf2019389abdbe0, type: 3}
-  fadeTime: 3
+  fadeTime: 1.5
 --- !u!82 &9092551833449176406
 AudioSource:
   m_ObjectHideFlags: 0
