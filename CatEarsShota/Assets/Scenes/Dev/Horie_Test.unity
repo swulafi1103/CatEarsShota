@@ -34657,11 +34657,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemUICanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7162481611196416946, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7162481611196416950, guid: 838efe4ea7045e4478ebba08821cf7fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34782,56 +34777,6 @@ PrefabInstance:
       propertyPath: FranCamera
       value: 
       objectReference: {fileID: 412493606}
-    - target: {fileID: 7162481610499119450, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481610499119450, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481610499119450, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 466
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481610499119450, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481612444328038, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481610962891721, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481611754236467, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481611550698036, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481611278613578, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162481612433949855, guid: 838efe4ea7045e4478ebba08821cf7fa,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 838efe4ea7045e4478ebba08821cf7fa, type: 3}
 --- !u!1 &1558858301
