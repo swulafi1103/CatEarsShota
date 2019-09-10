@@ -26,6 +26,7 @@ public class TutorialContriller : MonoBehaviour
     [SerializeField]
     Camera FranCamera;
 
+    [SerializeField]
     private bool isActHasigo = true;
     public bool IsActHasigo {
         get { return isActHasigo; }

@@ -214,6 +214,7 @@ MonoBehaviour:
   timeTutoCanvas: {fileID: 0}
   PerraultCamera: {fileID: 0}
   FranCamera: {fileID: 0}
+  isActHasigo: 1
 --- !u!114 &9166539173687898006
 MonoBehaviour:
   m_ObjectHideFlags: 0

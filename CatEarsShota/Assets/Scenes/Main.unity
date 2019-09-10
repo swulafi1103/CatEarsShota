@@ -1375,6 +1375,11 @@ PrefabInstance:
       propertyPath: FranCamera
       value: 
       objectReference: {fileID: 2022203478}
+    - target: {fileID: 9166539173687898007, guid: e4b2f36e7d442044992bd8829eb59402,
+        type: 3}
+      propertyPath: isActHasigo
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9166539173687898004, guid: e4b2f36e7d442044992bd8829eb59402,
         type: 3}
       propertyPath: timeTuto
@@ -20147,6 +20152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaitRedOrb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2917759730619213246, guid: c3a915bbeda8040dcbbcbac232f8ebd4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 25456966670341761, guid: c3a915bbeda8040dcbbcbac232f8ebd4,
         type: 3}
