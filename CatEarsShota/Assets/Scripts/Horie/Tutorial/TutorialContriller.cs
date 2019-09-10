@@ -26,6 +26,12 @@ public class TutorialContriller : MonoBehaviour
     [SerializeField]
     Camera FranCamera;
 
+    private bool isActHasigo = true;
+    public bool IsActHasigo {
+        get { return isActHasigo; }
+        set { isActHasigo = value; }
+    }
+
     public static TutorialContriller Instance {
         get { return instance; }
     }
@@ -234,6 +240,7 @@ public class TutorialContriller : MonoBehaviour
 
 
     public void Hasigo(bool act,int num = 0) {
+        if (!isActHasigo) return;
         CheckCamera();
         Debug.Log("HAsigo");
         if (act) {
