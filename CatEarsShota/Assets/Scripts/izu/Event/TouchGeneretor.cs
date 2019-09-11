@@ -92,7 +92,6 @@ public class TouchGeneretor : GimmickEvent
         //  フランの左右キョロキョロ
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = true;
         //  フランのボイス再生
-        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_22_Fran_1);
         yield return new WaitForSeconds(0.5f);
         PlayerManager.Instance.Fran.GetComponent<SpriteRenderer>().flipX = false;
         yield return new WaitForSeconds(0.5f);
@@ -102,6 +101,7 @@ public class TouchGeneretor : GimmickEvent
         yield return new WaitForSeconds(0.25f);
         BubbleEvent.Instance.DisplayBubbles(BubbleEvent.BubbleType.Escape);
         FlagManager.Instance.SetGimmickFlag(GimmickFlag.G_06_EscapeAlarm);
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_22_Fran_1);
         FlagManager.Instance.IsEventing = false;
         CompleteGimmick();
         yield break;

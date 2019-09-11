@@ -1302,7 +1302,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 128
+  m_Spacing: 100
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -1827,7 +1827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fc9274ebf001345ba4e61f712db1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 0}
   gateObserver: {fileID: 0}
   countdownImage:
   - {fileID: 21300000, guid: b288401eab7b44e48b17eb713728436b, type: 3}
