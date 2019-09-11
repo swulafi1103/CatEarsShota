@@ -44,6 +44,7 @@ public class TouchPastDoor_after : GimmickEvent, ICheckable
         yield return new WaitForSeconds(1);
         //  時間軸変更
         FlagManager.Instance.ChegeFranPero();
+        MainCamera.Instance.MovingMapnotEventing(3);
         flag = false;
         //  明転
         Fade.Instance.StartFade(1, Color.clear, callback);
