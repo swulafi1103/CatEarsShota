@@ -8837,9 +8837,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePos: {x: 0, y: 0}
   flipBubble: 0
-  needItemFlag: 16
+  needItemFlag: 0
   needGimmickFlag: 0
-  needGimmickFlag_Map2: 0
+  needGimmickFlag_Map2: 32768
   isFinish: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
