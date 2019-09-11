@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.62, y: 0.72}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.5, y: 0.4}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -2391,7 +2391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 2, y: 1.25}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 1.75, y: 1.25}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -2553,7 +2553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 1.75, y: 0.75}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -8222,7 +8222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.8, y: 0.9}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -8383,7 +8383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.75, y: 0.4}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -8552,7 +8552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0.5, y: 0.5}
+  bubblePos: {x: 0.75, y: 0.75}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -8607,8 +8607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
-  flipBubble: 0
+  bubblePos: {x: -2.15, y: 0}
+  flipBubble: 1
   needItemFlag: 0
   needGimmickFlag: 0
   needGimmickFlag_Map2: 32768
@@ -9015,7 +9015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0.5, y: 0.5}
+  bubblePos: {x: 0.51, y: 0.51}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -9183,7 +9183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.75, y: 0.5}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -9459,8 +9459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
-  flipBubble: 0
+  bubblePos: {x: -2.15, y: 0}
+  flipBubble: 1
   needItemFlag: 0
   needGimmickFlag: 0
   needGimmickFlag_Map2: 0
@@ -15245,8 +15245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
-  flipBubble: 0
+  bubblePos: {x: -1.5, y: 1.4}
+  flipBubble: 1
   needItemFlag: 0
   needGimmickFlag: 0
   needGimmickFlag_Map2: 65536
@@ -15705,7 +15705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.75, y: 0.5}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -16626,8 +16626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
-  flipBubble: 0
+  bubblePos: {x: -0.5, y: 0.5}
+  flipBubble: 1
   needItemFlag: 0
   needGimmickFlag: 0
   needGimmickFlag_Map2: 0
@@ -17978,7 +17978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 1, y: 0.75}
+  bubblePos: {x: 1.75, y: 1.25}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -18059,8 +18059,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
-  flipBubble: 0
+  bubblePos: {x: -1.5, y: 1.4}
+  flipBubble: 1
   needItemFlag: 0
   needGimmickFlag: 0
   needGimmickFlag_Map2: 16777216
@@ -18215,7 +18215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0.5, y: 0.5}
+  bubblePos: {x: 0.51, y: 0.51}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -18271,7 +18271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.5, y: 0.4}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -19117,7 +19117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.65, y: 0.75}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -19485,7 +19485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 1.1, y: 1.1}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -19566,7 +19566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 1.75, y: 0.75}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -24570,7 +24570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 1.75, y: 0.75}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -24736,7 +24736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 1.1, y: 1.1}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -24818,7 +24818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 0.9, y: 0.9}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -25214,7 +25214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0, y: 0}
+  bubblePos: {x: 1.75, y: 0.75}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
@@ -27774,7 +27774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1890217830821f46a910f96b3670d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePos: {x: 0.5, y: 0.5}
+  bubblePos: {x: 0.51, y: 0.51}
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
