@@ -72,7 +72,9 @@ public class SoundManager : MonoBehaviour
         SE_20_FranWalk,
         SE_21_Operetor,
         SE_22_Fran_1,
-        SE_23_Fran_2
+        SE_23_Fran_2,
+        SE_24_Typing_answer,
+        SE_25_Typing_miss,
     };
 
     public enum BGM_Name {

@@ -80,6 +80,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08bafb0efbcbb72498dfcb16f5b669f9, type: 3}
   - {fileID: 8300000, guid: c2307614fc788cb408b59e416601e475, type: 3}
   - {fileID: 8300000, guid: c72e2abb67e9a194cbf2019389abdbe0, type: 3}
+  - {fileID: 8300000, guid: 5ee0962b881458b40895c52455cf9e33, type: 3}
+  - {fileID: 8300000, guid: d4f474d31e1bbc74ca95375f6bc7b546, type: 3}
   fadeTime: 1.5
 --- !u!82 &9092551833449176406
 AudioSource:
