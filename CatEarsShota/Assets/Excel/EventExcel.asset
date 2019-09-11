@@ -542,16 +542,6 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 17
-    value: 0
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
-  - category: 13
-    value: 4
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
   E36_End_past:
   - category: 1
     value: 0
