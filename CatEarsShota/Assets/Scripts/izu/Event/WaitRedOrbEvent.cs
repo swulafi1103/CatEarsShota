@@ -27,6 +27,7 @@ public class WaitRedOrbEvent : MonoBehaviour
         {
             EventManager.Instance.PlayEvent(selectEvent, gameObject);
             FlagManager.Instance.SetGimmickFlag(standFlag);
+            EventManager.Instance._callBack_useHashigo = null;
             gameObject.SetActive(false);
             return;
         }
