@@ -171,6 +171,8 @@ public class EventManager : MonoBehaviour
                 return TimeCapsule(value, delayTime, waitMovie, target);
             case EventCategory.SpawnEnemy:
                 return SpawnEnemy(value, delayTime, waitMovie);
+            case EventCategory.LockPast:
+                return LockPast(value, delayTime, waitMovie);
             default:
                 Debug.LogWarning("EventCategoryError");
                 break;
@@ -989,8 +991,8 @@ public class EventManager : MonoBehaviour
         yield break;
     }
 
-    IEnumerator SpawnEnemy(int value, float delayTime, bool waitMovie) {
-
+    IEnumerator SpawnEnemy(int value, float delayTime, bool waitMovie)
+    {
         if (waitMovie) {
             while (FlagManager.Instance.IsMovie == true)
                 yield return null;
@@ -1000,6 +1002,30 @@ public class EventManager : MonoBehaviour
         //  ここに関数追加予定
         EnemyController.Instance.SetEnemys();
         FlagManager.Instance.IsEventing = false;
+        yield break;
+    }
+
+    IEnumerator LockPast(int value, float delayTime, bool waitMovie)
+    {
+        if (waitMovie)
+        {
+            while (FlagManager.Instance.IsMovie == true)
+                yield return null;
+        }
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("LockPast");
+        if (value == 0)
+        {
+            FlagManager.Instance.IsLockPast = true;
+        }
+        else if (value == 1)
+        {
+            FlagManager.Instance.IsLockPast = false;
+        }
+        else
+        {
+            Debug.Log("この値は実装されていない：" + value);
+        }
         yield break;
     }
 
