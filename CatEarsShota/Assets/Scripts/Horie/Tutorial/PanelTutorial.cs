@@ -15,7 +15,7 @@ public class PanelTutorial : MonoBehaviour
     [SerializeField]
     Image timeTuto;
 
-    float AnimFrame = 10;
+    float AnimFrame = 5;
     bool actAnim = false;
     public bool ActAnim
     {
