@@ -764,6 +764,11 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
+  - category: 22
+    value: 1
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   E48_After_TimeCapsule_Tuto:
   - category: 20
     value: 0
