@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PastMushroom : MonoBehaviour
 {
-    
-
     [SerializeField]
     NowMushroom nowMushroom;
 

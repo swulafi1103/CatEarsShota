@@ -45,7 +45,7 @@ public class TouchGeneretor_after : GimmickEvent
     {
         //  フェード後、回想シーン動画の再生
         Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(15));
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.25f);
         while (FlagManager.Instance.IsMovie == true)
             yield return null;
         Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));

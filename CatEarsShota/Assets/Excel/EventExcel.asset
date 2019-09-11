@@ -78,8 +78,8 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 0
-    value: 1
+  - category: 6
+    value: 0
     delayTime: 1
     waitMovie: 0
     volume: 0
@@ -193,8 +193,8 @@ MonoBehaviour:
     volume: 0
   - category: 2
     value: 1
-    delayTime: 0
-    waitMovie: 0
+    delayTime: 2
+    waitMovie: 1
     volume: 0
   E15_Timecapsule_piece_buried_pa:
   - category: 9
@@ -234,12 +234,12 @@ MonoBehaviour:
     volume: 0
   - category: 15
     value: 4
-    delayTime: 1
+    delayTime: 0
     waitMovie: 0
     volume: 1
   - category: 16
     value: 4
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 8
@@ -286,39 +286,34 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 10
+    value: 4
     delayTime: 1
     waitMovie: 0
-    volume: 0
-  - category: 0
-    value: 3
-    delayTime: 0
-    waitMovie: 1
     volume: 0
   - category: 14
     value: 3
     delayTime: 0
-    waitMovie: 1
+    waitMovie: 0
     volume: 0
   - category: 12
     value: 1
-    delayTime: 0
+    delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 7
     value: 0
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 17
     value: 0
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 2
     value: 0
-    delayTime: 0
-    waitMovie: 0
+    delayTime: 2
+    waitMovie: 1
     volume: 0
   E24_Alone_start_past:
   - category: 1
@@ -327,14 +322,9 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 16
-    delayTime: 1
-    waitMovie: 0
-    volume: 0
-  - category: 0
     value: 6
     delayTime: 1
-    waitMovie: 1
+    waitMovie: 0
     volume: 0
   - category: 6
     value: 0
@@ -349,11 +339,11 @@ MonoBehaviour:
   - category: 2
     value: 0
     delayTime: 0
-    waitMovie: 0
+    waitMovie: 1
     volume: 0
   - category: 13
     value: 5
-    delayTime: 0
+    delayTime: 1
     waitMovie: 1
     volume: 0
   E25_Gate2game_past:
@@ -367,7 +357,12 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  E26_Gate2geme_clear_past: []
+  E26_Gate2geme_clear_past:
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
   E27_Gate2geme_error_past:
   - category: 2
     value: 0
@@ -382,7 +377,7 @@ MonoBehaviour:
     volume: 0
   - category: 6
     value: 2
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 15
@@ -424,7 +419,7 @@ MonoBehaviour:
     volume: 0
   - category: 6
     value: 0
-    delayTime: 1
+    delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 15
@@ -445,7 +440,7 @@ MonoBehaviour:
     volume: 0
   - category: 6
     value: 1
-    delayTime: 1
+    delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 15
@@ -465,7 +460,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 15
-    value: 0
+    value: 23
     delayTime: 0
     waitMovie: 0
     volume: 1
@@ -484,6 +479,11 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
+  - category: 4
+    value: 8
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
   E33_report3_pickup:
   - category: 8
     value: 6
@@ -496,19 +496,14 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 0
-  - category: 17
-    value: 0
-    delayTime: 0
-    waitMovie: 0
-    volume: 0
   - category: 15
     value: 4
-    delayTime: 1
+    delayTime: 0
     waitMovie: 0
     volume: 1
   - category: 16
     value: 5
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 16
@@ -533,12 +528,22 @@ MonoBehaviour:
     volume: 0
   - category: 13
     value: 3
-    delayTime: 2
+    delayTime: 1
     waitMovie: 0
     volume: 0
   E35_Mushroom_plant2_past:
   - category: 19
     value: 1
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 17
+    value: 0
+    delayTime: 0
+    waitMovie: 0
+    volume: 0
+  - category: 13
+    value: 4
     delayTime: 0
     waitMovie: 0
     volume: 0
@@ -555,7 +560,7 @@ MonoBehaviour:
     volume: 0
   - category: 17
     value: 0
-    delayTime: 0
+    delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 5
@@ -583,37 +588,27 @@ MonoBehaviour:
     volume: 0
   - category: 14
     value: 4
-    delayTime: 2
+    delayTime: 1
     waitMovie: 0
     volume: 1
   - category: 0
-    value: 7
+    value: 4
     delayTime: 1
     waitMovie: 0
     volume: 0
-  - category: 0
-    value: 4
-    delayTime: 1
-    waitMovie: 1
-    volume: 0
-  - category: 0
-    value: 11
-    delayTime: 1
-    waitMovie: 1
-    volume: 0
   - category: 12
     value: 2
-    delayTime: 0
+    delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 17
     value: 0
-    delayTime: 0
-    waitMovie: 1
+    delayTime: 2
+    waitMovie: 0
     volume: 0
   - category: 8
     value: 7
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 2
@@ -635,7 +630,7 @@ MonoBehaviour:
   E41_Bad_end:
   - category: 1
     value: 1
-    delayTime: 1
+    delayTime: 0
     waitMovie: 0
     volume: 0
   - category: 17
@@ -645,12 +640,12 @@ MonoBehaviour:
     volume: 0
   - category: 0
     value: 14
-    delayTime: 1
+    delayTime: 2
     waitMovie: 0
     volume: 0
-  - category: 1
+  - category: 2
     value: 0
-    delayTime: 0
+    delayTime: 2
     waitMovie: 1
     volume: 0
   E42_Time_capsule_bookmark:
@@ -660,18 +655,18 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 15
-    value: 1
+    value: 4
     delayTime: 0
     waitMovie: 0
     volume: 1
   - category: 16
     value: 4
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 16
     value: 6
-    delayTime: 0
+    delayTime: 1
     waitMovie: 0
     volume: 0
   - category: 17
@@ -701,13 +696,13 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 8
+    value: 5
     delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 12
     value: 3
-    delayTime: 0
+    delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 7
@@ -717,13 +712,13 @@ MonoBehaviour:
     volume: 0
   - category: 17
     value: 0
-    delayTime: 0
+    delayTime: 2
     waitMovie: 0
     volume: 0
   - category: 2
     value: 0
-    delayTime: 0
-    waitMovie: 0
+    delayTime: 1
+    waitMovie: 1
     volume: 0
   E44_Orb_fillin_clear:
   - category: 1
@@ -731,6 +726,16 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 5
+  - category: 0
+    value: 9
+    delayTime: 1
+    waitMovie: 0
+    volume: 0
+  - category: 2
+    value: 0
+    delayTime: 2
+    waitMovie: 1
+    volume: 0
   E45_Blueorb_pickup:
   - category: 8
     value: 1

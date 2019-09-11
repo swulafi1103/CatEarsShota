@@ -286,6 +286,7 @@ public class MiniGameManager : MonoBehaviour
     void CorrectAnswer()
     {
         numOrder++;
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_24_Typing_answer);
         if (numOrder >= questionCommand.Length)
         {
             MinigameClear();
@@ -301,6 +302,7 @@ public class MiniGameManager : MonoBehaviour
         {
             return;
         }
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_25_Typing_miss);
         StartCoroutine(ShakeObject(0.2f, miniGameViewObj));
         StartCoroutine(DamegeEffect(0.25f));
         timeLimit -= 1;
@@ -362,6 +364,7 @@ public class MiniGameManager : MonoBehaviour
     void MinigameFaild()
     {
         FlagManager.Instance.IsEventing = false;
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_00_Alerm, 0.15f);
         StartCoroutine(DisplayFaildText());
         if (generetor1 != null)
             generetor1.GetComponent<PlayMinigame>().isOpenMinigame = false;

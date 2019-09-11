@@ -228,14 +228,13 @@ public class PerraultMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("ChangeTime");
+            //  バンドを拾うまで過去に飛べないように
+            if (FlagManager.Instance.CheckGimmickFlag(GimmickFlag.G_04_TouchYellowGenerator))
+                return;
             if (FlagManager.Instance.IsLockPast != true)
-            {
                 FlagManager.Instance.ChangeTimeFade();
-            }
             else
-            {
                 TutorialContriller.Instance.SetTextWindow(0);
-            }
         }
     }
 
