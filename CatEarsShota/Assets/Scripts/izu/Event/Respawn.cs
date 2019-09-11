@@ -5,7 +5,7 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     [SerializeField]
-    private Transform respawnPos;
+    private Transform respawnPos = default;
 
     void CallCortineFallDead()
     {

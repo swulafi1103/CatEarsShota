@@ -1026,6 +1026,7 @@ public class EventManager : MonoBehaviour
         {
             Debug.Log("この値は実装されていない：" + value);
         }
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
 
