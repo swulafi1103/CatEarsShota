@@ -58,6 +58,7 @@ public class WaitRedOrbEvent : MonoBehaviour
     IEnumerator ChangePero()
     {
         FlagManager.Instance.IsEventing = true;
+        SoundManager.Instance.StopBGM();
         Fade.Instance.StartFade(1f, Color.black);
         while (!Fade.Instance.Fading == false)
             yield return null;
@@ -67,6 +68,7 @@ public class WaitRedOrbEvent : MonoBehaviour
         FlagManager.Instance.ChageFranPero(true);
         Fade.Instance.ClearFade(0.5f, Color.clear);
         EventManager.Instance._callBack_useHashigo = null;
+        SoundManager.Instance.TimeChangeStartBGM();
         FlagManager.Instance.IsEventing = false;
         yield break;
     }
