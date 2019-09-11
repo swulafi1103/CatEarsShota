@@ -45,16 +45,26 @@ public class TouchGeneretor_after : GimmickEvent
     {
         //  フェード後、回想シーン動画の再生
         Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(15));
-        yield return new WaitForSeconds(0.25f);
+        //Fade.Instance.StartFade(0.25f, Color.black);
+        yield return new WaitForSeconds(1f);
         while (FlagManager.Instance.IsMovie == true)
             yield return null;
-        Fade.Instance.StartFade(0.5f, Color.black, () => MainCamera.Instance.TriggeredVideo(2));
+        yield return new WaitForSeconds(2f);
+        //  フェード中か
+        while (!Fade.Instance.Fading == false)
+            yield return null;
+        Debug.Log("Movie");
+        MainCamera.Instance.TriggeredVideo(2);
+        SoundManager.Instance.PlayBGM(SoundManager.BGM_Name.BGM_02_Yellow);
+        
         map.GetComponent<MapStatus>().ChangeColorObj(0);
+        
         limitObj.SetActive(false);
         moyaObj.SetActive(false);
         CompleteGimmick();
         FlagManager.Instance.SetGimmickFlag(standgimmickFlag);
         map.GetComponent<MapStatus>().UpdateGimmick(1, true);
+        FlagManager.Instance.IsEventing = false;
         yield break;
     }
 

@@ -34,7 +34,6 @@ public class TouchGeneretor : GimmickEvent
         bool flag = FlagManager.Instance.CheckGimmickFlag(needGimmickFlag);
         if (flag && !isComplete)
         {
-            Debug.Log("黄色");
             moyaObj.SetActive(true);
             isDisplayBubble = flag;
         }

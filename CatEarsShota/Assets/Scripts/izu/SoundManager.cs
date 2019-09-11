@@ -75,6 +75,7 @@ public class SoundManager : MonoBehaviour
         SE_23_Fran_2,
         SE_24_Typing_answer,
         SE_25_Typing_miss,
+        SE_26_Typing_clear,
     };
 
     public enum BGM_Name {

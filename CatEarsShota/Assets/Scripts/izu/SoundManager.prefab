@@ -78,10 +78,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d818172517821504ca06bd445082bcd8, type: 3}
   - {fileID: 8300000, guid: 6b5e57c8bbae2b04d8fe5c774bd0e793, type: 3}
   - {fileID: 8300000, guid: 08bafb0efbcbb72498dfcb16f5b669f9, type: 3}
-  - {fileID: 8300000, guid: c2307614fc788cb408b59e416601e475, type: 3}
-  - {fileID: 8300000, guid: c72e2abb67e9a194cbf2019389abdbe0, type: 3}
+  - {fileID: 8300000, guid: 5231b53110062954fa0374122cb61122, type: 3}
+  - {fileID: 8300000, guid: 615dcc2b9262eef46ab9b2505761590a, type: 3}
   - {fileID: 8300000, guid: 5ee0962b881458b40895c52455cf9e33, type: 3}
   - {fileID: 8300000, guid: d4f474d31e1bbc74ca95375f6bc7b546, type: 3}
+  - {fileID: 8300000, guid: 7f37e2dd2cd5f6349bdfbb031f9b815b, type: 3}
   fadeTime: 1.5
 --- !u!82 &9092551833449176406
 AudioSource:

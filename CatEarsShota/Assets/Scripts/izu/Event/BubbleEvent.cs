@@ -121,6 +121,7 @@ public class BubbleEvent : MonoBehaviour
         {
             return;
         }
+        StopAllCoroutines();
         StartCoroutine(BubbleAnimation(bubbles.ToArray(), count, deleyTime));
     }
 

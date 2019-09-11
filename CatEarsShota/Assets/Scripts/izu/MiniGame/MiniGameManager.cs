@@ -314,6 +314,7 @@ public class MiniGameManager : MonoBehaviour
     void MinigameClear()
     {
         StartCoroutine(DisplayClearText());
+        SoundManager.Instance.PlaySE(SoundManager.SE_Name.SE_26_Typing_clear);
         //  マップ１のミニゲーム１のクリアフラグSet
         switch (questionValue)
         {
