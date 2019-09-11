@@ -10,7 +10,7 @@ public class IconTutorial : MonoBehaviour
     [SerializeField]
     Image IconImage;
 
-    int AnimFrame = 30;
+    int AnimFrame = 15;
 
     Rigidbody2D PlayerRid;
 
