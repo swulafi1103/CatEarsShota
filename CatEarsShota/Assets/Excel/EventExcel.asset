@@ -638,7 +638,7 @@ MonoBehaviour:
     delayTime: 2
     waitMovie: 0
     volume: 0
-  - category: 2
+  - category: 1
     value: 0
     delayTime: 2
     waitMovie: 1
@@ -741,7 +741,7 @@ MonoBehaviour:
     delayTime: 1
     waitMovie: 0
     volume: 0
-  - category: 2
+  - category: 1
     value: 0
     delayTime: 2
     waitMovie: 1
