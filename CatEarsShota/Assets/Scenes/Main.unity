@@ -16235,7 +16235,7 @@ MonoBehaviour:
   flipBubble: 0
   needItemFlag: 0
   needGimmickFlag: 0
-  needGimmickFlag_Map2: 0
+  needGimmickFlag_Map2: 4
   isFinish: 0
   standgimmickFlag: 0
   standgimmickFlag_Map2: 0
@@ -26499,7 +26499,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b1a92a7204fe0a646b56dc5599a10a14, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 478b5b78c920f5a459f381ba57a8d68f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -28401,6 +28401,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1083109548140055091, guid: 66712aa501ae57b4fb11b5728fd46f50,
+        type: 3}
+      propertyPath: panelObject
+      value: 
+      objectReference: {fileID: 1972051596}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66712aa501ae57b4fb11b5728fd46f50, type: 3}
 --- !u!1001 &4074538694380041632

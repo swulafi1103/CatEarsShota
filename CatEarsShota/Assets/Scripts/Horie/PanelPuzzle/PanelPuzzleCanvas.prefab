@@ -584,6 +584,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a82b751a0f75e844f8c6a4ba91ebd276, type: 3}
   - {fileID: 21300000, guid: 31ab1a2fa3927a04f9cf0bd34acb35e9, type: 3}
   - {fileID: 21300000, guid: d832d247ceccc9d4e90b538744636233, type: 3}
+  panelObject: {fileID: 0}
+  panelCompImage: {fileID: 21300000, guid: df2790e6aed35fa4493e065ad9c7289c, type: 3}
 --- !u!1 &1083109548495139358
 GameObject:
   m_ObjectHideFlags: 0

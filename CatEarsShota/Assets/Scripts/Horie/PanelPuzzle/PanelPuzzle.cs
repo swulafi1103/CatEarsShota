@@ -7,6 +7,10 @@ public class PanelPuzzle : MonoBehaviour
 {
     [SerializeField]
     Sprite[] PanelImage = new Sprite[6];
+    [SerializeField]
+    private GameObject panelObject;
+    [SerializeField]
+    private Sprite panelCompImage;
 
     int[] startPos = new int[6] { 2, 0, 5, 1, 4, 3 };
     int[] panelNum = new int[6] { 2, 0, 5, 1, 4, 3 };
@@ -256,6 +260,7 @@ public class PanelPuzzle : MonoBehaviour
             ItemManager.Instance.SetItemData(ItemManager.ItemNum.Ilust_Piece);
             if (EventManager.Instance.PieceGameClearedFunc != null)
                 EventManager.Instance.PieceGameClearedFunc.Invoke();
+            panelObject.GetComponent<SpriteRenderer>().sprite = panelCompImage;
             return;
         }
     }
