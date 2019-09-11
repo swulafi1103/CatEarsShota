@@ -659,6 +659,16 @@ MonoBehaviour:
     delayTime: 0
     waitMovie: 0
     volume: 1
+  - category: 0
+    value: 5
+    delayTime: 3
+    waitMovie: 0
+    volume: 0
+  - category: 12
+    value: 3
+    delayTime: 2
+    waitMovie: 0
+    volume: 0
   - category: 16
     value: 4
     delayTime: 1
@@ -682,12 +692,12 @@ MonoBehaviour:
   - category: 2
     value: 0
     delayTime: 2
-    waitMovie: 0
+    waitMovie: 1
     volume: 0
   - category: 13
     value: 5
     delayTime: 1
-    waitMovie: 0
+    waitMovie: 1
     volume: 0
   E43_Green_event:
   - category: 1
