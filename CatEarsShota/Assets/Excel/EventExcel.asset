@@ -286,7 +286,7 @@ MonoBehaviour:
     waitMovie: 0
     volume: 0
   - category: 0
-    value: 4
+    value: 3
     delayTime: 1
     waitMovie: 0
     volume: 0
