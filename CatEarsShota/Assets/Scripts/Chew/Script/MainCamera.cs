@@ -224,28 +224,32 @@ public class MainCamera : MonoBehaviour
         PlayVideo = false;
         yield break;
     }
-
-    public void T_ChangeFocus(GameObject newtarget)　//カメラを映るターゲット
+    //カメラを映るターゲット
+    public void T_ChangeFocus(GameObject newtarget)　
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget));
     }
-    public void T_ChangeFocus(GameObject newtarget, float zoomdelay)　//遅延時間の追加
+    //遅延時間の追加
+    public void T_ChangeFocus(GameObject newtarget, float zoomdelay)　
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay));
     }
-    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed)　//拡大速度の追加
+    //拡大速度の追加
+    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed)　
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay, zoomspeed));
     }
-    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed, float zoomsize)　//拡大倍数の追加
+    //拡大倍数の追加
+    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed, float zoomsize)　
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay, zoomspeed, zoomsize));
     }
-    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed, float zoomsize, float zoompause)　//拡大後止まる時間の追加
+    //拡大後止まる時間の追加
+    public void T_ChangeFocus(GameObject newtarget, float zoomdelay, float zoomspeed, float zoomsize, float zoompause)　
     {
         if (!Zooming)
             StartCoroutine(changefocus(newtarget, zoomdelay, zoomspeed, zoomsize, zoompause));

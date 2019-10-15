@@ -11,11 +11,6 @@ public class Title : MonoBehaviour
     public GameObject SecondScreen; // second image
     public GameObject WhiteScreen;
     public GameObject ButterFly;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -29,16 +24,7 @@ public class Title : MonoBehaviour
             StartCoroutine(LoadScene());
         }
     }
-   /* IEnumerator StartingAnime()
-    {
-        yield return new WaitForSeconds(3.0f);
-        for(int i = 0; i < 50; i++)
-        {
-            SecondScreen.GetComponent<Image>().color = Color.Lerp(Color.clear, Color.white, (float)i / 49);
-            yield return new WaitForSeconds(0.01f);
-        }
-        StartCoroutine(LoadScene());
-    }*/
+
     IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(6.0f);

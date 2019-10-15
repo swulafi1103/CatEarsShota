@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//ゲーム全般フェイドの処理
 public class Fade : MonoBehaviour
 {
     #region Singleton
@@ -35,9 +36,12 @@ public class Fade : MonoBehaviour
         return false;
     }
     #endregion
+
+
     public Camera maincam;
     public Camera subcam;
 
+    //フラグ
     private bool startfadeInOut = false;
     private bool fading = false;
     public bool Fading
@@ -56,12 +60,7 @@ public class Fade : MonoBehaviour
         FadeScreen = transform.GetChild(0).gameObject;
         RedEffect = transform.GetChild(1).gameObject;
     }
-
-    void Start()
-    {
-
-    }
-
+    
     void Update()
     {
         if(startfadeInOut && !fading && localcount>0)
@@ -75,6 +74,7 @@ public class Fade : MonoBehaviour
             FlagManager.Instance.IsEventing = false;
         }
     }
+    //過去と現在のカメラを切り替え
     public void SwitchCanvasCam(bool ispast)
     {
         if (ispast)
@@ -82,6 +82,7 @@ public class Fade : MonoBehaviour
         else
             transform.GetComponent<Canvas>().worldCamera = maincam;
     }
+
     public void StartFade(float time,Color newcolor) //色と実行時間だけ入力
     {
         if (!fading)
@@ -125,6 +126,7 @@ public class Fade : MonoBehaviour
         FlagManager.Instance.IsEventing = true;
         localcount = count * 2;
     }
+
     private void StartFadeRed(float time, Color newcolor)
     {
         if (!fading)
